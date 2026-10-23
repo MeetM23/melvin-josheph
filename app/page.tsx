@@ -39,89 +39,93 @@ export default function Home() {
           alt="Durawin High Quality Roofing Solutions"
           fill
           sizes="100vw"
-          className="-z-20 object-cover object-[80%_25%]"
+          className="-z-20 object-cover object-[72%_50%] sm:object-[80%_25%]"
           priority
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/55 to-transparent" />
+        {/* phones: fade from the top so the roof shows at the bottom; sm+: fade from the left */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/55 sm:to-transparent" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
 
-        <div className="mx-auto flex min-h-[235px] max-w-7xl items-center px-5 pb-10 pt-4 sm:min-h-[460px] sm:px-8 lg:min-h-[520px]">
-          <div className="w-[68%] sm:w-1/2">
-            <h1 className="text-[1.65rem] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]">
+        <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[520px]">
+          <div className="w-full sm:w-1/2">
+            <h1 className="text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]">
               Roofing<br />
               Solutions<br />
               <span className="text-brand">For a Stronger</span><br />
               Tomorrow
             </h1>
-            <p className="mt-3 max-w-[15rem] text-[11px] font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
+            <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
               Premium Trussfold Roofing Sheets Manufactured with the Best Raw Materials for Homes, Businesses and Industries.
             </p>
             <Link
               href="/products"
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2.5 text-[11px] font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5 sm:text-sm"
+              className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5"
             >
-              Explore Our Products <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              Explore Our Products <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* 2. Feature card overlapping the hero */}
-      <section className="relative z-10 -mt-6 px-2 sm:-mt-10 sm:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-4 divide-x divide-slate-200 rounded-2xl bg-white py-3 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:py-7">
+      <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7">
           {features.map(({ title, Icon }) => (
-            <div key={title} className="flex flex-col items-center px-1 text-center sm:px-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
-                <Icon className="h-4 w-4 sm:h-6 sm:w-6" strokeWidth={1.8} />
+            <div key={title} className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
+                <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
               </span>
-              <h3 className="mt-1.5 text-[9px] font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
+              <h3 className="mt-2 text-xs font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 3. Our Applications */}
-      <section className="bg-gradient-to-b from-white to-slate-50 pb-6 pt-7 sm:pb-12 sm:pt-14">
+      {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
+      <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <span className="inline-flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-brand sm:gap-1.5 sm:px-3.5 sm:text-[11px]">
-            <Building2 className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5" /> Where We Roof
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
+            <Building2 className="h-3.5 w-3.5" /> Where We Roof
           </span>
-          <h2 className="mt-1.5 text-lg font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
-          <p className="mt-0.5 text-[11px] text-slate-600 sm:text-sm">Trusted Roofing Solutions for Every Space</p>
+          <h2 className="mt-2 text-2xl font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
+          <p className="mt-0.5 text-sm text-slate-600">Trusted Roofing Solutions for Every Space</p>
 
-          <div className="mt-3 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
+          <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {applications.map(({ title, desc, image, Icon }) => (
               <Link
                 href="/products#applications"
                 key={title}
-                className="group relative block aspect-[3/4] overflow-hidden rounded-xl shadow-lg outline-none transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:aspect-[4/4.4] sm:rounded-2xl"
+                className="group relative block aspect-[4/5] w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl shadow-lg outline-none transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:aspect-[4/4.4] sm:w-auto sm:max-w-none sm:shrink sm:rounded-2xl"
               >
                 <Image
                   src={image}
                   alt={title}
                   fill
-                  sizes="(max-width: 640px) 33vw, 380px"
+                  sizes="(max-width: 640px) 78vw, (max-width: 1023px) 33vw, 380px"
                   className="object-cover transition duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/30 to-transparent" />
 
-                <span className="absolute left-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-brand shadow-md backdrop-blur sm:left-4 sm:top-4 sm:h-10 sm:w-10">
-                  <Icon className="h-3 w-3 sm:h-5 sm:w-5" strokeWidth={2} />
+                <span className="absolute left-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-brand shadow-md backdrop-blur sm:left-4 sm:top-4">
+                  <Icon className="h-5 w-5" strokeWidth={2} />
                 </span>
 
-                <div className="absolute inset-x-0 bottom-0 p-2 sm:p-5">
-                  <h3 className="text-[10px] font-extrabold leading-tight text-white sm:text-xl">{title}</h3>
-                  <p className="mt-1 hidden max-w-[16rem] text-sm leading-snug text-slate-200 sm:block">{desc}</p>
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-[8px] font-semibold text-gold sm:mt-3 sm:gap-2 sm:text-sm">
-                    <span className="hidden sm:inline">Explore</span>
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white transition group-hover:translate-x-1 sm:h-8 sm:w-8">
-                      <ArrowRight className="h-2.5 w-2.5 sm:h-4 sm:w-4" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <h3 className="text-xl font-extrabold leading-tight text-white">{title}</h3>
+                  <p className="mt-1 max-w-[16rem] text-sm leading-snug text-slate-200">{desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-gold">
+                    <span>Explore</span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white transition group-hover:translate-x-1">
+                      <ArrowRight className="h-4 w-4" />
                     </span>
                   </span>
                 </div>
               </Link>
             ))}
           </div>
+          <p className="mt-1 flex items-center gap-1 text-xs font-medium text-slate-500 sm:hidden">
+            Swipe to see more <ArrowRight className="h-3 w-3" />
+          </p>
         </div>
       </section>
 
@@ -130,21 +134,21 @@ export default function Home() {
       <CallStrip />
 
       {/* 4. Raw material partners + coils */}
-      <section className="bg-gradient-to-b from-slate-50 to-white pb-6 pt-5 sm:pb-14 sm:pt-12">
+      <section className="bg-gradient-to-b from-slate-50 to-white pb-8 pt-8 sm:pb-14 sm:pt-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <span className="inline-flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-brand sm:gap-1.5 sm:px-3.5 sm:text-[11px]">
-            <BadgeCheck className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5" /> Trusted Sourcing
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
+            <BadgeCheck className="h-3.5 w-3.5" /> Trusted Sourcing
           </span>
-          <h2 className="mt-1.5 text-lg font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Raw Material Partners</h2>
-          <p className="mt-0.5 text-[11px] text-slate-600 sm:text-sm">
+          <h2 className="mt-2 text-2xl font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Raw Material Partners</h2>
+          <p className="mt-0.5 text-sm text-slate-600">
             Manufactured using premium steel coils from trusted brands
           </p>
 
-          <div className="mt-3 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
+          <div className="mt-4 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
             {partners.map((p) => (
               <div
                 key={p.name}
-                className="group flex flex-col items-center rounded-xl border border-slate-100 bg-white px-2 pb-2 pt-3 shadow-md transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl sm:rounded-2xl sm:px-6 sm:pb-4 sm:pt-7"
+                className="group flex min-w-0 flex-col items-center rounded-xl border border-slate-100 bg-white px-2 pb-3 pt-4 shadow-md transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl sm:rounded-2xl sm:px-6 sm:pb-4 sm:pt-7"
               >
                 <div className="flex h-12 w-full items-center justify-center sm:h-24">
                   <Image
@@ -156,13 +160,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-2 h-px w-8 bg-brand/30 sm:mt-4 sm:w-12" />
-                <p className="mt-1.5 text-[8px] font-semibold uppercase tracking-wide text-slate-500 sm:mt-3 sm:text-xs">{p.name}</p>
+                <p className="mt-1.5 text-center text-[10px] font-semibold uppercase leading-tight tracking-wide text-slate-500 sm:mt-3 sm:text-xs sm:leading-4">{p.name}</p>
               </div>
             ))}
           </div>
 
           {/* Steel coil feature */}
-          <div className="relative mt-4 aspect-[16/9] overflow-hidden rounded-xl shadow-xl sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
+          <div className="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl shadow-xl min-[480px]:aspect-[16/9] sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
             <Image
               src="/images/raw-materials-coils.jpg"
               alt="Galvanized steel coils in Durawin manufacturing plant"
@@ -171,18 +175,18 @@ export default function Home() {
               className="object-cover object-[50%_85%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/25 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-3 sm:p-8">
-              <h3 className="text-sm font-extrabold text-white sm:text-3xl">Premium Steel Coils</h3>
-              <p className="mt-0.5 max-w-xs text-[10px] leading-snug text-slate-200 sm:mt-1.5 sm:max-w-md sm:text-base">
+            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
+              <h3 className="text-lg font-extrabold text-white sm:text-3xl">Premium Steel Coils</h3>
+              <p className="mt-0.5 max-w-xs text-xs leading-snug text-slate-200 sm:mt-1.5 sm:max-w-md sm:text-base">
                 The strong foundation of every Durawin roofing sheet
               </p>
-              <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-3">
+              <div className="mt-2.5 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-3">
                 {["Trusted Brands", "Quality Tested", "Consistent Supply"].map((t) => (
                   <span
                     key={t}
-                    className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2 py-0.5 text-[8px] font-semibold text-white ring-1 ring-white/30 backdrop-blur sm:gap-1.5 sm:px-4 sm:py-1.5 sm:text-sm"
+                    className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-semibold text-white ring-1 ring-white/30 backdrop-blur sm:gap-1.5 sm:px-4 sm:py-1.5 sm:text-sm"
                   >
-                    <CheckCircle2 className="h-2.5 w-2.5 text-gold sm:h-4 sm:w-4" /> {t}
+                    <CheckCircle2 className="h-3 w-3 text-gold sm:h-4 sm:w-4" /> {t}
                   </span>
                 ))}
               </div>
@@ -191,14 +195,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Stats bar */}
-      <section className="relative z-10 bg-navy py-4 text-white sm:py-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-1 px-2 sm:gap-6 sm:px-8">
+      {/* 5. Stats bar — 2x2 on phones, one row from sm */}
+      <section className="relative z-10 bg-navy py-8 text-white sm:py-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-6 px-4 sm:grid-cols-4 sm:gap-6 sm:px-8">
           {stats.map(({ title, subtitle, Icon }) => (
-            <div key={subtitle} className="flex flex-col items-center text-center">
-              <Icon className="h-5 w-5 sm:h-8 sm:w-8" strokeWidth={1.8} />
-              <p className="mt-1 text-[11px] font-extrabold leading-tight sm:mt-2 sm:text-lg">{title}</p>
-              <p className="text-[9px] font-medium leading-tight text-slate-300 sm:text-xs">{subtitle}</p>
+            <div key={subtitle} className="flex min-w-0 flex-col items-center text-center">
+              <Icon className="h-7 w-7 sm:h-8 sm:w-8" strokeWidth={1.8} />
+              <p className="mt-1.5 text-base font-extrabold leading-tight sm:mt-2 sm:text-lg">{title}</p>
+              <p className="text-xs font-medium leading-tight text-slate-300">{subtitle}</p>
             </div>
           ))}
         </div>
