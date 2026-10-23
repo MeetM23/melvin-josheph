@@ -79,7 +79,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section>  
 
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
@@ -92,17 +92,16 @@ export default function Home() {
 
           <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {applications.map(({ title, desc, image, Icon }) => (
-              <Link
-                href="/products#applications"
+              <div
                 key={title}
-                className="group relative block aspect-[4/5] w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl shadow-lg outline-none transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:aspect-[4/4.4] sm:w-auto sm:max-w-none sm:shrink sm:rounded-2xl"
+                className="relative block aspect-[4/5] w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl shadow-lg sm:aspect-[4/4.4] sm:w-auto sm:max-w-none sm:shrink sm:rounded-2xl"
               >
                 <Image
                   src={image}
                   alt={title}
                   fill
                   sizes="(max-width: 640px) 78vw, (max-width: 1023px) 33vw, 380px"
-                  className="object-cover transition duration-700 group-hover:scale-110"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/30 to-transparent" />
 
@@ -113,14 +112,8 @@ export default function Home() {
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
                   <h3 className="text-xl font-extrabold leading-tight text-white">{title}</h3>
                   <p className="mt-1 max-w-[16rem] text-sm leading-snug text-slate-200">{desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-gold">
-                    <span>Explore</span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white transition group-hover:translate-x-1">
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </span>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <p className="mt-1 flex items-center gap-1 text-xs font-medium text-slate-500 sm:hidden">
