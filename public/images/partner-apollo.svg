@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60" fill="none">
+  <g transform="translate(6, 6)">
+    <circle cx="24" cy="24" r="21" stroke="#008080" stroke-width="6" stroke-dasharray="100 35" fill="none"/>
+    <circle cx="24" cy="24" r="13" stroke="#00A3E0" stroke-width="4.5" stroke-dasharray="60 25" fill="none"/>
+  </g>
+  <text x="65" y="30" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="22" fill="#00205B" letter-spacing="1">APLAPOLLO</text>
+  <text x="66" y="47" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#008080" letter-spacing="2.5">STEEL PIPES</text>
+</svg>

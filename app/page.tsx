@@ -1,69 +1,194 @@
 import Image from "next/image";
+import Link from "next/link";
+import { CallStrip, Process, WhyChoose } from "@/components/sections";
+import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
+
+const features = [
+  { title: "Durable & Long Lasting", Icon: ShieldCheck },
+  { title: "Weather Resistant", Icon: CloudSun },
+  { title: "High Strength & Performance", Icon: BarChart3 },
+  { title: "Suitable for All Sectors", Icon: Building2 },
+];
+
+const applications = [
+  { title: "Household Roofing", image: "/images/app-household.jpg" },
+  { title: "Commercial Roofing", image: "/images/app-commercial.jpg" },
+  { title: "Industrial Roofing", image: "/images/app-industrial.jpg" },
+];
+
+const partners = [
+  { name: "JSW Steel", src: "/images/partners/jsw.webp", w: 451, h: 215 },
+  { name: "APL Apollo", src: "/images/partners/apl-apollo.webp", w: 860, h: 344 },
+  { name: "Jindal Steel", src: "/images/partners/jindal.webp", w: 378, h: 177 },
+];
+
+const stats = [
+  { title: "20+", subtitle: "Years of Experience", Icon: Trophy },
+  { title: "Premium", subtitle: "Raw Materials", Icon: Settings },
+  { title: "Trusted by", subtitle: "Retailers & Wholesalers", Icon: Users },
+  { title: "Proudly", subtitle: "Based in Palakkad, Kerala", Icon: MapPin },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      {/* 1. Hero — roof photo fills the section, white fade behind the text */}
+      <section className="relative isolate overflow-hidden bg-white">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/home-hero.jpg"
+          alt="Durawin High Quality Roofing Solutions"
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover object-[80%_25%]"
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/55 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
+
+        <div className="mx-auto flex min-h-[235px] max-w-7xl items-center px-5 pb-10 pt-4 sm:min-h-[460px] sm:px-8 lg:min-h-[520px]">
+          <div className="w-[68%] sm:w-1/2">
+            <h1 className="text-[1.65rem] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]">
+              Roofing<br />
+              Solutions<br />
+              <span className="text-brand">For a Stronger</span><br />
+              Tomorrow
+            </h1>
+            <p className="mt-3 max-w-[15rem] text-[11px] font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
+              Premium Trussfold Roofing Sheets Manufactured with the Best Raw Materials for Homes, Businesses and Industries.
+            </p>
+            <Link
+              href="/products"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2.5 text-[11px] font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5 sm:text-sm"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Explore Our Products <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Feature card overlapping the hero */}
+      <section className="relative z-10 -mt-6 px-2 sm:-mt-10 sm:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-4 divide-x divide-slate-200 rounded-2xl bg-white py-3 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:py-7">
+          {features.map(({ title, Icon }) => (
+            <div key={title} className="flex flex-col items-center px-1 text-center sm:px-4">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
+                <Icon className="h-4 w-4 sm:h-6 sm:w-6" strokeWidth={1.8} />
+              </span>
+              <h3 className="mt-1.5 text-[9px] font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Our Applications */}
+      <section className="bg-gradient-to-b from-white to-slate-50 pb-6 pt-7 sm:pb-12 sm:pt-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <h2 className="text-lg font-extrabold text-navy sm:text-3xl">Our Applications</h2>
+          <p className="mt-0.5 text-[11px] text-slate-600 sm:text-sm">Trusted Roofing Solutions for Every Space</p>
+
+          <div className="mt-3 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
+            {applications.map((app) => (
+              <Link href="/products#applications" key={app.title} className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-md sm:rounded-xl">
+                  <Image
+                    src={app.image}
+                    alt={app.title}
+                    fill
+                    sizes="(max-width: 640px) 33vw, 380px"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="relative -mt-3 flex items-center justify-between rounded-b-lg bg-white px-1.5 pb-2 pt-4 shadow-sm sm:px-4 sm:pb-4 sm:pt-6">
+                  <span className="text-[9px] font-bold leading-tight text-navy sm:text-base">{app.title}</span>
+                  <span className="absolute -top-3.5 right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white shadow-md sm:-top-4 sm:right-3 sm:h-9 sm:w-9">
+                    <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3b. Why choose + process + call strip (added infographics) */}
+      <WhyChoose />
+      <Process />
+      <CallStrip />
+
+      {/* 4. Raw material partners + coils */}
+      <section className="bg-gradient-to-b from-slate-50 to-white pb-6 pt-5 sm:pb-14 sm:pt-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <span className="inline-flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-brand sm:gap-1.5 sm:px-3.5 sm:text-[11px]">
+            <BadgeCheck className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5" /> Trusted Sourcing
+          </span>
+          <h2 className="mt-1.5 text-lg font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Raw Material Partners</h2>
+          <p className="mt-0.5 text-[11px] text-slate-600 sm:text-sm">
+            Manufactured using premium steel coils from trusted brands
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+          <div className="mt-3 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
+            {partners.map((p) => (
+              <div
+                key={p.name}
+                className="group flex flex-col items-center rounded-xl border border-slate-100 bg-white px-2 pb-2 pt-3 shadow-md transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl sm:rounded-2xl sm:px-6 sm:pb-4 sm:pt-7"
+              >
+                <div className="flex h-12 w-full items-center justify-center sm:h-24">
+                  <Image
+                    src={p.src}
+                    alt={p.name}
+                    width={p.w}
+                    height={p.h}
+                    className="max-h-12 w-auto max-w-full object-contain transition duration-300 group-hover:scale-105 sm:max-h-20"
+                  />
+                </div>
+                <div className="mt-2 h-px w-8 bg-brand/30 sm:mt-4 sm:w-12" />
+                <p className="mt-1.5 text-[8px] font-semibold uppercase tracking-wide text-slate-500 sm:mt-3 sm:text-xs">{p.name}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Steel coil feature */}
+          <div className="relative mt-4 aspect-[16/9] overflow-hidden rounded-xl shadow-xl sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/raw-materials-coils.jpg"
+              alt="Galvanized steel coils in Durawin manufacturing plant"
+              fill
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              className="object-cover object-[50%_85%]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/25 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-3 sm:p-8">
+              <h3 className="text-sm font-extrabold text-white sm:text-3xl">Premium Steel Coils</h3>
+              <p className="mt-0.5 max-w-xs text-[10px] leading-snug text-slate-200 sm:mt-1.5 sm:max-w-md sm:text-base">
+                The strong foundation of every Durawin roofing sheet
+              </p>
+              <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-3">
+                {["Trusted Brands", "Quality Tested", "Consistent Supply"].map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2 py-0.5 text-[8px] font-semibold text-white ring-1 ring-white/30 backdrop-blur sm:gap-1.5 sm:px-4 sm:py-1.5 sm:text-sm"
+                  >
+                    <CheckCircle2 className="h-2.5 w-2.5 text-gold sm:h-4 sm:w-4" /> {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* 5. Stats bar */}
+      <section className="relative z-10 bg-navy py-4 text-white sm:py-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-1 px-2 sm:gap-6 sm:px-8">
+          {stats.map(({ title, subtitle, Icon }) => (
+            <div key={subtitle} className="flex flex-col items-center text-center">
+              <Icon className="h-5 w-5 sm:h-8 sm:w-8" strokeWidth={1.8} />
+              <p className="mt-1 text-[11px] font-extrabold leading-tight sm:mt-2 sm:text-lg">{title}</p>
+              <p className="text-[9px] font-medium leading-tight text-slate-300 sm:text-xs">{subtitle}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

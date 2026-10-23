@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="260" height="70" fill="none">
+  <g transform="translate(6, 4)">
+    <path d="M28 2 L56 32 H45 L28 14 L11 32 H0 Z" fill="#0A2540"/>
+    <path d="M28 16 L45 34 H37 L28 25 L19 34 H11 Z" fill="#0066CC"/>
+    <path d="M28 28 L36 36 H32 L28 32 L24 36 H20 Z" fill="#FFB800"/>
+  </g>
+  <text x="74" y="36" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="26" fill="#0A2540" letter-spacing="2">DURAWIN</text>
+  <text x="76" y="49" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="7.5" fill="#5A6E85" letter-spacing="2.6">STRONGER ROOFS</text>
+  <text x="76" y="59" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="7.5" fill="#0066CC" letter-spacing="2.6">BRIGHTER TOMORROW</text>
+</svg>
