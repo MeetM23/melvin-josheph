@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CallStrip, Process, WhyChoose } from "@/components/sections";
-import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
+import { CallStrip, WhyChoose } from "@/components/sections";
+import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, Factory, Home as HomeIcon, Store, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
 
 const features = [
   { title: "Durable & Long Lasting", Icon: ShieldCheck },
@@ -11,9 +11,9 @@ const features = [
 ];
 
 const applications = [
-  { title: "Household Roofing", image: "/images/app-household.jpg" },
-  { title: "Commercial Roofing", image: "/images/app-commercial.jpg" },
-  { title: "Industrial Roofing", image: "/images/app-industrial.jpg" },
+  { title: "Household Roofing", desc: "Stylish, reliable roofing for modern homes.", image: "/images/app-household.jpg", Icon: HomeIcon },
+  { title: "Commercial Roofing", desc: "Ideal for showrooms, warehouses and complexes.", image: "/images/app-commercial.jpg", Icon: Store },
+  { title: "Industrial Roofing", desc: "Built for large industrial buildings and sheds.", image: "/images/app-industrial.jpg", Icon: Factory },
 ];
 
 const partners = [
@@ -83,25 +83,40 @@ export default function Home() {
       {/* 3. Our Applications */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-6 pt-7 sm:pb-12 sm:pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-lg font-extrabold text-navy sm:text-3xl">Our Applications</h2>
+          <span className="inline-flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-brand sm:gap-1.5 sm:px-3.5 sm:text-[11px]">
+            <Building2 className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5" /> Where We Roof
+          </span>
+          <h2 className="mt-1.5 text-lg font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
           <p className="mt-0.5 text-[11px] text-slate-600 sm:text-sm">Trusted Roofing Solutions for Every Space</p>
 
           <div className="mt-3 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
-            {applications.map((app) => (
-              <Link href="/products#applications" key={app.title} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-md sm:rounded-xl">
-                  <Image
-                    src={app.image}
-                    alt={app.title}
-                    fill
-                    sizes="(max-width: 640px) 33vw, 380px"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="relative -mt-3 flex items-center justify-between rounded-b-lg bg-white px-1.5 pb-2 pt-4 shadow-sm sm:px-4 sm:pb-4 sm:pt-6">
-                  <span className="text-[9px] font-bold leading-tight text-navy sm:text-base">{app.title}</span>
-                  <span className="absolute -top-3.5 right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white shadow-md sm:-top-4 sm:right-3 sm:h-9 sm:w-9">
-                    <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+            {applications.map(({ title, desc, image, Icon }) => (
+              <Link
+                href="/products#applications"
+                key={title}
+                className="group relative block aspect-[3/4] overflow-hidden rounded-xl shadow-lg outline-none transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:aspect-[4/4.4] sm:rounded-2xl"
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  sizes="(max-width: 640px) 33vw, 380px"
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/30 to-transparent" />
+
+                <span className="absolute left-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-brand shadow-md backdrop-blur sm:left-4 sm:top-4 sm:h-10 sm:w-10">
+                  <Icon className="h-3 w-3 sm:h-5 sm:w-5" strokeWidth={2} />
+                </span>
+
+                <div className="absolute inset-x-0 bottom-0 p-2 sm:p-5">
+                  <h3 className="text-[10px] font-extrabold leading-tight text-white sm:text-xl">{title}</h3>
+                  <p className="mt-1 hidden max-w-[16rem] text-sm leading-snug text-slate-200 sm:block">{desc}</p>
+                  <span className="mt-1.5 inline-flex items-center gap-1 text-[8px] font-semibold text-gold sm:mt-3 sm:gap-2 sm:text-sm">
+                    <span className="hidden sm:inline">Explore</span>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white transition group-hover:translate-x-1 sm:h-8 sm:w-8">
+                      <ArrowRight className="h-2.5 w-2.5 sm:h-4 sm:w-4" />
+                    </span>
                   </span>
                 </div>
               </Link>
@@ -110,9 +125,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3b. Why choose + process + call strip (added infographics) */}
+      {/* 3b. Why choose + call strip */}
       <WhyChoose />
-      <Process />
       <CallStrip />
 
       {/* 4. Raw material partners + coils */}
