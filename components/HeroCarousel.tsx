@@ -201,10 +201,28 @@ export default function HeroCarousel({
       {/* Overlay: phones fade from the top so the roof shows at the bottom; sm+ fades from the left */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/55 sm:to-transparent" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-pattern opacity-40 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
       <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[520px]">
         <div className="w-full sm:w-1/2">
+          {/* Editorial Badge */}
+          <div
+            className="hero-rise mb-2.5 flex items-center gap-2.5 sm:mb-3.5"
+            style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+          >
+            <span className="editorial-badge">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+              </span>
+              Palakkad Plant • 20+ Years Excellence
+            </span>
+            <span className="hidden text-[10px] font-bold uppercase tracking-widest text-slate-400 sm:inline-block">
+              Trafford Engineering
+            </span>
+          </div>
+
           <div className="grid grid-cols-1 grid-rows-1" aria-live={paused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const isActive = index === activeIndex;
@@ -229,7 +247,7 @@ export default function HeroCarousel({
                   </Heading>
                   <p
                     style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-700 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
                   >
                     {slide.description}
                   </p>
@@ -239,10 +257,10 @@ export default function HeroCarousel({
                   >
                     <Link
                       href={slide.ctaHref}
-                      className="group inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-7 sm:py-3.5"
+                      className="group inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-navy px-6 py-3.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(10,37,64,0.2)] transition-all duration-300 hover:bg-brand hover:shadow-[0_10px_30px_rgba(22,104,232,0.35)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
                     >
                       {slide.ctaText}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -250,35 +268,43 @@ export default function HeroCarousel({
             })}
           </div>
 
-          {/* Slide indicators: exactly one button per slide */}
+          {/* Slide indicators with numerical counter */}
           {count > 1 && (
             <div
               role="group"
               aria-label="Choose slide"
-              className="mt-5 inline-flex items-center rounded-full bg-white/80 px-2 ring-1 ring-black/5 sm:mt-8 sm:bg-transparent sm:px-0 sm:ring-0"
+              className="mt-6 inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md sm:mt-8 sm:border-slate-200/60"
             >
-              {slides.map((slide, index) => {
-                const isActive = index === activeIndex;
-                return (
-                  <button
-                    key={slide.id}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    aria-current={isActive ? "true" : undefined}
-                    onClick={() => {
-                      skipped.current = 0;
-                      setActiveIndex(index);
-                    }}
-                    className="group relative flex h-9 cursor-pointer items-center justify-center px-1 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-brand"
-                  >
-                    <span
-                      className={`block h-2 rounded-full transition-all duration-300 ${
-                        isActive ? "w-8 bg-brand" : "w-2.5 bg-navy/35 group-hover:bg-navy/60"
-                      }`}
-                    />
-                  </button>
-                );
-              })}
+              <div className="flex items-center gap-1 font-mono text-[11px] font-bold text-navy">
+                <span>0{activeIndex + 1}</span>
+                <span className="text-slate-300">/</span>
+                <span className="text-slate-400">0{count}</span>
+              </div>
+              <div className="h-3 w-px bg-slate-200" />
+              <div className="flex items-center gap-1.5">
+                {slides.map((slide, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <button
+                      key={slide.id}
+                      type="button"
+                      aria-label={`Go to slide ${index + 1}`}
+                      aria-current={isActive ? "true" : undefined}
+                      onClick={() => {
+                        skipped.current = 0;
+                        setActiveIndex(index);
+                      }}
+                      className="group relative flex h-6 cursor-pointer items-center justify-center px-0.5 focus-visible:outline-2 focus-visible:outline-brand"
+                    >
+                      <span
+                        className={`block h-1.5 rounded-full transition-all duration-300 ${
+                          isActive ? "w-6 bg-brand" : "w-2 bg-navy/20 group-hover:bg-navy/50"
+                        }`}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>

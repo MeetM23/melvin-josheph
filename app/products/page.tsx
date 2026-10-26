@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets } from "lucide-react";
 import { WhyChoose } from "@/components/sections";
-import RoofVisualizer from "@/components/RoofVisualizer";
 
 export const metadata = { title: "Products" };
 
@@ -173,21 +172,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 4. Realistic Interactive Roof Colour Visualizer */}
-      <section className="bg-slate-50 pb-8 sm:pb-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div data-reveal>
-            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Interactive Colour Visualizer</h2>
-            <p className="mt-0.5 text-sm text-slate-600">Preview Durawin roofing finishes on an actual residence</p>
-          </div>
-          <div data-reveal="scale" style={{ "--reveal-delay": "100ms" } as React.CSSProperties} className="mt-4 sm:mt-7">
-            <RoofVisualizer />
-          </div>
-          <p data-reveal="fade" style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="mt-3 text-center text-xs text-slate-500 sm:text-sm">
-            Custom RAL shades and factory-coat finishes available on request for commercial &amp; large projects.
-          </p>
-        </div>
-      </section>
 
       {/* 5. Applications — swipeable row on phones, 3-column grid from sm */}
       <section id="applications" className="scroll-mt-20 bg-white py-8 sm:py-12">
