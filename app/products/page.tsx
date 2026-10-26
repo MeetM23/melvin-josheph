@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets, Sparkles, Layers } from "lucide-react";
 import { WhyChoose } from "@/components/sections";
+import { CadDimensionMarks, SheetProfileWatermark, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 export const metadata = { title: "Products & Engineering Specifications | Durawin" };
 
@@ -81,6 +82,11 @@ export default function ProductsPage() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/75 sm:to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-40" />
+        <WatermarkText text="TRUSSFOLD" className="absolute -bottom-6 right-6 -z-10 opacity-25 hidden md:block" />
+        <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
+          <CadDimensionMarks label="TRUSSFOLD PROFILE 1000/28" spec="IS 513 / IS 277 CERTIFIED" />
+        </div>
 
         <div className="mx-auto flex min-h-[380px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[440px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[480px]">
           <div className="w-full sm:w-1/2">
