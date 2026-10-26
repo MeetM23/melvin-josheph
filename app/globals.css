@@ -76,25 +76,27 @@ body {
   );
 }
 
-/* Oversized Outline Watermark Typography */
+/* Oversized Architectural Watermark Typography */
 .watermark-outline {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, sans-serif;
   user-select: none;
   pointer-events: none;
 }
 .watermark-outline span {
-  -webkit-text-stroke: 1.2px rgba(10, 37, 64, 0.04);
-  color: transparent !important;
+  color: rgba(10, 37, 64, 0.065) !important;
+  -webkit-text-stroke: 1.5px rgba(10, 37, 64, 0.11);
+  letter-spacing: 0.06em;
 }
 
 .watermark-outline-dark {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, sans-serif;
   user-select: none;
   pointer-events: none;
 }
 .watermark-outline-dark span {
-  -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.035);
-  color: transparent !important;
+  color: rgba(147, 197, 253, 0.08) !important;
+  -webkit-text-stroke: 1.5px rgba(147, 197, 253, 0.16);
+  letter-spacing: 0.06em;
 }
 
 .editorial-badge {

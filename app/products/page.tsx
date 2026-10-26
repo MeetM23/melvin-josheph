@@ -83,7 +83,7 @@ export default function ProductsPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/75 sm:to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-40" />
-        <WatermarkText text="TRUSSFOLD" className="absolute -bottom-6 right-6 -z-10 opacity-25 hidden md:block" />
+        <WatermarkText text="TRUSSFOLD" tone="light" className="absolute bottom-2 right-4 sm:bottom-4 sm:right-8 -z-10" />
         <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
           <CadDimensionMarks label="TRUSSFOLD PROFILE 1000/28" spec="IS 513 / IS 277 CERTIFIED" />
         </div>
@@ -165,6 +165,7 @@ export default function ProductsPage() {
       <section id="catalogue" className="relative overflow-hidden bg-slate-50/70 pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain scroll-mt-16">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-35" />
         <SheetProfileWatermark className="absolute -top-6 right-0 -z-10 w-[700px] max-w-full opacity-40 hidden md:block" />
+        <WatermarkText text="SPECIFICATIONS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
@@ -280,7 +281,7 @@ export default function ProductsPage() {
       {/* 4. Applications */}
       <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-30" />
-        <WatermarkText text="SECTORS" className="absolute -bottom-6 -right-6 -z-10 opacity-20 hidden lg:block" />
+        <WatermarkText text="SECTORS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
@@ -337,6 +338,7 @@ export default function ProductsPage() {
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-dark opacity-35" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid-dark opacity-20" />
+        <WatermarkText text="BESPOKE" tone="dark" className="absolute -bottom-3 right-4 sm:bottom-0 sm:right-8 -z-10" />
         
         <div data-reveal className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">

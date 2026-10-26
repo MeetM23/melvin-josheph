@@ -237,10 +237,10 @@ export function WatermarkText({
     >
       <span
         style={{
-          WebkitTextStroke: isLight ? "1px rgba(10, 37, 64, 0.04)" : "1px rgba(255, 255, 255, 0.035)",
-          color: "transparent",
+          color: isLight ? "rgba(10, 37, 64, 0.065)" : "rgba(147, 197, 253, 0.08)",
+          WebkitTextStroke: isLight ? "1.5px rgba(10, 37, 64, 0.11)" : "1.5px rgba(147, 197, 253, 0.16)",
         }}
-        className="text-[clamp(4.5rem,14vw,11rem)] leading-none font-black tracking-tight block uppercase"
+        className="text-[clamp(2.75rem,8vw,8.5rem)] leading-none font-black tracking-[0.06em] block uppercase whitespace-nowrap"
       >
         {text}
       </span>

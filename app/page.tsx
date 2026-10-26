@@ -34,7 +34,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-slate-50/70 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
         {/* Subtle engineering blueprint grid & watermark */}
         <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
-        <WatermarkText text="TRUSSFOLD" className="absolute -right-6 -top-6 select-none pointer-events-none hidden md:block" />
+        <WatermarkText text="TRUSSFOLD" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
@@ -111,7 +111,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
         {/* Subtle roofing profile linework & watermark */}
         <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-35" />
-        <WatermarkText text="PRIMARY STEEL" className="absolute -left-6 -top-6 select-none pointer-events-none hidden md:block" />
+        <WatermarkText text="PRIMARY STEEL" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
@@ -186,7 +186,7 @@ export default function Home() {
               
               {/* Architectural frosted glass specification console — guarantees 100% text readability while keeping photo clear */}
               <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-6 lg:p-8 flex justify-start">
-                <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/85 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
+                <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/75 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
                   <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
                     <span>METALLURGICAL SPECIFICATION</span>
                     <span>✦</span>

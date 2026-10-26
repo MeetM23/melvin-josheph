@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BadgeCheck, Factory, Layers, Palette, Phone, Ruler, Truck, PackageSearch, ArrowRight, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
-import { CadDimensionMarks, RoofTrussWatermark, SheetProfileWatermark } from "@/components/IndustrialBackgrounds";
+import { CadDimensionMarks, RoofTrussWatermark, SheetProfileWatermark, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 const reasons = [
   { num: "01", title: "Premium Raw Materials", text: "Steel coils sourced directly from top-tier primary manufacturers.", Icon: Layers, tag: "Grade A Steel" },
@@ -25,6 +25,7 @@ export function WhyChoose() {
       {/* Subtle blueprint grid and architectural roof truss linework */}
       <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35" />
       <RoofTrussWatermark className="absolute -bottom-6 -right-6 w-3/4 max-w-2xl h-56 opacity-50 hidden md:block" />
+      <WatermarkText text="DURAWIN" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
@@ -158,6 +159,7 @@ export function CallStrip() {
         {/* Subtle grid pattern and dark roofing profile lines */}
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
         <div className="pointer-events-none absolute inset-0 opacity-20 bg-roof-profile-dark" />
+        <WatermarkText text="PALAKKAD" tone="dark" className="absolute -bottom-3 right-4 sm:bottom-0 sm:right-8 -z-10" />
         <CadDimensionMarks label="DIRECT PLANT SUPPLY" spec="ZERO INTERMEDIARIES" tone="dark" className="absolute bottom-3 right-6 hidden md:flex" />
         
         <div className="relative z-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
