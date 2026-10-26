@@ -85,6 +85,7 @@ export default function Navbar() {
       {open && (
         <nav
           id="mobile-menu"
+          data-lenis-prevent
           aria-label="Mobile"
           className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-slate-100 bg-white px-4 pb-5 pt-2 shadow-xl md:hidden"
         >

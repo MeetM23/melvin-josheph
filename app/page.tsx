@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 import { CallStrip, WhyChoose } from "@/components/sections";
 import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, Factory, Home as HomeIcon, Store, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
 
@@ -32,40 +32,8 @@ const stats = [
 export default function Home() {
   return (
     <>
-      {/* 1. Hero — roof photo fills the section, white fade behind the text */}
-      <section className="relative isolate overflow-hidden bg-white">
-        <Image
-          src="/images/home-hero.jpg"
-          alt="Durawin High Quality Roofing Solutions"
-          fill
-          sizes="100vw"
-          className="-z-20 object-cover object-[72%_50%] sm:object-[80%_25%]"
-          priority
-        />
-        {/* phones: fade from the top so the roof shows at the bottom; sm+: fade from the left */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/55 sm:to-transparent" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
-
-        <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[520px]">
-          <div className="w-full sm:w-1/2">
-            <h1 className="text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]">
-              Roofing<br />
-              Solutions<br />
-              <span className="text-brand">For a Stronger</span><br />
-              Tomorrow
-            </h1>
-            <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
-              Premium Trussfold Roofing Sheets Manufactured with the Best Raw Materials for Homes, Businesses and Industries.
-            </p>
-            <Link
-              href="/products"
-              className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5"
-            >
-              Explore Our Products <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 1. Hero Carousel — auto-advancing slides with crossfade */}
+      <HeroCarousel />
 
       {/* 2. Feature card overlapping the hero */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
