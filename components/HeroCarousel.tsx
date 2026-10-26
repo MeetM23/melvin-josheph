@@ -204,7 +204,7 @@ export default function HeroCarousel({
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-pattern opacity-40 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
-      <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[520px]">
+      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-10 lg:min-h-[580px] lg:pb-32 lg:pt-12">
         <div className="w-full sm:w-1/2">
           {/* Editorial Badge */}
           <div
@@ -247,13 +247,13 @@ export default function HeroCarousel({
                   </Heading>
                   <p
                     style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-700 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-700 sm:mt-4 sm:max-w-sm sm:text-base sm:leading-relaxed"
                   >
                     {slide.description}
                   </p>
                   <div
                     style={{ "--hero-delay": "0.4s" } as React.CSSProperties}
-                    className="hero-rise mt-5 sm:mt-7"
+                    className="hero-rise mt-5 sm:mt-6"
                   >
                     <Link
                       href={slide.ctaHref}
@@ -273,7 +273,7 @@ export default function HeroCarousel({
             <div
               role="group"
               aria-label="Choose slide"
-              className="mt-6 inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md sm:mt-8 sm:border-slate-200/60"
+              className="mt-4 inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md sm:mt-5 sm:border-slate-200/60"
             >
               <div className="flex items-center gap-1 font-mono text-[11px] font-bold text-navy">
                 <span>0{activeIndex + 1}</span>

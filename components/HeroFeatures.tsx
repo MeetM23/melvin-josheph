@@ -64,7 +64,7 @@ export default function HeroFeatures() {
   }, [activeIdx]);
 
   return (
-    <section className="relative z-20 -mt-12 px-4 sm:-mt-10 sm:px-8">
+    <section className="relative z-20 -mt-16 px-4 sm:-mt-20 lg:-mt-24 sm:px-8">
       <div
         ref={containerRef}
         className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7"

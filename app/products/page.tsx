@@ -1,52 +1,75 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets } from "lucide-react";
+import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets, Sparkles, Layers } from "lucide-react";
 import { WhyChoose } from "@/components/sections";
 
-export const metadata = { title: "Products" };
+export const metadata = { title: "Products & Engineering Specifications | Durawin" };
 
 const productFeatures = [
-  { title: "Superior Strength", Icon: ShieldCheck },
-  { title: "Corrosion Resistant", Icon: Droplets },
-  { title: "Custom Length & Thickness", Icon: Ruler },
-  { title: "Wide Colour Options", Icon: Palette },
+  { num: "01", title: "Superior Yield Strength", desc: "Engineered to withstand heavy monsoon loads and wind shear", Icon: ShieldCheck },
+  { num: "02", title: "Advanced Anti-Corrosion", desc: "Galvanized zinc and multi-layer primer protection", Icon: Droplets },
+  { num: "03", title: "Precision CNC Sizing", desc: "Custom lengths cut to order with zero joint leakage", Icon: Ruler },
+  { num: "04", title: "Architectural Finishes", desc: "Fade-resistant polyester coatings in curated tones", Icon: Palette },
 ];
 
 const productRange = [
   {
     id: "trussfold",
+    num: "01",
+    code: "DW-TRUSS-PRO",
     title: "Trussfold Roofing Sheets",
-    desc: "Strong, stylish and long-lasting roofing sheets suitable for various applications.",
+    desc: "Engineered trapezoidal profile offering high structural rigidity, deep water drainage channels, and sleek modern aesthetics.",
     image: "/images/product-trussfold-blue.jpg",
-    tags: ["Strong profile", "Custom lengths"],
+    specs: [
+      { label: "Profile", value: "High-Depth Trussfold" },
+      { label: "Thickness", value: "0.30 mm to 0.50 mm" },
+      { label: "Yield Strength", value: "Up to 550 MPa" },
+      { label: "Length", value: "Cut to exact requirement" },
+    ],
+    tags: ["High load capacity", "Deep drainage trough", "Custom length"],
   },
   {
     id: "colour-coated",
+    num: "02",
+    code: "DW-COLOR-PLUS",
     title: "Colour Coated Sheets",
-    desc: "Available in multiple colours to match your design and aesthetic needs.",
+    desc: "Pre-painted steel sheets finished with UV-stabilized architectural pigments that preserve vibrance against harsh tropical sun and monsoon downpours.",
     image: "/images/product-colour-coated-red.jpg",
-    tags: ["Multiple colours", "Weather resistant"],
+    specs: [
+      { label: "Coating", value: "Siliconized Polyester / PVDF" },
+      { label: "Finish", value: "Smooth Semi-Gloss" },
+      { label: "UV Stability", value: "High Tropical Grade" },
+      { label: "Colours", value: "Blue, Terracotta, Grey, Green" },
+    ],
+    tags: ["Fade-resistant pigments", "Heat-reflective barrier", "Aesthetic finish"],
   },
   {
     id: "galvanized",
-    title: "Galvanized Roofing Sheets",
-    desc: "High corrosion resistance and excellent durability for long-term performance.",
+    num: "03",
+    code: "DW-GALV-SHIELD",
+    title: "Galvanized Corrugated Sheets",
+    desc: "Hot-dip zinc-coated steel roofing engineered for maximum sacrificial corrosion resistance in agricultural sheds and industrial warehouses.",
     image: "/images/product-galvanized-silver.jpg",
-    tags: ["Corrosion resistant", "Long life"],
+    specs: [
+      { label: "Zinc Mass", value: "Up to 120 g/m² (IS 277)" },
+      { label: "Base Metal", value: "Cold Rolled Primary Steel" },
+      { label: "Corrosion Class", value: "Heavy Industrial Standard" },
+      { label: "Recyclability", value: "100% Sustainable Steel" },
+    ],
+    tags: ["Sacrificial zinc layer", "Impact & rust resistant", "Low maintenance"],
   },
 ];
 
-
 const productApplications = [
-  { title: "Household", desc: "Stylish and reliable roofing for modern homes.", image: "/images/app-household.jpg" },
-  { title: "Commercial", desc: "Ideal for warehouses, showrooms and commercial complexes.", image: "/images/app-commercial.jpg" },
-  { title: "Industrial", desc: "Built for large scale industrial buildings and infrastructure.", image: "/images/app-industrial.jpg" },
+  { num: "01", title: "Residential Architecture", desc: "Villas, contemporary homes, and car porches requiring clean modern roof lines.", image: "/images/app-household.jpg" },
+  { num: "02", title: "Commercial Developments", desc: "Automobile showrooms, retail arcades, and office hubs needing structural finesse.", image: "/images/app-commercial.jpg" },
+  { num: "03", title: "Industrial Infrastructure", desc: "Heavy manufacturing plants, logistics warehouses, and distribution sheds.", image: "/images/app-industrial.jpg" },
 ];
 
 export default function ProductsPage() {
   return (
     <>
-      {/* 1. Hero — product photo behind the text, white fade */}
+      {/* 1. Hero — product photo behind the text, architectural drafting overlay */}
       <section className="relative isolate overflow-hidden bg-white">
         <Image
           src="/images/products-hero.jpg"
@@ -56,115 +79,185 @@ export default function ProductsPage() {
           className="-z-20 object-cover object-[78%_50%] sm:object-[80%_50%]"
           priority
         />
-        {/* phones: fade from the top so the sheets show at the bottom; sm+: fade from the left */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/75 sm:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
 
-        <div className="mx-auto flex min-h-[360px] max-w-7xl items-start px-5 pb-24 pt-8 sm:min-h-[420px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[460px]">
+        <div className="mx-auto flex min-h-[380px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[440px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[480px]">
           <div className="w-full sm:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy shadow-sm backdrop-blur"
             >
-              Products
+              <Layers className="h-3.5 w-3.5 text-brand" /> PRODUCT CATALOGUE &bull; 2026 SPEC
             </span>
             <h1
               style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
-              className="hero-rise mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]"
+              className="hero-rise mt-3 text-[clamp(1.9rem,8vw,2.8rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.5rem]"
             >
-              Our<br />
-              <span className="text-brand">Products</span>
+              Engineered<br />
+              <span className="text-brand">Trussfold Systems</span>
             </h1>
             <p
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-              className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+              className="hero-rise mt-3 max-w-sm text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
             >
-              High Quality Trussfold Roofing Sheets for Every Need
+              Precision-profiled roofing sheets manufactured with primary high-tensile steel coils, tailored cut lengths, and certified corrosion resistance.
             </p>
             <div
               style={{ "--hero-delay": "0.36s" } as React.CSSProperties}
-              className="hero-rise mt-5 sm:mt-7"
+              className="hero-rise mt-5 sm:mt-7 flex flex-wrap items-center gap-3"
             >
               <Link
                 href="/contact"
-                className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:px-7 sm:py-3.5"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-brand"
               >
-                Get a Quote <ArrowRight className="h-4 w-4" />
+                Request Custom Quote <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href="#catalogue"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold text-navy backdrop-blur hover:border-brand hover:text-brand"
+              >
+                Browse Specs
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Benefits card overlapping the hero — 2x2 on phones, 4 across from sm */}
+      {/* 2. Technical Quality Metrics Bar — 4-column precision console */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7">
-          {productFeatures.map(({ title, Icon }, i) => (
+        <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl min-[480px]:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200">
+          {productFeatures.map(({ num, title, desc, Icon }, i) => (
             <div
               key={title}
               data-reveal
               style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
-              className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4"
+              className="group relative flex flex-col justify-between border-b border-slate-100 p-5 transition-colors hover:bg-slate-50/70 sm:p-6 lg:border-b-0"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14">
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
-              </span>
-              <h3 className="mt-2 text-xs font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
+                    <Icon className="h-5 w-5" strokeWidth={1.8} />
+                  </span>
+                  <span className="font-mono text-xs font-bold text-slate-300">
+                    {num}
+                  </span>
+                </div>
+                <h3 className="mt-3.5 text-sm font-bold text-navy sm:text-base">
+                  {title}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                  {desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 3. Product range — horizontal cards on phones, 3 columns from sm */}
-      <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
+      {/* 3. Product Catalogue — Curated architectural specification cards */}
+      <section id="catalogue" className="relative overflow-hidden bg-slate-50/70 pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain scroll-mt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div data-reveal>
-            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Product Range</h2>
-            <p className="mt-0.5 text-sm text-slate-600">Designed for Homes, Businesses and Large Scale Industries</p>
-            <nav aria-label="Jump to a product" className="mt-4 flex flex-wrap gap-2">
-              {productRange.map((p) => (
-                <a
-                  key={p.id}
-                  href={`#${p.id}`}
-                  className="inline-flex min-h-10 items-center rounded-full border border-slate-200 bg-white px-4 text-xs font-semibold text-navy transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:border-brand active:text-brand sm:text-sm"
-                >
-                  {p.title}
-                </a>
-              ))}
-            </nav>
+          <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <Sparkles className="h-3.5 w-3.5 text-brand" /> Manufacturing Lineup
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                Product Specifications
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+                Engineered for Residential Villas, Commercial Complexes, and Industrial Facilities
+              </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ 03 PRODUCT SPECIFICATIONS ]
+            </div>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-3 sm:mt-7 sm:grid-cols-3 sm:gap-6">
+          <div className="mt-8 space-y-8 sm:mt-12 sm:space-y-10">
             {productRange.map((p, i) => (
-              <div key={p.title} id={p.id} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="group flex scroll-mt-24 flex-row overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-transparent transition-shadow duration-300 hover:shadow-lg hover:ring-brand/15 sm:flex-col">
-                <div className="relative min-h-[190px] w-[40%] shrink-0 self-stretch overflow-hidden bg-slate-50 sm:aspect-[4/3.2] sm:min-h-0 sm:w-full sm:self-auto">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    sizes="(max-width: 640px) 40vw, 380px"
-                    className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:p-3"
-                  />
-                </div>
-                <div className="flex min-w-0 flex-1 flex-col sm:contents">
-                  <div className="flex-1 px-3 pt-3 sm:px-5 sm:pt-4">
-                    <h3 className="text-base font-bold leading-tight text-navy sm:text-lg">{p.title}</h3>
-                    <p className="mt-1 text-xs leading-snug text-slate-500 sm:mt-2 sm:text-sm sm:leading-relaxed">{p.desc}</p>
-                    <ul className="mt-2 space-y-1 sm:mt-3 sm:space-y-1.5">
-                      {p.tags.map((t) => (
-                        <li key={t} className="flex items-center gap-1.5 text-xs font-medium text-navy sm:gap-2 sm:text-sm">
-                          <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-brand sm:h-4 sm:w-4" />
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
+              <div
+                key={p.id}
+                id={p.id}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
+                className="group scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-lg sm:p-6"
+              >
+                <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+                  {/* Framed Image Container */}
+                  <div className="lg:col-span-5">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
+                      <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5 sm:left-3.5 sm:top-3.5">
+                        <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
+                          {p.code}
+                        </span>
+                        <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-semibold text-slate-600 shadow-2xs backdrop-blur-xs">
+                          SERIES 0{i + 1}
+                        </span>
+                      </div>
+                      <div className="relative flex h-full w-full items-center justify-center">
+                        <Image
+                          src={p.image}
+                          alt={p.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 440px"
+                          className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <Link
-                    href={`/contact?product=${p.id}#enquiry`}
-                    className="group/cta mt-3 flex items-center justify-center gap-1.5 bg-[#d9eafb] py-3 text-sm font-semibold text-navy transition hover:bg-brand hover:text-white active:bg-brand active:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand sm:mt-5"
-                  >
-                    Enquire Now
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-1" />
-                  </Link>
+
+                  {/* Specification details */}
+                  <div className="flex flex-col justify-between lg:col-span-7">
+                    <div>
+                      <div className="flex items-center gap-2 font-mono text-xs text-brand">
+                        <span>SPECIFICATION MATRIX</span>
+                        <span>✦</span>
+                        <span>PRIMARY GRADE STEEL</span>
+                      </div>
+                      <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        {p.desc}
+                      </p>
+
+                      {/* Technical Spec Grid */}
+                      <div className="mt-5 grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-4 font-mono text-xs">
+                        {p.specs.map((s) => (
+                          <div key={s.label} className="border-b border-slate-100 pb-2">
+                            <span className="text-[10px] uppercase text-slate-400">{s.label}</span>
+                            <p className="font-bold text-navy">{s.value}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Feature tags */}
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy"
+                          >
+                            <CheckCircle2 className="h-3.5 w-3.5 text-brand" /> {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+                      <span className="font-mono text-xs text-slate-500">
+                        Custom lengths cut to structural millimeter precision
+                      </span>
+                      <Link
+                        href={`/contact?product=${p.id}#enquiry`}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
+                      >
+                        Enquire Specifications <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -172,54 +265,103 @@ export default function ProductsPage() {
         </div>
       </section>
 
-
-      {/* 5. Applications — swipeable row on phones, 3-column grid from sm */}
-      <section id="applications" className="scroll-mt-20 bg-white py-8 sm:py-12">
+      {/* 4. Applications */}
+      <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div data-reveal>
-            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Applications</h2>
-            <p className="mt-0.5 text-sm text-slate-600">Engineered to Perform Across Multiple Sectors</p>
+          <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <ShieldCheck className="h-3.5 w-3.5 text-brand" /> Performance In Field
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                Versatile Sector Deployment
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+                Engineered to perform reliably across residential, commercial, and heavy-duty industrial settings
+              </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ TESTED KERALA CLIMATE COMPATIBLE ]
+            </div>
           </div>
-          <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
+
+          <div className="-mx-4 mt-6 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {productApplications.map((app, i) => (
-              <div key={app.title} data-reveal="scale" style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties} className="w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-md sm:w-auto sm:max-w-none sm:shrink">
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image src={app.image} alt={app.title} fill sizes="(max-width: 640px) 78vw, (max-width: 1023px) 33vw, 380px" className="object-cover" />
+              <div
+                key={app.title}
+                data-reveal="scale"
+                style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
+                className="group relative w-[82%] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none sm:shrink"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={app.image}
+                    alt={app.title}
+                    fill
+                    sizes="(max-width: 640px) 82vw, (max-width: 1023px) 33vw, 380px"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
+                    SECTOR {app.num}
+                  </span>
                 </div>
-                <div className="px-4 py-3 sm:px-5 sm:py-4">
-                  <h3 className="text-base font-bold text-navy sm:text-lg">{app.title}</h3>
-                  <p className="mt-0.5 text-xs leading-snug text-slate-500 sm:mt-1 sm:text-sm">{app.desc}</p>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-lg font-bold text-navy sm:text-xl">{app.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">{app.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-1 flex items-center gap-1 text-xs font-medium text-slate-500 sm:hidden">
-            Swipe to see more <ArrowRight className="h-3 w-3" />
-          </p>
         </div>
       </section>
 
+      {/* 5. Shared Why Choose matrix */}
       <WhyChoose />
 
-      {/* 6. Custom solutions banner */}
-      <section id="custom" className="relative scroll-mt-20 overflow-hidden bg-navy text-white">
-        <div className="absolute inset-0 sm:left-auto sm:w-1/2">
-          <Image src="/images/banner-custom-solutions.jpg" alt="Custom roofing sheet solutions" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
-          <div className="absolute inset-0 bg-navy/80 sm:inset-y-0 sm:right-auto sm:w-1/2 sm:bg-transparent sm:bg-gradient-to-r sm:from-navy sm:to-transparent" />
-        </div>
-        <div data-reveal className="relative mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
-          <h3 className="text-xl font-extrabold sm:max-w-none sm:text-2xl">Custom Solutions for Your Roofing Needs</h3>
-          <p className="mt-1.5 max-w-md text-sm text-slate-200 sm:mt-1 sm:text-slate-300">
-            We manufacture trussfold sheets as per your required specifications.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-brand px-6 py-2.5 sm:min-h-0 text-sm font-semibold text-white shadow-md transition hover:bg-white hover:text-navy sm:mt-5"
-          >
-            Get a Quote <ArrowRight className="h-4 w-4" />
-          </Link>
+      {/* 6. Custom Solutions Banner — Architectural dark console */}
+      <section id="custom" className="relative scroll-mt-20 overflow-hidden bg-navy-dark px-4 py-12 text-white sm:px-8 sm:py-16">
+        <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
+        
+        <div data-reveal className="relative mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 font-mono text-[11px] font-semibold text-gold">
+                ✦ BESPOKE STRUCTURAL FABRICATION
+              </span>
+              <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
+                Custom Profiling & Precise Length Sizing
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                Have specific span lengths, gauge thickness requirements, or custom architectural color needs? Our Palakkad manufacturing line profiles sheets to exact millimeters to eliminate site jointing and leakage.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-white hover:text-navy"
+                >
+                  Consult Factory Engineers <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:col-span-5">
+              <Image
+                src="/images/banner-custom-solutions.jpg"
+                alt="Custom roofing sheet solutions"
+                fill
+                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 font-mono text-xs backdrop-blur">
+                <span>CNC Profiler Line</span>
+                <span className="text-emerald-400 font-bold">● ONLINE</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
   );
 }
+

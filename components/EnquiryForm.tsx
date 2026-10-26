@@ -110,8 +110,10 @@ export default function EnquiryForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="mt-5 space-y-6 sm:mt-7">
-      <fieldset className="space-y-4">
-        <legend className="text-xs font-bold uppercase tracking-wider text-brand">Your details</legend>
+      <fieldset className="space-y-4 rounded-xl border border-slate-100 bg-slate-50/50 p-4 sm:p-5">
+        <legend className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+          <span>01 // CONTACT DETAILS</span>
+        </legend>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="enq-name" className={labelCls}>Name<Required /></label>
@@ -133,11 +135,13 @@ export default function EnquiryForm() {
         </div>
       </fieldset>
 
-      <fieldset className="space-y-4">
-        <legend className="text-xs font-bold uppercase tracking-wider text-brand">Your requirement</legend>
+      <fieldset className="space-y-4 rounded-xl border border-slate-100 bg-slate-50/50 p-4 sm:p-5">
+        <legend className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+          <span>02 // SPECIFICATION REQUIREMENT</span>
+        </legend>
         <div>
           <label htmlFor="enq-product" className={labelCls}>
-            Product <span className="font-normal text-slate-500">(optional)</span>
+            Target Product <span className="font-normal text-slate-500">(optional)</span>
           </label>
           <select ref={productRef} id="enq-product" name="product" defaultValue="" className={`${control} border-slate-200`}>
             {PRODUCTS.map((p) => (
@@ -146,12 +150,12 @@ export default function EnquiryForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="enq-message" className={labelCls}>What do you need?<Required /></label>
+          <label htmlFor="enq-message" className={labelCls}>Project Details & Quantities<Required /></label>
           <textarea
             id="enq-message"
             name="message"
             rows={4}
-            placeholder="Quantity, sheet length, colour, delivery location…"
+            placeholder="Roof span measurements, sheet lengths, preferred colour, project site location…"
             className={cls("message", "resize-none")}
             {...a11y("message")}
           />
@@ -162,11 +166,11 @@ export default function EnquiryForm() {
       <div>
         <button
           type="submit"
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-navy py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:bg-brand"
+          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.99]"
         >
-          <Send className="h-4 w-4" /> Send Enquiry on WhatsApp
+          <Send className="h-4 w-4" /> Transmit Enquiry to WhatsApp Desk
         </button>
-        <p className="mt-2 text-center text-xs text-slate-500">Opens WhatsApp with your message ready to send to {site.contact}.</p>
+        <p className="mt-2 text-center text-xs text-slate-500">Opens WhatsApp directly with formatted specifications ready to send to {site.contact}.</p>
       </div>
 
       <div role="status" aria-live="polite">

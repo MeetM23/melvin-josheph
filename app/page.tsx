@@ -76,7 +76,7 @@ export default function Home() {
                       <Icon className="h-5 w-5" strokeWidth={1.8} />
                     </span>
                     <span className="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-white backdrop-blur">
-                      {indexCode} // {sectorCode}
+                      {`${indexCode} // ${sectorCode}`}
                     </span>
                   </div>
 
@@ -88,10 +88,6 @@ export default function Home() {
                     <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-sm">
                       {desc}
                     </p>
-                    <div className="mt-3 flex items-center gap-1.5 font-mono text-[11px] font-semibold text-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <span>EXPLORE PROFILE</span>
-                      <ArrowRight className="h-3 w-3 text-gold" />
-                    </div>
                   </div>
                 </div>
               );

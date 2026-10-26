@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, FileText, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/Logo";
-import { policies, site, socials as socialLinks } from "@/lib/site";
+import { policies, site } from "@/lib/site";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -10,132 +10,160 @@ const quickLinks = [
   { href: "/contact", label: "Contact Us" },
 ];
 
-const socialIcons = [
-  { name: "Facebook", d: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" },
-  { name: "Instagram", d: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 2h11A4.5 4.5 0 0122 6.5v11a4.5 4.5 0 01-4.5 4.5h-11A4.5 4.5 0 012 17.5v-11A4.5 4.5 0 016.5 2z" },
-  { name: "LinkedIn", d: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" },
-  { name: "YouTube", d: "M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33zM9.75 15.02l.01-6.54 5.67 3.27-5.68 3.27z" },
-];
-
-const heading = "text-xs font-bold uppercase tracking-wider text-white sm:text-sm";
-
-// Only show social icons that have a real URL configured in lib/site.ts
-const followLinks = socialIcons
-  .map((s) => ({ ...s, url: socialLinks.find((x) => x.name === s.name)?.url ?? "" }))
-  .filter((s) => s.url);
-
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-navy to-navy-dark text-slate-300">
-      <div className="h-1 bg-gradient-to-r from-brand via-gold to-brand" />
+    <footer
+      className="relative overflow-hidden bg-navy-dark text-slate-300"
+      style={{ backgroundColor: "#040e1b" }}
+    >
+      {/* Engineered Brand Accent Line (Marquee-to-Footer transition) */}
+      <div className="relative w-full overflow-hidden">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-brand via-gold/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 -top-1 h-3 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(242,176,30,0.18),transparent)]" />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-5 pb-5 pt-8 sm:px-8 sm:pb-6 sm:pt-14">
-        <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-[1.5fr_1fr_1.5fr] lg:gap-x-12">
-          {/* Brand */}
-          <div data-reveal className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block transition hover:opacity-90">
+      {/* Subtle industrial background texture */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04] bg-grid-pattern" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,104,232,0.08),transparent)]" />
+
+      {/* Main Footer Container */}
+      <div className="relative z-10 mx-auto max-w-7xl px-5 pt-10 pb-8 sm:px-8 sm:pt-14 sm:pb-10">
+        <div className="grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-8 lg:grid-cols-[1.5fr_0.9fr_1.3fr] lg:gap-x-12">
+          {/* 1. Brand Section */}
+          <div data-reveal className="flex flex-col items-start">
+            <Link href="/" className="inline-block transition-opacity hover:opacity-95">
               <Logo tone="light" />
             </Link>
-            <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate-400 sm:mt-5 sm:text-sm">
-              Leading manufacturer of premium trussfold roofing sheets based in Palakkad, Kerala. Engineered for maximum durability, strength and weather resistance.
+
+            {/* Establishment & Location Metadata Pill */}
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] text-slate-300">
+              <span className="font-semibold text-gold">EST. 2004</span>
+              <span className="text-white/20">•</span>
+              <span>PALAKKAD MANUFACTURING UNIT</span>
+            </div>
+
+            {/* Brand Description */}
+            <p className="mt-3.5 max-w-md text-xs leading-relaxed text-slate-400 sm:text-sm">
+              Leading manufacturer of premium trussfold roofing sheets in Palakkad, Kerala. Engineered with primary steel coils for maximum durability, structural rigidity, and weather resilience.
             </p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-white hover:text-navy sm:mt-6 sm:px-6 sm:py-3"
-            >
-              Get a Quote <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            {/* Request Quotation CTA */}
+            <div className="mt-5 sm:mt-6">
+              <Link
+                href="/contact"
+                className="group inline-flex min-h-11 items-center gap-2.5 rounded-lg border border-brand/40 bg-brand px-5 py-2.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(22,104,232,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1258c7] hover:border-brand-light/60 hover:shadow-[0_6px_22px_rgba(22,104,232,0.45)]"
+              >
+                <span>Request Quotation</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
 
-          {/* Quick links */}
-          <div data-reveal style={{ "--reveal-delay": "100ms" } as React.CSSProperties}>
-            <h4 className={heading}>Quick Links</h4>
-            <div className="mt-2 h-0.5 w-8 rounded bg-gold" />
-            <ul className="mt-3 grid grid-cols-1 gap-x-4 text-sm min-[360px]:grid-cols-2 sm:mt-5 sm:block sm:space-y-3">
+          {/* 2. Navigation Section */}
+          <div data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+              Navigation
+            </h3>
+            <div className="mt-2 h-0.5 w-6 rounded bg-gold" />
+            <ul className="mt-4 space-y-2.5 text-sm">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="inline-flex min-h-10 items-center gap-1.5 text-slate-400 transition hover:translate-x-1 hover:text-white sm:min-h-0">
-                    <ArrowRight className="h-3 w-3 text-brand" /> {l.label}
+                  <Link
+                    href={l.href}
+                    className="group inline-flex items-center gap-2 text-slate-400 transition-colors duration-200 hover:text-white"
+                  >
+                    <ArrowRight className="h-3 w-3 text-brand-light transition-transform duration-200 group-hover:translate-x-1" />
+                    <span>{l.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div data-reveal style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="sm:col-span-2 lg:col-span-1">
-            <h4 className={heading}>Contact Us</h4>
-            <div className="mt-2 h-0.5 w-8 rounded bg-gold" />
-            <ul className="mt-3 space-y-3 text-sm sm:mt-5 sm:space-y-4">
-              <li className="flex items-start gap-2.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-gold">
+          {/* 3. Factory Desk Section */}
+          <div data-reveal style={{ "--reveal-delay": "160ms" } as React.CSSProperties}>
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+              Factory Desk
+            </h3>
+            <div className="mt-2 h-0.5 w-6 rounded bg-gold" />
+            <ul className="mt-4 space-y-4 text-sm">
+              {/* Phone / WhatsApp */}
+              <li className="flex items-start gap-3.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
                   <Phone className="h-4 w-4" />
                 </span>
-                <a href={`tel:+91${site.phone}`} className="pt-2 text-slate-300 transition hover:text-white sm:pt-1.5">
-                  {site.contact}: +91 {site.phone}
+                <a
+                  href={`tel:+91${site.phone}`}
+                  className="group flex-1 pt-0.5 text-slate-300 transition-colors hover:text-white"
+                >
+                  <span className="block text-sm font-bold text-white transition-colors group-hover:text-gold">
+                    {site.contact}: +91 {site.phone}
+                  </span>
+                  <span className="text-xs text-slate-400">
+                    Direct Calls & WhatsApp Inquiries
+                  </span>
                 </a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-gold">
+
+              {/* Plant Address */}
+              <li className="flex items-start gap-3.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
                   <MapPin className="h-4 w-4" />
                 </span>
-                <span className="pt-2 leading-snug text-slate-300 [overflow-wrap:anywhere] sm:pt-1">{site.address.join(", ")}</span>
+                <div className="flex-1 pt-0.5">
+                  <span className="block text-sm font-bold text-white">
+                    Naripotta Plant
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-slate-400">
+                    {site.address.join(", ")}
+                  </span>
+                </div>
               </li>
-              <li className="flex items-start gap-2.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-gold">
+
+              {/* GSTIN / Tax Identifier */}
+              <li className="flex items-start gap-3.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
                   <FileText className="h-4 w-4" />
                 </span>
-                <span className="pt-2 text-slate-300 [overflow-wrap:anywhere] sm:pt-1.5">GSTIN: {site.gstin}</span>
+                <div className="flex-1 pt-0.5">
+                  <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                    GSTIN / TAX IDENTIFIER
+                  </span>
+                  <span className="mt-0.5 block font-mono text-xs font-bold text-white">
+                    {site.gstin}
+                  </span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div data-reveal="fade" style={{ "--reveal-delay": "240ms" } as React.CSSProperties} className="mt-7 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-4 sm:mt-12 sm:flex-row sm:pt-6">
-          {followLinks.length > 0 ? (
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Follow Us</span>
-              <div className="flex gap-2">
-                {followLinks.map(({ name, d, url }) => (
-                  <a
-                    key={name}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-slate-300 transition hover:-translate-y-0.5 hover:bg-brand hover:text-white sm:h-9 sm:w-9"
-                  >
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d={d} />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-0 text-xs font-medium">
-              {policies.map((l) => (
-                <Link key={l.href} href={l.href} className="inline-flex min-h-10 items-center text-slate-300 transition hover:text-white sm:min-h-0">
-                  {l.label}
-                </Link>
-              ))}
-            </nav>
-          )}
-          <div className="flex flex-col items-center gap-1.5 sm:items-end">
-            {followLinks.length > 0 && (
-              <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-0 text-xs font-medium">
-                {policies.map((l) => (
-                  <Link key={l.href} href={l.href} className="inline-flex min-h-10 items-center text-slate-300 transition hover:text-white sm:min-h-0">
-                    {l.label}
-                  </Link>
-                ))}
-              </nav>
-            )}
-            <p className="text-center text-xs text-slate-400 sm:text-right">© 2026 Durawin Trafford Sheet Manufacturing. All Rights Reserved.</p>
-          </div>
+        {/* Bottom Footer Bar */}
+        <div
+          data-reveal="fade"
+          style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+          className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:mt-12 sm:flex-row"
+        >
+          {/* Legal Links on Left */}
+          <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs">
+            {policies.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-slate-400 transition-colors hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Copyright Information on Right */}
+          <p className="font-mono text-center text-xs text-slate-400 sm:text-right">
+            &copy; 2026 Durawin Trafford Sheet Manufacturing &bull; Melvin Joseph
+          </p>
         </div>
       </div>
     </footer>
   );
 }
+

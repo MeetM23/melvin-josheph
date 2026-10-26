@@ -1,29 +1,29 @@
 import Image from "next/image";
-import { ArrowRight, FileText, MapPin, MessageSquare, Phone, PhoneCall, Truck } from "lucide-react";
+import { ArrowRight, Clock, FileText, MapPin, MessageSquare, Phone, PhoneCall, Truck, ShieldCheck, Headphones } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
 import { site } from "@/lib/site";
 
-export const metadata = { title: "Contact Us" };
+export const metadata = { title: "Contact Factory Desk & Custom Quotes | Durawin" };
 
 const mapQuery = encodeURIComponent(site.address.join(", "));
 
 const quick = [
-  { title: "Call Us", value: `+91 ${site.phone}`, sub: site.contact, Icon: Phone, href: `tel:+91${site.phone}` },
-  { title: "Visit Us", value: "Naripotta, Palakkad", sub: "Kunissery P.O.", Icon: MapPin, href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
-  { title: "GSTIN", value: site.gstin, sub: "Registered business", Icon: FileText, href: undefined },
+  { num: "01", title: "Direct Telephone", value: `+91 ${site.phone}`, sub: `${site.contact} (Proprietor)`, Icon: Phone, href: `tel:+91${site.phone}`, action: "Call Directly" },
+  { num: "02", title: "Factory Location", value: "Naripotta, Kunissery P.O.", sub: "Palakkad, Kerala — 678681", Icon: MapPin, href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`, action: "Open GPS Directions" },
+  { num: "03", title: "Registered GSTIN", value: site.gstin, sub: "Government Certified Firm", Icon: FileText, href: undefined, action: "Tax Verified" },
 ];
 
 const steps = [
-  { title: "Send Enquiry", text: "Tell us your requirement", Icon: MessageSquare },
-  { title: "We Call You", text: "We discuss size and colour", Icon: PhoneCall },
-  { title: "Get Quote", text: "Receive a clear price", Icon: FileText },
-  { title: "Delivery", text: "Sheets cut and dispatched", Icon: Truck },
+  { num: "01", title: "Requirement Ingestion", text: "Submit your roof span measurements, sheet profile, and preferred color coating.", Icon: MessageSquare },
+  { num: "02", title: "Technical Consultation", text: "Our factory team calls you directly to confirm gauges, cut lengths, and structural accessories.", Icon: PhoneCall },
+  { num: "03", title: "Commercial Quotation", text: "Receive transparent factory-direct pricing with zero hidden surcharges or middleman markups.", Icon: FileText },
+  { num: "04", title: "Custom Cut & Dispatch", text: "Sheets are roll-formed to exact specifications and delivered directly to your site across Kerala.", Icon: Truck },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      {/* 1. Hero — building photo behind the text, white fade */}
+      {/* 1. Hero — building photo behind the text, architectural drafting overlay */}
       <section className="relative isolate overflow-hidden bg-white">
         <Image
           src="/images/contact-hero.jpg"
@@ -33,58 +33,73 @@ export default function ContactPage() {
           className="-z-20 object-cover object-[60%_50%] sm:object-[70%_50%]"
           priority
         />
-        {/* phones: fade from the top so the building shows at the bottom; sm+: fade from the left */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/70 sm:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
 
-        <div className="mx-auto flex min-h-[300px] max-w-7xl items-start px-5 pb-24 pt-8 sm:min-h-[400px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[440px]">
+        <div className="mx-auto flex min-h-[320px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[420px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[460px]">
           <div className="w-full sm:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy shadow-sm backdrop-blur"
             >
-              Contact Us
+              <Headphones className="h-3.5 w-3.5 text-brand" /> ESTIMATIONS &bull; PALAKKAD PLANT
             </span>
             <h1
               style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
-              className="hero-rise mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]"
+              className="hero-rise mt-3 text-[clamp(1.9rem,8vw,2.8rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.5rem]"
             >
-              Get in<br />
-              <span className="text-brand">Touch</span>
+              Direct Factory<br />
+              <span className="text-brand">Consultation</span>
             </h1>
             <p
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-              className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+              className="hero-rise mt-3 max-w-sm text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
             >
-              We are here to help you with the best roofing solutions.
+              Connect directly with our manufacturing desk for tailored quotes, technical specifications, and delivery coordination.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2. Quick contact card — stacked rows on phones, 3 columns from sm */}
+      {/* 2. Precision Contact Console — 3 columns */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-200 rounded-2xl bg-white py-1 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-7">
-          {quick.map(({ title, value, sub, Icon, href }, i) => {
+        <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl sm:grid-cols-3 sm:divide-x sm:divide-slate-200">
+          {quick.map(({ num, title, value, sub, Icon, href, action }, i) => {
             const body = (
-              <>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14">
-                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
-                </span>
-                <div className="min-w-0 sm:contents">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 sm:mt-3">{title}</p>
-                  <p className="text-base font-extrabold leading-tight text-navy [overflow-wrap:anywhere] sm:text-lg sm:break-all">{value}</p>
-                  <p className="text-sm text-slate-500">{sub}</p>
+              <div className="group flex flex-col justify-between p-5 transition-colors hover:bg-slate-50/70 sm:p-6">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
+                      <Icon className="h-5 w-5" strokeWidth={1.8} />
+                    </span>
+                    <span className="font-mono text-xs font-bold text-slate-300">
+                      {num}
+                    </span>
+                  </div>
+                  <p className="mt-3.5 text-xs font-bold uppercase tracking-wider text-slate-400">
+                    {title}
+                  </p>
+                  <p className="mt-1 text-base font-extrabold tracking-tight text-navy sm:text-lg">
+                    {value}
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    {sub}
+                  </p>
                 </div>
-              </>
+                <div className="mt-4 flex items-center gap-1 font-mono text-[11px] font-semibold text-brand">
+                  <span>{action}</span>
+                  {href && <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />}
+                </div>
+              </div>
             );
-            const cls = "flex min-h-[72px] items-center gap-4 px-4 py-3 text-left sm:min-h-0 sm:flex-col sm:gap-0 sm:px-4 sm:py-0 sm:text-center";
+
             return href ? (
               <a
                 key={title}
                 href={href}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className={`${cls} transition hover:opacity-80`}
+                className="block border-b border-slate-100 sm:border-b-0"
                 {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 {body}
@@ -94,7 +109,7 @@ export default function ContactPage() {
                 key={title}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className={cls}
+                className="block border-b border-slate-100 sm:border-b-0"
               >
                 {body}
               </div>
@@ -103,86 +118,152 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 3. Details + message form */}
-      <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-8 sm:pb-12 sm:pt-14">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:gap-8 sm:px-8 md:grid-cols-5">
-          {/* Contact information */}
-          <div data-reveal className="min-w-0 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-2">
-            <h2 className="text-xl font-extrabold text-navy sm:text-2xl">Contact Information</h2>
-            <p className="mt-0.5 text-sm text-slate-500">Reach us directly, we are happy to help</p>
+      {/* 3. Details + Message Form */}
+      <section className="relative overflow-hidden bg-slate-50/70 pb-12 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-8 lg:grid-cols-12">
+          {/* Left: Contact Info Console */}
+          <div data-reveal className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs text-brand">
+                <span>HEADQUARTERS & MANUFACTURING</span>
+                <span>✦</span>
+                <span>KERALA</span>
+              </div>
+              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+                Factory Desk
+              </h2>
+              <p className="mt-1 text-sm text-slate-600">
+                Reach our Palakkad team for immediate technical and pricing inquiries
+              </p>
 
-            <div className="mt-5 space-y-5 sm:mt-7 sm:space-y-6">
-              <div className="flex items-start gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:h-11 sm:w-11">
-                  <Phone className="h-5 w-5" />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase text-slate-500">Phone</p>
-                  <a href={`tel:+91${site.phone}`} className="text-base font-bold text-navy hover:text-brand">
-                    +91 {site.phone}
-                  </a>
-                  <p className="text-sm text-slate-500">{site.contact}</p>
+              <div className="mt-6 space-y-5 border-t border-slate-100 pt-6">
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Phone Hotline</p>
+                    <a href={`tel:+91${site.phone}`} className="text-base font-extrabold text-navy hover:text-brand">
+                      +91 {site.phone}
+                    </a>
+                    <p className="text-xs text-slate-500">{site.contact} &bull; Active Calls & WhatsApp</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:h-11 sm:w-11">
-                  <MapPin className="h-5 w-5" />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase text-slate-500">Address</p>
-                  <p className="text-base font-bold text-navy">Durawin Trafford Sheet Manufacturing</p>
-                  {site.address.map((l) => (
-                    <p key={l} className="text-sm text-slate-600">{l}</p>
-                  ))}
+
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Factory Address</p>
+                    <p className="text-sm font-bold text-navy">Durawin Trafford Sheet Manufacturing</p>
+                    {site.address.map((l) => (
+                      <p key={l} className="text-xs text-slate-600">{l}</p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:h-11 sm:w-11">
-                  <FileText className="h-5 w-5" />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase text-slate-500">GSTIN</p>
-                  <p className="text-base font-bold text-navy [overflow-wrap:anywhere]">{site.gstin}</p>
+
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy">
+                    <Clock className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Plant Working Hours</p>
+                    <p className="text-sm font-bold text-navy">Monday – Saturday: 8:30 AM – 6:30 PM</p>
+                    <p className="text-xs text-slate-500">Sunday: Closed for routine machine maintenance</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy">
+                    <ShieldCheck className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Tax Compliance</p>
+                    <p className="font-mono text-sm font-bold text-navy">{site.gstin}</p>
+                    <p className="text-xs text-slate-500">Government Registered Manufacturing Unit</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <a
-              href={`tel:+91${site.phone}`}
-              className="mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg bg-navy py-3 text-sm font-semibold text-white shadow-md transition hover:bg-brand sm:mt-8 sm:py-3.5"
-            >
-              <Phone className="h-4 w-4" /> Call Now
-            </a>
+            <div className="mt-8 border-t border-slate-100 pt-6">
+              <a
+                href={`tel:+91${site.phone}`}
+                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-navy py-3 text-sm font-bold text-white shadow-md transition hover:bg-brand"
+              >
+                <Phone className="h-4 w-4" /> Call Direct Desk Now
+              </a>
+            </div>
           </div>
 
-          {/* Message form */}
-          <div id="enquiry" data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="min-w-0 scroll-mt-4 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-3">
-            <h2 className="text-xl font-extrabold text-navy sm:text-2xl">Send Us a Message</h2>
-            <p className="mt-0.5 text-sm text-slate-500">Share your requirement and we will get back to you</p>
+          {/* Right: Message Form */}
+          <div
+            id="enquiry"
+            data-reveal
+            style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+            className="scroll-mt-6 rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-7"
+          >
+            <div className="flex items-center gap-2 font-mono text-xs text-brand">
+              <span>RAPID ESTIMATION</span>
+              <span>✦</span>
+              <span>DIRECT WHATSAPP DISPATCH</span>
+            </div>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+              Request Project Quotation
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Provide your details and roofing specifications for immediate factory pricing
+            </p>
 
             <EnquiryForm />
           </div>
         </div>
       </section>
 
-      {/* 4. How it works — 2x2 on phones, one row from sm */}
-      <section className="bg-white py-8 sm:py-12">
+      {/* 4. Structured Customer Workflow — 4 phases */}
+      <section className="relative overflow-hidden bg-white py-12 sm:py-16 bg-paper-grain">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div data-reveal>
-            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">How We Work With You</h2>
-            <p className="mt-0.5 text-sm text-slate-600">From your first enquiry to delivery</p>
+          <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <Truck className="h-3.5 w-3.5 text-brand" /> Smooth Delivery Path
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                How We Deliver for You
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+                From structural enquiry to custom-cut dispatch directly at your site
+              </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ 4-PHASE FULFILLMENT ]
+            </div>
           </div>
-          <div className="relative mt-6 grid grid-cols-2 gap-x-3 gap-y-6 sm:mt-10 sm:grid-cols-4 sm:gap-6">
-            <div className="absolute left-[12.5%] right-[12.5%] top-7 hidden border-t-2 border-dashed border-brand/40 sm:block" />
-            {steps.map(({ title, text, Icon }, i) => (
-              <div key={title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="relative flex min-w-0 flex-col items-center text-center">
-                <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-white shadow-md ring-4 ring-white sm:h-14 sm:w-14 sm:text-lg">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="mt-3 flex w-full flex-1 flex-col items-center rounded-xl bg-slate-50 px-3 py-4 shadow-sm sm:mt-4 sm:px-4 sm:py-5">
-                  <Icon className="h-6 w-6 text-brand sm:h-7 sm:w-7" strokeWidth={1.8} />
-                  <h3 className="mt-2 text-sm font-bold leading-tight text-navy sm:mt-3 sm:text-base">{title}</h3>
-                  <p className="mt-1 text-xs leading-snug text-slate-500 sm:mt-1.5 sm:text-sm sm:leading-tight">{text}</p>
+
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map(({ num, title, text, Icon }, i) => (
+              <div
+                key={title}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+                className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <span className="font-mono text-xs font-bold text-brand">
+                      PHASE {num}
+                    </span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy group-hover:bg-brand/10 group-hover:text-brand">
+                      <Icon className="h-4.5 w-4.5" strokeWidth={1.8} />
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-base font-bold text-navy">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    {text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -190,19 +271,35 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 5. Location */}
-      <section className="bg-slate-50 pb-10 pt-6 sm:pb-14 sm:pt-8">
+      {/* 5. Location / Map */}
+      <section className="relative overflow-hidden bg-slate-50/70 pb-12 pt-8 sm:pb-16 sm:pt-10 bg-paper-grain">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div data-reveal>
-            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Our Location</h2>
-            <p className="mt-0.5 text-sm text-slate-600">Visit our manufacturing unit in Palakkad, Kerala</p>
+          <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <MapPin className="h-3.5 w-3.5 text-brand" /> Manufacturing Facility
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                Factory Location
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+                Naripotta, Palakkad — fully equipped industrial roll-forming plant
+              </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ PALAKKAD INDUSTRIAL BELT ]
+            </div>
           </div>
 
-          <div data-reveal="scale" style={{ "--reveal-delay": "100ms" } as React.CSSProperties} className="relative mt-4 overflow-hidden rounded-xl bg-white shadow-md sm:mt-7 sm:rounded-2xl">
+          <div
+            data-reveal="scale"
+            style={{ "--reveal-delay": "100ms" } as React.CSSProperties}
+            className="relative mt-6 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-md sm:mt-8"
+          >
             <iframe
               title="Durawin location on Google Maps"
               src={`https://www.google.com/maps?q=${mapQuery}&z=16&output=embed`}
-              className="block aspect-[4/3] w-full border-0 sm:aspect-[16/9] md:aspect-auto md:h-[500px]"
+              className="block aspect-[4/3] w-full border-0 sm:aspect-[16/9] md:aspect-auto md:h-[480px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
@@ -211,9 +308,9 @@ export default function ContactPage() {
               href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-3 right-3 inline-flex min-h-10 items-center sm:min-h-0 gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-navy shadow-lg backdrop-blur transition hover:bg-brand hover:text-white sm:bottom-5 sm:right-5 sm:px-5 sm:py-2.5"
+              className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 font-mono text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-brand"
             >
-              View Larger Map <ArrowRight className="h-3.5 w-3.5" />
+              Open in Google Maps <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
@@ -221,3 +318,4 @@ export default function ContactPage() {
     </>
   );
 }
+

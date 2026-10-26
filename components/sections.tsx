@@ -75,11 +75,6 @@ export function WhyChoose() {
                   {text}
                 </p>
               </div>
-
-              <div className="mt-5 flex items-center gap-1.5 font-mono text-[11px] font-semibold text-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span>VERIFIED STANDARD</span>
-                <ArrowRight className="h-3 w-3" />
-              </div>
             </div>
           ))}
         </div>

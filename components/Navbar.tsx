@@ -43,7 +43,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden items-center md:flex md:gap-8">
+        <nav aria-label="Main" className="hidden items-center md:flex md:gap-7">
           {navItems.map((n) => {
             const isActive = pathname === n.href;
             return (
@@ -51,19 +51,25 @@ export default function Navbar() {
                 key={n.href}
                 href={n.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-medium transition-colors ${
-                  isActive ? "font-semibold text-brand" : "text-slate-700 hover:text-brand"
+                className={`relative px-3 py-1.5 text-sm font-semibold transition-all ${
+                  isActive
+                    ? "rounded-full bg-slate-100 text-brand shadow-xs"
+                    : "text-slate-700 hover:text-brand hover:bg-slate-50 rounded-full"
                 }`}
               >
                 {n.label}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-4 rounded-full bg-brand" />
+                )}
               </Link>
             );
           })}
           <Link
             href="/contact"
-            className="whitespace-nowrap rounded-full bg-navy px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-navy px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
           >
-            Get a Quote
+            <span>Get a Quote</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
           </Link>
         </nav>
 
