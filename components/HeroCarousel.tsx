@@ -201,7 +201,9 @@ export default function HeroCarousel({
       {/* Overlay: phones fade from the top so the roof shows at the bottom; sm+ fades from the left */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/55 sm:to-transparent" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-pattern opacity-40 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-pattern opacity-30 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
+      {/* Subtle Trapezoidal Roofing Profile Linework */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-50 [mask-image:linear-gradient(to_right,black_30%,transparent_80%)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
       <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-10 lg:min-h-[580px] lg:pb-32 lg:pt-12">

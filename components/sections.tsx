@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BadgeCheck, Factory, Layers, Palette, Phone, Ruler, Truck, PackageSearch, ArrowRight, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
+import { CadDimensionMarks, RoofTrussWatermark, SheetProfileWatermark } from "@/components/IndustrialBackgrounds";
 
 const reasons = [
   { num: "01", title: "Premium Raw Materials", text: "Steel coils sourced directly from top-tier primary manufacturers.", Icon: Layers, tag: "Grade A Steel" },
@@ -21,10 +22,12 @@ const steps = [
 export function WhyChoose() {
   return (
     <section className="relative overflow-hidden bg-white pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
-      {/* Subtle architectural hairline border top */}
+      {/* Subtle blueprint grid and architectural roof truss linework */}
+      <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35" />
+      <RoofTrussWatermark className="absolute -bottom-6 -right-6 w-3/4 max-w-2xl h-56 opacity-50 hidden md:block" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
@@ -86,8 +89,11 @@ export function WhyChoose() {
 export function Process() {
   return (
     <section className="relative overflow-hidden bg-slate-50/80 py-10 sm:py-16 bg-paper-grain">
+      {/* Subtle trapezoidal sheet profile schematic */}
+      <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-40" />
+      <SheetProfileWatermark className="absolute -top-2 right-8 w-2/3 max-w-xl h-20 opacity-45 hidden md:block" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
@@ -149,8 +155,10 @@ export function CallStrip() {
         data-reveal
         className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-slate-800 bg-navy-dark px-6 py-8 text-white shadow-xl sm:px-10 sm:py-10"
       >
-        {/* Subtle grid pattern for architectural depth */}
+        {/* Subtle grid pattern and dark roofing profile lines */}
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 opacity-20 bg-roof-profile-dark" />
+        <CadDimensionMarks label="DIRECT PLANT SUPPLY" spec="ZERO INTERMEDIARIES" tone="dark" className="absolute bottom-3 right-6 hidden md:flex" />
         
         <div className="relative z-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div className="min-w-0">

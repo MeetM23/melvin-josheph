@@ -22,8 +22,9 @@ export default function Footer() {
         <div className="pointer-events-none absolute inset-x-0 -top-1 h-3 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(242,176,30,0.18),transparent)]" />
       </div>
 
-      {/* Subtle industrial background texture */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04] bg-grid-pattern" />
+      {/* Subtle industrial background texture & blueprint grid */}
+      <div className="pointer-events-none absolute inset-0 opacity-15 bg-blueprint-grid-dark" />
+      <div className="pointer-events-none absolute inset-0 opacity-15 bg-roof-profile-dark" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,104,232,0.08),transparent)]" />
 
       {/* Main Footer Container */}

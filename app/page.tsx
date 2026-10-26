@@ -4,6 +4,7 @@ import HeroFeatures from "@/components/HeroFeatures";
 import StatsMarquee from "@/components/StatsMarquee";
 import { CallStrip, WhyChoose } from "@/components/sections";
 import { ArrowRight, BadgeCheck, Building2, CheckCircle2, Factory, Home as HomeIcon, Store } from "lucide-react";
+import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 
 
@@ -30,9 +31,12 @@ export default function Home() {
       <HeroFeatures />  
 
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
-      <section className="relative overflow-hidden bg-slate-50/60 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+      <section className="relative overflow-hidden bg-slate-50/70 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+        {/* Subtle engineering blueprint grid & watermark */}
+        <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-40 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
+        <WatermarkText text="TRUSSFOLD" className="absolute -right-6 -top-6 select-none pointer-events-none hidden md:block opacity-50" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
@@ -105,8 +109,11 @@ export default function Home() {
 
       {/* 4. Raw material partners + coils */}
       <section className="relative overflow-hidden bg-white pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+        {/* Subtle roofing profile linework & watermark */}
+        <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-45" />
+        <WatermarkText text="PRIMARY STEEL" className="absolute -left-6 -top-6 select-none pointer-events-none hidden md:block opacity-40" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">

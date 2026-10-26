@@ -58,8 +58,10 @@ export default function StatsMarquee() {
       className="relative z-10 overflow-hidden border-t border-white/10 bg-navy-dark py-6 sm:py-7"
       style={{ backgroundColor: "#051324" }}
     >
-      {/* Background ambient lighting */}
+      {/* Background ambient lighting & technical roofing profile pattern */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(22,104,232,0.12),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-15 bg-blueprint-grid-dark" />
+      <div className="pointer-events-none absolute inset-0 opacity-20 bg-roof-profile-dark" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
 
       {/* Top Header Label */}
