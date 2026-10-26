@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets } from "lucide-react";
 import { WhyChoose } from "@/components/sections";
+import RoofVisualizer from "@/components/RoofVisualizer";
 
 export const metadata = { title: "Products" };
 
@@ -36,13 +37,6 @@ const productRange = [
   },
 ];
 
-const colours = [
-  { name: "Blue", hex: "#1f5fbf" },
-  { name: "Red", hex: "#c8342b" },
-  { name: "Grey", hex: "#4b5563" },
-  { name: "Green", hex: "#2a9d8f" },
-  { name: "Silver", hex: "#c5ccd6" },
-];
 
 const productApplications = [
   { title: "Household", desc: "Stylish and reliable roofing for modern homes.", image: "/images/app-household.jpg" },
@@ -68,22 +62,36 @@ export default function ProductsPage() {
 
         <div className="mx-auto flex min-h-[360px] max-w-7xl items-start px-5 pb-24 pt-8 sm:min-h-[420px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[460px]">
           <div className="w-full sm:w-1/2">
-            <span className="inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4">
+            <span
+              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+              className="hero-rise inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4"
+            >
               Products
             </span>
-            <h1 className="mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]">
+            <h1
+              style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
+              className="hero-rise mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]"
+            >
               Our<br />
               <span className="text-brand">Products</span>
             </h1>
-            <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
+            <p
+              style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
+              className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+            >
               High Quality Trussfold Roofing Sheets for Every Need
             </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5"
+            <div
+              style={{ "--hero-delay": "0.36s" } as React.CSSProperties}
+              className="hero-rise mt-5 sm:mt-7"
             >
-              Get a Quote <ArrowRight className="h-4 w-4" />
-            </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:px-7 sm:py-3.5"
+              >
+                Get a Quote <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -91,9 +99,14 @@ export default function ProductsPage() {
       {/* 2. Benefits card overlapping the hero — 2x2 on phones, 4 across from sm */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7">
-          {productFeatures.map(({ title, Icon }) => (
-            <div key={title} className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
+          {productFeatures.map(({ title, Icon }, i) => (
+            <div
+              key={title}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+              className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14">
                 <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
               </span>
               <h3 className="mt-2 text-xs font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
@@ -160,23 +173,19 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 4. Colour options infographic */}
+      {/* 4. Realistic Interactive Roof Colour Visualizer */}
       <section className="bg-slate-50 pb-8 sm:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Colour Options</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Choose the finish that suits your building</p>
-          <div data-reveal className="mt-4 flex items-start justify-around gap-1 rounded-xl sm:gap-0 bg-white px-2 py-5 shadow-md sm:mt-7 sm:items-center sm:px-10 sm:py-9">
-            {colours.map((c) => (
-              <div key={c.name} className="flex min-w-0 flex-col items-center">
-                <span
-                  className="h-11 w-11 rounded-full shadow-md ring-2 ring-white sm:h-20 sm:w-20"
-                  style={{ background: `linear-gradient(135deg, ${c.hex}, color-mix(in srgb, ${c.hex} 70%, black))` }}
-                />
-                <span className="mt-2 text-xs font-semibold text-navy sm:mt-3 sm:text-base">{c.name}</span>
-              </div>
-            ))}
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Interactive Colour Visualizer</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Preview Durawin roofing finishes on an actual residence</p>
           </div>
-          <p className="mt-2 text-center text-xs text-slate-500 sm:text-sm">More colours available on request.</p>
+          <div data-reveal="scale" style={{ "--reveal-delay": "100ms" } as React.CSSProperties} className="mt-4 sm:mt-7">
+            <RoofVisualizer />
+          </div>
+          <p data-reveal="fade" style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="mt-3 text-center text-xs text-slate-500 sm:text-sm">
+            Custom RAL shades and factory-coat finishes available on request for commercial &amp; large projects.
+          </p>
         </div>
       </section>
 
@@ -189,7 +198,7 @@ export default function ProductsPage() {
           </div>
           <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {productApplications.map((app, i) => (
-              <div key={app.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-md sm:w-auto sm:max-w-none sm:shrink">
+              <div key={app.title} data-reveal="scale" style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties} className="w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-md sm:w-auto sm:max-w-none sm:shrink">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image src={app.image} alt={app.title} fill sizes="(max-width: 640px) 78vw, (max-width: 1023px) 33vw, 380px" className="object-cover" />
                 </div>
@@ -214,7 +223,7 @@ export default function ProductsPage() {
           <Image src="/images/banner-custom-solutions.jpg" alt="Custom roofing sheet solutions" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
           <div className="absolute inset-0 bg-navy/80 sm:inset-y-0 sm:right-auto sm:w-1/2 sm:bg-transparent sm:bg-gradient-to-r sm:from-navy sm:to-transparent" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
+        <div data-reveal className="relative mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
           <h3 className="text-xl font-extrabold sm:max-w-none sm:text-2xl">Custom Solutions for Your Roofing Needs</h3>
           <p className="mt-1.5 max-w-md text-sm text-slate-200 sm:mt-1 sm:text-slate-300">
             We manufacture trussfold sheets as per your required specifications.

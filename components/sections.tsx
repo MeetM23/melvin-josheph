@@ -90,6 +90,8 @@ export function CallStrip() {
         </div>
         <Link
           href="/contact"
+          data-reveal
+          style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
           className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-white hover:text-navy sm:px-7 sm:py-3.5"
         >
           Get a Quote <ArrowRight className="h-4 w-4" />

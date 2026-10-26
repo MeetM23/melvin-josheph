@@ -1,14 +1,38 @@
 import Image from "next/image";
 import HeroCarousel from "@/components/HeroCarousel";
-import CountUp from "@/components/CountUp";
+import StatsMarquee from "@/components/StatsMarquee";
 import { CallStrip, WhyChoose } from "@/components/sections";
-import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, Factory, Home as HomeIcon, Store, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
+import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, Factory, Home as HomeIcon, Store, ShieldCheck } from "lucide-react";
 
 const features = [
-  { title: "Durable & Long Lasting", Icon: ShieldCheck },
-  { title: "Weather Resistant", Icon: CloudSun },
-  { title: "High Strength & Performance", Icon: BarChart3 },
-  { title: "Suitable for All Sectors", Icon: Building2 },
+  {
+    title: "Durable & Long Lasting",
+    tag: "High Durability",
+    desc: "Engineered for 20+ years of structural life",
+    image: "/images/product-trussfold-blue.jpg",
+    Icon: ShieldCheck,
+  },
+  {
+    title: "Weather Resistant",
+    tag: "Monsoon Proof",
+    desc: "All-weather anti-corrosion protection",
+    image: "/images/home-hero.jpg",
+    Icon: CloudSun,
+  },
+  {
+    title: "High Strength & Performance",
+    tag: "Certified Steel",
+    desc: "High-tensile raw steel coil strength",
+    image: "/images/raw-materials-coils.jpg",
+    Icon: BarChart3,
+  },
+  {
+    title: "Suitable for All Sectors",
+    tag: "All Sectors",
+    desc: "Commercial, industrial & residential",
+    image: "/images/app-commercial.jpg",
+    Icon: Building2,
+  },
 ];
 
 const applications = [
@@ -23,12 +47,6 @@ const partners = [
   { name: "Jindal Steel", src: "/images/partners/jindal.webp", w: 378, h: 177 },
 ];
 
-const stats = [
-  { title: "20+", subtitle: "Years of Experience", Icon: Trophy },
-  { title: "Premium", subtitle: "Raw Materials", Icon: Settings },
-  { title: "Trusted by", subtitle: "Retailers & Wholesalers", Icon: Users },
-  { title: "Proudly", subtitle: "Based in Palakkad, Kerala", Icon: MapPin },
-];
 
 export default function Home() {
   return (
@@ -39,14 +57,73 @@ export default function Home() {
       {/* 2. Feature card overlapping the hero */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7">
-          {features.map(({ title, Icon }) => (
-            <div key={title} className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
-              </span>
-              <h3 className="mt-2 text-xs font-bold leading-tight text-navy sm:mt-3 sm:text-sm">{title}</h3>
-            </div>
-          ))}
+          {features.map(({ title, tag, desc, image, Icon }, i) => {
+            const isCol1 = i % 2 === 0;
+            return (
+              <div
+                key={title}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+                className="group relative flex min-w-0 flex-col items-center px-2 text-center sm:px-4 cursor-pointer"
+              >
+                {/* Floating Image Preview on Hover */}
+                <div
+                  className={`pointer-events-none absolute bottom-full z-30 mb-3 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto ${
+                    isCol1
+                      ? "left-0 sm:left-1/2 sm:-translate-x-1/2"
+                      : "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
+                  }`}
+                >
+                  <div className="w-44 overflow-hidden rounded-xl border border-slate-200/80 bg-white p-1.5 shadow-2xl ring-1 ring-black/10 sm:w-56">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-slate-100">
+                      <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        sizes="224px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
+                      <span className="absolute bottom-2 left-2 rounded bg-brand/90 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-xs">
+                        {tag}
+                      </span>
+                    </div>
+                    <p className="mt-1.5 px-1 text-left text-[11px] font-semibold leading-tight text-navy">
+                      {title}
+                    </p>
+                    <p className="px-1 text-left text-[10px] text-slate-500 leading-snug">
+                      {desc}
+                    </p>
+                  </div>
+                  {/* Pointer beak pointing to icon */}
+                  <div
+                    className={`-mt-1 h-2.5 w-2.5 rotate-45 border-b border-r border-slate-200/80 bg-white shadow-sm ${
+                      isCol1 ? "ml-14 sm:mx-auto" : "ml-auto mr-14 sm:mx-auto"
+                    }`}
+                  />
+                </div>
+
+                {/* Circular Icon with hover scale & photo reveal */}
+                <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-all duration-300 group-hover:scale-115 sm:group-hover:scale-120 group-hover:border-brand group-hover:shadow-lg group-hover:shadow-brand/25 group-hover:ring-4 group-hover:ring-brand/15 overflow-hidden">
+                  <Icon
+                    className="relative z-10 h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 group-hover:opacity-0 group-hover:scale-75"
+                    strokeWidth={1.8}
+                  />
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    sizes="64px"
+                    className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </div>
+
+                <h3 className="mt-2 text-xs font-bold leading-tight text-navy transition-colors duration-200 group-hover:text-brand sm:mt-3 sm:text-sm">
+                  {title}
+                </h3>
+              </div>
+            );
+          })}
         </div>
       </section>  
 
@@ -54,19 +131,19 @@ export default function Home() {
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
-            <Building2 className="h-3.5 w-3.5" /> Where We Roof
-          </span>
-          <h2 className="mt-2 text-2xl font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Trusted Roofing Solutions for Every Space</p>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
+              <Building2 className="h-3.5 w-3.5" /> Where We Roof
+            </span>
+            <h2 className="mt-2 text-2xl font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Trusted Roofing Solutions for Every Space</p>
           </div>
 
           <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {applications.map(({ title, desc, image, Icon }, i) => (
               <div
                 key={title}
-                data-reveal
-                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+                data-reveal="scale"
+                style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
                 className="relative block aspect-[4/5] w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl shadow-lg sm:aspect-[4/4.4] sm:w-auto sm:max-w-none sm:shrink sm:rounded-2xl"
               >
                 <Image
@@ -136,7 +213,7 @@ export default function Home() {
           </div>
 
           {/* Steel coil feature */}
-          <div data-reveal className="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl shadow-xl min-[480px]:aspect-[16/9] sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
+          <div data-reveal="scale" style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl shadow-xl min-[480px]:aspect-[16/9] sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
             <Image
               src="/images/raw-materials-coils.jpg"
               alt="Galvanized steel coils in Durawin manufacturing plant"
@@ -165,18 +242,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Stats bar — 2x2 on phones, one row from sm */}
-      <section className="relative z-10 bg-navy py-8 text-white sm:py-8">
-        <div data-reveal className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-6 px-4 sm:grid-cols-4 sm:gap-6 sm:px-8">
-          {stats.map(({ title, subtitle, Icon }) => (
-            <div key={subtitle} className="flex min-w-0 flex-col items-center text-center">
-              <Icon className="h-7 w-7 sm:h-8 sm:w-8" strokeWidth={1.8} />
-              <p className="mt-1.5 text-base font-extrabold leading-tight sm:mt-2 sm:text-lg">{title === "20+" ? <CountUp to={20} suffix="+" /> : title}</p>
-              <p className="text-xs font-medium leading-tight text-slate-300">{subtitle}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 5. Continuous Horizontal Stats Marquee */}
+      <StatsMarquee />
     </>
   );
 }

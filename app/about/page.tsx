@@ -56,23 +56,37 @@ export default function AboutPage() {
 
         <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-12 sm:pt-4 lg:min-h-[500px]">
           <div className="w-full sm:w-1/2">
-            <span className="inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4">
+            <span
+              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+              className="hero-rise inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4"
+            >
               About Us
             </span>
-            <h1 className="mt-3 text-[clamp(1.4rem,6.6vw,2.2rem)] font-extrabold uppercase leading-[1.1] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.4rem]">
+            <h1
+              style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
+              className="hero-rise mt-3 text-[clamp(1.4rem,6.6vw,2.2rem)] font-extrabold uppercase leading-[1.1] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.4rem]"
+            >
               20 Years of<br />
               <span className="text-brand">Building Stronger</span><br />
               Tomorrows
             </h1>
-            <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-md sm:text-base sm:leading-relaxed">
+            <p
+              style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
+              className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-md sm:text-base sm:leading-relaxed"
+            >
               Durawin is a leading manufacturer of trussfold roofing sheets based in Palakkad, Kerala, delivering durable and reliable roofing solutions.
             </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:mt-7 sm:px-7 sm:py-3.5"
+            <div
+              style={{ "--hero-delay": "0.36s" } as React.CSSProperties}
+              className="hero-rise mt-5 sm:mt-7"
             >
-              Contact Our Team <ArrowRight className="h-4 w-4" />
-            </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:px-7 sm:py-3.5"
+              >
+                Contact Our Team <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -80,9 +94,14 @@ export default function AboutPage() {
       {/* 2. Highlights card overlapping the hero — 2x2 on phones, 4 across from sm */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7">
-          {highlights.map(({ title, subtitle, Icon }) => (
-            <div key={subtitle} className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
+          {highlights.map(({ title, subtitle, Icon }, i) => (
+            <div
+              key={subtitle}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+              className="flex min-w-0 flex-col items-center px-2 text-center sm:px-4"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14">
                 <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
               </span>
               <p className="mt-2 text-base font-extrabold leading-tight text-navy sm:mt-3 sm:text-xl">{title}</p>
@@ -95,7 +114,7 @@ export default function AboutPage() {
       {/* 3. Our story */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-14 sm:pt-16">
         <div className="mx-auto grid max-w-7xl items-center gap-5 px-4 sm:gap-12 sm:px-8 md:grid-cols-2">
-          <div data-reveal className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
+          <div data-reveal="scale" className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
             <Image
               src="/images/about-plant-aerial.jpg"
               alt="Aerial view of the Durawin manufacturing plant"

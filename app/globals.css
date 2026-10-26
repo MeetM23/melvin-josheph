@@ -64,22 +64,75 @@ html.lenis body {
   animation-delay: var(--hero-delay, 0s);
 }
 
-/* ---- Scroll reveals ----
-   Content is always visible by default. It is only hidden once the Reveal script has
-   marked the page (html[data-reveal]) AND the element is still below the fold, so a
-   JS failure can never leave content invisible. */
-@media (prefers-reduced-motion: no-preference) {
-  html[data-reveal] [data-reveal]:not([data-in]) {
-    opacity: 0;
-    transform: translateY(16px);
+/* ---- Continuous Horizontal Marquee ---- */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  html[data-reveal] [data-reveal] {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee-scroll var(--marquee-duration, 38s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ---- Premium Scroll-Triggered Reveals ----
+   Content is 100% visible by default. It is only hidden once the Reveal script has
+   initialized the page (html[data-reveal-ready]) and the element is pending reveal.
+   Zero layout shift, hardware accelerated, and fails safe. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Default subtle upward entrance (headings, cards, sections) */
+  html[data-reveal-ready] [data-reveal]:not([data-in]) {
+    opacity: 0;
+    transform: translateY(22px);
+    will-change: opacity, transform;
+  }
+
+  /* Fade-only entrance (paragraphs, subtitles, descriptions) */
+  html[data-reveal-ready] [data-reveal="fade"]:not([data-in]) {
+    opacity: 0;
+    transform: none;
+    will-change: opacity;
+  }
+
+  /* Image / Visualizer scale reveal (subtle zoom from 0.975 to 1) */
+  html[data-reveal-ready] [data-reveal="scale"]:not([data-in]) {
+    opacity: 0;
+    transform: scale(0.975) translateY(12px);
+    will-change: opacity, transform;
+  }
+
+  /* Directional horizontal reveals (split 2-column sections) */
+  html[data-reveal-ready] [data-reveal="left"]:not([data-in]) {
+    opacity: 0;
+    transform: translateX(-24px);
+    will-change: opacity, transform;
+  }
+  html[data-reveal-ready] [data-reveal="right"]:not([data-in]) {
+    opacity: 0;
+    transform: translateX(24px);
+    will-change: opacity, transform;
+  }
+
+  /* Smooth ease-out transition (craft/cinematic curve) */
+  html[data-reveal-ready] [data-reveal] {
     transition:
-      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: var(--reveal-delay, 0ms);
   }
-  html[data-reveal] [data-reveal][data-in] {
+
+  /* Revealed state */
+  html[data-reveal-ready] [data-reveal][data-in] {
     opacity: 1;
     transform: none;
   }
@@ -87,7 +140,16 @@ html.lenis body {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise {
-    animation: none;
+    animation: none !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-marquee {
+    animation: none !important;
   }
 }
+
 

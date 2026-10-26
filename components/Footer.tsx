@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 pb-5 pt-8 sm:px-8 sm:pb-6 sm:pt-14">
         <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-[1.5fr_1fr_1.5fr] lg:gap-x-12">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div data-reveal className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block transition hover:opacity-90">
               <Logo tone="light" />
             </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
 
           {/* Quick links */}
-          <div>
+          <div data-reveal style={{ "--reveal-delay": "100ms" } as React.CSSProperties}>
             <h4 className={heading}>Quick Links</h4>
             <div className="mt-2 h-0.5 w-8 rounded bg-gold" />
             <ul className="mt-3 grid grid-cols-1 gap-x-4 text-sm min-[360px]:grid-cols-2 sm:mt-5 sm:block sm:space-y-3">
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div data-reveal style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="sm:col-span-2 lg:col-span-1">
             <h4 className={heading}>Contact Us</h4>
             <div className="mt-2 h-0.5 w-8 rounded bg-gold" />
             <ul className="mt-3 space-y-3 text-sm sm:mt-5 sm:space-y-4">
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-7 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-4 sm:mt-12 sm:flex-row sm:pt-6">
+        <div data-reveal="fade" style={{ "--reveal-delay": "240ms" } as React.CSSProperties} className="mt-7 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-4 sm:mt-12 sm:flex-row sm:pt-6">
           {followLinks.length > 0 ? (
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Follow Us</span>

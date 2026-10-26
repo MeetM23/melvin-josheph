@@ -38,14 +38,23 @@ export default function ContactPage() {
 
         <div className="mx-auto flex min-h-[300px] max-w-7xl items-start px-5 pb-24 pt-8 sm:min-h-[400px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[440px]">
           <div className="w-full sm:w-1/2">
-            <span className="inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4">
+            <span
+              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+              className="hero-rise inline-block rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-4"
+            >
               Contact Us
             </span>
-            <h1 className="mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]">
+            <h1
+              style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
+              className="hero-rise mt-3 text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.6rem]"
+            >
               Get in<br />
               <span className="text-brand">Touch</span>
             </h1>
-            <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
+            <p
+              style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
+              className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+            >
               We are here to help you with the best roofing solutions.
             </p>
           </div>
@@ -55,10 +64,10 @@ export default function ContactPage() {
       {/* 2. Quick contact card — stacked rows on phones, 3 columns from sm */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-200 rounded-2xl bg-white py-1 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-7">
-          {quick.map(({ title, value, sub, Icon, href }) => {
+          {quick.map(({ title, value, sub, Icon, href }, i) => {
             const body = (
               <>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-brand bg-white text-brand shadow-sm transition-transform duration-300 hover:scale-105 sm:h-14 sm:w-14">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
                 </span>
                 <div className="min-w-0 sm:contents">
@@ -70,11 +79,25 @@ export default function ContactPage() {
             );
             const cls = "flex min-h-[72px] items-center gap-4 px-4 py-3 text-left sm:min-h-0 sm:flex-col sm:gap-0 sm:px-4 sm:py-0 sm:text-center";
             return href ? (
-              <a key={title} href={href} className={`${cls} transition hover:opacity-80`} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+              <a
+                key={title}
+                href={href}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+                className={`${cls} transition hover:opacity-80`}
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
                 {body}
               </a>
             ) : (
-              <div key={title} className={cls}>{body}</div>
+              <div
+                key={title}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+                className={cls}
+              >
+                {body}
+              </div>
             );
           })}
         </div>
@@ -175,7 +198,7 @@ export default function ContactPage() {
             <p className="mt-0.5 text-sm text-slate-600">Visit our manufacturing unit in Palakkad, Kerala</p>
           </div>
 
-          <div data-reveal className="relative mt-4 overflow-hidden rounded-xl bg-white shadow-md sm:mt-7 sm:rounded-2xl">
+          <div data-reveal="scale" style={{ "--reveal-delay": "100ms" } as React.CSSProperties} className="relative mt-4 overflow-hidden rounded-xl bg-white shadow-md sm:mt-7 sm:rounded-2xl">
             <iframe
               title="Durawin location on Google Maps"
               src={`https://www.google.com/maps?q=${mapQuery}&z=16&output=embed`}
