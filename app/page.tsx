@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroCarousel from "@/components/HeroCarousel";
+import CountUp from "@/components/CountUp";
 import { CallStrip, WhyChoose } from "@/components/sections";
 import { ArrowRight, BadgeCheck, BarChart3, Building2, CheckCircle2, CloudSun, Factory, Home as HomeIcon, Store, MapPin, Settings, ShieldCheck, Trophy, Users } from "lucide-react";
 
@@ -52,16 +53,20 @@ export default function Home() {
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div data-reveal>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
             <Building2 className="h-3.5 w-3.5" /> Where We Roof
           </span>
           <h2 className="mt-2 text-2xl font-extrabold text-navy sm:mt-3 sm:text-3xl">Our Applications</h2>
           <p className="mt-0.5 text-sm text-slate-600">Trusted Roofing Solutions for Every Space</p>
+          </div>
 
           <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
-            {applications.map(({ title, desc, image, Icon }) => (
+            {applications.map(({ title, desc, image, Icon }, i) => (
               <div
                 key={title}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
                 className="relative block aspect-[4/5] w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl shadow-lg sm:aspect-[4/4.4] sm:w-auto sm:max-w-none sm:shrink sm:rounded-2xl"
               >
                 <Image
@@ -97,6 +102,7 @@ export default function Home() {
       {/* 4. Raw material partners + coils */}
       <section className="bg-gradient-to-b from-slate-50 to-white pb-8 pt-8 sm:pb-14 sm:pt-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div data-reveal>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand sm:px-3.5">
             <BadgeCheck className="h-3.5 w-3.5" /> Trusted Sourcing
           </span>
@@ -104,11 +110,14 @@ export default function Home() {
           <p className="mt-0.5 text-sm text-slate-600">
             Manufactured using premium steel coils from trusted brands
           </p>
+          </div>
 
           <div className="mt-4 grid grid-cols-3 gap-2.5 sm:mt-7 sm:gap-6">
-            {partners.map((p) => (
+            {partners.map((p, i) => (
               <div
                 key={p.name}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
                 className="group flex min-w-0 flex-col items-center rounded-xl border border-slate-100 bg-white px-2 pb-3 pt-4 shadow-md transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl sm:rounded-2xl sm:px-6 sm:pb-4 sm:pt-7"
               >
                 <div className="flex h-12 w-full items-center justify-center sm:h-24">
@@ -127,7 +136,7 @@ export default function Home() {
           </div>
 
           {/* Steel coil feature */}
-          <div className="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl shadow-xl min-[480px]:aspect-[16/9] sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
+          <div data-reveal className="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl shadow-xl min-[480px]:aspect-[16/9] sm:mt-10 sm:aspect-[21/8] sm:rounded-2xl">
             <Image
               src="/images/raw-materials-coils.jpg"
               alt="Galvanized steel coils in Durawin manufacturing plant"
@@ -158,11 +167,11 @@ export default function Home() {
 
       {/* 5. Stats bar — 2x2 on phones, one row from sm */}
       <section className="relative z-10 bg-navy py-8 text-white sm:py-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-6 px-4 sm:grid-cols-4 sm:gap-6 sm:px-8">
+        <div data-reveal className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-6 px-4 sm:grid-cols-4 sm:gap-6 sm:px-8">
           {stats.map(({ title, subtitle, Icon }) => (
             <div key={subtitle} className="flex min-w-0 flex-col items-center text-center">
               <Icon className="h-7 w-7 sm:h-8 sm:w-8" strokeWidth={1.8} />
-              <p className="mt-1.5 text-base font-extrabold leading-tight sm:mt-2 sm:text-lg">{title}</p>
+              <p className="mt-1.5 text-base font-extrabold leading-tight sm:mt-2 sm:text-lg">{title === "20+" ? <CountUp to={20} suffix="+" /> : title}</p>
               <p className="text-xs font-medium leading-tight text-slate-300">{subtitle}</p>
             </div>
           ))}

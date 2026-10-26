@@ -105,19 +105,32 @@ export default function ProductsPage() {
       {/* 3. Product range — horizontal cards on phones, 3 columns from sm */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-12 sm:pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Product Range</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Designed for Homes, Businesses and Large Scale Industries</p>
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Product Range</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Designed for Homes, Businesses and Large Scale Industries</p>
+            <nav aria-label="Jump to a product" className="mt-4 flex flex-wrap gap-2">
+              {productRange.map((p) => (
+                <a
+                  key={p.id}
+                  href={`#${p.id}`}
+                  className="inline-flex min-h-10 items-center rounded-full border border-slate-200 bg-white px-4 text-xs font-semibold text-navy transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:border-brand active:text-brand sm:text-sm"
+                >
+                  {p.title}
+                </a>
+              ))}
+            </nav>
+          </div>
 
           <div className="mt-4 grid grid-cols-1 gap-3 sm:mt-7 sm:grid-cols-3 sm:gap-6">
-            {productRange.map((p) => (
-              <div key={p.title} id={p.id} className="group flex scroll-mt-24 flex-row overflow-hidden rounded-xl bg-white shadow-md sm:flex-col">
+            {productRange.map((p, i) => (
+              <div key={p.title} id={p.id} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="group flex scroll-mt-24 flex-row overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-transparent transition-shadow duration-300 hover:shadow-lg hover:ring-brand/15 sm:flex-col">
                 <div className="relative min-h-[190px] w-[40%] shrink-0 self-stretch overflow-hidden bg-slate-50 sm:aspect-[4/3.2] sm:min-h-0 sm:w-full sm:self-auto">
                   <Image
                     src={p.image}
                     alt={p.title}
                     fill
                     sizes="(max-width: 640px) 40vw, 380px"
-                    className="object-contain p-2 transition duration-500 group-hover:scale-105 sm:p-3"
+                    className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:p-3"
                   />
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col sm:contents">
@@ -134,10 +147,11 @@ export default function ProductsPage() {
                     </ul>
                   </div>
                   <Link
-                    href="/contact"
-                    className="mt-3 block bg-[#d9eafb] py-3 text-center text-sm font-semibold text-navy transition hover:bg-brand hover:text-white sm:mt-5"
+                    href={`/contact?product=${p.id}#enquiry`}
+                    className="group/cta mt-3 flex items-center justify-center gap-1.5 bg-[#d9eafb] py-3 text-sm font-semibold text-navy transition hover:bg-brand hover:text-white active:bg-brand active:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand sm:mt-5"
                   >
-                    Enquire Now →
+                    Enquire Now
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -151,7 +165,7 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Colour Options</h2>
           <p className="mt-0.5 text-sm text-slate-600">Choose the finish that suits your building</p>
-          <div className="mt-4 flex items-start justify-around gap-1 rounded-xl sm:gap-0 bg-white px-2 py-5 shadow-md sm:mt-7 sm:items-center sm:px-10 sm:py-9">
+          <div data-reveal className="mt-4 flex items-start justify-around gap-1 rounded-xl sm:gap-0 bg-white px-2 py-5 shadow-md sm:mt-7 sm:items-center sm:px-10 sm:py-9">
             {colours.map((c) => (
               <div key={c.name} className="flex min-w-0 flex-col items-center">
                 <span
@@ -169,11 +183,13 @@ export default function ProductsPage() {
       {/* 5. Applications — swipeable row on phones, 3-column grid from sm */}
       <section id="applications" className="scroll-mt-20 bg-white py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Applications</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Engineered to Perform Across Multiple Sectors</p>
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Applications</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Engineered to Perform Across Multiple Sectors</p>
+          </div>
           <div className="-mx-4 mt-4 flex scroll-pl-4 snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
-            {productApplications.map((app) => (
-              <div key={app.title} className="w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-md sm:w-auto sm:max-w-none sm:shrink">
+            {productApplications.map((app, i) => (
+              <div key={app.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="w-[78%] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-md sm:w-auto sm:max-w-none sm:shrink">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image src={app.image} alt={app.title} fill sizes="(max-width: 640px) 78vw, (max-width: 1023px) 33vw, 380px" className="object-cover" />
                 </div>

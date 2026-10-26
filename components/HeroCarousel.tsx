@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -96,40 +96,80 @@ interface HeroCarouselProps {
   intervalMs?: number;
 }
 
+const REDUCED = "(prefers-reduced-motion: reduce)";
+const subscribeReduced = (cb: () => void) => {
+  const mq = window.matchMedia(REDUCED);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const subscribeVisibility = (cb: () => void) => {
+  document.addEventListener("visibilitychange", cb);
+  return () => document.removeEventListener("visibilitychange", cb);
+};
+
 export default function HeroCarousel({
   slides = defaultSlides,
   intervalMs = 3000,
 }: HeroCarouselProps) {
+  const count = slides.length;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [hovering, setHovering] = useState(false);
+  const [keyboardFocus, setKeyboardFocus] = useState(false);
 
-  // Reliable autoplay timer: advances every 3000ms, resets on slide click
+  // Autoplay is off for reduced-motion users and while the tab is in the background
+  const reducedMotion = useSyncExternalStore(
+    subscribeReduced,
+    () => window.matchMedia(REDUCED).matches,
+    () => false,
+  );
+  const tabHidden = useSyncExternalStore(
+    subscribeVisibility,
+    () => document.visibilityState === "hidden",
+    () => false,
+  );
+  const paused = hovering || keyboardFocus || tabHidden || reducedMotion;
+
+  // Which slide images have finished loading, so we never fade to a blank frame
+  const loaded = useRef<Set<number>>(new Set([0]));
+  const skipped = useRef(0);
+
+  // Advances every `intervalMs`; the effect re-runs on every slide change, which
+  // restarts the countdown after manual navigation as well.
   useEffect(() => {
-    if (isPaused || slides.length <= 1) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
-    }
-
-    timerRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
+    if (paused || count <= 1) return;
+    const id = window.setInterval(() => {
+      setActiveIndex((current) => {
+        const next = (current + 1) % count;
+        // wait (at most once) for the next image instead of fading to an empty frame
+        if (!loaded.current.has(next) && skipped.current < 1) {
+          skipped.current += 1;
+          return current;
+        }
+        skipped.current = 0;
+        return next;
+      });
     }, intervalMs);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [activeIndex, isPaused, intervalMs, slides.length]);
-
-  const handleSelectSlide = (index: number) => {
-    setActiveIndex(index);
-  };
+    return () => window.clearInterval(id);
+  }, [activeIndex, paused, intervalMs, count]);
 
   return (
     <section
       aria-label="Hero Carousel"
+      aria-roledescription="carousel"
       className="relative isolate overflow-hidden bg-white"
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setHovering(true);
+      }}
+      onPointerLeave={() => setHovering(false)}
+      onFocus={(e) => {
+        if ((e.target as HTMLElement).matches(":focus-visible")) setKeyboardFocus(true);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setKeyboardFocus(false);
+      }}
     >
-      {/* Background Images with smooth 700ms crossfade - all preloaded to eliminate flicker */}
+      {/* Background images, 700ms crossfade. Only the first is preloaded with high priority;
+          the rest are fetched eagerly at low priority so they are ready before their turn. */}
       {slides.map((slide, index) => {
         const isActive = index === activeIndex;
         return (
@@ -141,52 +181,68 @@ export default function HeroCarousel({
             }`}
           >
             <Image
+              ref={(el) => {
+                if (el?.complete && el.naturalWidth > 0) loaded.current.add(index);
+              }}
+              onLoad={() => loaded.current.add(index)}
               src={slide.image}
               alt={slide.alt}
               fill
               sizes="100vw"
-              priority
+              priority={index === 0}
+              loading={index === 0 ? undefined : "eager"}
+              fetchPriority={index === 0 ? "high" : "low"}
               className={`object-cover ${slide.imagePosition || "object-center"}`}
             />
           </div>
         );
       })}
 
-      {/* Preserve existing overlay treatment */}
-      {/* phones: fade from the top so the roof shows at the bottom; sm+: fade from the left */}
+      {/* Overlay: phones fade from the top so the roof shows at the bottom; sm+ fades from the left */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/55 sm:to-transparent" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-transparent to-transparent" />
 
-      {/* Hero content container: preserves exact dimensions and vertical padding */}
+      {/* Content: grid stack keeps the hero height identical across slides */}
       <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-10 sm:pt-4 lg:min-h-[520px]">
         <div className="w-full sm:w-1/2">
-          {/* CSS Grid stack keeps height perfectly stable across transitions */}
-          <div className="grid grid-cols-1 grid-rows-1">
+          <div className="grid grid-cols-1 grid-rows-1" aria-live={paused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const isActive = index === activeIndex;
+              // Only the first slide owns the page's <h1>; the rest are same-looking <h2>s
+              const Heading = index === 0 ? "h1" : "h2";
               return (
                 <div
                   key={slide.id}
-                  aria-hidden={!isActive}
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${count}`}
+                  inert={!isActive}
                   className={`col-start-1 row-start-1 transition-opacity duration-700 ease-in-out motion-reduce:transition-none ${
-                    isActive
-                      ? "pointer-events-auto z-10 opacity-100"
-                      : "pointer-events-none z-0 select-none opacity-0"
+                    isActive ? "z-10 opacity-100" : "z-0 select-none opacity-0"
                   }`}
                 >
-                  <h1 className="text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]">
+                  <Heading
+                    style={{ "--hero-delay": "0.05s" } as React.CSSProperties}
+                    className="hero-rise text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]"
+                  >
                     {slide.headline}
-                  </h1>
-                  <p className="mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed">
+                  </Heading>
+                  <p
+                    style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
+                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-800 sm:mt-5 sm:max-w-sm sm:text-base sm:leading-relaxed"
+                  >
                     {slide.description}
                   </p>
-                  <div className="mt-5 sm:mt-7">
+                  <div
+                    style={{ "--hero-delay": "0.4s" } as React.CSSProperties}
+                    className="hero-rise mt-5 sm:mt-7"
+                  >
                     <Link
                       href={slide.ctaHref}
-                      tabIndex={isActive ? 0 : -1}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand sm:px-7 sm:py-3.5"
+                      className="group inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-7 sm:py-3.5"
                     >
-                      {slide.ctaText} <ArrowRight className="h-4 w-4" />
+                      {slide.ctaText}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                     </Link>
                   </div>
                 </div>
@@ -194,14 +250,12 @@ export default function HeroCarousel({
             })}
           </div>
 
-          {/* Carousel indicators: exactly 4 subtle, accessible pill buttons */}
-          {slides.length > 1 && (
+          {/* Slide indicators: exactly one button per slide */}
+          {count > 1 && (
             <div
-              role="tablist"
-              aria-label="Carousel slide selectors"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              className="mt-6 flex items-center gap-2 sm:mt-8"
+              role="group"
+              aria-label="Choose slide"
+              className="mt-5 inline-flex items-center rounded-full bg-white/80 px-2 ring-1 ring-black/5 sm:mt-8 sm:bg-transparent sm:px-0 sm:ring-0"
             >
               {slides.map((slide, index) => {
                 const isActive = index === activeIndex;
@@ -209,17 +263,17 @@ export default function HeroCarousel({
                   <button
                     key={slide.id}
                     type="button"
-                    role="tab"
-                    aria-selected={isActive}
                     aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => handleSelectSlide(index)}
-                    className="group relative flex h-7 cursor-pointer items-center justify-center px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                    aria-current={isActive ? "true" : undefined}
+                    onClick={() => {
+                      skipped.current = 0;
+                      setActiveIndex(index);
+                    }}
+                    className="group relative flex h-9 cursor-pointer items-center justify-center px-1 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-brand"
                   >
                     <span
                       className={`block h-2 rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "w-8 bg-brand"
-                          : "w-2.5 bg-navy/25 group-hover:bg-navy/50"
+                        isActive ? "w-8 bg-brand" : "w-2.5 bg-navy/35 group-hover:bg-navy/60"
                       }`}
                     />
                   </button>

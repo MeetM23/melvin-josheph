@@ -95,7 +95,7 @@ export default function AboutPage() {
       {/* 3. Our story */}
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-9 sm:pb-14 sm:pt-16">
         <div className="mx-auto grid max-w-7xl items-center gap-5 px-4 sm:gap-12 sm:px-8 md:grid-cols-2">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
+          <div data-reveal className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
             <Image
               src="/images/about-plant-aerial.jpg"
               alt="Aerial view of the Durawin manufacturing plant"
@@ -104,7 +104,7 @@ export default function AboutPage() {
               className="object-cover"
             />
           </div>
-          <div>
+          <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
             <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Our Story</h2>
             <p className="mt-0.5 text-sm text-slate-600 sm:mt-1">Roofing built to last, made in Palakkad</p>
             <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:mt-5 sm:text-base">
@@ -125,11 +125,13 @@ export default function AboutPage() {
       {/* 4. Vision, mission, values — stacked cards on phones, 3 columns from sm */}
       <section className="bg-slate-50 pb-8 sm:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">What Drives Us</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Our vision, mission and values</p>
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">What Drives Us</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Our vision, mission and values</p>
+          </div>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:mt-7 sm:grid-cols-3 sm:gap-6">
-            {pillars.map(({ title, Icon, text, points }) => (
-              <div key={title} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-md sm:block sm:p-7">
+            {pillars.map(({ title, Icon, text, points }, i) => (
+              <div key={title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-md sm:block sm:p-7">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-brand bg-white text-brand sm:h-14 sm:w-14">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
                 </span>

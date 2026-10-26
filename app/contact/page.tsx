@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, FileText, MapPin, MessageSquare, Phone, PhoneCall, Send, Truck } from "lucide-react";
+import { ArrowRight, FileText, MapPin, MessageSquare, Phone, PhoneCall, Truck } from "lucide-react";
+import EnquiryForm from "@/components/EnquiryForm";
 import { site } from "@/lib/site";
 
 export const metadata = { title: "Contact Us" };
@@ -18,9 +19,6 @@ const steps = [
   { title: "Get Quote", text: "Receive a clear price", Icon: FileText },
   { title: "Delivery", text: "Sheets cut and dispatched", Icon: Truck },
 ];
-
-const field =
-  "w-full rounded-lg border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-base text-slate-800 placeholder-slate-400 outline-none transition focus:border-brand focus:bg-white sm:text-sm";
 
 export default function ContactPage() {
   return (
@@ -86,7 +84,7 @@ export default function ContactPage() {
       <section className="bg-gradient-to-b from-white to-slate-50 pb-8 pt-8 sm:pb-12 sm:pt-14">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:gap-8 sm:px-8 md:grid-cols-5">
           {/* Contact information */}
-          <div className="min-w-0 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-2">
+          <div data-reveal className="min-w-0 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-2">
             <h2 className="text-xl font-extrabold text-navy sm:text-2xl">Contact Information</h2>
             <p className="mt-0.5 text-sm text-slate-500">Reach us directly, we are happy to help</p>
 
@@ -135,24 +133,11 @@ export default function ContactPage() {
           </div>
 
           {/* Message form */}
-          <div className="min-w-0 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-3">
+          <div id="enquiry" data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="min-w-0 scroll-mt-4 rounded-xl bg-white p-5 shadow-md sm:p-8 md:col-span-3">
             <h2 className="text-xl font-extrabold text-navy sm:text-2xl">Send Us a Message</h2>
             <p className="mt-0.5 text-sm text-slate-500">Share your requirement and we will get back to you</p>
 
-            <form className="mt-5 space-y-3 sm:mt-7 sm:space-y-4">
-              <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-                <input type="text" placeholder="Your Name" aria-label="Your Name" autoComplete="name" className={field} required />
-                <input type="tel" placeholder="Your Phone Number" aria-label="Your Phone Number" autoComplete="tel" className={field} required />
-              </div>
-              <input type="email" placeholder="Your Email" aria-label="Your Email" autoComplete="email" className={field} required />
-              <textarea rows={5} placeholder="Your Message" aria-label="Your Message" className={`${field} resize-none`} required />
-              <button
-                type="submit"
-                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-navy py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-brand"
-              >
-                <Send className="h-4 w-4" /> Send Message
-              </button>
-            </form>
+            <EnquiryForm />
           </div>
         </div>
       </section>
@@ -160,12 +145,14 @@ export default function ContactPage() {
       {/* 4. How it works — 2x2 on phones, one row from sm */}
       <section className="bg-white py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">How We Work With You</h2>
-          <p className="mt-0.5 text-sm text-slate-600">From your first enquiry to delivery</p>
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">How We Work With You</h2>
+            <p className="mt-0.5 text-sm text-slate-600">From your first enquiry to delivery</p>
+          </div>
           <div className="relative mt-6 grid grid-cols-2 gap-x-3 gap-y-6 sm:mt-10 sm:grid-cols-4 sm:gap-6">
             <div className="absolute left-[12.5%] right-[12.5%] top-7 hidden border-t-2 border-dashed border-brand/40 sm:block" />
             {steps.map(({ title, text, Icon }, i) => (
-              <div key={title} className="relative flex min-w-0 flex-col items-center text-center">
+              <div key={title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="relative flex min-w-0 flex-col items-center text-center">
                 <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-white shadow-md ring-4 ring-white sm:h-14 sm:w-14 sm:text-lg">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -183,10 +170,12 @@ export default function ContactPage() {
       {/* 5. Location */}
       <section className="bg-slate-50 pb-10 pt-6 sm:pb-14 sm:pt-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Our Location</h2>
-          <p className="mt-0.5 text-sm text-slate-600">Visit our manufacturing unit in Palakkad, Kerala</p>
+          <div data-reveal>
+            <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">Our Location</h2>
+            <p className="mt-0.5 text-sm text-slate-600">Visit our manufacturing unit in Palakkad, Kerala</p>
+          </div>
 
-          <div className="relative mt-4 overflow-hidden rounded-xl bg-white shadow-md sm:mt-7 sm:rounded-2xl">
+          <div data-reveal className="relative mt-4 overflow-hidden rounded-xl bg-white shadow-md sm:mt-7 sm:rounded-2xl">
             <iframe
               title="Durawin location on Google Maps"
               src={`https://www.google.com/maps?q=${mapQuery}&z=16&output=embed`}
