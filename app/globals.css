@@ -202,6 +202,12 @@ html.lenis body {
   animation-play-state: paused;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
 /* ---- Premium Scroll-Triggered Reveals ----
    Content is 100% visible by default. It is only hidden once the Reveal script has
    initialized the page (html[data-reveal-ready]) and the element is pending reveal.

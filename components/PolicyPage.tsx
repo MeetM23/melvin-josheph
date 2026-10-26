@@ -28,8 +28,7 @@ export default function PolicyPage({
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white pb-10 sm:pb-20 bg-paper-grain">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-25" />
+      <section className="bg-white pb-10 sm:pb-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           <div className="space-y-5 rounded-xl bg-white p-4 shadow-md sm:space-y-8 sm:rounded-2xl sm:p-10">
             {sections.map((s, i) => (

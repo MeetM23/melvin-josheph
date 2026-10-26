@@ -170,48 +170,51 @@ export default function Home() {
           <div
             data-reveal="scale"
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
-            className="group relative mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-navy-dark shadow-xl sm:mt-12"
+            className="group relative mt-6 overflow-hidden rounded-2xl border border-slate-300/80 bg-slate-900 shadow-xl sm:mt-12"
           >
-            <div className="relative min-h-[440px] w-full min-[480px]:min-h-[400px] sm:min-h-0 sm:aspect-[21/8]">
+            <div className="relative min-h-[460px] w-full min-[480px]:min-h-[420px] sm:min-h-[380px] lg:min-h-[420px]">
+              {/* Full clarity high-res image showing coils and factory floor clearly */}
               <Image
                 src="/images/raw-materials-coils.jpg"
                 alt="Galvanized steel coils in Durawin manufacturing plant"
                 fill
                 sizes="(max-width: 1280px) 100vw, 1200px"
-                className="object-cover object-[50%_85%] opacity-45 sm:opacity-55 transition-transform duration-700 ease-out group-hover:scale-105"
+                className="object-cover object-[50%_75%] sm:object-[50%_80%] transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              {/* Multi-tier dark scrim for 100% crisp text contrast in all screen sizes */}
-              <div className="absolute inset-0 bg-navy-dark/75 sm:bg-navy-dark/45" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/85 to-navy-dark/40 sm:from-navy-dark sm:via-navy-dark/70 sm:to-transparent" />
+              {/* Subtle natural bottom gradient to ground the console plate */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 via-40% to-transparent pointer-events-none" />
               
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 lg:p-10">
-                <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/75 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-sm backdrop-blur-md sm:text-[11px]">
-                  <span>METALLURGICAL SPECIFICATION</span>
-                  <span>✦</span>
-                  <span>IS 277 / IS 513 CERTIFIED</span>
-                </div>
-                <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-white drop-shadow-sm sm:text-3xl lg:text-4xl">
-                  Premium High-Tensile Steel Coils
-                </h3>
-                <p className="mt-2 max-w-xl text-xs leading-relaxed text-slate-100 drop-shadow-sm sm:text-base sm:text-slate-200">
-                  The unyielding foundation of every Durawin roofing sheet. Sourced with optimal zinc coating mass and uniform paint film thickness for decades of corrosion resistance.
-                </p>
+              {/* Architectural frosted glass specification console — guarantees 100% text readability while keeping photo clear */}
+              <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-6 lg:p-8 flex justify-start">
+                <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/85 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
+                  <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
+                    <span>METALLURGICAL SPECIFICATION</span>
+                    <span>✦</span>
+                    <span>IS 277 / IS 513 CERTIFIED</span>
+                  </div>
+                  <h3 className="mt-2.5 text-xl font-extrabold tracking-tight text-white sm:text-2xl lg:text-3xl">
+                    Premium High-Tensile Steel Coils
+                  </h3>
+                  <p className="mt-1.5 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-sm">
+                    The unyielding foundation of every Durawin roofing sheet. Sourced with optimal zinc coating mass and uniform paint film thickness for decades of corrosion resistance.
+                  </p>
 
-                {/* Technical specification chips */}
-                <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
-                  {[
-                    "Zero Recycled Scrap Steel",
-                    "Uniform Coil Thickness",
-                    "Optimal Yield Strength",
-                    "Verified Laboratory Quality",
-                  ].map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[11px] font-semibold text-white shadow-sm backdrop-blur sm:bg-white/10 sm:px-4 sm:py-1.5 sm:text-xs"
-                    >
-                      <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" /> {t}
-                    </span>
-                  ))}
+                  {/* Technical specification chips */}
+                  <div className="mt-4 flex flex-wrap gap-2 sm:gap-2.5">
+                    {[
+                      "Zero Recycled Scrap Steel",
+                      "Uniform Coil Thickness",
+                      "Optimal Yield Strength",
+                      "Verified Laboratory Quality",
+                    ].map((t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white shadow-xs backdrop-blur sm:px-3 sm:py-1.5 sm:text-xs"
+                      >
+                        <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" /> {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
