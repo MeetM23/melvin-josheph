@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Eye, Factory, Layers, MapPin, ShieldCheck, Target, Trophy, Award } from "lucide-react";
 import { CallStrip, Process } from "@/components/sections";
+import { RoofTrussWatermark, CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 export const metadata = { title: "About Us | 20+ Years of Roofing Excellence | Durawin" };
 
@@ -64,6 +65,11 @@ export default function AboutPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/70 sm:to-transparent" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-transparent to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-40" />
+        <WatermarkText text="EST. 2004" className="absolute -bottom-6 right-6 -z-10 opacity-25 hidden md:block" />
+        <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
+          <CadDimensionMarks label="DURAWIN HERITAGE // PALAKKAD" spec="EST. 2004 • INDUSTRIAL STANDARDS" />
+        </div>
 
         <div className="mx-auto flex min-h-[400px] max-w-7xl items-start px-5 pb-28 pt-10 sm:min-h-[460px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[500px]">
           <div className="w-full sm:w-1/2">
@@ -139,6 +145,8 @@ export default function AboutPage() {
 
       {/* 3. Our Story — Editorial spread */}
       <section className="relative overflow-hidden bg-white pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-30" />
+        <RoofTrussWatermark className="absolute -top-10 right-0 -z-10 w-[850px] max-w-full opacity-50 hidden lg:block" />
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-12 sm:px-8 lg:grid-cols-12">
           {/* Left: Aerial image with architectural framing */}
           <div data-reveal="scale" className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-md lg:col-span-6">
@@ -182,6 +190,8 @@ export default function AboutPage() {
 
       {/* 4. What Drives Us (Vision, Mission, Values) — 3-pillar architectural cards */}
       <section className="relative overflow-hidden bg-slate-50/70 pb-12 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-35" />
+        <WatermarkText text="VALUES" className="absolute -bottom-8 right-6 -z-10 opacity-20 hidden md:block" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">

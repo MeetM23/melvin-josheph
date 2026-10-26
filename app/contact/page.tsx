@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight, Clock, FileText, MapPin, MessageSquare, Phone, PhoneCall, Truck, ShieldCheck, Headphones } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
 import { site } from "@/lib/site";
+import { SheetProfileWatermark, CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 export const metadata = { title: "Contact Factory Desk & Custom Quotes | Durawin" };
 
@@ -35,6 +36,11 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/80 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/70 sm:to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-35" />
+        <WatermarkText text="FACTORY DESK" className="absolute -bottom-6 right-6 -z-10 opacity-25 hidden md:block" />
+        <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
+          <CadDimensionMarks label="DIRECT PLANT DESK" spec="GPS 10.6385° N, 76.5412° E" />
+        </div>
 
         <div className="mx-auto flex min-h-[320px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[420px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[460px]">
           <div className="w-full sm:w-1/2">
@@ -120,6 +126,8 @@ export default function ContactPage() {
 
       {/* 3. Details + Message Form */}
       <section className="relative overflow-hidden bg-slate-50/70 pb-12 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-30" />
+        <SheetProfileWatermark className="absolute -top-6 -right-10 -z-10 w-[700px] max-w-full opacity-35 hidden md:block" />
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-8 lg:grid-cols-12">
           {/* Left: Contact Info Console */}
           <div data-reveal className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-5 flex flex-col justify-between">
@@ -223,6 +231,8 @@ export default function ContactPage() {
 
       {/* 4. Structured Customer Workflow — 4 phases */}
       <section className="relative overflow-hidden bg-white py-12 sm:py-16 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-35" />
+        <WatermarkText text="DISPATCH" className="absolute -bottom-8 right-6 -z-10 opacity-20 hidden md:block" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
@@ -273,6 +283,7 @@ export default function ContactPage() {
 
       {/* 5. Location / Map */}
       <section className="relative overflow-hidden bg-slate-50/70 pb-12 pt-8 sm:pb-16 sm:pt-10 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-25" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>

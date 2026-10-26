@@ -227,14 +227,21 @@ export function WatermarkText({
   className?: string;
   tone?: "light" | "dark";
 }) {
+  const isLight = tone === "light";
   return (
     <div
       aria-hidden="true"
       className={`pointer-events-none select-none overflow-hidden ${
-        tone === "light" ? "watermark-outline" : "watermark-outline-dark"
+        isLight ? "watermark-outline" : "watermark-outline-dark"
       } ${className}`}
     >
-      <span className="text-[clamp(4.5rem,14vw,11rem)] leading-none font-black tracking-tight block">
+      <span
+        style={{
+          WebkitTextStroke: isLight ? "1px rgba(10, 37, 64, 0.04)" : "1px rgba(255, 255, 255, 0.035)",
+          color: "transparent",
+        }}
+        className="text-[clamp(4.5rem,14vw,11rem)] leading-none font-black tracking-tight block uppercase"
+      >
         {text}
       </span>
     </div>

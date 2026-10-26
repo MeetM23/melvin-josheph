@@ -79,24 +79,22 @@ body {
 /* Oversized Outline Watermark Typography */
 .watermark-outline {
   font-family: var(--font-poppins), sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  -webkit-text-stroke: 1.5px rgba(10, 37, 64, 0.025);
-  color: transparent;
   user-select: none;
   pointer-events: none;
+}
+.watermark-outline span {
+  -webkit-text-stroke: 1.2px rgba(10, 37, 64, 0.04);
+  color: transparent !important;
 }
 
 .watermark-outline-dark {
   font-family: var(--font-poppins), sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.02);
-  color: transparent;
   user-select: none;
   pointer-events: none;
+}
+.watermark-outline-dark span {
+  -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.035);
+  color: transparent !important;
 }
 
 .editorial-badge {

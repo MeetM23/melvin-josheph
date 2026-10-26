@@ -163,6 +163,9 @@ export default function ProductsPage() {
 
       {/* 3. Product Catalogue — Curated architectural specification cards */}
       <section id="catalogue" className="relative overflow-hidden bg-slate-50/70 pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain scroll-mt-16">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-35" />
+        <SheetProfileWatermark className="absolute -top-6 right-0 -z-10 w-[700px] max-w-full opacity-40 hidden md:block" />
+
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
             <div>
@@ -188,12 +191,15 @@ export default function ProductsPage() {
                 id={p.id}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
-                className="group scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-lg sm:p-6"
+                className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-lg sm:p-6"
               >
+                <div className="pointer-events-none absolute -bottom-10 -right-10 w-96 h-36 bg-roof-profile-light opacity-25 hidden sm:block" />
+
                 <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
                   {/* Framed Image Container */}
                   <div className="lg:col-span-5">
                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
+                      <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
                       <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5 sm:left-3.5 sm:top-3.5">
                         <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
                           {p.code}
@@ -273,6 +279,8 @@ export default function ProductsPage() {
 
       {/* 4. Applications */}
       <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-30" />
+        <WatermarkText text="SECTORS" className="absolute -bottom-6 -right-6 -z-10 opacity-20 hidden lg:block" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
@@ -327,6 +335,8 @@ export default function ProductsPage() {
       {/* 6. Custom Solutions Banner — Architectural dark console */}
       <section id="custom" className="relative scroll-mt-20 overflow-hidden bg-navy-dark px-4 py-12 text-white sm:px-8 sm:py-16">
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-dark opacity-35" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid-dark opacity-20" />
         
         <div data-reveal className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">

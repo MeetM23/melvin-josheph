@@ -33,8 +33,8 @@ export default function Home() {
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
       <section className="relative overflow-hidden bg-slate-50/70 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
         {/* Subtle engineering blueprint grid & watermark */}
-        <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-40 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
-        <WatermarkText text="TRUSSFOLD" className="absolute -right-6 -top-6 select-none pointer-events-none hidden md:block opacity-50" />
+        <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
+        <WatermarkText text="TRUSSFOLD" className="absolute -right-6 -top-6 select-none pointer-events-none hidden md:block" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
@@ -110,8 +110,8 @@ export default function Home() {
       {/* 4. Raw material partners + coils */}
       <section className="relative overflow-hidden bg-white pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
         {/* Subtle roofing profile linework & watermark */}
-        <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-45" />
-        <WatermarkText text="PRIMARY STEEL" className="absolute -left-6 -top-6 select-none pointer-events-none hidden md:block opacity-40" />
+        <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-35" />
+        <WatermarkText text="PRIMARY STEEL" className="absolute -left-6 -top-6 select-none pointer-events-none hidden md:block" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
@@ -161,32 +161,39 @@ export default function Home() {
             ))}
           </div>
 
+          <div className="mt-6 hidden sm:flex items-center justify-between border-t border-slate-100 pt-4">
+            <CadDimensionMarks label="PRIMARY STRUCTURAL GRADE" spec="550 MPA HIGH-TENSILE COILS" />
+            <CadDimensionMarks label="CORROSION PROTECTION" spec="ZINC + POLYESTER PRIMER" />
+          </div>
+
           {/* Steel coil feature with architectural drafting strip */}
           <div
             data-reveal="scale"
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             className="group relative mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-navy-dark shadow-xl sm:mt-12"
           >
-            <div className="relative aspect-[4/3] w-full min-[480px]:aspect-[16/9] sm:aspect-[21/8]">
+            <div className="relative min-h-[440px] w-full min-[480px]:min-h-[400px] sm:min-h-0 sm:aspect-[21/8]">
               <Image
                 src="/images/raw-materials-coils.jpg"
                 alt="Galvanized steel coils in Durawin manufacturing plant"
                 fill
                 sizes="(max-width: 1280px) 100vw, 1200px"
-                className="object-cover object-[50%_85%] transition-transform duration-700 ease-out group-hover:scale-105"
+                className="object-cover object-[50%_85%] opacity-45 sm:opacity-55 transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/40 to-transparent" />
+              {/* Multi-tier dark scrim for 100% crisp text contrast in all screen sizes */}
+              <div className="absolute inset-0 bg-navy-dark/75 sm:bg-navy-dark/45" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/85 to-navy-dark/40 sm:from-navy-dark sm:via-navy-dark/70 sm:to-transparent" />
               
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 lg:p-10">
-                <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-gold">
+                <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/75 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-sm backdrop-blur-md sm:text-[11px]">
                   <span>METALLURGICAL SPECIFICATION</span>
                   <span>✦</span>
                   <span>IS 277 / IS 513 CERTIFIED</span>
                 </div>
-                <h3 className="mt-2 text-xl font-extrabold text-white sm:text-3xl lg:text-4xl">
+                <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-white drop-shadow-sm sm:text-3xl lg:text-4xl">
                   Premium High-Tensile Steel Coils
                 </h3>
-                <p className="mt-1 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-base">
+                <p className="mt-2 max-w-xl text-xs leading-relaxed text-slate-100 drop-shadow-sm sm:text-base sm:text-slate-200">
                   The unyielding foundation of every Durawin roofing sheet. Sourced with optimal zinc coating mass and uniform paint film thickness for decades of corrosion resistance.
                 </p>
 
@@ -200,7 +207,7 @@ export default function Home() {
                   ].map((t) => (
                     <span
                       key={t}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[11px] font-semibold text-white shadow-sm backdrop-blur sm:bg-white/10 sm:px-4 sm:py-1.5 sm:text-xs"
                     >
                       <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" /> {t}
                     </span>
