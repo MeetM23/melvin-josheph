@@ -277,4 +277,23 @@ html.lenis body {
   }
 }
 
+/* Smooth Cursor styles for desktop pointer devices */
+@media (any-hover: hover) and (any-pointer: fine) {
+  body.has-smooth-cursor,
+  body.has-smooth-cursor a,
+  body.has-smooth-cursor button,
+  body.has-smooth-cursor [role="button"],
+  body.has-smooth-cursor summary,
+  body.has-smooth-cursor label {
+    cursor: none !important;
+  }
+
+  body.has-smooth-cursor input,
+  body.has-smooth-cursor textarea,
+  body.has-smooth-cursor select,
+  body.has-smooth-cursor [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
 
