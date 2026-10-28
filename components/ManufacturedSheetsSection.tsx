@@ -91,12 +91,6 @@ const manufacturedSheets: ManufacturedProduct[] = [
         caption: "1110 mm Cover Width • 50.5 mm Pitch • 3.5 mm Depth",
       },
       {
-        src: "/images/product-liner-3d.jpg",
-        label: "3D Profile",
-        badge: "ISOMETRIC VIEW",
-        caption: "Precision Multi-Rib Continuous Profile Geometry",
-      },
-      {
         src: "/images/product-liner-colors-stack.jpg",
         label: "5 Color Options",
         badge: "COLOUR RANGE",
