@@ -12,6 +12,8 @@ const PRODUCTS = [
   { value: "", label: "Not sure yet" },
   { value: "trussfold", label: "Trussfold Roofing Sheets" },
   { value: "liner-sheets", label: "Liner Sheets (Interior & Ceiling)" },
+  { value: "gp-pipes", label: "Galvanized GP Pipes & Purlins" },
+  { value: "gutters", label: "Rainwater Gutters & Downpipes" },
   { value: "colour-coated", label: "Colour Coated Sheets" },
   { value: "galvanized", label: "Galvanized Roofing Sheets" },
   { value: "custom", label: "Customized solution" },

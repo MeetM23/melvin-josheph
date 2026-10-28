@@ -157,7 +157,9 @@ export default function Home() {
                   <p className="font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:text-xs">
                     {p.name}
                   </p>
-                  <p className="text-[10px] text-slate-400 hidden sm:block">Authorized Supply Line</p>
+                  <p className="text-[10px] text-slate-400 hidden sm:block">
+                    {p.name === "APL Apollo" ? "Structural GP Pipes & Tubes" : "Authorized Supply Line"}
+                  </p>
                 </div>
               </div>
             ))}

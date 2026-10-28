@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets, Sparkles, Layers } from "lucide-react";
+import { ArrowRight, Box, CheckCircle2, Palette, Ruler, ShieldCheck, Droplets, Sparkles, Layers } from "lucide-react";
 import { WhyChoose } from "@/components/sections";
 import { CadDimensionMarks, SheetProfileWatermark, WatermarkText } from "@/components/IndustrialBackgrounds";
 
@@ -289,6 +289,186 @@ export default function ProductsPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3b. Structural GP Pipes & Rainwater Accessories */}
+      <section id="structural-framework" className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-30" />
+        <WatermarkText text="FRAMEWORK" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <Box className="h-3.5 w-3.5 text-brand" /> Structural Framework & Drainage
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                Structural GP Pipes & Rainwater Accessories
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+                Engineered purlin pipes and complete rainwater drainage systems to complement Durawin roofing & liner sheets
+              </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ STRUCTURAL ACCESSORIES ]
+            </div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
+            {/* GP Pipes Card */}
+            <div
+              data-reveal="scale"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-xl sm:p-7"
+            >
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
+                  <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
+                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
+                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
+                      DW-GP-PIPE
+                    </span>
+                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
+                      APL APOLLO & PRIMARY MILLS
+                    </span>
+                  </div>
+                  <div className="relative flex h-full w-full items-center justify-center">
+                    <Image
+                      src="/images/product-gp-pipes.jpg"
+                      alt="Structural Galvanized Plain GP Pipes for Roof Purlins"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-5">
+                  <div className="flex items-center gap-2 font-mono text-xs text-brand">
+                    <span>STRUCTURAL PURLIN TUBES</span>
+                    <span>✦</span>
+                    <span>PRIMARY GALVANIZED STEEL</span>
+                  </div>
+                  <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy">
+                    Galvanized Plain (GP) Pipes
+                  </h3>
+                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
+                    Square & Rectangular Hollow Structural Sections
+                  </p>
+                  <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses. Heavy zinc coating provides reliable sacrificial protection against coastal humidity, industrial gases, and heavy rain.
+                  </p>
+
+                  <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 font-mono text-xs">
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Section Geometry</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Square & Rectangular (SHS / RHS)</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Primary Function</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Roof Purlins, Trusses & Rafters</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Corrosion Shield</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">High-Mass Galvanized Plain Zinc</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Authorized Source</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">APL Apollo & Primary Mills</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+                <span className="font-mono text-xs text-slate-500">
+                  Ready stock for purlin fabrication
+                </span>
+                <Link
+                  href="/contact?product=gp-pipes"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
+                >
+                  Enquire GP Pipes <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Rainwater Gutter Card */}
+            <div
+              data-reveal="scale"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-xl sm:p-7"
+            >
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC]">
+                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
+                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
+                      DW-GUTTER-SYS
+                    </span>
+                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
+                      ALL-WEATHER DRAINAGE
+                    </span>
+                  </div>
+                  <div className="relative flex h-full w-full items-center justify-center">
+                    <Image
+                      src="/images/product-rainwater-gutter.jpg"
+                      alt="Engineered Rainwater Eaves Gutter and Downpipe System"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-5">
+                  <div className="flex items-center gap-2 font-mono text-xs text-brand">
+                    <span>RAINWATER HARVESTING & DISCHARGE</span>
+                    <span>✦</span>
+                    <span>HIGH-FLOW DRAINAGE</span>
+                  </div>
+                  <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy">
+                    Rainwater Gutters & Downpipes
+                  </h3>
+                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
+                    High-Capacity Eaves Gutter & Vertical Discharge Fittings
+                  </p>
+                  <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    High-capacity engineered eaves gutters, brackets, and downspouts tailored to fit Durawin roofing sheet profiles. Protects building facades, prevents roof edge overflow, and directs rainwater to harvesting points.
+                  </p>
+
+                  <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 font-mono text-xs">
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">System Components</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Gutters, Downpipes & Angles</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Capacity Rating</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">High-Flow Monsoon Runoff</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Material Grade</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">UV-Stabilized All-Weather uPVC</span>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] uppercase text-slate-400">Fit Compatibility</span>
+                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Trussfold & Trafford Roof Eaves</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+                <span className="font-mono text-xs text-slate-500">
+                  Complete drainage accessory packages
+                </span>
+                <Link
+                  href="/contact?product=gutters"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
+                >
+                  Enquire Gutters <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
