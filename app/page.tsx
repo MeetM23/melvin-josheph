@@ -1,12 +1,11 @@
 import Image from "next/image";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroFeatures from "@/components/HeroFeatures";
+import ManufacturedSheetsSection from "@/components/ManufacturedSheetsSection";
 import StatsMarquee from "@/components/StatsMarquee";
 import { CallStrip, WhyChoose } from "@/components/sections";
 import { ArrowRight, BadgeCheck, Building2, CheckCircle2, Factory, Home as HomeIcon, Store } from "lucide-react";
 import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
-
-
 
 const applications = [
   { title: "Household Roofing", desc: "Stylish, reliable roofing for modern homes.", image: "/images/app-household.jpg", Icon: HomeIcon },
@@ -30,6 +29,9 @@ export default function Home() {
       {/* 2. Feature card overlapping the hero */}
       <HeroFeatures />  
 
+      {/* 2b. Manufactured Sheet Products — Roofing Sheets & Liner Sheets */}
+      <ManufacturedSheetsSection />
+
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
       <section className="relative overflow-hidden bg-slate-50/70 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
         {/* Subtle engineering blueprint grid & watermark */}
@@ -46,7 +48,7 @@ export default function Home() {
                 Our Applications
               </h2>
               <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                Engineered trussfold roofing systems for residences, commercial spaces, and industrial hubs
+                Engineered roofing and liner systems for residences, commercial spaces, and industrial hubs
               </p>
             </div>
             <div className="hidden font-mono text-xs text-slate-400 sm:block">

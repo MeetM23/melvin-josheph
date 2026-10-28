@@ -30,8 +30,23 @@ const productRange = [
     tags: ["High load capacity", "Deep drainage trough", "Custom length"],
   },
   {
-    id: "colour-coated",
+    id: "liner-sheets",
     num: "02",
+    code: "DW-LINER-PRO",
+    title: "Liner Sheets",
+    desc: "Precision multi-rib steel sheets designed specifically for interior ceilings, interior wall lining, architectural soffits, and partition panels with a sleek, low-maintenance finish.",
+    image: "/images/product-liner-profile-spec.jpg",
+    specs: [
+      { label: "Profile Geometry", value: "Continuous Multi-Rib Liner" },
+      { label: "Cover Width", value: "1110 mm Total Profile" },
+      { label: "Rib Dimensions", value: "50.5 mm Pitch • 3.5 mm Depth" },
+      { label: "Application", value: "Interior Ceilings, Walls & Soffits" },
+    ],
+    tags: ["1110 mm cover width", "50.5 mm rib pitch", "Interior ceilings & soffits", "5 colour options"],
+  },
+  {
+    id: "colour-coated",
+    num: "03",
     code: "DW-COLOR-PLUS",
     title: "Colour Coated Sheets",
     desc: "Pre-painted steel sheets finished with UV-stabilized architectural pigments that preserve vibrance against harsh tropical sun and monsoon downpours.",
@@ -46,7 +61,7 @@ const productRange = [
   },
   {
     id: "galvanized",
-    num: "03",
+    num: "04",
     code: "DW-GALV-SHIELD",
     title: "Galvanized Corrugated Sheets",
     desc: "Hot-dip zinc-coated steel roofing engineered for maximum sacrificial corrosion resistance in agricultural sheds and industrial warehouses.",
@@ -101,13 +116,13 @@ export default function ProductsPage() {
               className="hero-rise mt-3 text-[clamp(1.9rem,8vw,2.8rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.5rem]"
             >
               Engineered<br />
-              <span className="text-brand">Trussfold Systems</span>
+              <span className="text-brand">Roofing & Liner Systems</span>
             </h1>
             <p
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
               className="hero-rise mt-3 max-w-sm text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
             >
-              Precision-profiled roofing sheets manufactured with primary high-tensile steel coils, tailored cut lengths, and certified corrosion resistance.
+              Precision-profiled roofing sheets and interior liner sheets manufactured with primary high-tensile steel coils, tailored cut lengths, and certified corrosion resistance.
             </p>
             <div
               style={{ "--hero-delay": "0.36s" } as React.CSSProperties}
@@ -181,7 +196,7 @@ export default function ProductsPage() {
               </p>
             </div>
             <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ 03 PRODUCT SPECIFICATIONS ]
+              [ 04 PRODUCT SPECIFICATIONS ]
             </div>
           </div>
 

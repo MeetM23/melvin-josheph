@@ -11,6 +11,7 @@ type Errors = Partial<Record<Field, string>>;
 const PRODUCTS = [
   { value: "", label: "Not sure yet" },
   { value: "trussfold", label: "Trussfold Roofing Sheets" },
+  { value: "liner-sheets", label: "Liner Sheets (Interior & Ceiling)" },
   { value: "colour-coated", label: "Colour Coated Sheets" },
   { value: "galvanized", label: "Galvanized Roofing Sheets" },
   { value: "custom", label: "Customized solution" },

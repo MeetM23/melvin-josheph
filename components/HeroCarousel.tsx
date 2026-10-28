@@ -24,14 +24,14 @@ const defaultSlides: HeroSlide[] = [
     imagePosition: "object-[72%_50%] sm:object-[80%_25%]",
     headline: (
       <>
-        Roofing<br />
+        Roofing & Liner<br />
         Solutions<br />
         <span className="text-brand">For a Stronger</span><br />
         Tomorrow
       </>
     ),
     description:
-      "Premium Trussfold Roofing Sheets Manufactured with the Best Raw Materials for Homes, Businesses and Industries.",
+      "Premium Roofing & Liner Sheets Manufactured with Certified Primary Steel for Homes, Businesses, and Industries.",
     ctaText: "Explore Our Products",
     ctaHref: "/products",
   },
@@ -78,14 +78,14 @@ const defaultSlides: HeroSlide[] = [
     imagePosition: "object-[78%_50%] sm:object-[80%_50%]",
     headline: (
       <>
-        Trussfold<br />
-        Roofing Sheets<br />
+        Roofing & Liner<br />
+        Sheet Profiles<br />
         <span className="text-brand">Engineered for</span><br />
         Strength
       </>
     ),
     description:
-      "High-strength corrugated and colour coated roofing sheets crafted for residential, commercial and industrial builds.",
+      "High-strength roofing sheets and interior liner sheets crafted for residential, commercial and industrial builds.",
     ctaText: "Explore Our Products",
     ctaHref: "/products",
   },

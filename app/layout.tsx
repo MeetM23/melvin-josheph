@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: { default: "Durawin Trafford Sheet Manufacturing", template: "%s | Durawin" },
   description:
-    "Durawin manufactures durable trafford roofing sheets in Palakkad, Kerala. Roofing solutions for a stronger tomorrow.",
+    "Durawin manufactures durable roofing sheets and liner sheets in Palakkad, Kerala. Roofing and cladding solutions for a stronger tomorrow.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
