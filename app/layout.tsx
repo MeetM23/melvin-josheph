@@ -17,6 +17,17 @@ export const metadata: Metadata = {
   title: { default: "Durawin Trafford Sheet Manufacturing", template: "%s | Durawin" },
   description:
     "Durawin manufactures durable roofing sheets and liner sheets in Palakkad, Kerala. Roofing and cladding solutions for a stronger tomorrow.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/images/durawin-mark.webp", type: "image/webp" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
