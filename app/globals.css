@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../theme.css";
 
 @theme inline {
   --color-navy: #0a2540;
@@ -20,16 +21,210 @@ html {
 
 body {
   background: #ffffff;
-  color: #1a273a;
+  color: #2f2f2f;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-manrope), var(--font-inter), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Strict Global Typography System (6 Functional Levels) ---- */
+
+/* Level 1: Page Heading (Major Hero / Main Page Titles) */
+.page-heading {
+  font-family: var(--font-manrope), var(--font-inter), sans-serif;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+}
+
+/* Level 2: Section Heading (Section Titles across all pages) */
+.section-heading {
+  font-family: var(--font-manrope), var(--font-inter), sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.375rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+/* Level 3: Card or Item Heading (Products, Services, Highlights) */
+.item-heading {
+  font-family: var(--font-manrope), var(--font-inter), sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+/* Level 4: Body Text (Descriptions, Explanations, Narrative) */
+.body-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.6;
+  color: #475569; /* slate-600 */
+}
+
+/* Level 5: Supporting Text (Captions, Metadata, Secondary Details) */
+.supporting-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400;
+  line-height: 1.5;
+  color: #64748b; /* slate-500 */
+}
+
+/* Level 6: Technical Values (Engineering measurements, Standards) */
+.tech-value {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+}
+
+/* Standard Clean Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(10, 37, 64, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background-color: var(--color-brand);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: var(--color-navy);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-secondary:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.dayos-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: #0a2540;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(10, 37, 64, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dayos-btn-primary:hover {
+  background-color: #1668e8;
+  transform: translateY(-1px);
+}
+.dayos-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.dayos-btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: #1668e8;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(22, 104, 232, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dayos-btn-brand:hover {
+  background-color: #0e52bf;
+  transform: translateY(-1px);
+}
+.dayos-btn-brand:active {
+  transform: scale(0.98);
+}
+
+.dayos-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0a2540;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dayos-btn-secondary:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.dayos-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.dayos-nudge {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .dayos-nudge {
+  transform: translateX(3px);
 }
 
 /* ---- Architectural Textures & Editorial Craft ---- */
+.uicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.uicon:before {
+  display: block;
+}
+
 .bg-grid-pattern {
   background-image: 
     linear-gradient(to right, rgba(10, 37, 64, 0.035) 1px, transparent 1px),
@@ -82,46 +277,7 @@ h1, h2, h3, h4, h5, h6 {
   );
 }
 
-/* Oversized Architectural Watermark Typography */
-.watermark-outline {
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, sans-serif;
-  user-select: none;
-  pointer-events: none;
-}
-.watermark-outline span {
-  color: rgba(10, 37, 64, 0.065) !important;
-  -webkit-text-stroke: 1.5px rgba(10, 37, 64, 0.11);
-  letter-spacing: 0.06em;
-}
-
-.watermark-outline-dark {
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, sans-serif;
-  user-select: none;
-  pointer-events: none;
-}
-.watermark-outline-dark span {
-  color: rgba(147, 197, 253, 0.08) !important;
-  -webkit-text-stroke: 1.5px rgba(147, 197, 253, 0.16);
-  letter-spacing: 0.06em;
-}
-
-.editorial-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.3rem 0.85rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(10, 37, 64, 0.15);
-  background-color: rgba(248, 250, 252, 0.9);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #0a2540;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 1px 2px rgba(10, 37, 64, 0.05);
-}
-
+/* Corner crosshair line accents */
 .corner-crosshair {
   position: relative;
 }

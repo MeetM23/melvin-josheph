@@ -184,66 +184,24 @@ export function SheetProfileWatermark({
 }
 
 /**
- * Subtle CAD Blueprint Coordinate Stamps & Precision Measurement Ticks
+ * CAD Dimension Marks - Deprecated (returns null to eliminate visual clutter)
  */
-export function CadDimensionMarks({
-  label = "DURAWIN // SPEC 1000/28",
-  spec = "TOLERANCE ±0.5MM",
-  className = "",
-  tone = "light",
-}: {
+export function CadDimensionMarks(_props: {
   label?: string;
   spec?: string;
   className?: string;
   tone?: "light" | "dark";
 }) {
-  const isLight = tone === "light";
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none select-none flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] ${
-        isLight ? "text-slate-400/40" : "text-white/20"
-      } ${className}`}
-    >
-      <span className="flex items-center gap-1">
-        <span className="h-1 w-1 rounded-full bg-current" />
-        <span>{label}</span>
-      </span>
-      <span>•</span>
-      <span>{spec}</span>
-    </div>
-  );
+  return null;
 }
 
 /**
- * Oversized Outline Text Watermark
+ * Oversized Outline Text Watermark - Deprecated (returns null to eliminate background clutter)
  */
-export function WatermarkText({
-  text = "DURAWIN",
-  className = "",
-  tone = "light",
-}: {
+export function WatermarkText(_props: {
   text?: string;
   className?: string;
   tone?: "light" | "dark";
 }) {
-  const isLight = tone === "light";
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none select-none overflow-hidden ${
-        isLight ? "watermark-outline" : "watermark-outline-dark"
-      } ${className}`}
-    >
-      <span
-        style={{
-          color: isLight ? "rgba(10, 37, 64, 0.065)" : "rgba(147, 197, 253, 0.08)",
-          WebkitTextStroke: isLight ? "1.5px rgba(10, 37, 64, 0.11)" : "1.5px rgba(147, 197, 253, 0.16)",
-        }}
-        className="text-[clamp(2.75rem,8vw,8.5rem)] leading-none font-black tracking-[0.06em] block uppercase whitespace-nowrap"
-      >
-        {text}
-      </span>
-    </div>
-  );
+  return null;
 }

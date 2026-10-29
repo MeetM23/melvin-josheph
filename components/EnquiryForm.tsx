@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Phone, Send } from "lucide-react";
+import UIcon from "@/components/UIcon";
 import { site } from "@/lib/site";
 
 type Field = "name" | "phone" | "email" | "message";
@@ -20,7 +20,7 @@ const PRODUCTS = [
 ];
 
 const control =
-  "mt-1.5 w-full rounded-lg border bg-slate-50/60 px-4 py-3.5 text-base text-slate-800 placeholder-slate-400 outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:text-sm";
+  "mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all duration-200 focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10";
 const labelCls = "block text-sm font-semibold text-navy";
 
 const Required = () => (
@@ -200,9 +200,9 @@ export default function EnquiryForm() {
       <div>
         <button
           type="submit"
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.99]"
+          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand py-3.5 text-sm font-bold text-white shadow-md transition-all duration-200 ease-out hover:bg-navy hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98]"
         >
-          <Send className="h-4 w-4" /> Transmit Enquiry to WhatsApp Desk
+          <UIcon name="whatsapp" size="base" /> Transmit Enquiry to WhatsApp Desk
         </button>
         <p className="mt-2 text-center text-xs text-slate-500">Opens WhatsApp directly with formatted specifications ready to send to {site.contact}.</p>
       </div>
@@ -222,7 +222,7 @@ export default function EnquiryForm() {
                 </>
               )}
               <a href={`tel:+91${site.phone}`} className="inline-flex items-center gap-1 font-semibold text-brand underline">
-                <Phone className="h-3.5 w-3.5" /> or call +91 {site.phone}
+                <UIcon name="phone" size="xs" /> or call +91 {site.phone}
               </a>
             </p>
           </div>

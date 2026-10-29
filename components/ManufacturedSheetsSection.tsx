@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Layers } from "lucide-react";
+import UIcon from "@/components/UIcon";
 import { WatermarkText } from "@/components/IndustrialBackgrounds";
 
 interface ProductItem {
@@ -92,7 +92,7 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
     <div
       data-reveal="scale"
       style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
-      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-xl"
+      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_16px_36px_-8px_rgba(10,37,64,0.08)]"
     >
       <div>
         {/* 1. Consistent Product Image Container */}
@@ -122,54 +122,47 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
           </div>
         </div>
 
-        {/* 2. Small Product Category Label */}
-        <div className="mt-4">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
-            {product.category}
-          </span>
-
-          {/* 3. Clear Product Name with aligned baseline */}
-          <div className="mt-1 flex items-start min-h-[48px] sm:min-h-[52px]">
-            <h3 className="text-lg font-extrabold tracking-tight text-navy transition-colors group-hover:text-brand sm:text-xl leading-snug">
-              {product.title}
-            </h3>
-          </div>
-
-          {/* 4. One Concise, Readable Description */}
-          <p className="mt-1.5 text-xs leading-relaxed text-slate-600 line-clamp-3 min-h-[48px]">
-            {product.desc}
-          </p>
-
-          {/* 5. At Most Two Short Key Benefits */}
-          <ul className="mt-3.5 space-y-2 min-h-[48px]">
-            {product.benefits.map((benefit) => (
-              <li
-                key={benefit}
-                className="flex items-start gap-2 text-[11px] font-medium text-slate-700"
-              >
-                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
-                <span className="leading-snug">{benefit}</span>
-              </li>
-            ))}
-          </ul>
+        {/* 2. Clear Product Name with aligned baseline */}
+        <div className="mt-4 flex items-start min-h-[48px] sm:min-h-[52px]">
+          <h3 className="item-heading text-navy transition-colors group-hover:text-brand leading-snug">
+            {product.title}
+          </h3>
         </div>
+
+        {/* 3. One Concise, Readable Description */}
+        <p className="mt-1.5 body-text text-slate-600 line-clamp-3 min-h-[48px]">
+          {product.desc}
+        </p>
+
+        {/* 4. At Most Two Short Key Benefits */}
+        <ul className="mt-3.5 space-y-2 min-h-[48px]">
+          {product.benefits.map((benefit) => (
+            <li
+              key={benefit}
+              className="flex items-start gap-2 text-[11px] font-medium text-slate-700"
+            >
+              <UIcon name="check-circle" size="xs" className="mt-0.5 shrink-0 text-emerald-600" />
+              <span className="leading-snug">{benefit}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* 6. One Prominent, Consistently Positioned Enquiry CTA + Direct Spec Link */}
-      <div className="mt-4 border-t border-slate-100 pt-3.5">
+      <div className="mt-5 border-t border-slate-100 pt-4">
         <Link
           href={product.enquireHref}
-          className="inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-navy px-3 py-2 text-center text-xs font-bold text-white shadow-2xs transition hover:bg-brand active:scale-[0.99]"
+          className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-navy px-4 py-2.5 text-center text-xs font-bold text-white shadow-xs transition-all duration-200 ease-out hover:bg-brand hover:shadow-sm active:scale-[0.98]"
         >
           <span>{product.enquireLabel}</span>
-          <ArrowRight className="h-3.5 w-3.5" />
+          <UIcon name="arrow-right" size="xs" className="transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
         <Link
           href={product.specsHref}
-          className="mt-1.5 inline-flex w-full items-center justify-center gap-1 py-1 text-[11px] font-semibold text-slate-500 transition hover:text-brand"
+          className="mt-2 inline-flex w-full items-center justify-center gap-1.5 py-1 text-[11px] font-semibold text-slate-500 transition-colors duration-200 hover:text-navy"
         >
           <span>View Specifications</span>
-          <span aria-hidden="true">→</span>
+          <UIcon name="arrow-right" size="xs" />
         </Link>
       </div>
     </div>
@@ -178,7 +171,7 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
 
 export default function ManufacturedSheetsSection() {
   return (
-    <section id="products-lineup" className="relative scroll-mt-24 overflow-hidden bg-white pb-12 pt-6 sm:pb-16 sm:pt-8 bg-paper-grain">
+    <section id="products-lineup" className="relative scroll-mt-24 overflow-hidden bg-white py-14 sm:py-20 lg:py-24 bg-paper-grain">
       <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-30 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
       <WatermarkText text="PRODUCTS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
@@ -187,13 +180,10 @@ export default function ManufacturedSheetsSection() {
         {/* Section Header with Explore All Products CTA */}
         <div data-reveal className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-              <Layers className="h-3.5 w-3.5 text-brand" /> Complete Product Solutions
-            </span>
-            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+            <h2 className="section-heading text-navy">
               Manufactured Sheets & Structural Systems
             </h2>
-            <p className="mt-1 max-w-2xl text-xs text-slate-600 sm:text-sm">
+            <p className="mt-2 max-w-2xl body-text text-slate-600">
               From precision roll-formed roofing & liner sheets to high-yield GI pipes and complete rainwater drainage systems.
             </p>
           </div>
@@ -201,16 +191,16 @@ export default function ManufacturedSheetsSection() {
           <div className="flex items-center gap-3">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-navy shadow-2xs transition hover:border-brand hover:text-brand"
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-navy shadow-xs transition-all duration-200 ease-out hover:border-navy hover:bg-slate-50 active:scale-[0.98]"
             >
               <span>Explore All Products</span>
-              <ArrowRight className="h-4 w-4" />
+              <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
 
         {/* 4 Products in Unified Grid: 4 columns on desktop, 2 on tablet, 1 on mobile */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 xl:gap-6">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {products.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}

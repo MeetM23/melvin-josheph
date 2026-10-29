@@ -2,19 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Phone,
-  Ruler,
-  ShieldCheck,
-  Building2,
-  FileText,
-  Wrench,
-  Truck,
-  Layers,
-  Sparkles,
-} from "lucide-react";
+import UIcon, { UIconName } from "@/components/UIcon";
 import { site } from "@/lib/site";
 import ServicesFaqAccordion, { FaqItem } from "@/components/ServicesFaqAccordion";
 import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
@@ -26,30 +14,30 @@ export const metadata: Metadata = {
 };
 
 // Hero Features Bar Data (Matching Products & Home style)
-const serviceFeatures = [
+const serviceFeatures: { num: string; title: string; desc: string; icon: UIconName }[] = [
   {
     num: "01",
     title: "CNC Custom Shearing",
     desc: "Up to 12m zero-joint spans cut to the exact millimeter",
-    Icon: Ruler,
+    icon: "ruler",
   },
   {
     num: "02",
     title: "100% Primary Steel",
     desc: "Certified virgin coils sourced from JSW Steel & Jindal",
-    Icon: ShieldCheck,
+    icon: "shield-check",
   },
   {
     num: "03",
     title: "Contractor Coordination",
     desc: "Verified regional installation teams across all districts",
-    Icon: Wrench,
+    icon: "wrench",
   },
   {
     num: "04",
     title: "Statewide Dispatch",
     desc: "Direct factory fleet transit strapped on wooden dunnage",
-    Icon: Truck,
+    icon: "truck",
   },
 ];
 
@@ -243,16 +231,9 @@ export default function ServicesPage() {
 
         <div className="mx-auto flex min-h-[380px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[440px] sm:items-center sm:px-8 sm:pb-16 sm:pt-8 lg:min-h-[490px]">
           <div className="w-full sm:w-3/5 lg:w-1/2">
-            <span
-              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy shadow-sm backdrop-blur"
-            >
-              <Wrench className="h-3.5 w-3.5 text-brand" /> SERVICES &bull; INSTALLATION NETWORK
-            </span>
-
             <h1
               style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
-              className="hero-rise mt-3 text-[clamp(1.7rem,7vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.35rem]"
+              className="hero-rise page-heading text-navy sm:text-5xl lg:text-[3.35rem]"
             >
               From Roofing Materials to a<br />
               <span className="text-brand">Roof Built Right</span>
@@ -260,7 +241,7 @@ export default function ServicesPage() {
 
             <p
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-              className="hero-rise mt-3 max-w-xl text-sm leading-relaxed text-slate-700 sm:mt-4 sm:text-base"
+              className="hero-rise mt-4 max-w-xl body-text text-slate-700 sm:text-base"
             >
               Direct primary-steel sheet roll-forming and CNC cut-to-length shearing up to 12 meters in Palakkad, paired with certified contractor partner coordination across all 14 Kerala districts.
             </p>
@@ -271,13 +252,13 @@ export default function ServicesPage() {
             >
               <Link
                 href="/contact#enquiry"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-brand active:scale-[0.99]"
+                className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-out hover:bg-brand hover:shadow-md active:scale-[0.98]"
               >
-                Discuss Your Project <ArrowRight className="h-4 w-4" />
+                Discuss Your Project <UIcon name="arrow-right" className="text-sm transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
               <a
                 href="#journey"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold text-navy backdrop-blur hover:border-brand hover:text-brand"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-slate-300 bg-white/90 px-6 py-3.5 text-sm font-semibold text-navy shadow-xs backdrop-blur transition-all duration-200 ease-out hover:border-slate-400 hover:bg-white active:scale-[0.98]"
               >
                 Explore Process
               </a>
@@ -291,7 +272,7 @@ export default function ServicesPage() {
       ───────────────────────────────────────────────────────────── */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl min-[480px]:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200">
-          {serviceFeatures.map(({ num, title, desc, Icon }, i) => (
+          {serviceFeatures.map(({ title, desc, icon }, i) => (
             <div
               key={title}
               data-reveal
@@ -301,16 +282,13 @@ export default function ServicesPage() {
               <div>
                 <div className="flex items-center justify-between">
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
-                    <Icon className="h-5 w-5" strokeWidth={1.8} />
-                  </span>
-                  <span className="font-mono text-xs font-bold text-slate-300">
-                    {num}
+                    <UIcon name={icon} className="text-lg" />
                   </span>
                 </div>
-                <h3 className="mt-3.5 text-sm font-bold text-navy sm:text-base">
+                <h3 className="mt-3.5 item-heading text-navy sm:text-base">
                   {title}
                 </h3>
-                <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                <p className="mt-1 body-text text-slate-600">
                   {desc}
                 </p>
               </div>
@@ -322,64 +300,55 @@ export default function ServicesPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 3 — THE CUSTOMER JOURNEY (All 6 Stages with High-Quality Industrial Imagery)
       ───────────────────────────────────────────────────────────── */}
-      <section id="journey" className="relative overflow-hidden py-14 sm:py-20 scroll-mt-20 border-b border-slate-200/80 bg-white">
+      <section id="journey" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-              THE COMPLETE PROCESS
-            </span>
-            <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+            <h2 className="section-heading text-navy">
               From Inquiry to Watertight Completion
             </h2>
-            <p className="mt-2 text-sm text-slate-600 sm:text-base">
+            <p className="mt-2 body-text text-slate-600 sm:text-base">
               A single structured journey coordinating factory roll-forming, site purlin checks, crest fastening, and certified contractor installation.
             </p>
           </div>
 
           {/* Unified Timeline Cards */}
-          <div className="mt-12 space-y-8">
+          <div className="mt-10 sm:mt-12 space-y-6">
             {customerJourneySteps.map((step) => (
               <div
                 key={step.num}
-                className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8 transition hover:border-slate-300"
+                className="rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:border-slate-300 hover:shadow-[0_12px_28px_-6px_rgba(10,37,64,0.08)]"
               >
                 <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-8">
                   {/* Column 1: Step Number, Stage & Responsibility */}
                   <div className="lg:col-span-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-2xl font-black text-brand">
-                        {step.num}
-                      </span>
-                      <div className="h-4 w-px bg-slate-200" />
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        {step.stageName}
-                      </span>
-                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-brand">
+                      Stage {step.num}
+                    </span>
 
-                    <h3 className="mt-2 text-lg font-bold text-navy sm:text-xl">
+                    <h3 className="mt-1.5 item-heading text-navy">
                       {step.title}
                     </h3>
 
-                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-1 font-mono text-[10px] font-semibold text-slate-700">
-                      <span>Responsible:</span>
-                      <span className="text-navy font-bold">{step.role}</span>
+                    <div className="mt-3.5 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
+                      <span>Role:</span>
+                      <span className="font-semibold text-navy">{step.role}</span>
                     </div>
                   </div>
 
                   {/* Column 2: Overview & Technical Specs Checklist */}
                   <div className="lg:col-span-4">
-                    <p className="text-sm leading-relaxed text-slate-600">
+                    <p className="body-text text-slate-600">
                       {step.summary}
                     </p>
 
-                    <div className="mt-4 rounded-lg border border-slate-100 bg-slate-50/70 p-3.5">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2">
+                    <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50/70 p-4">
+                      <span className="block text-xs font-semibold text-slate-900 mb-2">
                         Technical Standards Applied
                       </span>
-                      <ul className="space-y-2 text-xs text-slate-700">
+                      <ul className="space-y-2 body-text text-slate-700">
                         {step.technicalSpecs.map((spec, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
+                            <UIcon name="check-circle" className="text-xs text-brand shrink-0 mt-0.5" />
                             <span className="leading-snug">{spec}</span>
                           </li>
                         ))}
@@ -389,7 +358,7 @@ export default function ServicesPage() {
 
                   {/* Column 3: Contextual Industrial Photography */}
                   <div className="lg:col-span-4">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50">
                       <Image
                         src={step.image}
                         alt={step.imageCaption || step.title}
@@ -399,7 +368,7 @@ export default function ServicesPage() {
                       />
                     </div>
                     {step.imageCaption && (
-                      <span className="mt-1.5 block font-mono text-[10px] text-slate-400">
+                      <span className="mt-2 block text-xs text-slate-500">
                         {step.imageCaption}
                       </span>
                     )}
@@ -410,7 +379,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Operational Clarity Note */}
-          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5 text-xs text-slate-600 sm:text-sm">
+          <div className="mt-8 rounded-2xl border border-slate-200/90 bg-slate-50/80 p-5 body-text text-slate-600">
             <span className="font-bold text-navy">Service Model Note: </span>
             Durawin operates as a primary-steel manufacturing facility supplying customized roofing sheets, purlins, and drainage systems. Structural fabrication and roofing erection are performed on site by client-appointed contractors or certified regional installation partners introduced through our network.
           </div>
@@ -420,16 +389,13 @@ export default function ServicesPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 4 — PROJECT TYPES (Residential, Commercial, Industrial)
       ───────────────────────────────────────────────────────────── */}
-      <section id="sectors" className="relative overflow-hidden py-14 sm:py-20 scroll-mt-20 border-b border-slate-200/80 bg-slate-50/50">
+      <section id="sectors" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-slate-50/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-              SECTOR EXPERTISE
-            </span>
-            <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+            <h2 className="section-heading text-navy">
               Proven Across All Building Types
             </h2>
-            <p className="mt-2 text-sm text-slate-600 sm:text-base">
+            <p className="mt-2 body-text text-slate-600 sm:text-base">
               From architectural residences to commercial arcades and heavy manufacturing bays.
             </p>
           </div>
@@ -438,7 +404,7 @@ export default function ServicesPage() {
             {applications.map((app) => (
               <div
                 key={app.title}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs transition hover:border-slate-300 hover:shadow-sm"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_28px_-6px_rgba(10,37,64,0.08)]"
               >
                 <div>
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
@@ -451,25 +417,25 @@ export default function ServicesPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                    <span className="text-xs font-semibold text-brand">
                       {app.subtitle}
                     </span>
-                    <h3 className="mt-1 text-lg font-bold text-navy">
+                    <h3 className="mt-1.5 item-heading text-navy">
                       {app.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    <p className="mt-2 body-text text-slate-600">
                       {app.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="border-t border-slate-100 px-6 py-3.5">
+                <div className="border-t border-slate-100 px-6 py-4">
                   <Link
                     href={app.link}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-navy hover:text-brand"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy transition-colors duration-150 hover:text-brand"
                   >
                     <span>View Related Products</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <UIcon name="arrow-right" className="text-xs transition-transform duration-150 group-hover:translate-x-0.5" />
                   </Link>
                 </div>
               </div>
@@ -481,16 +447,13 @@ export default function ServicesPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 5 — COMPACT ACCESSIBLE FAQ
       ───────────────────────────────────────────────────────────── */}
-      <section id="faq" className="relative overflow-hidden py-14 sm:py-20 scroll-mt-20 border-b border-slate-200/80 bg-white">
+      <section id="faq" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-8">
           <div className="text-center">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-              CUSTOMER ASSISTANCE
-            </span>
-            <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+            <h2 className="section-heading text-navy">
               Frequently Asked Questions
             </h2>
-            <p className="mx-auto mt-2 max-w-xl text-xs text-slate-600 sm:text-sm">
+            <p className="mx-auto mt-2 max-w-xl body-text text-slate-600">
               Answers regarding site measurements, custom shearing, primary steel certifications, and delivery logistics.
             </p>
           </div>
@@ -504,36 +467,33 @@ export default function ServicesPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 6 — FINAL DARK-NAVY CALL TO ACTION
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy-dark px-4 py-14 text-white sm:px-8 sm:py-20">
+      <section className="relative overflow-hidden bg-navy-dark px-4 py-16 text-white sm:px-8 sm:py-20 lg:py-24">
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
 
         <div className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <span className="font-mono text-xs font-semibold tracking-wider text-gold uppercase">
-                DIRECT PALAKKAD MANUFACTURING UNIT
-              </span>
-              <h2 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
+              <h2 className="section-heading text-white">
                 Planning a Roofing Project?
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-2xl body-text text-slate-300 sm:text-base">
                 Contact our factory technical desk in Palakkad for millimeter-custom shearing, primary coil certifications, and certified contractor partner introductions across Kerala.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact#enquiry"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-white hover:text-navy"
+                  className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-bold text-white shadow-md transition-all duration-200 ease-out hover:bg-white hover:text-navy active:scale-[0.98]"
                 >
                   <span>Request a Quotation</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <UIcon name="arrow-right" className="text-sm transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
 
                 <a
                   href={`tel:+91${site.phone}`}
                   className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
                 >
-                  <Phone className="h-4 w-4 text-gold" />
+                  <UIcon name="phone" className="text-sm text-gold" />
                   <span>Call: +91 {site.phone}</span>
                 </a>
               </div>
@@ -541,24 +501,24 @@ export default function ServicesPage() {
 
             <div className="lg:col-span-4">
               <div className="rounded-xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gold">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">
                   Direct Factory Assurance
                 </h3>
                 <ul className="mt-4 space-y-3 text-xs text-slate-300">
                   <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                    <UIcon name="check-circle" className="text-sm text-emerald-400 shrink-0" />
                     <span>JSW &amp; Jindal primary certified steel</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                    <UIcon name="check-circle" className="text-sm text-emerald-400 shrink-0" />
                     <span>Custom lengths cut up to 12 meters</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                    <UIcon name="check-circle" className="text-sm text-emerald-400 shrink-0" />
                     <span>Direct fleet delivery across all 14 districts</span>
                   </li>
                   <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                    <UIcon name="check-circle" className="text-sm text-emerald-400 shrink-0" />
                     <span>Verified regional contractor network</span>
                   </li>
                 </ul>

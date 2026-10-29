@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { BarChart3, Building2, CloudSun, ShieldCheck, X } from "lucide-react";
+import UIcon, { UIconName } from "@/components/UIcon";
 
 interface Feature {
   title: string;
   tag: string;
   desc: string;
   image: string;
-  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  iconName: UIconName;
 }
 
 const features: Feature[] = [
@@ -18,28 +18,28 @@ const features: Feature[] = [
     tag: "High Durability",
     desc: "Engineered for 20+ years of structural life",
     image: "/images/product-trussfold-blue.jpg",
-    Icon: ShieldCheck,
+    iconName: "shield-check",
   },
   {
     title: "Weather Resistant",
     tag: "Monsoon Proof",
     desc: "All-weather anti-corrosion protection",
     image: "/images/home-hero.jpg",
-    Icon: CloudSun,
+    iconName: "cloud-sun",
   },
   {
     title: "High Strength & Performance",
     tag: "Certified Steel",
     desc: "High-tensile raw steel coil strength",
     image: "/images/raw-materials-coils.jpg",
-    Icon: BarChart3,
+    iconName: "chart",
   },
   {
     title: "Suitable for All Sectors",
     tag: "All Sectors",
     desc: "Commercial, industrial & residential",
     image: "/images/app-commercial.jpg",
-    Icon: Building2,
+    iconName: "building",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function HeroFeatures() {
         ref={containerRef}
         className="mx-auto grid max-w-7xl grid-cols-2 gap-y-5 rounded-2xl bg-white py-5 shadow-[0_8px_30px_rgba(10,37,64,0.12)] sm:grid-cols-4 sm:divide-x sm:divide-slate-200 sm:py-7"
       >
-        {features.map(({ title, tag, desc, image, Icon }, i) => {
+        {features.map(({ title, tag, desc, image, iconName }, i) => {
           const isCol1 = i % 2 === 0;
           const isActive = activeIdx === i;
 
@@ -121,9 +121,6 @@ export default function HeroFeatures() {
                       className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
-                    <span className="absolute bottom-2 left-2 rounded bg-brand/90 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-xs">
-                      {tag}
-                    </span>
                     {/* Mobile close button */}
                     <button
                       type="button"
@@ -134,7 +131,7 @@ export default function HeroFeatures() {
                       }}
                       className="absolute right-1.5 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/80 sm:hidden"
                     >
-                      <X className="h-3.5 w-3.5" />
+                      <UIcon name="close" size="xs" />
                     </button>
                   </div>
                   <p className="mt-1.5 px-1 text-left text-[11px] font-bold leading-tight text-navy">
@@ -160,13 +157,14 @@ export default function HeroFeatures() {
                     : "bg-white text-brand group-hover:scale-115 sm:group-hover:scale-120 group-hover:border-brand group-hover:shadow-lg group-hover:shadow-brand/25 group-hover:ring-4 group-hover:ring-brand/15"
                 }`}
               >
-                <Icon
-                  className={`relative z-10 h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${
+                <UIcon
+                  name={iconName}
+                  size="md"
+                  className={`relative z-10 transition-all duration-300 ${
                     isActive
                       ? "opacity-0 scale-75"
                       : "group-hover:opacity-0 group-hover:scale-75"
                   }`}
-                  strokeWidth={1.8}
                 />
                 <Image
                   src={image}

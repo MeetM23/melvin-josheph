@@ -3,7 +3,7 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import UIcon from "@/components/UIcon";
 
 export interface HeroSlide {
   id: string;
@@ -188,25 +188,8 @@ export default function HeroCarousel({
       <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-50 [mask-image:linear-gradient(to_right,black_30%,transparent_80%)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
-      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-10 lg:min-h-[580px] lg:pb-32 lg:pt-12">
+      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-10 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-14 lg:min-h-[580px] lg:pb-32 lg:pt-16">
         <div className="w-full sm:w-1/2">
-          {/* Editorial Badge */}
-          <div
-            className="hero-rise mb-2.5 flex items-center gap-2.5 sm:mb-3.5"
-            style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-          >
-            <span className="editorial-badge">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
-              </span>
-              Palakkad Plant • 20+ Years Excellence
-            </span>
-            <span className="hidden text-[10px] font-bold uppercase tracking-widest text-slate-400 sm:inline-block">
-              Trafford Engineering
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 grid-rows-1" aria-live={paused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const isActive = index === activeIndex;
@@ -225,26 +208,26 @@ export default function HeroCarousel({
                 >
                   <Heading
                     style={{ "--hero-delay": "0.05s" } as React.CSSProperties}
-                    className="hero-rise text-[clamp(1.9rem,9vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[3.6rem]"
+                    className="hero-rise page-heading text-navy sm:text-5xl lg:text-[3.6rem]"
                   >
                     {slide.headline}
                   </Heading>
                   <p
                     style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-snug text-slate-700 sm:mt-4 sm:max-w-sm sm:text-base sm:leading-relaxed"
+                    className="hero-rise mt-4 max-w-xs body-text text-slate-700 sm:max-w-md sm:text-base"
                   >
                     {slide.description}
                   </p>
                   <div
                     style={{ "--hero-delay": "0.4s" } as React.CSSProperties}
-                    className="hero-rise mt-5 sm:mt-6"
+                    className="hero-rise mt-6 sm:mt-7"
                   >
                     <Link
                       href={slide.ctaHref}
-                      className="group inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-navy px-6 py-3.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(10,37,64,0.2)] transition-all duration-300 hover:bg-brand hover:shadow-[0_10px_30px_rgba(22,104,232,0.35)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
+                      className="group inline-flex min-h-12 items-center gap-2.5 rounded-full bg-navy px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(10,37,64,0.18)] transition-all duration-200 ease-out hover:bg-brand hover:shadow-[0_8px_24px_rgba(22,104,232,0.32)] hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
                     >
                       {slide.ctaText}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                      <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>

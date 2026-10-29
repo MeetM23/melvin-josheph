@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, IBM_Plex_Mono } from "next/font/google";
+import "@flaticon/flaticon-uicons/css/regular/rounded.css";
+import "@flaticon/flaticon-uicons/css/brands/all.css";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

@@ -3,18 +3,7 @@
 import React, { useState, useId } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  ChevronRight,
-  FileCheck,
-  Home,
-  Layers,
-  Phone,
-  Ruler,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import UIcon from "@/components/UIcon";
 import { ProductData, PRODUCTS_LIST, getProductBySlug } from "@/lib/products-data";
 import { site } from "@/lib/site";
 import { WatermarkText } from "@/components/IndustrialBackgrounds";
@@ -61,17 +50,17 @@ export default function ProductDetailClient({ product }: { product: ProductData 
             href="/"
             className="inline-flex items-center gap-1 transition-colors hover:text-navy"
           >
-            <Home className="h-3.5 w-3.5" />
+            <UIcon name="home" size="xs" />
             <span>Home</span>
           </Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
+          <UIcon name="angle-right" size="xs" className="text-slate-400" />
           <Link
             href="/products"
             className="transition-colors hover:text-navy"
           >
             Products
           </Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
+          <UIcon name="angle-right" size="xs" className="text-slate-400" />
           <span className="font-semibold text-navy truncate">
             {product.title}
           </span>
@@ -95,16 +84,6 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                 <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50/70 p-4 shadow-sm sm:p-6">
                   {/* Subtle Blueprint Linework */}
                   <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-20" />
-                  
-                  {/* Header badges inside image frame */}
-                  <div className="absolute left-3.5 top-3.5 z-10 flex items-center gap-1.5">
-                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white shadow-xs">
-                      {product.code}
-                    </span>
-                    <span className="rounded-full border border-slate-200 bg-white/95 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-slate-600 shadow-2xs backdrop-blur-xs">
-                      {product.category}
-                    </span>
-                  </div>
 
                   <div className="relative flex h-full w-full items-center justify-center">
                     <Image
@@ -124,10 +103,10 @@ export default function ProductDetailClient({ product }: { product: ProductData 
 
                 {/* Authenticity Trust Banner under Image */}
                 <div className="mt-4 flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/60 p-3.5 text-xs text-slate-600">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-navy">
-                    <ShieldCheck className="h-4 w-4 text-brand" /> Primary Mill Certified
+                  <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
+                    <UIcon name="shield-check" size="sm" className="text-brand" /> Primary Mill Certified
                   </span>
-                  <span className="font-mono text-[11px] text-slate-500">
+                  <span className="text-slate-500">
                     Palakkad Plant Quality
                   </span>
                 </div>
@@ -136,38 +115,28 @@ export default function ProductDetailClient({ product }: { product: ProductData 
 
             {/* Right Column: Title, Intro, Verified Key Benefits, Options, and CTA */}
             <div className="lg:col-span-7">
-              {/* Category pill */}
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy">
-                  <Layers className="h-3.5 w-3.5 text-brand" /> {product.category}
-                </span>
-                <span className="font-mono text-xs text-slate-400">
-                  SERIES 2026 SPEC
-                </span>
-              </div>
-
               {/* Product Title & Tagline */}
-              <h1 id={headingId} className="mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+              <h1 id={headingId} className="page-heading text-navy">
                 {product.title}
               </h1>
-              <p className="mt-1 font-mono text-xs font-semibold uppercase tracking-wider text-brand sm:text-sm">
+              <p className="mt-2 text-sm font-semibold text-brand">
                 {product.tagline}
               </p>
 
               {/* Concise Introduction */}
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              <p className="mt-3 body-text text-slate-600 sm:text-base">
                 {product.intro}
               </p>
 
               {/* Verified Key Benefits */}
               <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 sm:p-5">
-                <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-navy">
                   Key Engineering Advantages
                 </h2>
                 <ul className="mt-3 space-y-2.5">
                   {product.keyBenefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                      <UIcon name="check-circle" size="sm" className="mt-0.5 shrink-0 text-brand" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -178,12 +147,9 @@ export default function ProductDetailClient({ product }: { product: ProductData 
               {product.options.length > 0 && (
                 <div className="mt-6 space-y-5 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm sm:p-6">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
-                      Configure Product Specifications
+                    <h2 className="text-xs font-semibold uppercase tracking-wider text-navy">
+                      Configure Specifications
                     </h2>
-                    <span className="font-mono text-[11px] text-brand">
-                      Live Preselection
-                    </span>
                   </div>
 
                   <div className="space-y-4">
@@ -298,17 +264,17 @@ export default function ProductDetailClient({ product }: { product: ProductData 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
                   href={quoteHref}
-                  className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-navy px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-brand hover:shadow-lg active:scale-[0.99]"
+                  className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-out hover:bg-brand hover:shadow-md active:scale-[0.98]"
                 >
                   <span>Request Instant Factory Quotation</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
                 </Link>
 
                 <a
                   href={`tel:+91${site.phone}`}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-semibold text-navy shadow-xs transition hover:border-brand hover:text-brand"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy shadow-xs transition-all duration-200 ease-out hover:border-slate-400 hover:bg-slate-50 active:scale-[0.98]"
                 >
-                  <Phone className="h-4 w-4 text-brand" />
+                  <UIcon name="phone" size="sm" className="text-brand" />
                   <span>Call Factory Desk</span>
                 </a>
               </div>
@@ -329,18 +295,12 @@ export default function ProductDetailClient({ product }: { product: ProductData 
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-                <FileCheck className="h-3.5 w-3.5 text-brand" /> Technical Data Sheet
-              </span>
-              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+              <h2 className="section-heading text-navy">
                 Engineering Specifications & Parameters
               </h2>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 body-text text-slate-600">
                 Verified manufacturing tolerances and standard metallurgical benchmarks from our Palakkad facility
               </p>
-            </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ IS 277 / IS 513 / IS 4923 ]
             </div>
           </div>
 
@@ -351,7 +311,7 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                 className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition hover:shadow-md"
               >
                 <div className="border-b border-slate-100 bg-slate-50/80 px-5 py-3.5">
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-navy">
                     {group.groupName}
                   </h3>
                 </div>
@@ -374,7 +334,7 @@ export default function ProductDetailClient({ product }: { product: ProductData 
           {/* Download note or assurance line */}
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-600">
             <span className="inline-flex items-center gap-2">
-              <Ruler className="h-4 w-4 text-brand" />
+              <UIcon name="ruler" size="sm" className="text-brand" />
               <span>
                 Need custom millimeter shear sizing or specific project structural loading calculations?
               </span>
@@ -393,19 +353,16 @@ export default function ProductDetailClient({ product }: { product: ProductData 
       <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy">
-              <Sparkles className="h-3.5 w-3.5 text-brand" /> Real-World Use Cases
-            </span>
-            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+            <h2 className="section-heading text-navy">
               Proven Sector Deployments
             </h2>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 body-text text-slate-600">
               Where {product.title} is deployed across Kerala and neighboring commercial corridors
             </p>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
-            {product.applications.map((app, i) => (
+            {product.applications.map((app) => (
               <div
                 key={app.title}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
@@ -418,15 +375,12 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                     sizes="(max-width: 768px) 100vw, 380px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
-                    APPLICATION 0{i + 1}
-                  </span>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-navy sm:text-lg">
+                  <h3 className="item-heading text-navy sm:text-lg">
                     {app.title}
                   </h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                  <p className="mt-1.5 body-text text-slate-600">
                     {app.desc}
                   </p>
                 </div>
@@ -442,16 +396,13 @@ export default function ProductDetailClient({ product }: { product: ProductData 
           <div className="mx-auto max-w-7xl px-4 sm:px-8">
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-                  Complementary Building Systems
-                </span>
-                <h2 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
+                <h2 className="item-heading text-navy">
                   Related Products & Structural Profiles
                 </h2>
               </div>
               <Link
                 href="/products"
-                className="hidden font-mono text-xs font-bold text-navy hover:text-brand sm:inline-flex items-center gap-1"
+                className="hidden text-xs font-bold text-navy hover:text-brand sm:inline-flex items-center gap-1"
               >
                 All Products &rarr;
               </Link>
@@ -489,7 +440,7 @@ export default function ProductDetailClient({ product }: { product: ProductData 
 
                   <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-bold text-navy group-hover:text-brand">
                     <span>View Specifications</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    <UIcon name="arrow-right" size="xs" className="transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>
               ))}
@@ -522,13 +473,13 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                   className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-brand px-6 py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-white hover:text-navy"
                 >
                   <span>Request Custom Project Quote</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <UIcon name="arrow-right" size="sm" />
                 </Link>
                 <a
                   href={`tel:+91${site.phone}`}
                   className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
                 >
-                  <Phone className="h-4 w-4 text-gold" />
+                  <UIcon name="phone" size="sm" className="text-gold" />
                   <span>Direct: +91 {site.phone}</span>
                 </a>
               </div>
@@ -541,15 +492,15 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                 </h3>
                 <ul className="mt-3 space-y-2 text-xs text-slate-300">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    <UIcon name="check-circle" size="xs" className="text-emerald-400" />
                     <span>100% Primary mill coils (JSW / Jindal / Apollo)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    <UIcon name="check-circle" size="xs" className="text-emerald-400" />
                     <span>Custom millimeter shear lengths (zero-leak jointing)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    <UIcon name="check-circle" size="xs" className="text-emerald-400" />
                     <span>Direct fleet dispatch across all Kerala districts</span>
                   </li>
                 </ul>

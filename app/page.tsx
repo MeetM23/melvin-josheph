@@ -4,13 +4,13 @@ import HeroFeatures from "@/components/HeroFeatures";
 import ManufacturedSheetsSection from "@/components/ManufacturedSheetsSection";
 import StatsMarquee from "@/components/StatsMarquee";
 import { CallStrip, WhyChoose } from "@/components/sections";
-import { ArrowRight, BadgeCheck, Building2, CheckCircle2, Factory, Home as HomeIcon, Store } from "lucide-react";
+import UIcon, { UIconName } from "@/components/UIcon";
 import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
-const applications = [
-  { title: "Household Roofing", desc: "Stylish, reliable roofing for modern homes.", image: "/images/app-household.jpg", Icon: HomeIcon },
-  { title: "Commercial Roofing", desc: "Ideal for showrooms, warehouses and complexes.", image: "/images/app-commercial.jpg", Icon: Store },
-  { title: "Industrial Roofing", desc: "Built for large industrial buildings and sheds.", image: "/images/app-industrial.jpg", Icon: Factory },
+const applications: { title: string; desc: string; image: string; icon: UIconName }[] = [
+  { title: "Household Roofing", desc: "Stylish, reliable roofing for modern homes.", image: "/images/app-household.jpg", icon: "home" },
+  { title: "Commercial Roofing", desc: "Ideal for showrooms, warehouses and complexes.", image: "/images/app-commercial.jpg", icon: "store" },
+  { title: "Industrial Roofing", desc: "Built for large industrial buildings and sheds.", image: "/images/app-industrial.jpg", icon: "factory" },
 ];
 
 const partners = [
@@ -33,7 +33,7 @@ export default function Home() {
       <ManufacturedSheetsSection />
 
       {/* 3. Our Applications — swipeable row on phones, 3-column grid from sm */}
-      <section className="relative overflow-hidden bg-slate-50/70 pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+      <section className="relative overflow-hidden bg-slate-50/70 py-14 sm:py-20 lg:py-24 bg-paper-grain">
         {/* Subtle engineering blueprint grid & watermark */}
         <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
         <WatermarkText text="TRUSSFOLD" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
@@ -41,28 +41,23 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-                <Building2 className="h-3.5 w-3.5 text-brand" /> Sector Solutions
-              </span>
-              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+              <h2 className="section-heading text-navy">
                 Our Applications
               </h2>
-              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+              <p className="mt-2 body-text text-slate-600">
                 Engineered roofing and liner systems for residences, commercial spaces, and industrial hubs
               </p>
             </div>
           </div>
 
-          <div className="-mx-4 mt-6 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
-            {applications.map(({ title, desc, image, Icon }, i) => {
-              const indexCode = `0${i + 1}`;
-              const sectorCode = i === 0 ? "RESIDENTIAL" : i === 1 ? "COMMERCIAL" : "INDUSTRIAL";
+          <div className="-mx-4 mt-8 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
+            {applications.map(({ title, desc, image, icon }, i) => {
               return (
                 <div
                   key={title}
                   data-reveal="scale"
                   style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
-                  className="group relative block aspect-[4/5] w-[82%] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200/80 bg-navy-dark shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:aspect-[4/4.5] sm:w-auto sm:max-w-none sm:shrink"
+                  className="group relative block aspect-[4/5] w-[82%] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200/80 bg-navy-dark shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl sm:aspect-[4/4.5] sm:w-auto sm:max-w-none sm:shrink"
                 >
                   <Image
                     src={image}
@@ -76,19 +71,16 @@ export default function Home() {
                   {/* Top metadata strip */}
                   <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 text-navy shadow-sm backdrop-blur transition-transform duration-300 group-hover:bg-brand group-hover:text-white">
-                      <Icon className="h-5 w-5" strokeWidth={1.8} />
-                    </span>
-                    <span className="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-white backdrop-blur">
-                      {`${indexCode} // ${sectorCode}`}
+                      <UIcon name={icon} className="text-lg" />
                     </span>
                   </div>
 
                   {/* Bottom description */}
                   <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                    <h3 className="text-xl font-extrabold tracking-tight text-white transition-colors group-hover:text-gold sm:text-2xl">
+                    <h3 className="item-heading text-white transition-colors group-hover:text-gold sm:text-2xl">
                       {title}
                     </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-sm">
+                    <p className="mt-1.5 body-text text-slate-200">
                       {desc}
                     </p>
                   </div>
@@ -97,7 +89,7 @@ export default function Home() {
             })}
           </div>
           <p className="mt-2 flex items-center gap-1 text-xs font-medium text-slate-500 sm:hidden">
-            Swipe to see more <ArrowRight className="h-3 w-3" />
+            Swipe to see more <UIcon name="arrow-right" className="text-[11px]" />
           </p>
         </div>
       </section>
@@ -107,7 +99,7 @@ export default function Home() {
       <CallStrip />
 
       {/* 4. Raw material partners + coils */}
-      <section className="relative overflow-hidden bg-white pb-10 pt-10 sm:pb-16 sm:pt-14 bg-paper-grain">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20 lg:py-24 bg-paper-grain">
         {/* Subtle roofing profile linework & watermark */}
         <div className="pointer-events-none absolute inset-0 bg-roof-profile-light opacity-35" />
         <WatermarkText text="PRIMARY STEEL" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
@@ -115,25 +107,22 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-                <BadgeCheck className="h-3.5 w-3.5 text-brand" /> Sourcing Credibility
-              </span>
-              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+              <h2 className="section-heading text-navy">
                 Raw Material Partners
               </h2>
-              <p className="mt-1 text-sm text-slate-600 sm:text-base">
+              <p className="mt-2 body-text text-slate-600">
                 Manufactured exclusively using certified primary steel coils from industry leaders
               </p>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-3 gap-3 sm:mt-10 sm:gap-6">
+          <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-12 sm:gap-6">
             {partners.map((p, i) => (
               <div
                 key={p.name}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className="group relative flex min-w-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-md sm:p-8 sm:py-10"
+                className="group relative flex min-w-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_28px_-6px_rgba(10,37,64,0.08)] sm:p-8 sm:py-10"
               >
                 <div className="flex h-16 w-full items-center justify-center sm:h-24">
                   <Image
@@ -148,12 +137,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-6 hidden sm:flex items-center justify-between border-t border-slate-100 pt-4">
-            <CadDimensionMarks label="PRIMARY STRUCTURAL GRADE" spec="550 MPA HIGH-TENSILE COILS" />
-            <CadDimensionMarks label="CORROSION PROTECTION" spec="ZINC + POLYESTER PRIMER" />
-          </div>
-
-          {/* Steel coil feature with architectural drafting strip */}
+          {/* Steel coil feature with clean console */}
           <div
             data-reveal="scale"
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
@@ -171,18 +155,13 @@ export default function Home() {
               {/* Subtle natural bottom gradient to ground the console plate */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 via-40% to-transparent pointer-events-none" />
               
-              {/* Architectural frosted glass specification console — guarantees 100% text readability while keeping photo clear */}
+              {/* Architectural frosted glass specification console */}
               <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-6 lg:p-8 flex justify-start">
                 <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/75 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
-                  <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
-                    <span>METALLURGICAL SPECIFICATION</span>
-                    <span>✦</span>
-                    <span>IS 277 / IS 513 CERTIFIED</span>
-                  </div>
-                  <h3 className="mt-2.5 text-xl font-extrabold tracking-tight text-white sm:text-2xl lg:text-3xl">
+                  <h3 className="section-heading text-white">
                     Premium High-Tensile Steel Coils
                   </h3>
-                  <p className="mt-1.5 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-sm">
+                  <p className="mt-2 max-w-xl body-text text-slate-200">
                     The unyielding foundation of every Durawin roofing sheet. Sourced with optimal zinc coating mass and uniform paint film thickness for decades of corrosion resistance.
                   </p>
 
@@ -198,7 +177,7 @@ export default function Home() {
                         key={t}
                         className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white shadow-xs backdrop-blur sm:px-3 sm:py-1.5 sm:text-xs"
                       >
-                        <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" /> {t}
+                        <UIcon name="check-circle" className="text-xs text-gold sm:text-sm" /> {t}
                       </span>
                     ))}
                   </div>

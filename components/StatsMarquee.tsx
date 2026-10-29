@@ -1,5 +1,5 @@
 import React from "react";
-import { Layers, MapPin, Ruler, ShieldCheck, Trophy, Users } from "lucide-react";
+import UIcon, { UIconName } from "@/components/UIcon";
 
 interface TickerItem {
   code: string;
@@ -7,7 +7,7 @@ interface TickerItem {
   highlight: string;
   title: string;
   detail: string;
-  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  iconName: UIconName;
 }
 
 const stats: TickerItem[] = [
@@ -17,7 +17,7 @@ const stats: TickerItem[] = [
     highlight: "EST. 2004",
     title: "20+ Years Manufacturing Legacy",
     detail: "Proven industrial roll-forming experience in Kerala",
-    Icon: Trophy,
+    iconName: "trophy",
   },
   {
     code: "REG // 02",
@@ -25,7 +25,7 @@ const stats: TickerItem[] = [
     highlight: "PRIMARY STEEL",
     title: "JSW & Jindal Coils Exclusively",
     detail: "Certified virgin high-tensile raw material coils",
-    Icon: Layers,
+    iconName: "layers",
   },
   {
     code: "REG // 03",
@@ -33,7 +33,7 @@ const stats: TickerItem[] = [
     highlight: "KERALA-WIDE",
     title: "Retailer & Wholesaler Network",
     detail: "Direct supply partner spanning all 14 districts",
-    Icon: Users,
+    iconName: "users",
   },
   {
     code: "REG // 04",
@@ -41,7 +41,7 @@ const stats: TickerItem[] = [
     highlight: "PALAKKAD PLANT",
     title: "Direct-From-Factory Sourcing",
     detail: "Naripotta, Kunissery facility • Zero middlemen",
-    Icon: MapPin,
+    iconName: "marker",
   },
   {
     code: "REG // 05",
@@ -49,7 +49,7 @@ const stats: TickerItem[] = [
     highlight: "CUSTOM LENGTHS",
     title: "Precision Millimetric Sizing",
     detail: "Cut-to-order spans eliminating site jointing and waste",
-    Icon: Ruler,
+    iconName: "ruler",
   },
   {
     code: "REG // 06",
@@ -57,7 +57,7 @@ const stats: TickerItem[] = [
     highlight: "100% AUDITED",
     title: "Rigid Structural Quality Inspection",
     detail: "Verified zinc mass, paint micron film & tensile strength",
-    Icon: ShieldCheck,
+    iconName: "shield-check",
   },
 ];
 
@@ -160,13 +160,13 @@ export default function StatsMarquee() {
 }
 
 function TickerUnit({ item }: { item: TickerItem }) {
-  const { code, category, highlight, title, detail, Icon } = item;
+  const { code, category, highlight, title, detail, iconName } = item;
 
   return (
     <div className="group/item flex shrink-0 items-start gap-3 select-none py-0.5 sm:gap-3.5">
       {/* Refined line icon — compact, unboxed, brand blue accent */}
       <div className="mt-1 flex shrink-0 items-center justify-center text-brand transition-transform duration-200 group-hover/item:scale-110">
-        <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" strokeWidth={1.8} />
+        <UIcon name={iconName} size="sm" className="sm:text-[18px]" />
       </div>
 
       {/* Content Stack */}

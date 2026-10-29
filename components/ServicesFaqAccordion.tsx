@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import UIcon from "@/components/UIcon";
 
 export interface FaqItem {
   question: string;
@@ -41,7 +41,7 @@ export default function ServicesFaqAccordion({ items }: { items: FaqItem[] }) {
                   isOpen ? "rotate-180 bg-brand/10 text-brand" : ""
                 }`}
               >
-                <ChevronDown className="h-4 w-4" />
+                <UIcon name="angle-down" size="sm" />
               </span>
             </button>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FileText, MapPin, Phone } from "lucide-react";
+import UIcon from "@/components/UIcon";
 import Logo from "@/components/Logo";
 import { policies, site } from "@/lib/site";
 
@@ -17,16 +17,12 @@ export default function Footer() {
       className="relative overflow-hidden bg-navy-dark text-slate-300"
       style={{ backgroundColor: "#040e1b" }}
     >
-      {/* Engineered Brand Accent Line (Marquee-to-Footer transition) */}
-      <div className="relative w-full overflow-hidden">
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-brand via-gold/80 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 -top-1 h-3 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(242,176,30,0.18),transparent)]" />
-      </div>
+      {/* Border transition */}
+      <div className="w-full border-t border-slate-800/80" />
 
       {/* Subtle industrial background texture & blueprint grid */}
       <div className="pointer-events-none absolute inset-0 opacity-15 bg-blueprint-grid-dark" />
       <div className="pointer-events-none absolute inset-0 opacity-15 bg-roof-profile-dark" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,104,232,0.08),transparent)]" />
 
       {/* Main Footer Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 pt-10 pb-8 sm:px-8 sm:pt-14 sm:pb-10">
@@ -37,15 +33,8 @@ export default function Footer() {
               <Logo tone="light" />
             </Link>
 
-            {/* Establishment & Location Metadata Pill */}
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] text-slate-300">
-              <span className="font-semibold text-gold">EST. 2004</span>
-              <span className="text-white/20">•</span>
-              <span>PALAKKAD MANUFACTURING UNIT</span>
-            </div>
-
             {/* Brand Description */}
-            <p className="mt-3.5 max-w-md text-xs leading-relaxed text-slate-400 sm:text-sm">
+            <p className="mt-4 max-w-md body-text text-slate-400 sm:text-sm">
               Leading manufacturer of premium trussfold roofing sheets in Palakkad, Kerala. Engineered with primary steel coils for maximum durability, structural rigidity, and weather resilience.
             </p>
 
@@ -53,28 +42,27 @@ export default function Footer() {
             <div className="mt-5 sm:mt-6">
               <Link
                 href="/contact"
-                className="group inline-flex min-h-11 items-center gap-2.5 rounded-lg border border-brand/40 bg-brand px-5 py-2.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(22,104,232,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1258c7] hover:border-brand-light/60 hover:shadow-[0_6px_22px_rgba(22,104,232,0.45)]"
+                className="group inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand px-6 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-out hover:bg-white hover:text-navy active:scale-[0.98]"
               >
                 <span>Request Quotation</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
 
           {/* 2. Navigation Section */}
           <div data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
               Navigation
             </h3>
-            <div className="mt-2 h-0.5 w-6 rounded bg-gold" />
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-4 space-y-3 text-sm">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="group inline-flex items-center gap-2 text-slate-400 transition-colors duration-200 hover:text-white"
+                    className="group inline-flex items-center gap-2 text-slate-400 transition-colors duration-150 hover:text-white"
                   >
-                    <ArrowRight className="h-3 w-3 text-brand-light transition-transform duration-200 group-hover:translate-x-1" />
+                    <UIcon name="arrow-right" size="xs" className="text-brand-light transition-transform duration-150 group-hover:translate-x-1" />
                     <span>{l.label}</span>
                   </Link>
                 </li>
@@ -84,15 +72,14 @@ export default function Footer() {
 
           {/* 3. Factory Desk Section */}
           <div data-reveal style={{ "--reveal-delay": "160ms" } as React.CSSProperties}>
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
               Factory Desk
             </h3>
-            <div className="mt-2 h-0.5 w-6 rounded bg-gold" />
             <ul className="mt-4 space-y-4 text-sm">
               {/* Phone / WhatsApp */}
               <li className="flex items-start gap-3.5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
-                  <Phone className="h-4 w-4" />
+                  <UIcon name="phone" size="sm" />
                 </span>
                 <a
                   href={`tel:+91${site.phone}`}
@@ -110,7 +97,7 @@ export default function Footer() {
               {/* Plant Address */}
               <li className="flex items-start gap-3.5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
-                  <MapPin className="h-4 w-4" />
+                  <UIcon name="marker" size="sm" />
                 </span>
                 <div className="flex-1 pt-0.5">
                   <span className="block text-sm font-bold text-white">
@@ -125,7 +112,7 @@ export default function Footer() {
               {/* GSTIN / Tax Identifier */}
               <li className="flex items-start gap-3.5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-gold">
-                  <FileText className="h-4 w-4" />
+                  <UIcon name="document" size="sm" />
                 </span>
                 <div className="flex-1 pt-0.5">
                   <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-400">
@@ -161,7 +148,7 @@ export default function Footer() {
 
           {/* Copyright Information on Right */}
           <p className="font-mono text-center text-xs text-slate-400 sm:text-right">
-            &copy; 2026 Durawin Trafford Sheet Manufacturing &bull; Melvin Joseph
+            &copy; 2026 Durawin Trafford Sheet Manufacturing &bull; Melvin Joseph &bull; Icons by Flaticon UIcons
           </p>
         </div>
       </div>

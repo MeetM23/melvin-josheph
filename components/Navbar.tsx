@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import UIcon from "@/components/UIcon";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -61,7 +61,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden items-center md:flex md:gap-7">
+        <nav aria-label="Main" className="hidden items-center md:flex md:gap-2 lg:gap-3">
           {navItems.map((n) => {
             const isActive = pathname === n.href;
             return (
@@ -69,26 +69,24 @@ export default function Navbar() {
                 key={n.href}
                 href={n.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`relative px-3 py-1.5 text-sm font-semibold transition-all ${
+                className={`relative px-3.5 py-1.5 text-sm font-medium tracking-tight transition-all duration-200 ${
                   isActive
-                    ? "rounded-full bg-slate-100 text-brand shadow-xs"
-                    : "text-slate-700 hover:text-brand hover:bg-slate-50 rounded-full"
+                    ? "rounded-full bg-slate-100 text-navy font-semibold shadow-xs"
+                    : "text-slate-600 hover:text-navy hover:bg-slate-50 rounded-full"
                 }`}
               >
                 {n.label}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-4 rounded-full bg-brand" />
-                )}
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-navy px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
-          >
-            <span>Get a Quote</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          </Link>
+          <div className="ml-2 pl-2 border-l border-slate-200">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-navy px-5 py-2 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-brand active:scale-[0.98]"
+            >
+              <span>Get a Quote</span>
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile menu toggle */}
@@ -99,9 +97,9 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((o) => !o)}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-navy transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-navy transition-all duration-150 hover:bg-slate-50 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:hidden"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <UIcon name="close" size="base" /> : <UIcon name="menu" size="base" />}
         </button>
       </div>
 
