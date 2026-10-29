@@ -42,108 +42,82 @@ const serviceFeatures: { num: string; title: string; desc: string; icon: UIconNa
 ];
 
 
-// 2. Consolidated 6-Stage Customer Journey (Every Stage Has Authentic Industrial Photography)
+// 2. Consolidated 6-Stage Customer Journey (Concise, Scannable Process)
 interface JourneyStep {
   num: string;
   stageName: string;
-  role: "Durawin Technical Desk" | "Contractor & Site Team" | "Palakkad Factory" | "Joint Handover";
   title: string;
-  summary: string;
-  technicalSpecs: string[];
+  description: string;
+  keyDetails: string[];
   image: string;
-  imageCaption: string;
 }
 
 const customerJourneySteps: JourneyStep[] = [
   {
     num: "01",
-    stageName: "PROJECT SCOPING",
-    role: "Durawin Technical Desk",
-    title: "Requirement Definition & Slope Advisory",
-    summary:
-      "The client provides building plans, roof area, pitch, and site location in Kerala. Our technical team evaluates the exposure to coastal winds and recommends appropriate trapezoidal rib depth and sheet gauge.",
-    technicalSpecs: [
-      "Minimum recommended roof slope: 1 in 7 (approx 8°) for rapid rainwater runoff",
-      "Trapezoidal profile depth chosen according to cloudburst discharge calculations",
-      "Gauge selection ranging from 0.30 mm to 0.50 mm based on structural purlin spans",
+    stageName: "PROJECT PLANNING",
+    title: "Roof Planning & Slope Advisory",
+    description: "Assess building plans, roof slope, site wind exposure, and recommended sheet profile requirements.",
+    keyDetails: [
+      "Recommended 1:7 slope for rapid monsoon runoff",
+      "Gauge selection matched to structural purlin spans",
     ],
     image: "/images/services-planning-consultation.jpg",
-    imageCaption: "Site engineers and clients assessing structural roof plans, pitch, and profile depths",
   },
   {
     num: "02",
-    stageName: "SITE PREPARATION",
-    role: "Contractor & Site Team",
-    title: "Structural Purlin Alignment & Site Verification",
-    summary:
-      "Once structural steel trusses are welded in place, the site contractor verifies purlin levelness and measures exact ridge-to-eaves slope lengths to dictate custom sheet roll-forming dimensions.",
-    technicalSpecs: [
-      "Purlin spacing strictly verified between 1.0 m and 1.4 m depending on sheet gauge",
-      "Structural steel deburred, primed, and checked for coplanar alignment across all bays",
-      "Exact millimeter span measurement eliminates accidental sheet underhang or wasteful site cuts",
+    stageName: "SITE ASSESSMENT",
+    title: "Purlin Alignment & Span Verification",
+    description: "Verify structural truss alignment, purlin levelness, and exact slope lengths before manufacturing starts.",
+    keyDetails: [
+      "Verified purlin spacing between 1.0 m and 1.4 m",
+      "Millimeter span measurements eliminate site waste",
     ],
     image: "/images/services-site-assessment.jpg",
-    imageCaption: "Site engineers and contractors verifying purlin alignment and span lengths",
   },
   {
     num: "03",
-    stageName: "SPECIFICATION",
-    role: "Durawin Technical Desk",
-    title: "Primary Coil Selection & Order Sign-off",
-    summary:
-      "Durawin confirms certified primary coil sourcing, base metal thickness, coating chemistry, and required custom cut schedule before generating the official factory estimate.",
-    technicalSpecs: [
-      "Certified primary steel coils exclusively from JSW Steel, Jindal Steel, and primary mills",
-      "Strict compliance with IS 513 / IS 277 structural zinc coating standards",
-      "Baked Siliconized Polyester (SMP) or PVDF architectural coatings selected for UV durability",
+    stageName: "MATERIAL SELECTION",
+    title: "Primary Steel & Coating Sign-off",
+    description: "Confirm certified primary steel coil sourcing, base metal thickness, and architectural coating chemistry.",
+    keyDetails: [
+      "Certified primary steel from JSW and Jindal",
+      "Baked SMP or PVDF coating for UV durability",
     ],
     image: "/images/raw-materials-coils.jpg",
-    imageCaption: "Certified primary steel coils (JSW & Jindal) in storage prior to roll-forming",
   },
   {
     num: "04",
-    stageName: "MANUFACTURING",
-    role: "Palakkad Factory",
-    title: "CNC Roll-forming & Protected Fleet Dispatch",
-    summary:
-      "Coils are roll-formed and sheared to exact millimeter lengths at our Palakkad manufacturing facility, strapped onto timber dunnage, and dispatched directly to the site.",
-    technicalSpecs: [
-      "CNC cut-to-length shearing up to 12 meters (approx 40 ft) to eliminate end-overlap leaks",
-      "Continuous profile calibration ensures perfect lap interlocks along long roof slopes",
-      "Direct factory fleet delivery across all 14 Kerala districts with protective edge packing",
+    stageName: "MANUFACTURING & DISPATCH",
+    title: "Custom Roll-Forming & Fleet Delivery",
+    description: "Roll-form sheets to exact millimeter lengths at our Palakkad plant and dispatch on protective dunnage.",
+    keyDetails: [
+      "Continuous shearing up to 12 meters length",
+      "Protected transit across all 14 Kerala districts",
     ],
     image: "/images/services-rollforming-dispatch.jpg",
-    imageCaption: "Automated CNC roll-forming line shearing custom lengths onto strapped dunnage",
   },
   {
     num: "05",
-    stageName: "INSTALLATION",
-    role: "Contractor & Site Team",
-    title: "Weather-Side Laying & Crest-Fastening with EPDM Washers",
-    summary:
-      "Contractor crews lay sheets starting from the side opposite prevailing monsoon storm winds. Fasteners are driven through raised crests using self-drilling hex-head TEK screws fitted with vulcanized EPDM washers.",
-    technicalSpecs: [
-      "Lapping sheets face away from prevailing southwest monsoons to eliminate capillary backflow",
-      "Fastened strictly through top ribs (crests) — never in valleys where water channels",
-      "Calibrated drill torque compresses the vulcanized EPDM washer without denting sheet steel",
+    stageName: "ROOF INSTALLATION",
+    title: "Weather-Side Laying & Crest Fastening",
+    description: "Install sheets facing away from storm winds and fasten through crests with EPDM-washered screws.",
+    keyDetails: [
+      "Fastened strictly through top ribs with EPDM seals",
+      "Laps oriented away from prevailing southwest winds",
     ],
     image: "/images/services-installation-work.jpg",
-    imageCaption: "Roofing contractor crew installing trapezoidal sheets with safety harness gear",
   },
   {
     num: "06",
-    stageName: "COMPLETION",
-    role: "Joint Handover",
-    title: "Flashing, Rainwater Integration & Final Inspection",
-    summary:
-      "Installation of ridge caps, verge barge flashings, and high-capacity eaves gutters. A final inspection verifies fastener torque, joint sealant continuity, and metal swarf clearance for a long-lasting watertight roof.",
-    technicalSpecs: [
-      "Eaves gutters positioned with 50–75 mm sheet overhang to catch torrential downpours",
-      "Matching ridge capping and verge trims sealed with neutral-cure butyl continuous laps",
-      "Swarf and metal filings thoroughly swept to prevent premature surface pinhole staining",
+    stageName: "FINAL INSPECTION",
+    title: "Flashings, Drainage & Handover",
+    description: "Install ridge caps and eaves gutters, then verify fastener torque and swarf removal for watertight completion.",
+    keyDetails: [
+      "Sealed ridge caps and high-capacity eaves gutters",
+      "Complete swarf sweep to prevent surface staining",
     ],
     image: "/images/services-completed-building.jpg",
-    imageCaption: "Completed distribution facility with watertight multi-span trapezoidal roofing",
   },
 ];
 
@@ -324,15 +298,15 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          {/* Unified Timeline Cards */}
-          <div className="mt-10 sm:mt-12 space-y-5 sm:space-y-6">
+          {/* Unified Timeline Cards — Clean, Concise & Scannable */}
+          <div className="mt-10 sm:mt-12 space-y-4 sm:space-y-5">
             {customerJourneySteps.map((step) => (
               <div
                 key={step.num}
-                className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:border-slate-300 hover:shadow-[0_12px_28px_-6px_rgba(10,37,64,0.08)]"
+                className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:border-slate-300 hover:shadow-[0_8px_24px_-6px_rgba(10,37,64,0.06)]"
               >
-                <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,34fr)_minmax(0,34fr)_minmax(0,32fr)] lg:gap-6">
-                  {/* LEFT: num/stage + title + summary + role */}
+                <div className="grid grid-cols-1 items-start gap-4 sm:gap-5 lg:grid-cols-[minmax(0,40fr)_minmax(0,30fr)_minmax(0,30fr)] lg:gap-6 lg:items-center">
+                  {/* LEFT: num/stage + title + short description */}
                   <div className="min-w-0">
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-2xl font-black text-brand">
@@ -344,53 +318,38 @@ export default function ServicesPage() {
                       </span>
                     </div>
 
-                    <h3 className="mt-2.5 text-lg font-bold tracking-tight text-navy sm:text-xl leading-snug">
+                    <h3 className="mt-2 text-lg font-bold tracking-tight text-navy sm:text-xl leading-snug">
                       {step.title}
                     </h3>
 
-                    <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                      {step.summary}
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {step.description}
                     </p>
-
-                    <div className="mt-3.5 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[10px] font-semibold text-slate-700">
-                      <span>Responsible:</span>
-                      <span className="text-navy font-bold">{step.role}</span>
-                    </div>
                   </div>
 
-                  {/* MIDDLE: specs only */}
+                  {/* MIDDLE: 2 essential key details */}
                   <div className="min-w-0">
-                    <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-4">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500 block mb-3">
-                        Technical Standards Applied
-                      </span>
-                      <ul className="space-y-2.5 text-xs text-slate-700">
-                        {step.technicalSpecs.map((spec, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <UIcon name="check-circle" className="text-xs text-brand shrink-0 mt-0.5" />
-                            <span className="leading-snug">{spec}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <ul className="space-y-2 text-xs sm:text-[13px] text-slate-600">
+                      {step.keyDetails.map((detail, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <UIcon name="check-circle" className="text-xs text-brand shrink-0 mt-0.5" />
+                          <span className="leading-snug">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* RIGHT: image + caption */}
+                  {/* RIGHT: process image */}
                   <div className="min-w-0">
                     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50">
                       <Image
                         src={step.image}
-                        alt={step.imageCaption || step.title}
+                        alt={step.title}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 360px"
+                        sizes="(max-width: 1024px) 100vw, 340px"
                         className="object-cover"
                       />
                     </div>
-                    {step.imageCaption && (
-                      <span className="mt-2 block font-mono text-[10px] leading-relaxed text-slate-400">
-                        {step.imageCaption}
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>
