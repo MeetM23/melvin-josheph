@@ -1,275 +1,171 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Box, CheckCircle2, Eye, Layers } from "lucide-react";
+import { ArrowRight, CheckCircle2, Layers } from "lucide-react";
 import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
-interface GalleryItem {
-  src: string;
-  label: string;
-  badge: string;
-  caption: string;
-}
-
-interface ManufacturedProduct {
+interface ProductItem {
   id: string;
-  code: string;
   category: string;
   title: string;
-  subtitle: string;
   desc: string;
-  gallery: GalleryItem[];
-  specs: { label: string; value: string }[];
-  features: string[];
-  specsHref: string;
+  image: string;
+  imageFit: "contain" | "cover";
+  imageAlt: string;
+  benefits: [string, string];
   enquireHref: string;
+  enquireLabel: string;
+  specsHref: string;
 }
 
-const manufacturedSheets: ManufacturedProduct[] = [
+const products: ProductItem[] = [
   {
     id: "roofing-sheets",
-    code: "DW-ROOF-PRO",
-    category: "EXTERIOR ROOFING SYSTEM",
+    category: "EXTERIOR ROOFING",
     title: "Roofing Sheets",
-    subtitle: "High-Depth Trapezoidal Crest Profile",
-    desc: "Heavy-duty trapezoidal steel sheets engineered for superior load-bearing capacity, rapid monsoon water runoff, and long-lasting weather protection across residential, commercial, and industrial roofs.",
-    gallery: [
-      {
-        src: "/images/product-trussfold-blue.jpg",
-        label: "Trussfold Blue",
-        badge: "PRIMARY PROFILE",
-        caption: "High-Depth Trapezoidal Ribs for Rapid Water Drainage",
-      },
-      {
-        src: "/images/product-colour-coated-red.jpg",
-        label: "Terracotta Red",
-        badge: "COLOUR PLUS",
-        caption: "UV-Stabilized Architectural Pre-Painted Roofing",
-      },
-      {
-        src: "/images/product-galvanized-silver.jpg",
-        label: "Galvanized Silver",
-        badge: "ZINC SHIELD",
-        caption: "Hot-Dip Zinc Coated Industrial Corrosion Barrier",
-      },
-      {
-        src: "/images/app-roofing-commercial.jpg",
-        label: "Commercial In-Situ",
-        badge: "REAL APPLICATION",
-        caption: "Large-Span Institutional Pavilion Roof Installation",
-      },
-    ],
-    specs: [
-      { label: "Profile Geometry", value: "High-Depth Trapezoidal Ribs" },
-      { label: "Application", value: "Exterior Roofing & Shed Overhangs" },
-      { label: "Cut Lengths", value: "Cut to exact requirement" },
-      { label: "Raw Material", value: "100% Primary High-Tensile Steel" },
-    ],
-    features: [
-      "Deep water drainage channels",
-      "High wind & heavy monsoon resistance",
+    desc: "Heavy-duty trapezoidal steel sheets engineered for superior load capacity, rapid water runoff, and long-term weather durability.",
+    image: "/images/product-card-roofing.jpg",
+    imageFit: "contain",
+    imageAlt: "Durawin Trapezoidal Profile Roofing Sheets",
+    benefits: [
+      "High-depth water runoff crests",
       "Custom cut-to-length zero-joint spans",
-      "Factory-direct precision roll-forming",
     ],
-    specsHref: "/products#trussfold",
     enquireHref: "/contact?product=trussfold",
+    enquireLabel: "Enquire Roofing",
+    specsHref: "/products#trussfold",
   },
   {
     id: "liner-sheets",
-    code: "DW-LINER-PRO",
-    category: "INTERIOR & CEILING SYSTEM",
+    category: "INTERIOR & CEILINGS",
     title: "Liner Sheets",
-    subtitle: "Precision Multi-Rib Wall & Ceiling Profile (1110 mm)",
-    desc: "Precision-rolled ribbed steel sheets designed specifically for interior ceilings, interior wall cladding, architectural soffits, and partition panels with a sleek, uniform, and low-maintenance finish.",
-    gallery: [
-      {
-        src: "/images/product-liner-profile-spec.jpg",
-        label: "1110mm CAD Spec",
-        badge: "ENGINEERING SPEC",
-        caption: "1110 mm Cover Width • 50.5 mm Pitch • 3.5 mm Depth",
-      },
-      {
-        src: "/images/product-liner-colors-stack.jpg",
-        label: "5 Color Options",
-        badge: "COLOUR RANGE",
-        caption: "Terracotta, Silver, Brown, Green & Sky Blue",
-      },
-      {
-        src: "/images/app-liner-residential.jpg",
-        label: "Cladding In-Situ",
-        badge: "REAL APPLICATION",
-        caption: "Modern Contemporary Wall Cladding & Ceilings",
-      },
-      {
-        src: "/images/product-liner-sheet.jpg",
-        label: "Rib Texture",
-        badge: "SURFACE DETAIL",
-        caption: "Fine-Pitch Continuous Roll-Formed Steel",
-      },
-    ],
-    specs: [
-      { label: "Cover Width", value: "1110 mm Total Profile" },
-      { label: "Rib Dimensions", value: "50.5 mm Pitch • 3.5 mm Depth" },
-      { label: "Application", value: "Interior Ceilings, Walls & Soffits" },
-      { label: "Raw Material", value: "Certified Primary Steel Coils" },
-    ],
-    features: [
-      "Clean linear aesthetic shadow ribs",
-      "1110 mm wide coverage per sheet",
+    desc: "Precision-rolled multi-rib steel sheets designed for architectural ceilings, interior wall cladding, and clean-line soffits.",
+    image: "/images/product-card-liner.png",
+    imageFit: "contain",
+    imageAlt: "Durawin 1110mm Interior Liner Sheets Profile",
+    benefits: [
+      "1110 mm wide coverage profile",
       "5 architectural colour coatings",
-      "Ideal for interior linings & soffits",
     ],
-    specsHref: "/products#liner-sheets",
     enquireHref: "/contact?product=liner-sheets",
+    enquireLabel: "Enquire Liner",
+    specsHref: "/products#liner-sheets",
+  },
+  {
+    id: "gi-pipes",
+    category: "STRUCTURAL FRAMEWORK",
+    title: "Structural GI Pipes",
+    desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with heavy zinc defense.",
+    image: "/images/product-card-pipes-framed.jpg",
+    imageFit: "contain",
+    imageAlt: "Structural GI Galvanized Steel Purlin Pipes",
+    benefits: [
+      "Square & rectangular hollow sections",
+      "APL Apollo certified primary steel",
+    ],
+    enquireHref: "/contact?product=gp-pipes",
+    enquireLabel: "Enquire GI Pipes",
+    specsHref: "/products#structural-framework",
+  },
+  {
+    id: "rainwater-gutters",
+    category: "ROOF DRAINAGE",
+    title: "Rainwater Gutters & Downpipes",
+    desc: "Engineered high-flow eaves gutters and vertical downspouts designed to channel heavy monsoon rainfall and protect building facades.",
+    image: "/images/product-card-gutter.jpg",
+    imageFit: "cover",
+    imageAlt: "Engineered Rainwater Eaves Gutter and Downpipe System",
+    benefits: [
+      "Heavy-flow monsoon discharge",
+      "UV-stabilized all-weather build",
+    ],
+    enquireHref: "/contact?product=gutters",
+    enquireLabel: "Enquire Gutters",
+    specsHref: "/products#structural-framework",
   },
 ];
 
-function ProductCard({ sheet, index }: { sheet: ManufacturedProduct; index: number }) {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const currentView = sheet.gallery[activeIdx] ?? sheet.gallery[0];
-
+function ProductCard({ product, index }: { product: ProductItem; index: number }) {
   return (
     <div
       data-reveal="scale"
-      style={{ "--reveal-delay": `${index * 120}ms` } as React.CSSProperties}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-xl sm:p-7"
+      style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
+      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-xl"
     >
-      <div className="pointer-events-none absolute -bottom-10 -right-10 h-36 w-96 bg-roof-profile-light opacity-25 hidden sm:block" />
-
       <div>
-        {/* Main Framed Product Image Container */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
+        {/* 1. Consistent Product Image Container */}
+        <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl border border-slate-200/80 bg-[#F8FAFC]">
           <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
 
-          {/* Badges strip */}
-          <div className="absolute left-3 top-3 z-10 flex flex-wrap items-center gap-1.5 sm:left-3.5 sm:top-3.5">
-            <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-              {sheet.code}
-            </span>
-            <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
-              {currentView.badge}
-            </span>
-          </div>
-
-          <div className="absolute right-3 top-3 z-10 flex items-center gap-1 sm:right-3.5 sm:top-3.5">
-            <span className="rounded-full border border-slate-200/80 bg-white/90 px-2 py-0.5 font-mono text-[9px] font-semibold text-slate-500 backdrop-blur-xs">
-              0{activeIdx + 1} / 0{sheet.gallery.length}
-            </span>
-          </div>
-
-          {/* Centered Image */}
-          <div className="relative flex h-full w-full items-center justify-center">
+          {/* Centered Image with deliberate containment or cover */}
+          <div
+            className={`relative flex h-full w-full items-center justify-center ${
+              product.imageFit === "contain" ? "p-3 sm:p-3.5" : "p-0"
+            }`}
+          >
             <Image
-              src={currentView.src}
-              alt={`${sheet.title} - ${currentView.label}`}
+              src={product.image}
+              alt={product.imageAlt}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
-              priority={index === 0 && activeIdx === 0}
-              className="object-contain transition-all duration-300 ease-out group-hover:scale-[1.02]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              priority={index === 0}
+              className={`transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
+                product.imageFit === "cover"
+                  ? "object-cover object-[50%_25%]"
+                  : "object-contain"
+              }`}
             />
           </div>
-
-          {/* Bottom caption overlay */}
-          <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex justify-center">
-            <span className="inline-flex max-w-[95%] items-center gap-1.5 truncate rounded-full border border-white/70 bg-black/60 px-3 py-1 text-center font-mono text-[10px] font-medium text-white shadow-xs backdrop-blur-sm sm:text-[11px]">
-              <Eye className="h-3 w-3 shrink-0 text-gold" />
-              <span className="truncate">{currentView.caption}</span>
-            </span>
-          </div>
         </div>
 
-        {/* Structured Gallery Selector Thumbnails */}
-        <div className="mt-3.5 flex items-center gap-1.5 overflow-x-auto pb-1.5 pt-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {sheet.gallery.map((item, idx) => {
-            const isActive = activeIdx === idx;
-            return (
-              <button
-                key={item.label}
-                type="button"
-                onClick={() => setActiveIdx(idx)}
-                className={`group/thumb flex shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-left transition-all ${
-                  isActive
-                    ? "border-brand bg-brand/10 text-brand ring-2 ring-brand/20 shadow-xs"
-                    : "border-slate-200/90 bg-slate-50/80 text-slate-600 hover:border-slate-300 hover:bg-white"
-                }`}
-              >
-                <span className="relative h-6 w-6 shrink-0 overflow-hidden rounded border border-slate-200 bg-white">
-                  <Image
-                    src={item.src}
-                    alt={item.label}
-                    fill
-                    sizes="24px"
-                    className="object-cover"
-                  />
-                </span>
-                <span className="whitespace-nowrap font-mono text-[11px] font-semibold">
-                  {item.label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Product Details Header */}
+        {/* 2. Small Product Category Label */}
         <div className="mt-4">
-          <div className="flex items-center gap-2 font-mono text-xs text-brand">
-            <span>{sheet.category}</span>
-            <span>✦</span>
-            <span>FACTORY DIRECT</span>
-          </div>
-          <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
-            {sheet.title}
+          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+            {product.category}
+          </span>
+
+          {/* 3. Clear Product Name */}
+          <h3 className="mt-1 text-lg font-extrabold tracking-tight text-navy transition-colors group-hover:text-brand sm:text-xl">
+            {product.title}
           </h3>
-          <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
-            {sheet.subtitle}
-          </p>
-          <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-            {sheet.desc}
+
+          {/* 4. One Concise, Readable Description */}
+          <p className="mt-2 text-xs leading-relaxed text-slate-600 line-clamp-3">
+            {product.desc}
           </p>
 
-          {/* Key Feature Chips */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {sheet.features.map((feat) => (
-              <span
-                key={feat}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-700"
+          {/* 5. At Most Two Short Key Benefits */}
+          <ul className="mt-3.5 space-y-2">
+            {product.benefits.map((benefit) => (
+              <li
+                key={benefit}
+                className="flex items-start gap-2 text-[11px] font-medium text-slate-700"
               >
-                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
-                <span>{feat}</span>
-              </span>
+                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                <span className="leading-snug">{benefit}</span>
+              </li>
             ))}
-          </div>
-
-          {/* Verified Technical Spec Matrix */}
-          <div className="mt-4.5 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 font-mono text-xs">
-            {sheet.specs.map((s) => (
-              <div key={s.label}>
-                <span className="block text-[10px] uppercase text-slate-400">{s.label}</span>
-                <span className="mt-0.5 block text-[11px] font-semibold text-navy sm:text-xs">
-                  {s.value}
-                </span>
-              </div>
-            ))}
-          </div>
+          </ul>
         </div>
       </div>
 
-      {/* Action Buttons */}
-      <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-slate-100 pt-5">
+      {/* 6. One Prominent, Consistently Positioned Enquiry CTA + Direct Spec Link */}
+      <div className="mt-5 border-t border-slate-100 pt-3.5">
         <Link
-          href={sheet.enquireHref}
-          className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-navy px-4 py-2.5 text-center text-xs font-bold text-white shadow-xs transition hover:bg-brand sm:text-sm"
+          href={product.enquireHref}
+          className="inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-navy px-3 py-2 text-center text-xs font-bold text-white shadow-2xs transition hover:bg-brand active:scale-[0.99]"
         >
-          <span>Enquire About {sheet.title}</span>
-          <ArrowRight className="h-4 w-4" />
+          <span>{product.enquireLabel}</span>
+          <ArrowRight className="h-3.5 w-3.5" />
         </Link>
         <Link
-          href={sheet.specsHref}
-          className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-navy transition hover:border-brand hover:text-brand sm:text-sm"
+          href={product.specsHref}
+          className="mt-1.5 inline-flex w-full items-center justify-center gap-1 py-1 text-[11px] font-semibold text-slate-500 transition hover:text-brand"
         >
           <span>View Specifications</span>
+          <span aria-hidden="true">→</span>
         </Link>
       </div>
     </div>
@@ -278,203 +174,50 @@ function ProductCard({ sheet, index }: { sheet: ManufacturedProduct; index: numb
 
 export default function ManufacturedSheetsSection() {
   return (
-    <section className="relative overflow-hidden bg-white pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain">
+    <section id="products-lineup" className="relative scroll-mt-24 overflow-hidden bg-white pb-12 pt-6 sm:pb-16 sm:pt-8 bg-paper-grain">
       <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-30 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
-      <WatermarkText text="MANUFACTURING" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+      <WatermarkText text="PRODUCTS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
-        <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header with Explore All Products CTA */}
+        <div data-reveal className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-              <Layers className="h-3.5 w-3.5 text-brand" /> Factory Manufacturing Lineup
+              <Layers className="h-3.5 w-3.5 text-brand" /> Complete Product Solutions
             </span>
             <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-              Our Manufactured Sheets
+              Manufactured Sheets & Structural Systems
             </h2>
-            <p className="mt-1 text-sm text-slate-600 sm:text-base">
-              We manufactures high-performance roofing sheets and interior liner sheets engineered from certified primary steel in Palakkad
+            <p className="mt-1 max-w-2xl text-xs text-slate-600 sm:text-sm">
+              From precision roll-formed roofing & liner sheets to high-yield GI pipes and complete rainwater drainage systems.
             </p>
           </div>
-          <div className="hidden font-mono text-xs text-slate-400 sm:block">
-            [ 02 MANUFACTURED PROFILES ]
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-navy shadow-2xs transition hover:border-brand hover:text-brand"
+            >
+              <span>Explore All Products</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
-          {manufacturedSheets.map((sheet, i) => (
-            <ProductCard key={sheet.id} sheet={sheet} index={i} />
+        {/* 4 Products in Unified Grid: 4 columns on desktop, 2 on tablet, 1 on mobile */}
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 xl:gap-6">
+          {products.map((product, i) => (
+            <ProductCard key={product.id} product={product} index={i} />
           ))}
         </div>
 
-        {/* Structural Framing & Accessories Console: GP Pipes & Rainwater Gutters */}
-        <div data-reveal="scale" className="mt-12 rounded-2xl border border-slate-200/90 bg-slate-50/70 p-5 sm:p-8">
-          <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
-            <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-                <Box className="h-3.5 w-3.5 text-brand" /> Structural Framework & Drainage
-              </span>
-              <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy sm:text-2xl lg:text-3xl">
-                Structural GP Pipes & Rainwater Systems
-              </h3>
-              <p className="mt-1 text-xs text-slate-600 sm:text-sm">
-                Complete your roofing installation with high-tensile galvanized purlin pipes and heavy-duty drainage gutters
-              </p>
-            </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ STRUCTURAL ACCESSORIES ]
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-2 lg:gap-8">
-            {/* Card 1: GP Pipes */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-slate-200/90 bg-white p-4 shadow-2xs transition-all duration-300 hover:border-brand/40 hover:shadow-md sm:p-6">
-              <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-[#E5EAF0] bg-[#F8FAFC] p-3 sm:p-4">
-                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
-                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-                      DW-GP-PIPE
-                    </span>
-                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
-                      APL APOLLO & PRIMARY MILLS
-                    </span>
-                  </div>
-                  <div className="relative flex h-full w-full items-center justify-center">
-                    <Image
-                      src="/images/product-gp-pipes.jpg"
-                      alt="Structural GP Pipes - Galvanized Square and Rectangular Hollow Sections"
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 520px"
-                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-brand">
-                    PURLINS & TRUSS TUBES
-                  </span>
-                  <h4 className="mt-1 text-xl font-extrabold tracking-tight text-navy">
-                    Galvanized Plain (GP) Pipes
-                  </h4>
-                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
-                    Square & Rectangular Hollow Structural Sections
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                    Certified high-yield galvanized steel pipes designed for roof purlins, rafters, and structural trusses. Superior zinc coating provides heavy sacrificial corrosion defense against coastal humidity and monsoons.
-                  </p>
-
-                  <div className="mt-3.5 flex flex-wrap gap-1.5">
-                    {[
-                      "Square & Rectangular (SHS / RHS)",
-                      "High-Yield Tensile Strength",
-                      "Heavy Zinc Galvanized Coating",
-                      "Uniform Gauge Thickness",
-                    ].map((f) => (
-                      <span
-                        key={f}
-                        className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-700"
-                      >
-                        <CheckCircle2 className="h-3 w-3 text-emerald-600 shrink-0" />
-                        <span>{f}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
-                <span className="font-mono text-[11px] text-slate-500">
-                  Ready stock for purlin fabrication
-                </span>
-                <Link
-                  href="/contact?product=gp-pipes"
-                  className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-navy px-4 py-2 text-xs font-bold text-white transition hover:bg-brand"
-                >
-                  <span>Enquire GP Pipes</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2: Rainwater Gutter Systems */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-slate-200/90 bg-white p-4 shadow-2xs transition-all duration-300 hover:border-brand/40 hover:shadow-md sm:p-6">
-              <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-[#E5EAF0] bg-[#F8FAFC]">
-                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
-                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-                      DW-GUTTER-SYS
-                    </span>
-                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
-                      ALL-WEATHER DRAINAGE
-                    </span>
-                  </div>
-                  <div className="relative flex h-full w-full items-center justify-center">
-                    <Image
-                      src="/images/product-rainwater-gutter.jpg"
-                      alt="Engineered Rainwater Eaves Gutter and Downpipe System"
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 520px"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-brand">
-                    ROOF DRAINAGE SYSTEMS
-                  </span>
-                  <h4 className="mt-1 text-xl font-extrabold tracking-tight text-navy">
-                    Rainwater Gutters & Downpipes
-                  </h4>
-                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
-                    High-Capacity Eaves Gutter & Vertical Discharge Fittings
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                    Engineered rainwater drainage systems tailored for Durawin roofing sheet installations. Prevents rainwater overflow, wall dampness, and foundation damage during intense torrential rains.
-                  </p>
-
-                  <div className="mt-3.5 flex flex-wrap gap-1.5">
-                    {[
-                      "High-Flow Torrential Capacity",
-                      "UV-Stabilized All-Weather Material",
-                      "Leak-Free Jointing Brackets",
-                      "Complete Downpipe Fittings",
-                    ].map((f) => (
-                      <span
-                        key={f}
-                        className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-700"
-                      >
-                        <CheckCircle2 className="h-3 w-3 text-emerald-600 shrink-0" />
-                        <span>{f}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
-                <span className="font-mono text-[11px] text-slate-500">
-                  Full drainage accessory packages
-                </span>
-                <Link
-                  href="/contact?product=gutters"
-                  className="inline-flex min-h-10 items-center gap-1.5 rounded-lg bg-navy px-4 py-2 text-xs font-bold text-white transition hover:bg-brand"
-                >
-                  <span>Enquire Gutters</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-6 hidden items-center justify-between border-t border-slate-100 pt-4 sm:flex">
-          <CadDimensionMarks label="DUAL PROFILE PRODUCTION LINE" spec="ROOFING (TRUSSFOLD) & LINER (1110MM)" />
-          <CadDimensionMarks label="PRIMARY STEEL COILS" spec="JSW & JINDAL COIL SOURCING" />
+        {/* Industrial Specification Footer Line */}
+        <div className="mt-8 hidden items-center justify-between border-t border-slate-100 pt-4 font-mono text-xs text-slate-400 sm:flex">
+          <CadDimensionMarks label="MANUFACTURED PROFILES" spec="ROOFING (TRUSSFOLD) & LINER (1110MM)" />
+          <CadDimensionMarks label="STRUCTURAL FRAMEWORK" spec="GI PIPES (APL APOLLO) & EAVES GUTTERS" />
         </div>
       </div>
     </section>
   );
 }
-

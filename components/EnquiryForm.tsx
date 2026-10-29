@@ -12,7 +12,7 @@ const PRODUCTS = [
   { value: "", label: "Not sure yet" },
   { value: "trussfold", label: "Trussfold Roofing Sheets" },
   { value: "liner-sheets", label: "Liner Sheets (Interior & Ceiling)" },
-  { value: "gp-pipes", label: "Galvanized GP Pipes & Purlins" },
+  { value: "gp-pipes", label: "Galvanized GI/GP Pipes & Purlins" },
   { value: "gutters", label: "Rainwater Gutters & Downpipes" },
   { value: "colour-coated", label: "Colour Coated Sheets" },
   { value: "galvanized", label: "Galvanized Roofing Sheets" },
@@ -62,7 +62,8 @@ export default function EnquiryForm() {
 
   // Product cards link here with ?product=...; preselect it (no state, so no extra render)
   useEffect(() => {
-    const wanted = new URLSearchParams(window.location.search).get("product");
+    const rawWanted = new URLSearchParams(window.location.search).get("product");
+    const wanted = rawWanted === "gi-pipes" ? "gp-pipes" : rawWanted;
     if (wanted && productRef.current && PRODUCTS.some((p) => p.value === wanted)) productRef.current.value = wanted;
   }, []);
 
