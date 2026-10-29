@@ -12,10 +12,12 @@ import {
   FileText,
   Wrench,
   Truck,
-  CheckCheck,
+  Layers,
+  Sparkles,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import ServicesFaqAccordion, { FaqItem } from "@/components/ServicesFaqAccordion";
+import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
 
 export const metadata: Metadata = {
   title: "Services & Installation | Durawin Roofing Manufacturing",
@@ -23,53 +25,36 @@ export const metadata: Metadata = {
     "Direct roofing sheet manufacturing, precision CNC cut-to-length shearing up to 12m, and regional contractor installation coordination across Kerala.",
 };
 
-// 1. Services Lineup Data (Restrained & Architectural)
-const servicesList = [
+// Hero Features Bar Data (Matching Products & Home style)
+const serviceFeatures = [
   {
-    code: "SUPPLY • 01",
-    title: "Trapezoidal Roofing Sheet Supply",
-    desc: "Roll-formed from certified primary steel coils (IS 513 / IS 277). Features high-depth trapezoidal ribs designed for high load capacity, rapid water discharge, and extreme Kerala monsoon resilience.",
-    detailHref: "/products/roofing-sheets",
+    num: "01",
+    title: "CNC Custom Shearing",
+    desc: "Up to 12m zero-joint spans cut to the exact millimeter",
+    Icon: Ruler,
   },
   {
-    code: "CUSTOM • 02",
-    title: "CNC Cut-to-Length Shearing",
-    desc: "Sheets sheared to exact millimeter site dimensions up to 12 meters (approx 40 ft). Eliminates end-overlapping joints, prevents seam leakage, and reduces on-site cutting scrap.",
-    detailHref: "/contact?product=custom#enquiry",
+    num: "02",
+    title: "100% Primary Steel",
+    desc: "Certified virgin coils sourced from JSW Steel & Jindal",
+    Icon: ShieldCheck,
   },
   {
-    code: "CEILING • 03",
-    title: "1110 mm Multi-Rib Liner Sheets",
-    desc: "Architectural multi-rib steel panels for interior ceilings, wall cladding, and exterior roof eaves soffits. Moisture-proof, sag-free, and washable alternative to conventional gypsum.",
-    detailHref: "/products/liner-sheets",
+    num: "03",
+    title: "Contractor Coordination",
+    desc: "Verified regional installation teams across all districts",
+    Icon: Wrench,
   },
   {
-    code: "FINISH • 04",
-    title: "Colour-Coated Roofing Products",
-    desc: "Pre-painted steel sheets finished with oven-baked siliconized polyester (SMP) and PVDF architectural pigments. Resists tropical sun fading, chalking, and coastal humidity.",
-    detailHref: "/products/colour-coated-sheets",
-  },
-  {
-    code: "FRAME • 05",
-    title: "Structural GI & GP Hollow Pipes",
-    desc: "Certified high-yield galvanized steel square (SHS) and rectangular (RHS) hollow sections from APL Apollo for durable roof purlins, rafters, and welded trusses.",
-    detailHref: "/products/structural-gi-pipes",
-  },
-  {
-    code: "DRAINAGE • 06",
-    title: "Rainwater Gutters & Downpipes",
-    desc: "Engineered eaves gutters, corner bends, running outlets, and vertical downspouts designed to channel high-volume cloudburst rainfall safely away from building foundations.",
-    detailHref: "/products/rainwater-gutters",
-  },
-  {
-    code: "NETWORK • 07",
-    title: "Installation Partner Coordination",
-    desc: "While Durawin operates primarily as a manufacturing unit, we introduce clients to verified local fabrication and roofing contractor teams across all Kerala districts, backed by factory technical support.",
-    detailHref: "/contact#enquiry",
+    num: "04",
+    title: "Statewide Dispatch",
+    desc: "Direct factory fleet transit strapped on wooden dunnage",
+    Icon: Truck,
   },
 ];
 
-// 2. Consolidated 6-Stage Customer Journey (Combining Process + Technical Specifications)
+
+// 2. Consolidated 6-Stage Customer Journey (Every Stage Has Authentic Industrial Photography)
 interface JourneyStep {
   num: string;
   stageName: string;
@@ -77,10 +62,8 @@ interface JourneyStep {
   title: string;
   summary: string;
   technicalSpecs: string[];
-  image?: string;
-  imageCaption?: string;
-  secondaryImage?: string;
-  secondaryCaption?: string;
+  image: string;
+  imageCaption: string;
 }
 
 const customerJourneySteps: JourneyStep[] = [
@@ -96,6 +79,8 @@ const customerJourneySteps: JourneyStep[] = [
       "Trapezoidal profile depth chosen according to cloudburst discharge calculations",
       "Gauge selection ranging from 0.30 mm to 0.50 mm based on structural purlin spans",
     ],
+    image: "/images/services-planning-consultation.jpg",
+    imageCaption: "Site engineers and clients assessing structural roof plans, pitch, and profile depths",
   },
   {
     num: "02",
@@ -124,6 +109,8 @@ const customerJourneySteps: JourneyStep[] = [
       "Strict compliance with IS 513 / IS 277 structural zinc coating standards",
       "Baked Siliconized Polyester (SMP) or PVDF architectural coatings selected for UV durability",
     ],
+    image: "/images/raw-materials-coils.jpg",
+    imageCaption: "Certified primary steel coils (JSW & Jindal) in storage prior to roll-forming",
   },
   {
     num: "04",
@@ -137,6 +124,8 @@ const customerJourneySteps: JourneyStep[] = [
       "Continuous profile calibration ensures perfect lap interlocks along long roof slopes",
       "Direct factory fleet delivery across all 14 Kerala districts with protective edge packing",
     ],
+    image: "/images/services-rollforming-dispatch.jpg",
+    imageCaption: "Automated CNC roll-forming line shearing custom lengths onto strapped dunnage",
   },
   {
     num: "05",
@@ -152,8 +141,6 @@ const customerJourneySteps: JourneyStep[] = [
     ],
     image: "/images/services-installation-work.jpg",
     imageCaption: "Roofing contractor crew installing trapezoidal sheets with safety harness gear",
-    secondaryImage: "/images/services-installation-detail.jpg",
-    secondaryCaption: "Hex TEK screw with compressed vulcanized EPDM rubber washer on crest rib",
   },
   {
     num: "06",
@@ -235,139 +222,105 @@ export default function ServicesPage() {
   return (
     <div className="bg-white">
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1 — SERVICES HERO
+          SECTION 1 — SERVICES HERO (Consistent with Products, About, and Contact pages)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-white pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pb-20 bg-paper-grain">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-20" />
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-            {/* Left: Editorial Copy */}
-            <div className="lg:col-span-7">
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-                  SERVICES &amp; INSTALLATION
-                </span>
-                <span className="hidden text-slate-300 sm:inline">•</span>
-                <span className="font-mono text-xs text-slate-500">
-                  PALAKKAD MANUFACTURING UNIT
-                </span>
-              </div>
-
-              <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-5xl leading-tight">
-                From Roofing Materials to a Roof Built Right
-              </h1>
-
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-                Durawin manufactures primary-steel trapezoidal sheets, liner panels, and structural purlins roll-formed to exact millimeter lengths in Palakkad. For installation, we support builders and property owners with technical coordination and introductions to certified roofing contractors across Kerala.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="mt-7 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact#enquiry"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-bold text-white shadow-xs transition hover:bg-brand active:scale-[0.99]"
-                >
-                  <span>Discuss Your Project</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-
-                <a
-                  href="#journey"
-                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-navy transition hover:border-navy hover:text-navy"
-                >
-                  <span>Explore Our Process</span>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
-                </a>
-              </div>
-
-              {/* Restrained Architectural Metadata */}
-              <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-6 border-t border-slate-100 pt-6 font-mono text-xs">
-                <div>
-                  <span className="block text-slate-400 uppercase text-[9px] sm:text-[10px] tracking-wider">Primary Metallurgy</span>
-                  <span className="mt-0.5 block text-xs sm:text-xs font-bold text-navy">JSW &amp; Jindal Coils</span>
-                </div>
-                <div>
-                  <span className="block text-slate-400 uppercase text-[9px] sm:text-[10px] tracking-wider">Span Sizing</span>
-                  <span className="mt-0.5 block text-xs sm:text-xs font-bold text-navy">Up to 12m Zero-Joint</span>
-                </div>
-                <div>
-                  <span className="block text-slate-400 uppercase text-[9px] sm:text-[10px] tracking-wider">Statewide Scope</span>
-                  <span className="mt-0.5 block text-xs sm:text-xs font-bold text-navy">All 14 Districts</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Integrated Industrial Photograph */}
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm">
-                <Image
-                  src="/images/services-hero.jpg"
-                  alt="Commercial warehouse facility with blue trapezoidal metal roofing in Kerala"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 520px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
+      <section className="relative isolate overflow-hidden bg-white">
+        <Image
+          src="/images/services-hero.jpg"
+          alt="High quality blue trapezoidal roofing installation on commercial facility"
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover object-[78%_50%] sm:object-[80%_50%]"
+          priority
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/75 sm:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-40" />
+        <WatermarkText text="SERVICES" tone="light" className="absolute bottom-2 right-4 sm:bottom-4 sm:right-8 -z-10" />
+        <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
+          <CadDimensionMarks label="INSTALLATION & CUT-TO-LENGTH" spec="IS 513 / IS 277 CERTIFIED • PALAKKAD PLANT" />
         </div>
-      </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 2 — OUR SERVICES (Editorial Catalog Grid)
-      ───────────────────────────────────────────────────────────── */}
-      <section id="services-lineup" className="relative overflow-hidden py-14 sm:py-20 scroll-mt-20 border-b border-slate-200/80 bg-slate-50/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="max-w-2xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
-              CAPABILITIES &amp; SUPPLY
+        <div className="mx-auto flex min-h-[380px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[440px] sm:items-center sm:px-8 sm:pb-16 sm:pt-8 lg:min-h-[490px]">
+          <div className="w-full sm:w-3/5 lg:w-1/2">
+            <span
+              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy shadow-sm backdrop-blur"
+            >
+              <Wrench className="h-3.5 w-3.5 text-brand" /> SERVICES &bull; INSTALLATION NETWORK
             </span>
-            <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-              Manufacturing &amp; Material Solutions
-            </h2>
-            <p className="mt-2 text-sm text-slate-600 sm:text-base">
-              Engineered steel components manufactured from primary certified coils and delivered directly to construction sites throughout Kerala.
+
+            <h1
+              style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
+              className="hero-rise mt-3 text-[clamp(1.7rem,7vw,2.6rem)] font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:mt-4 sm:text-5xl lg:text-[3.35rem]"
+            >
+              From Roofing Materials to a<br />
+              <span className="text-brand">Roof Built Right</span>
+            </h1>
+
+            <p
+              style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
+              className="hero-rise mt-3 max-w-xl text-sm leading-relaxed text-slate-700 sm:mt-4 sm:text-base"
+            >
+              Direct primary-steel sheet roll-forming and CNC cut-to-length shearing up to 12 meters in Palakkad, paired with certified contractor partner coordination across all 14 Kerala districts.
             </p>
-          </div>
 
-          {/* Cards Grid */}
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {servicesList.map((svc) => (
-              <div
-                key={svc.title}
-                className="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-slate-300 hover:shadow-sm"
+            <div
+              style={{ "--hero-delay": "0.32s" } as React.CSSProperties}
+              className="hero-rise mt-6 flex flex-wrap items-center gap-3.5 sm:mt-8"
+            >
+              <Link
+                href="/contact#enquiry"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-brand active:scale-[0.99]"
               >
-                <div>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                    {svc.code}
-                  </span>
-                  <h3 className="mt-2 text-lg font-bold text-navy transition group-hover:text-brand">
-                    {svc.title}
-                  </h3>
-                  <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                    {svc.desc}
-                  </p>
-                </div>
-
-                <div className="mt-6 border-t border-slate-100 pt-4">
-                  <Link
-                    href={svc.detailHref}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-navy hover:text-brand"
-                  >
-                    <span>View Specifications</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+                Discuss Your Project <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="#journey"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold text-navy backdrop-blur hover:border-brand hover:text-brand"
+              >
+                Explore Process
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3 — THE CUSTOMER JOURNEY (Consolidated 6-Step Workflow)
+          SECTION 1B — TECHNICAL METRICS BAR (Consistent with Products & Home)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl min-[480px]:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200">
+          {serviceFeatures.map(({ num, title, desc, Icon }, i) => (
+            <div
+              key={title}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+              className="group relative flex flex-col justify-between border-b border-slate-100 p-5 transition-colors hover:bg-slate-50/70 sm:p-6 lg:border-b-0"
+            >
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
+                    <Icon className="h-5 w-5" strokeWidth={1.8} />
+                  </span>
+                  <span className="font-mono text-xs font-bold text-slate-300">
+                    {num}
+                  </span>
+                </div>
+                <h3 className="mt-3.5 text-sm font-bold text-navy sm:text-base">
+                  {title}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                  {desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 3 — THE CUSTOMER JOURNEY (All 6 Stages with High-Quality Industrial Imagery)
       ───────────────────────────────────────────────────────────── */}
       <section id="journey" className="relative overflow-hidden py-14 sm:py-20 scroll-mt-20 border-b border-slate-200/80 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
@@ -414,7 +367,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Column 2: Overview & Technical Specs Checklist */}
-                  <div className={step.image ? "lg:col-span-4" : "lg:col-span-8"}>
+                  <div className="lg:col-span-4">
                     <p className="text-sm leading-relaxed text-slate-600">
                       {step.summary}
                     </p>
@@ -435,46 +388,22 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Column 3: Contextual Industrial Photography */}
-                  {step.image && (
-                    <div className="lg:col-span-4 space-y-4">
-                      <div>
-                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
-                          <Image
-                            src={step.image}
-                            alt={step.imageCaption || step.title}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 360px"
-                            className="object-cover"
-                          />
-                        </div>
-                        {step.imageCaption && (
-                          <span className="mt-1.5 block font-mono text-[10px] text-slate-400">
-                            {step.imageCaption}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Optional Secondary Macro Detail (e.g. Fastener EPDM Washer) */}
-                      {step.secondaryImage && (
-                        <div>
-                          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
-                            <Image
-                              src={step.secondaryImage}
-                              alt={step.secondaryCaption || "Technical detail"}
-                              fill
-                              sizes="(max-width: 1024px) 100vw, 360px"
-                              className="object-cover"
-                            />
-                          </div>
-                          {step.secondaryCaption && (
-                            <span className="mt-1.5 block font-mono text-[10px] text-slate-400">
-                              {step.secondaryCaption}
-                            </span>
-                          )}
-                        </div>
-                      )}
+                  <div className="lg:col-span-4">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+                      <Image
+                        src={step.image}
+                        alt={step.imageCaption || step.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 360px"
+                        className="object-cover"
+                      />
                     </div>
-                  )}
+                    {step.imageCaption && (
+                      <span className="mt-1.5 block font-mono text-[10px] text-slate-400">
+                        {step.imageCaption}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
