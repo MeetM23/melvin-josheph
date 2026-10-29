@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { SmoothCursor } from "@/registry/magicui/smooth-cursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${manrope.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <SmoothCursor />
         <SmoothScroll />
         <RevealOnScroll />
         <Navbar />
