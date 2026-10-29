@@ -121,6 +121,9 @@ export default function HeroFeatures() {
                       className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
+                    <span className="absolute bottom-2 left-2 rounded bg-brand/90 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-xs">
+                      {tag}
+                    </span>
                     {/* Mobile close button */}
                     <button
                       type="button"

@@ -52,16 +52,22 @@ export default function ContactPage() {
 
         <div className="mx-auto flex min-h-[320px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[420px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[460px]">
           <div className="w-full sm:w-1/2">
+            <span
+              style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
+            >
+              <UIcon name="headphones" className="text-xs text-brand" /> ESTIMATIONS &bull; PALAKKAD PLANT
+            </span>
             <h1
               style={{ "--hero-delay": "0.1s" } as React.CSSProperties}
-              className="hero-rise page-heading text-navy sm:text-5xl lg:text-[3.5rem]"
+              className="hero-rise mt-3 text-[clamp(1.85rem,6.5vw,2.75rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.028em] text-navy sm:mt-4 sm:text-5xl lg:text-[3.5rem]"
             >
               Direct Factory<br />
               <span className="text-brand">Consultation</span>
             </h1>
             <p
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-              className="hero-rise mt-4 max-w-sm body-text text-slate-700 sm:max-w-md sm:text-base"
+              className="hero-rise mt-3.5 max-w-sm text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
             >
               Connect directly with our manufacturing desk for tailored quotes, technical specifications, and delivery coordination.
             </p>
@@ -72,7 +78,7 @@ export default function ContactPage() {
       {/* 2. Precision Contact Console — 3 columns */}
       <section className="relative z-10 -mt-12 px-4 sm:-mt-10 sm:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xl sm:grid-cols-3 sm:divide-x sm:divide-slate-200">
-          {quick.map(({ title, value, sub, icon, href, action }, i) => {
+          {quick.map(({ num, title, value, sub, icon, href, action }, i) => {
             const body = (
               <div className="group flex flex-col justify-between p-5 transition-colors hover:bg-slate-50/70 sm:p-6">
                 <div>
@@ -80,8 +86,11 @@ export default function ContactPage() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
                       <UIcon name={icon} className="text-lg" />
                     </span>
+                    <span className="font-mono text-xs font-bold text-slate-300">
+                      {num}
+                    </span>
                   </div>
-                  <p className="mt-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <p className="mt-3.5 text-xs font-bold uppercase tracking-wider text-slate-400">
                     {title}
                   </p>
                   <p className="mt-1 text-base font-extrabold tracking-tight text-navy sm:text-lg">
@@ -91,7 +100,7 @@ export default function ContactPage() {
                     {sub}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-brand">
+                <div className="mt-4 flex items-center gap-1 font-mono text-[11px] font-semibold text-brand">
                   <span>{action}</span>
                   {href && <UIcon name="arrow-right" className="text-xs transition-transform group-hover:translate-x-1" />}
                 </div>
@@ -132,10 +141,15 @@ export default function ContactPage() {
           {/* Left: Contact Info Console */}
           <div data-reveal className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-5 flex flex-col justify-between">
             <div>
-              <h2 className="section-heading text-navy">
+              <div className="flex items-center gap-2 font-mono text-xs text-brand">
+                <span>HEADQUARTERS & MANUFACTURING</span>
+                <span>✦</span>
+                <span>KERALA</span>
+              </div>
+              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
                 Factory Desk
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600">
                 Reach our Palakkad team for immediate technical and pricing inquiries
               </p>
 
@@ -207,10 +221,15 @@ export default function ContactPage() {
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             className="scroll-mt-6 rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-7"
           >
-            <h2 className="section-heading text-navy">
+            <div className="flex items-center gap-2 font-mono text-xs text-brand">
+              <span>RAPID ESTIMATION</span>
+              <span>✦</span>
+              <span>DIRECT WHATSAPP DISPATCH</span>
+            </div>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
               Request Project Quotation
             </h2>
-            <p className="mt-1 body-text text-slate-600">
+            <p className="mt-1 text-sm text-slate-600">
               Provide your details and roofing specifications for immediate factory pricing
             </p>
 
@@ -226,12 +245,18 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="truck" className="text-xs text-brand" /> Smooth Delivery Path
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
                 How We Deliver for You
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 From structural enquiry to custom-cut dispatch directly at your site
               </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ 4-PHASE FULFILLMENT ]
             </div>
           </div>
 
@@ -245,17 +270,17 @@ export default function ContactPage() {
               >
                 <div>
                   <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-                      Phase {num}
+                    <span className="font-mono text-xs font-bold text-brand">
+                      PHASE {num}
                     </span>
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy group-hover:bg-brand/10 group-hover:text-brand">
                       <UIcon name={icon} className="text-base" />
                     </span>
                   </div>
-                  <h3 className="mt-3.5 item-heading text-navy">
+                  <h3 className="mt-4 text-base font-bold text-navy">
                     {title}
                   </h3>
-                  <p className="mt-1.5 body-text text-slate-600">
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
                     {text}
                   </p>
                 </div>
@@ -271,12 +296,18 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="marker" className="text-xs text-brand" /> Manufacturing Facility
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
                 Factory Location
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Naripotta, Palakkad — fully equipped industrial roll-forming plant
               </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ PALAKKAD INDUSTRIAL BELT ]
             </div>
           </div>
 

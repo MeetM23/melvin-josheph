@@ -84,6 +84,16 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                 <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50/70 p-4 shadow-sm sm:p-6">
                   {/* Subtle Blueprint Linework */}
                   <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-20" />
+                  
+                  {/* Header badges inside image frame */}
+                  <div className="absolute left-3.5 top-3.5 z-10 flex items-center gap-1.5">
+                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white shadow-xs">
+                      {product.code}
+                    </span>
+                    <span className="rounded-full border border-slate-200 bg-white/95 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-slate-600 shadow-2xs backdrop-blur-xs">
+                      {product.category}
+                    </span>
+                  </div>
 
                   <div className="relative flex h-full w-full items-center justify-center">
                     <Image
@@ -103,10 +113,10 @@ export default function ProductDetailClient({ product }: { product: ProductData 
 
                 {/* Authenticity Trust Banner under Image */}
                 <div className="mt-4 flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/60 p-3.5 text-xs text-slate-600">
-                  <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-navy">
                     <UIcon name="shield-check" size="sm" className="text-brand" /> Primary Mill Certified
                   </span>
-                  <span className="text-slate-500">
+                  <span className="font-mono text-[11px] text-slate-500">
                     Palakkad Plant Quality
                   </span>
                 </div>
@@ -115,22 +125,32 @@ export default function ProductDetailClient({ product }: { product: ProductData 
 
             {/* Right Column: Title, Intro, Verified Key Benefits, Options, and CTA */}
             <div className="lg:col-span-7">
+              {/* Category pill */}
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy">
+                  <UIcon name="layers" size="xs" className="text-brand" /> {product.category}
+                </span>
+                <span className="font-mono text-xs text-slate-400">
+                  SERIES 2026 SPEC
+                </span>
+              </div>
+
               {/* Product Title & Tagline */}
-              <h1 id={headingId} className="page-heading text-navy">
+              <h1 id={headingId} className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
                 {product.title}
               </h1>
-              <p className="mt-2 text-sm font-semibold text-brand">
+              <p className="mt-1 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-brand sm:text-sm">
                 {product.tagline}
               </p>
 
               {/* Concise Introduction */}
-              <p className="mt-3 body-text text-slate-600 sm:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
                 {product.intro}
               </p>
 
               {/* Verified Key Benefits */}
               <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 sm:p-5">
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-navy">
+                <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
                   Key Engineering Advantages
                 </h2>
                 <ul className="mt-3 space-y-2.5">
@@ -147,9 +167,12 @@ export default function ProductDetailClient({ product }: { product: ProductData 
               {product.options.length > 0 && (
                 <div className="mt-6 space-y-5 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm sm:p-6">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <h2 className="text-xs font-semibold uppercase tracking-wider text-navy">
-                      Configure Specifications
+                    <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
+                      Configure Product Specifications
                     </h2>
+                    <span className="font-mono text-[11px] text-brand">
+                      Live Preselection
+                    </span>
                   </div>
 
                   <div className="space-y-4">
@@ -295,12 +318,18 @@ export default function ProductDetailClient({ product }: { product: ProductData 
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="document-signed" size="xs" className="text-brand" /> Technical Data Sheet
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
                 Engineering Specifications & Parameters
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600">
                 Verified manufacturing tolerances and standard metallurgical benchmarks from our Palakkad facility
               </p>
+            </div>
+            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+              [ IS 277 / IS 513 / IS 4923 ]
             </div>
           </div>
 
@@ -311,7 +340,7 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                 className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition hover:shadow-md"
               >
                 <div className="border-b border-slate-100 bg-slate-50/80 px-5 py-3.5">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-navy">
+                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-navy">
                     {group.groupName}
                   </h3>
                 </div>
@@ -353,16 +382,19 @@ export default function ProductDetailClient({ product }: { product: ProductData 
       <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div>
-            <h2 className="section-heading text-navy">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy">
+              <UIcon name="sparkles" size="xs" className="text-brand" /> Real-World Use Cases
+            </span>
+            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
               Proven Sector Deployments
             </h2>
-            <p className="mt-1 body-text text-slate-600">
+            <p className="mt-1 text-sm text-slate-600">
               Where {product.title} is deployed across Kerala and neighboring commercial corridors
             </p>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
-            {product.applications.map((app) => (
+            {product.applications.map((app, i) => (
               <div
                 key={app.title}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
@@ -375,12 +407,15 @@ export default function ProductDetailClient({ product }: { product: ProductData 
                     sizes="(max-width: 768px) 100vw, 380px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
+                    APPLICATION 0{i + 1}
+                  </span>
                 </div>
                 <div className="p-5">
-                  <h3 className="item-heading text-navy sm:text-lg">
+                  <h3 className="text-base font-bold text-navy sm:text-lg">
                     {app.title}
                   </h3>
-                  <p className="mt-1.5 body-text text-slate-600">
+                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
                     {app.desc}
                   </p>
                 </div>
@@ -396,13 +431,16 @@ export default function ProductDetailClient({ product }: { product: ProductData 
           <div className="mx-auto max-w-7xl px-4 sm:px-8">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="item-heading text-navy">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand">
+                  Complementary Building Systems
+                </span>
+                <h2 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
                   Related Products & Structural Profiles
                 </h2>
               </div>
               <Link
                 href="/products"
-                className="hidden text-xs font-bold text-navy hover:text-brand sm:inline-flex items-center gap-1"
+                className="hidden font-mono text-xs font-bold text-navy hover:text-brand sm:inline-flex items-center gap-1"
               >
                 All Products &rarr;
               </Link>

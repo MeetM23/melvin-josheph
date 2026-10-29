@@ -225,11 +225,14 @@ export default function ProductsPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
                     <UIcon name={icon} className="text-lg" />
                   </span>
+                  <span className="font-mono text-xs font-bold text-slate-300">
+                    {num}
+                  </span>
                 </div>
-                <h3 className="mt-3.5 item-heading text-navy sm:text-base">
+                <h3 className="mt-3.5 text-sm font-bold text-navy sm:text-base">
                   {title}
                 </h3>
-                <p className="mt-1 body-text text-slate-600">
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">
                   {desc}
                 </p>
               </div>
@@ -247,10 +250,13 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="sparkles" className="text-xs text-brand" /> Manufacturing Lineup
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
                 Manufactured Roofing & Liner Sheets
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Engineered for Residential Villas, Commercial Complexes, and Industrial Facilities
               </p>
             </div>
@@ -284,34 +290,45 @@ export default function ProductsPage() {
                 {/* Right: Structured Content Area */}
                 <div className="flex flex-col justify-between p-5 sm:p-7">
                   <div>
-                    {/* Product Name */}
-                    <h3 className="item-heading text-navy">
+                    {/* 1. Small product category & code */}
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                        {p.category}
+                      </span>
+                      <span className="text-slate-300">•</span>
+                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                        {p.code}
+                      </span>
+                    </div>
+
+                    {/* 2. Product Name */}
+                    <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
                       <Link href={`/products/${p.slug}`} className="transition-colors hover:text-brand">
                         {p.title}
                       </Link>
                     </h3>
 
-                    {/* Description */}
-                    <p className="mt-2 body-text text-slate-600">
+                    {/* 3. One concise description */}
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
                       {p.desc}
                     </p>
 
-                    {/* Specification fields in a clean, readable grid */}
+                    {/* 4. Three or four important specification fields in a readable grid */}
                     <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3 sm:grid-cols-4 sm:p-3.5">
                       {p.specs.map((s) => (
                         <div key={s.label} className="min-w-0">
-                          <span className="block text-xs font-medium text-slate-500 truncate">
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-slate-400 sm:text-[10px] truncate">
                             {s.label}
                           </span>
-                          <span className="mt-0.5 block text-xs sm:text-sm font-semibold text-navy truncate">
+                          <span className="mt-0.5 block font-mono text-xs font-bold text-navy truncate">
                             {s.value}
                           </span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Relevant benefits */}
-                    <div className="mt-3.5 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
+                    {/* 5. Relevant benefits */}
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
                       {p.benefits.map((b) => (
                         <span key={b} className="inline-flex items-center gap-1.5">
                           <UIcon name="check-circle" className="text-xs text-brand shrink-0" />
@@ -321,7 +338,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
-                  {/* Consistent Action Area */}
+                  {/* 6. Consistent Action Area */}
                   <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                     <div className="flex flex-wrap items-center gap-3">
                       <Link
@@ -340,6 +357,10 @@ export default function ProductsPage() {
                         <UIcon name="arrow-right" className="text-xs" />
                       </Link>
                     </div>
+
+                    <span className="hidden font-mono text-[11px] text-slate-400 sm:inline-block">
+                      Palakkad Direct Dispatch
+                    </span>
                   </div>
                 </div>
               </div>
@@ -356,10 +377,13 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="box" className="text-xs text-brand" /> Structural Framework & Drainage
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
                 Structural GI Pipes & Rainwater Accessories
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Engineered purlin pipes and complete rainwater drainage systems to complement Durawin roofing & liner sheets
               </p>
             </div>
@@ -393,24 +417,34 @@ export default function ProductsPage() {
 
                   {/* Header info */}
                   <div className="mt-4">
-                    <h3 className="item-heading text-navy">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                        {p.category}
+                      </span>
+                      <span className="text-slate-300">•</span>
+                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                        {p.code}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
                       <Link href={`/products/${p.slug}`} className="transition-colors hover:text-brand">
                         {p.title}
                       </Link>
                     </h3>
 
-                    <p className="mt-2 body-text text-slate-600">
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
                       {p.desc}
                     </p>
 
                     {/* 4 Specs */}
-                    <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 p-3 text-xs">
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 p-3 font-mono text-xs">
                       {p.specs.map((s) => (
                         <div key={s.label} className="min-w-0">
-                          <span className="block text-xs font-medium text-slate-500 truncate">
+                          <span className="block text-[10px] uppercase text-slate-400 truncate">
                             {s.label}
                           </span>
-                          <span className="mt-0.5 block text-xs sm:text-sm font-semibold text-navy truncate">
+                          <span className="mt-0.5 block text-[11px] font-bold text-navy truncate">
                             {s.value}
                           </span>
                         </div>
@@ -418,7 +452,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Benefits */}
-                    <div className="mt-3.5 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
                       {p.benefits.map((b) => (
                         <span key={b} className="inline-flex items-center gap-1.5">
                           <UIcon name="check-circle" className="text-xs text-brand shrink-0" />
@@ -462,10 +496,13 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="shield-check" className="text-xs text-brand" /> Performance In Field
+              </span>
+              <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
                 Versatile Sector Deployment
               </h2>
-              <p className="mt-1 body-text text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Engineered to perform reliably across residential, commercial, and heavy-duty industrial settings
               </p>
             </div>
@@ -487,10 +524,13 @@ export default function ProductsPage() {
                     sizes="(max-width: 640px) 82vw, (max-width: 1023px) 33vw, 380px"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
+                    SECTOR {app.num}
+                  </span>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="item-heading text-navy">{app.title}</h3>
-                  <p className="mt-1.5 body-text text-slate-600">{app.desc}</p>
+                  <h3 className="text-lg font-bold text-navy sm:text-xl">{app.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">{app.desc}</p>
                 </div>
               </div>
             ))}
@@ -501,6 +541,7 @@ export default function ProductsPage() {
       {/* 6. Shared Why Choose matrix */}
       <WhyChoose />
 
+      {/* {this is to inform you to put the floores on the ground and the seiling on the terrace, by doing this it should not look so preety but it should also looks so good even in the tiles and the game it should look this is to  twi instead os this is looks so good even if this comes to the life this is the things we have to take it more all of this [eo[le a]]} */}
       {/* 7. Custom Solutions Banner — Architectural dark console */}
       <section id="custom" className="relative scroll-mt-20 overflow-hidden bg-navy-dark px-4 py-12 text-white sm:px-8 sm:py-16">
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
@@ -511,10 +552,13 @@ export default function ProductsPage() {
         <div data-reveal className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <h3 className="section-heading text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 font-mono text-[11px] font-semibold text-gold">
+                ✦ BESPOKE STRUCTURAL FABRICATION
+              </span>
+              <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
                 Custom Profiling & Precise Length Sizing
               </h3>
-              <p className="mt-2 max-w-xl body-text text-slate-300 sm:text-base">
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
                 Have specific span lengths, gauge thickness requirements, or custom architectural color needs? Our Palakkad manufacturing line profiles sheets to exact millimeters to eliminate site jointing and leakage.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -536,6 +580,10 @@ export default function ProductsPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 font-mono text-xs backdrop-blur">
+                <span>CNC Profiler Line</span>
+                <span className="text-emerald-400 font-bold">● ONLINE</span>
+              </div>
             </div>
           </div>
         </div>

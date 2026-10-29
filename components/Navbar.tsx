@@ -85,6 +85,7 @@ export default function Navbar() {
               className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-navy px-5 py-2 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-brand active:scale-[0.98]"
             >
               <span>Get a Quote</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </Link>
           </div>
         </nav>

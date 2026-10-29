@@ -41,10 +41,13 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+                <UIcon name="building" className="text-xs text-brand" /> Sector Solutions
+              </span>
+              <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
                 Our Applications
               </h2>
-              <p className="mt-2 body-text text-slate-600">
+              <p className="mt-1.5 text-sm text-slate-600 sm:text-base">
                 Engineered roofing and liner systems for residences, commercial spaces, and industrial hubs
               </p>
             </div>
@@ -52,6 +55,8 @@ export default function Home() {
 
           <div className="-mx-4 mt-8 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
             {applications.map(({ title, desc, image, icon }, i) => {
+              const indexCode = `0${i + 1}`;
+              const sectorCode = i === 0 ? "RESIDENTIAL" : i === 1 ? "COMMERCIAL" : "INDUSTRIAL";
               return (
                 <div
                   key={title}
@@ -73,14 +78,17 @@ export default function Home() {
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 text-navy shadow-sm backdrop-blur transition-transform duration-300 group-hover:bg-brand group-hover:text-white">
                       <UIcon name={icon} className="text-lg" />
                     </span>
+                    <span className="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-white backdrop-blur">
+                      {`${indexCode} // ${sectorCode}`}
+                    </span>
                   </div>
 
                   {/* Bottom description */}
                   <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                    <h3 className="item-heading text-white transition-colors group-hover:text-gold sm:text-2xl">
+                    <h3 className="text-xl font-extrabold tracking-tight text-white transition-colors group-hover:text-gold sm:text-2xl">
                       {title}
                     </h3>
-                    <p className="mt-1.5 body-text text-slate-200">
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-sm">
                       {desc}
                     </p>
                   </div>
@@ -107,10 +115,13 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <h2 className="section-heading text-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+                <UIcon name="badge-check" className="text-xs text-brand" /> Sourcing Credibility
+              </span>
+              <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
                 Raw Material Partners
               </h2>
-              <p className="mt-2 body-text text-slate-600">
+              <p className="mt-1.5 text-sm text-slate-600 sm:text-base">
                 Manufactured exclusively using certified primary steel coils from industry leaders
               </p>
             </div>
@@ -137,7 +148,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Steel coil feature with clean console */}
+          <div className="mt-6 hidden sm:flex items-center justify-between border-t border-slate-100 pt-4">
+            <CadDimensionMarks label="PRIMARY STRUCTURAL GRADE" spec="550 MPA HIGH-TENSILE COILS" />
+            <CadDimensionMarks label="CORROSION PROTECTION" spec="ZINC + POLYESTER PRIMER" />
+          </div>
+
+          {/* Steel coil feature with architectural drafting strip */}
           <div
             data-reveal="scale"
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
@@ -155,13 +171,18 @@ export default function Home() {
               {/* Subtle natural bottom gradient to ground the console plate */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 via-40% to-transparent pointer-events-none" />
               
-              {/* Architectural frosted glass specification console */}
+              {/* Architectural frosted glass specification console — guarantees 100% text readability while keeping photo clear */}
               <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-6 lg:p-8 flex justify-start">
                 <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/75 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
-                  <h3 className="section-heading text-white">
+                  <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
+                    <span>METALLURGICAL SPECIFICATION</span>
+                    <span>✦</span>
+                    <span>IS 277 / IS 513 CERTIFIED</span>
+                  </div>
+                  <h3 className="mt-2.5 text-xl font-extrabold tracking-tight text-white sm:text-2xl lg:text-3xl">
                     Premium High-Tensile Steel Coils
                   </h3>
-                  <p className="mt-2 max-w-xl body-text text-slate-200">
+                  <p className="mt-1.5 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-sm">
                     The unyielding foundation of every Durawin roofing sheet. Sourced with optimal zinc coating mass and uniform paint film thickness for decades of corrosion resistance.
                   </p>
 

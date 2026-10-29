@@ -188,8 +188,25 @@ export default function HeroCarousel({
       <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-50 [mask-image:linear-gradient(to_right,black_30%,transparent_80%)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
-      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-10 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-14 lg:min-h-[580px] lg:pb-32 lg:pt-16">
+      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-10 lg:min-h-[580px] lg:pb-32 lg:pt-12">
         <div className="w-full sm:w-1/2">
+          {/* Editorial Badge */}
+          <div
+            className="hero-rise mb-2.5 flex items-center gap-2.5 sm:mb-3.5"
+            style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
+          >
+            <span className="editorial-badge">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+              </span>
+              Palakkad Plant • 20+ Years Excellence
+            </span>
+            <span className="hidden text-[10px] font-bold uppercase tracking-widest text-slate-400 sm:inline-block">
+              Trafford Engineering
+            </span>
+          </div>
+
           <div className="grid grid-cols-1 grid-rows-1" aria-live={paused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const isActive = index === activeIndex;
@@ -208,13 +225,13 @@ export default function HeroCarousel({
                 >
                   <Heading
                     style={{ "--hero-delay": "0.05s" } as React.CSSProperties}
-                    className="hero-rise page-heading text-navy sm:text-5xl lg:text-[3.6rem]"
+                    className="hero-rise text-[clamp(2rem,7.5vw,2.75rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.028em] text-navy sm:text-5xl lg:text-[3.6rem]"
                   >
                     {slide.headline}
                   </Heading>
                   <p
                     style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-                    className="hero-rise mt-4 max-w-xs body-text text-slate-700 sm:max-w-md sm:text-base"
+                    className="hero-rise mt-3.5 max-w-xs text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
                   >
                     {slide.description}
                   </p>

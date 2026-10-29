@@ -31,10 +31,13 @@ export function WhyChoose() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
           <div>
-            <h2 className="section-heading text-navy">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
+              <UIcon name="shield-check" size="xs" className="text-brand" /> Industrial Benchmark
+            </span>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
               Why Choose Durawin
             </h2>
-            <p className="mt-2 body-text text-slate-600">
+            <p className="mt-1.5 text-sm text-slate-600 sm:text-base">
               Built on 20+ years of digital manufacturing and roofing excellence
             </p>
           </div>
@@ -42,7 +45,7 @@ export function WhyChoose() {
 
         {/* Unified 6-cell hairline grid inspired by modern editorial studio layout */}
         <div className="mt-8 grid grid-cols-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100/60 shadow-xs sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map(({ title, text, iconName }, i) => (
+          {reasons.map(({ num, title, text, iconName, tag }, i) => (
             <div
               key={title}
               data-reveal
@@ -54,12 +57,20 @@ export function WhyChoose() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors duration-200 group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand sm:h-12 sm:w-12">
                     <UIcon name={iconName} size="md" />
                   </span>
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-slate-600">
+                      {tag}
+                    </span>
+                    <span className="font-mono text-xs font-bold text-slate-300">
+                      {num}
+                    </span>
+                  </div>
                 </div>
 
-                <h3 className="mt-4 item-heading text-navy">
+                <h3 className="mt-4 text-base font-bold tracking-tight text-navy sm:text-lg">
                   {title}
                 </h3>
-                <p className="mt-1.5 body-text text-slate-600">
+                <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
                   {text}
                 </p>
               </div>
@@ -81,12 +92,18 @@ export function Process() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
           <div>
-            <h2 className="section-heading text-navy">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+              <UIcon name="factory" size="xs" className="text-brand" /> Automated Line
+            </span>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
               Manufacturing Process
             </h2>
-            <p className="mt-2 body-text text-slate-600">
+            <p className="mt-1.5 text-sm text-slate-600 sm:text-base">
               From raw galvanized steel coil to precision-profiled roofing sheet
             </p>
+          </div>
+          <div className="hidden font-mono text-xs font-semibold tracking-wider text-slate-400 sm:block">
+            [ 4-STAGE PRECISION WORKFLOW ]
           </div>
         </div>
 
@@ -100,19 +117,24 @@ export function Process() {
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-                    Phase {num}
+                  <span className="font-mono text-xs font-bold tracking-widest text-brand">
+                    PHASE {num}
                   </span>
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-600 group-hover:bg-brand/10 group-hover:text-brand">
                     <UIcon name={iconName} size="sm" />
                   </span>
                 </div>
-                <h3 className="mt-3.5 item-heading text-navy">
+                <h3 className="mt-4 text-base font-bold tracking-tight text-navy">
                   {title}
                 </h3>
-                <p className="mt-1.5 body-text text-slate-600">
+                <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
                   {text}
                 </p>
+              </div>
+
+              <div className="mt-6 flex items-center justify-between pt-3.5 border-t border-slate-50 text-[11px] font-mono text-slate-400">
+                <span>INSPECTION POINT</span>
+                <span className="text-emerald-600 font-semibold">● ACTIVE</span>
               </div>
             </div>
           ))}
@@ -137,10 +159,14 @@ export function CallStrip() {
         
         <div className="relative z-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           <div className="min-w-0">
-            <h3 className="section-heading text-white">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] text-slate-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>DIRECT FACTORY DESK &bull; PALAKKAD PLANT</span>
+            </div>
+            <h3 className="mt-3 text-xl font-extrabold tracking-[-0.025em] text-white sm:text-2xl lg:text-3xl">
               Need custom roofing sheets for your project?
             </h3>
-            <p className="mt-2 flex flex-wrap items-center gap-2 body-text text-slate-300 sm:text-base">
+            <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-slate-300 sm:text-base">
               <span>Fast quotes, custom lengths, and direct dispatch across Kerala.</span>
               <span className="hidden sm:inline text-slate-500">•</span>
               <a href={`tel:+91${site.phone}`} className="inline-flex items-center gap-1.5 font-bold text-gold hover:underline">

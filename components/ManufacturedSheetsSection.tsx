@@ -122,30 +122,37 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
           </div>
         </div>
 
-        {/* 2. Clear Product Name with aligned baseline */}
-        <div className="mt-4 flex items-start min-h-[48px] sm:min-h-[52px]">
-          <h3 className="item-heading text-navy transition-colors group-hover:text-brand leading-snug">
-            {product.title}
-          </h3>
+        {/* 2. Small Product Category Label */}
+        <div className="mt-4">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+            {product.category}
+          </span>
+
+          {/* 3. Clear Product Name with aligned baseline */}
+          <div className="mt-1 flex items-start min-h-[48px] sm:min-h-[52px]">
+            <h3 className="text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-brand sm:text-xl leading-snug">
+              {product.title}
+            </h3>
+          </div>
+
+          {/* 4. One Concise, Readable Description */}
+          <p className="mt-1.5 text-xs leading-relaxed text-slate-600 line-clamp-3 min-h-[48px]">
+            {product.desc}
+          </p>
+
+          {/* 5. At Most Two Short Key Benefits */}
+          <ul className="mt-3.5 space-y-2 min-h-[48px]">
+            {product.benefits.map((benefit) => (
+              <li
+                key={benefit}
+                className="flex items-start gap-2 text-[11px] font-medium text-slate-700"
+              >
+                <UIcon name="check-circle" size="xs" className="mt-0.5 shrink-0 text-emerald-600" />
+                <span className="leading-snug">{benefit}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* 3. One Concise, Readable Description */}
-        <p className="mt-1.5 body-text text-slate-600 line-clamp-3 min-h-[48px]">
-          {product.desc}
-        </p>
-
-        {/* 4. At Most Two Short Key Benefits */}
-        <ul className="mt-3.5 space-y-2 min-h-[48px]">
-          {product.benefits.map((benefit) => (
-            <li
-              key={benefit}
-              className="flex items-start gap-2 text-[11px] font-medium text-slate-700"
-            >
-              <UIcon name="check-circle" size="xs" className="mt-0.5 shrink-0 text-emerald-600" />
-              <span className="leading-snug">{benefit}</span>
-            </li>
-          ))}
-        </ul>
       </div>
 
       {/* 6. One Prominent, Consistently Positioned Enquiry CTA + Direct Spec Link */}
@@ -180,10 +187,13 @@ export default function ManufacturedSheetsSection() {
         {/* Section Header with Explore All Products CTA */}
         <div data-reveal className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <h2 className="section-heading text-navy">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
+              <UIcon name="layers" size="xs" className="text-brand" /> Complete Product Solutions
+            </span>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
               Manufactured Sheets & Structural Systems
             </h2>
-            <p className="mt-2 max-w-2xl body-text text-slate-600">
+            <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-600">
               From precision roll-formed roofing & liner sheets to high-yield GI pipes and complete rainwater drainage systems.
             </p>
           </div>
