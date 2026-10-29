@@ -74,7 +74,7 @@ const products: ProductItem[] = [
     category: "ROOF DRAINAGE",
     title: "Rainwater Gutters & Downpipes",
     desc: "Engineered high-flow eaves gutters and vertical downspouts designed to channel heavy monsoon rainfall and protect building facades.",
-    image: "/images/product-card-gutter.jpg",
+    image: "/images/product-rainwater-gutter.jpg",
     imageFit: "cover",
     imageAlt: "Engineered Rainwater Eaves Gutter and Downpipe System",
     benefits: [
