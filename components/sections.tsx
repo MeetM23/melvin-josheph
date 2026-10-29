@@ -41,11 +41,6 @@ export function WhyChoose() {
               Built on 20+ years of digital manufacturing and roofing excellence
             </p>
           </div>
-          <div className="hidden items-center gap-2 font-mono text-xs text-slate-400 sm:flex">
-            <span>[ SYSTEM MATRIX ]</span>
-            <span>✦</span>
-            <span>PALAKKAD UNIT</span>
-          </div>
         </div>
 
         {/* Unified 6-cell hairline grid inspired by modern editorial studio layout */}

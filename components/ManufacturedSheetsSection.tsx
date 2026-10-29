@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Layers } from "lucide-react";
-import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
+import { WatermarkText } from "@/components/IndustrialBackgrounds";
 
 interface ProductItem {
   id: string;
@@ -58,11 +58,11 @@ const products: ProductItem[] = [
     category: "STRUCTURAL FRAMEWORK",
     title: "Structural GI Pipes",
     desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with heavy zinc defense.",
-    image: "/images/product-card-pipes-framed.jpg",
+    image: "/images/product-gi-pipes.png",
     imageFit: "contain",
-    imageAlt: "Structural GI Galvanized Steel Purlin Pipes",
+    imageAlt: "Structural Galvanized Iron (GI) Pipes and Tubes",
     benefits: [
-      "Square & rectangular hollow sections",
+      "Galvanized zinc corrosion defense",
       "APL Apollo certified primary steel",
     ],
     enquireHref: "/contact?product=gp-pipes",
@@ -113,7 +113,9 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
               priority={index === 0}
               className={`transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
                 product.imageFit === "cover"
-                  ? "object-cover object-[50%_25%]"
+                  ? product.id === "rainwater-gutters"
+                    ? "object-cover object-[50%_25%]"
+                    : "object-cover object-center"
                   : "object-contain"
               }`}
             />
@@ -126,18 +128,20 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
             {product.category}
           </span>
 
-          {/* 3. Clear Product Name */}
-          <h3 className="mt-1 text-lg font-extrabold tracking-tight text-navy transition-colors group-hover:text-brand sm:text-xl">
-            {product.title}
-          </h3>
+          {/* 3. Clear Product Name with aligned baseline */}
+          <div className="mt-1 flex items-start min-h-[48px] sm:min-h-[52px]">
+            <h3 className="text-lg font-extrabold tracking-tight text-navy transition-colors group-hover:text-brand sm:text-xl leading-snug">
+              {product.title}
+            </h3>
+          </div>
 
           {/* 4. One Concise, Readable Description */}
-          <p className="mt-2 text-xs leading-relaxed text-slate-600 line-clamp-3">
+          <p className="mt-1.5 text-xs leading-relaxed text-slate-600 line-clamp-3 min-h-[48px]">
             {product.desc}
           </p>
 
           {/* 5. At Most Two Short Key Benefits */}
-          <ul className="mt-3.5 space-y-2">
+          <ul className="mt-3.5 space-y-2 min-h-[48px]">
             {product.benefits.map((benefit) => (
               <li
                 key={benefit}
@@ -152,7 +156,7 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
       </div>
 
       {/* 6. One Prominent, Consistently Positioned Enquiry CTA + Direct Spec Link */}
-      <div className="mt-5 border-t border-slate-100 pt-3.5">
+      <div className="mt-4 border-t border-slate-100 pt-3.5">
         <Link
           href={product.enquireHref}
           className="inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-navy px-3 py-2 text-center text-xs font-bold text-white shadow-2xs transition hover:bg-brand active:scale-[0.99]"
@@ -210,12 +214,6 @@ export default function ManufacturedSheetsSection() {
           {products.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}
-        </div>
-
-        {/* Industrial Specification Footer Line */}
-        <div className="mt-8 hidden items-center justify-between border-t border-slate-100 pt-4 font-mono text-xs text-slate-400 sm:flex">
-          <CadDimensionMarks label="MANUFACTURED PROFILES" spec="ROOFING (TRUSSFOLD) & LINER (1110MM)" />
-          <CadDimensionMarks label="STRUCTURAL FRAMEWORK" spec="GI PIPES (APL APOLLO) & EAVES GUTTERS" />
         </div>
       </div>
     </section>

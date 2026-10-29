@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -109,7 +109,7 @@ const subscribeVisibility = (cb: () => void) => {
 
 export default function HeroCarousel({
   slides = defaultSlides,
-  intervalMs = 3000,
+  intervalMs = 4500,
 }: HeroCarouselProps) {
   const count = slides.length;
   const [activeIndex, setActiveIndex] = useState(0);
@@ -129,25 +129,11 @@ export default function HeroCarousel({
   );
   const paused = hovering || keyboardFocus || tabHidden || reducedMotion;
 
-  // Which slide images have finished loading, so we never fade to a blank frame
-  const loaded = useRef<Set<number>>(new Set([0]));
-  const skipped = useRef(0);
-
-  // Advances every `intervalMs`; the effect re-runs on every slide change, which
-  // restarts the countdown after manual navigation as well.
+  // Reliable interval autoplay across all environments
   useEffect(() => {
     if (paused || count <= 1) return;
     const id = window.setInterval(() => {
-      setActiveIndex((current) => {
-        const next = (current + 1) % count;
-        // wait (at most once) for the next image instead of fading to an empty frame
-        if (!loaded.current.has(next) && skipped.current < 1) {
-          skipped.current += 1;
-          return current;
-        }
-        skipped.current = 0;
-        return next;
-      });
+      setActiveIndex((current) => (current + 1) % count);
     }, intervalMs);
     return () => window.clearInterval(id);
   }, [activeIndex, paused, intervalMs, count]);
@@ -181,10 +167,6 @@ export default function HeroCarousel({
             }`}
           >
             <Image
-              ref={(el) => {
-                if (el?.complete && el.naturalWidth > 0) loaded.current.add(index);
-              }}
-              onLoad={() => loaded.current.add(index)}
               src={slide.image}
               alt={slide.alt}
               fill
@@ -292,10 +274,7 @@ export default function HeroCarousel({
                       type="button"
                       aria-label={`Go to slide ${index + 1}`}
                       aria-current={isActive ? "true" : undefined}
-                      onClick={() => {
-                        skipped.current = 0;
-                        setActiveIndex(index);
-                      }}
+                      onClick={() => setActiveIndex(index)}
                       className="group relative flex h-6 cursor-pointer items-center justify-center px-0.5 focus-visible:outline-2 focus-visible:outline-brand"
                     >
                       <span

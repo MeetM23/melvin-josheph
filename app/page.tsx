@@ -51,9 +51,6 @@ export default function Home() {
                 Engineered roofing and liner systems for residences, commercial spaces, and industrial hubs
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ 03 SECTOR SPECIALIZATIONS ]
-            </div>
           </div>
 
           <div className="-mx-4 mt-6 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
@@ -128,9 +125,6 @@ export default function Home() {
                 Manufactured exclusively using certified primary steel coils from industry leaders
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ 100% PRIMARY COIL INTEGRITY ]
-            </div>
           </div>
 
           <div className="mt-6 grid grid-cols-3 gap-3 sm:mt-10 sm:gap-6">
@@ -139,27 +133,16 @@ export default function Home() {
                 key={p.name}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className="group relative flex min-w-0 flex-col items-center justify-between rounded-2xl border border-slate-200/80 bg-white px-3 pb-4 pt-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-md sm:px-6 sm:pb-6 sm:pt-8"
+                className="group relative flex min-w-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-md sm:p-8 sm:py-10"
               >
-                <span className="font-mono text-[9px] uppercase tracking-widest text-slate-400 sm:text-[11px]">
-                  PARTNER 0{i + 1}
-                </span>
-                <div className="my-3 flex h-14 w-full items-center justify-center sm:my-5 sm:h-24">
+                <div className="flex h-16 w-full items-center justify-center sm:h-24">
                   <Image
                     src={p.src}
                     alt={p.name}
                     width={p.w}
                     height={p.h}
-                    className="max-h-12 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105 sm:max-h-20"
+                    className="max-h-12 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105 sm:max-h-18"
                   />
-                </div>
-                <div className="w-full border-t border-slate-100 pt-2.5 text-center">
-                  <p className="font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:text-xs">
-                    {p.name}
-                  </p>
-                  <p className="text-[10px] text-slate-400 hidden sm:block">
-                    {p.name === "APL Apollo" ? "Structural GP Pipes & Tubes" : "Authorized Supply Line"}
-                  </p>
                 </div>
               </div>
             ))}

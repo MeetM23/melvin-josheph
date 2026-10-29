@@ -16,7 +16,18 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Track scroll position for subtle elevation
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 15);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Escape closes the mobile menu and returns focus to the toggle
   useEffect(() => {
@@ -32,8 +43,14 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:h-20 sm:px-8">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-slate-200/90 bg-white/95 shadow-[0_4px_20px_-4px_rgba(10,37,64,0.07)] backdrop-blur-md"
+          : "border-b border-slate-100/80 bg-white/90 backdrop-blur-xs"
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:h-18 sm:px-8">
         <Link
           href="/"
           onClick={() => setOpen(false)}

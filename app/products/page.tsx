@@ -335,8 +335,8 @@ export default function ProductsPage() {
                   </div>
                   <div className="relative flex h-full w-full items-center justify-center">
                     <Image
-                      src="/images/product-gp-pipes.jpg"
-                      alt="Structural Galvanized Plain GP Pipes for Roof Purlins"
+                      src="/images/product-gi-pipes.png"
+                      alt="Structural Galvanized Plain GI Pipes for Roof Purlins"
                       fill
                       sizes="(max-width: 1024px) 100vw, 560px"
                       className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
