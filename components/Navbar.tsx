@@ -51,7 +51,7 @@ export default function Navbar() {
           : "border-b border-slate-100/80 bg-white/90 backdrop-blur-xs"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:h-18 sm:px-8">
+      <div className="mx-auto flex h-14 sm:h-16 lg:h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-8">
         <Link
           href="/"
           onClick={() => setOpen(false)}
@@ -98,7 +98,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((o) => !o)}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-navy transition-all duration-150 hover:bg-slate-50 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:hidden"
+          className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-navy transition-all duration-150 hover:bg-slate-50 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:hidden"
         >
           {open ? <UIcon name="close" size="base" /> : <UIcon name="menu" size="base" />}
         </button>

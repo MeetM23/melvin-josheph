@@ -188,14 +188,14 @@ export default function HeroCarousel({
       <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-50 [mask-image:linear-gradient(to_right,black_30%,transparent_80%)]" />
 
       {/* Content: grid stack keeps the hero height identical across slides */}
-      <div className="mx-auto flex min-h-[460px] max-w-7xl items-start px-5 pb-28 pt-8 sm:min-h-[520px] sm:px-8 sm:pb-30 sm:pt-10 lg:min-h-[580px] lg:pb-32 lg:pt-12">
+      <div className="mx-auto flex min-h-[440px] max-w-7xl items-start px-4 sm:px-8 pb-24 pt-5 sm:min-h-[520px] sm:pb-30 sm:pt-8 lg:min-h-[580px] lg:pb-32 lg:pt-12">
         <div className="w-full sm:w-1/2">
           {/* Editorial Badge */}
           <div
-            className="hero-rise mb-2.5 flex items-center gap-2.5 sm:mb-3.5"
+            className="hero-rise mb-3.5 flex items-center gap-2 sm:mb-4"
             style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
           >
-            <span className="editorial-badge">
+            <span className="editorial-badge whitespace-nowrap text-[9px] min-[360px]:text-[10px] sm:text-[11px] tracking-[0.05em] sm:tracking-[0.12em] px-2 py-0.5 min-[360px]:px-2.5 min-[360px]:py-1 sm:px-3">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
@@ -225,23 +225,23 @@ export default function HeroCarousel({
                 >
                   <Heading
                     style={{ "--hero-delay": "0.05s" } as React.CSSProperties}
-                    className="hero-rise text-[clamp(2rem,7.5vw,2.75rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.028em] text-navy sm:text-5xl lg:text-[3.6rem]"
+                    className="hero-rise text-[clamp(1.75rem,7.2vw,2rem)] font-extrabold uppercase leading-[1.04] tracking-[-0.028em] text-navy sm:text-5xl lg:text-[3.6rem]"
                   >
                     {slide.headline}
                   </Heading>
                   <p
                     style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
-                    className="hero-rise mt-3.5 max-w-xs text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
+                    className="hero-rise mt-3 max-w-xs text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
                   >
                     {slide.description}
                   </p>
                   <div
                     style={{ "--hero-delay": "0.4s" } as React.CSSProperties}
-                    className="hero-rise mt-6 sm:mt-7"
+                    className="hero-rise mt-5 sm:mt-6"
                   >
                     <Link
                       href={slide.ctaHref}
-                      className="group inline-flex min-h-12 items-center gap-2.5 rounded-full bg-navy px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(10,37,64,0.18)] transition-all duration-200 ease-out hover:bg-brand hover:shadow-[0_8px_24px_rgba(22,104,232,0.32)] hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
+                      className="group inline-flex min-h-11 items-center gap-2.5 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white shadow-[0_4px_16px_rgba(10,37,64,0.18)] transition-all duration-200 ease-out hover:bg-brand hover:shadow-[0_8px_24px_rgba(22,104,232,0.32)] hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:min-h-12 sm:px-8 sm:py-3.5"
                     >
                       {slide.ctaText}
                       <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />

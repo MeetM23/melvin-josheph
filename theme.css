@@ -45,14 +45,14 @@
   --leading-display-xl: 0.9;
   --tracking-display-xl: -3.9px;
 
-  /* Spacing */
-  --spacing-8: 8px;
-  --spacing-16: 16px;
-  --spacing-24: 24px;
-  --spacing-40: 40px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-96: 96px;
+  /* Dayos Spacing Tokens (namespaced to avoid overriding Tailwind standard spacing scale) */
+  --dayos-space-8: 8px;
+  --dayos-space-16: 16px;
+  --dayos-space-24: 24px;
+  --dayos-space-40: 40px;
+  --dayos-space-64: 64px;
+  --dayos-space-80: 80px;
+  --dayos-space-96: 96px;
 
   /* Border Radius */
   --radius-md: 4px;
