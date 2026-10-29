@@ -6,6 +6,7 @@ import { policies, site } from "@/lib/site";
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
+  { href: "/services", label: "Services & Installation" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
 ];

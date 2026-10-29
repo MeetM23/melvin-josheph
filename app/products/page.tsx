@@ -13,66 +13,131 @@ const productFeatures = [
   { num: "04", title: "Architectural Finishes", desc: "Fade-resistant polyester coatings in curated tones", Icon: Palette },
 ];
 
-const productRange = [
+const roofingProducts = [
   {
     id: "trussfold",
-    num: "01",
-    code: "DW-TRUSS-PRO",
+    slug: "roofing-sheets",
+    code: "DW-ROOF-PRO",
+    category: "EXTERIOR ROOFING",
     title: "Trussfold Roofing Sheets",
-    desc: "Engineered trapezoidal profile offering high structural rigidity, deep water drainage channels, and sleek modern aesthetics.",
-    image: "/images/product-trussfold-blue.jpg",
+    desc: "Heavy-duty trapezoidal steel sheets engineered with deep water-discharge crests and 550 MPa high-tensile strength for superior load-bearing capacity.",
+    image: "/images/product-roofing-framed.jpg",
     specs: [
-      { label: "Profile", value: "High-Depth Trussfold" },
-      { label: "Thickness", value: "0.30 mm to 0.50 mm" },
-      { label: "Yield Strength", value: "Up to 550 MPa" },
-      { label: "Length", value: "Cut to exact requirement" },
+      { label: "Profile Crest", value: "Trussfold 1000/28" },
+      { label: "Sheet Gauge", value: "0.30 mm – 0.50 mm" },
+      { label: "Base Metal", value: "Primary Steel (IS 513)" },
+      { label: "Span Length", value: "Custom cut up to 12 m" },
     ],
-    tags: ["High load capacity", "Deep drainage trough", "Custom length"],
+    benefits: [
+      "Deep water drainage channels prevent backflow",
+      "Custom sheared zero-joint lengths eliminate leak points",
+    ],
+    enquiryValue: "trussfold",
   },
   {
     id: "liner-sheets",
-    num: "02",
+    slug: "liner-sheets",
     code: "DW-LINER-PRO",
+    category: "INTERIOR CEILINGS & CLADDING",
     title: "Liner Sheets",
-    desc: "Precision multi-rib steel sheets designed specifically for interior ceilings, interior wall lining, architectural soffits, and partition panels with a sleek, low-maintenance finish.",
-    image: "/images/product-liner-profile-spec.jpg",
+    desc: "Precision multi-rib steel sheets designed for architectural interior ceilings, exterior roof eaves soffits, and washable wall partition panels.",
+    image: "/images/product-liner-framed.jpg",
     specs: [
-      { label: "Profile Geometry", value: "Continuous Multi-Rib Liner" },
-      { label: "Cover Width", value: "1110 mm Total Profile" },
-      { label: "Rib Dimensions", value: "50.5 mm Pitch • 3.5 mm Depth" },
-      { label: "Application", value: "Interior Ceilings, Walls & Soffits" },
+      { label: "Cover Width", value: "1110 mm wide coverage" },
+      { label: "Rib Dimensions", value: "50.5 mm pitch • 3.5 mm depth" },
+      { label: "Surface Finish", value: "Washable architectural coating" },
+      { label: "Applicable Uses", value: "Ceilings, Soffits & Partitions" },
     ],
-    tags: ["1110 mm cover width", "50.5 mm rib pitch", "Interior ceilings & soffits", "5 colour options"],
+    benefits: [
+      "Broad 1110 mm width reduces joints and installation time",
+      "Impervious to moisture and sag — zero maintenance",
+    ],
+    enquiryValue: "liner-sheets",
   },
   {
     id: "colour-coated",
-    num: "03",
+    slug: "colour-coated-sheets",
     code: "DW-COLOR-PLUS",
+    category: "PRE-PAINTED STEEL",
     title: "Colour Coated Sheets",
-    desc: "Pre-painted steel sheets finished with UV-stabilized architectural pigments that preserve vibrance against harsh tropical sun and monsoon downpours.",
-    image: "/images/product-colour-coated-red.jpg",
+    desc: "Pre-painted high-tensile steel sheets finished with UV-stabilized architectural pigments that preserve vibrance against harsh tropical sun and monsoon downpours.",
+    image: "/images/product-colour-coated-framed.jpg",
     specs: [
-      { label: "Coating", value: "Siliconized Polyester / PVDF" },
-      { label: "Finish", value: "Smooth Semi-Gloss" },
-      { label: "UV Stability", value: "High Tropical Grade" },
-      { label: "Colours", value: "Blue, Terracotta, Grey, Green" },
+      { label: "Coating Chemistry", value: "Siliconized Polyester / PVDF" },
+      { label: "Topcoat Thickness", value: "20 – 25 µm baked topcoat" },
+      { label: "Corrosion Shield", value: "1000+ hrs salt spray (ASTM B117)" },
+      { label: "Curated Colours", value: "Blue, Red, Grey, Green, White" },
     ],
-    tags: ["Fade-resistant pigments", "Heat-reflective barrier", "Aesthetic finish"],
+    benefits: [
+      "Solar reflective pigments reduce under-roof heat buildup",
+      "Multi-stage oven baked paint prevents peeling or chalking",
+    ],
+    enquiryValue: "colour-coated",
   },
   {
     id: "galvanized",
-    num: "04",
+    slug: "galvanized-corrugated-sheets",
     code: "DW-GALV-SHIELD",
+    category: "HEAVY-DUTY INDUSTRIAL",
     title: "Galvanized Corrugated Sheets",
-    desc: "Hot-dip zinc-coated steel roofing engineered for maximum sacrificial corrosion resistance in agricultural sheds and industrial warehouses.",
-    image: "/images/product-galvanized-silver.jpg",
+    desc: "Hot-dip zinc-coated sinusoidal steel sheets providing heavy sacrificial rust protection for agricultural sheds, farm buildings, and industrial warehouses.",
+    image: "/images/product-galvanized-framed.jpg",
     specs: [
-      { label: "Zinc Mass", value: "Up to 120 g/m² (IS 277)" },
-      { label: "Base Metal", value: "Cold Rolled Primary Steel" },
-      { label: "Corrosion Class", value: "Heavy Industrial Standard" },
-      { label: "Recyclability", value: "100% Sustainable Steel" },
+      { label: "Manufacturing Standard", value: "IS 277 certified galvanizing" },
+      { label: "Zinc Protection", value: "Up to 120 g/m² sacrificial mass" },
+      { label: "Corrugation Profile", value: "8/3 sinusoidal (75 mm pitch)" },
+      { label: "Steel Grade", value: "Full-Hard G550 primary steel" },
     ],
-    tags: ["Sacrificial zinc layer", "Impact & rust resistant", "Low maintenance"],
+    benefits: [
+      "Sacrificial zinc self-heals cut edges and punch holes",
+      "High sinusoidal corrugation stiffness with wide purlin spans",
+    ],
+    enquiryValue: "galvanized",
+  },
+];
+
+const frameworkProducts = [
+  {
+    id: "gp-pipes",
+    slug: "structural-gi-pipes",
+    code: "DW-GP-PIPE",
+    category: "STRUCTURAL FRAMEWORK",
+    title: "Structural GI & GP Hollow Pipes",
+    desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with uniform zinc defense inside and out.",
+    image: "/images/product-gi-pipes-framed.png",
+    imageFit: "contain" as const,
+    specs: [
+      { label: "Section Profiles", value: "Square (SHS) & Rectangular (RHS)" },
+      { label: "Authorized Source", value: "APL Apollo & Primary Mills" },
+      { label: "Wall Thickness", value: "1.2 mm to 3.0 mm structural" },
+      { label: "Stock Length", value: "6.0 meters (20 ft) ready stock" },
+    ],
+    benefits: [
+      "Full internal & external zinc rust defense",
+      "High strength-to-weight purlin geometry",
+    ],
+    enquiryValue: "gp-pipes",
+  },
+  {
+    id: "gutters",
+    slug: "rainwater-gutters",
+    code: "DW-GUTTER-SYS",
+    category: "ROOF DRAINAGE SYSTEMS",
+    title: "Rainwater Gutters & Downpipes",
+    desc: "High-capacity eaves gutters and downspout systems engineered to channel torrential rainfall, prevent facade erosion, and direct water into harvesting tanks.",
+    image: "/images/product-rainwater-gutter.jpg",
+    imageFit: "cover" as const,
+    specs: [
+      { label: "Gutter Profile", value: "140 mm high-flow eaves trough" },
+      { label: "Downpipe Diameter", value: "75 mm & 110 mm discharge" },
+      { label: "Material Grade", value: "UV-stabilized all-weather uPVC" },
+      { label: "Joint Sealing", value: "EPDM leak-proof gasket seals" },
+    ],
+    benefits: [
+      "High-flow trough prevents roof edge overflow",
+      "Complete matched fittings, angles & brackets",
+    ],
+    enquiryValue: "gutters",
   },
 ];
 
@@ -176,11 +241,11 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 3. Product Catalogue — Curated architectural specification cards */}
-      <section id="catalogue" className="relative overflow-hidden bg-slate-50/70 pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain scroll-mt-16">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-35" />
-        <SheetProfileWatermark className="absolute -top-6 right-0 -z-10 w-[700px] max-w-full opacity-40 hidden md:block" />
-        <WatermarkText text="SPECIFICATIONS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+      {/* 3. Product Catalogue — Consistent Horizontal Product Cards on Desktop */}
+      <section id="catalogue" className="relative overflow-hidden bg-slate-50/70 pb-12 pt-12 sm:pb-16 sm:pt-16 bg-paper-grain scroll-mt-20">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-25" />
+        <SheetProfileWatermark className="absolute -top-6 right-0 -z-10 w-[700px] max-w-full opacity-30 hidden md:block" />
+        <WatermarkText text="SPECIFICATIONS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10 opacity-70" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
@@ -189,102 +254,111 @@ export default function ProductsPage() {
                 <Sparkles className="h-3.5 w-3.5 text-brand" /> Manufacturing Lineup
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-                Product Specifications
+                Manufactured Roofing & Liner Sheets
               </h2>
               <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Engineered for Residential Villas, Commercial Complexes, and Industrial Facilities
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ 04 PRODUCT SPECIFICATIONS ]
-            </div>
           </div>
 
-          <div className="mt-8 space-y-8 sm:mt-12 sm:space-y-10">
-            {productRange.map((p, i) => (
+          <div className="mt-8 space-y-6 sm:mt-10 sm:space-y-8">
+            {roofingProducts.map((p, i) => (
               <div
                 key={p.id}
                 id={p.id}
                 data-reveal
-                style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
-                className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-lg sm:p-6"
+                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+                className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-md lg:grid lg:grid-cols-[340px_1fr]"
               >
-                <div className="pointer-events-none absolute -bottom-10 -right-10 w-96 h-36 bg-roof-profile-light opacity-25 hidden sm:block" />
+                {/* Left: Fixed, consistent product image container */}
+                <div className="relative aspect-[16/11] w-full bg-slate-50/70 p-4 sm:p-5 lg:aspect-auto lg:h-full lg:min-h-[290px] flex items-center justify-center border-b border-slate-100 lg:border-b-0 lg:border-r overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
+                  <div className="relative h-48 w-full max-w-[300px] sm:h-56 lg:h-64 flex items-center justify-center">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 340px"
+                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                </div>
 
-                <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
-                  {/* Framed Image Container */}
-                  <div className="lg:col-span-5">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
-                      <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
-                      <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5 sm:left-3.5 sm:top-3.5">
-                        <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-                          {p.code}
+                {/* Right: Structured Content Area */}
+                <div className="flex flex-col justify-between p-5 sm:p-7">
+                  <div>
+                    {/* 1. Small product category & code */}
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                        {p.category}
+                      </span>
+                      <span className="text-slate-300">•</span>
+                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                        {p.code}
+                      </span>
+                    </div>
+
+                    {/* 2. Product Name */}
+                    <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
+                      <Link href={`/products/${p.slug}`} className="transition-colors hover:text-brand">
+                        {p.title}
+                      </Link>
+                    </h3>
+
+                    {/* 3. One concise description */}
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                      {p.desc}
+                    </p>
+
+                    {/* 4. Three or four important specification fields in a readable grid */}
+                    <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3 sm:grid-cols-4 sm:p-3.5">
+                      {p.specs.map((s) => (
+                        <div key={s.label} className="min-w-0">
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-slate-400 sm:text-[10px] truncate">
+                            {s.label}
+                          </span>
+                          <span className="mt-0.5 block font-mono text-xs font-bold text-navy truncate">
+                            {s.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* 5. Relevant benefits */}
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
+                      {p.benefits.map((b) => (
+                        <span key={b} className="inline-flex items-center gap-1.5">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0" />
+                          <span>{b}</span>
                         </span>
-                        <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-semibold text-slate-600 shadow-2xs backdrop-blur-xs">
-                          SERIES 0{i + 1}
-                        </span>
-                      </div>
-                      <div className="relative flex h-full w-full items-center justify-center">
-                        <Image
-                          src={p.image}
-                          alt={p.title}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 440px"
-                          className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
-                        />
-                      </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Specification details */}
-                  <div className="flex flex-col justify-between lg:col-span-7">
-                    <div>
-                      <div className="flex items-center gap-2 font-mono text-xs text-brand">
-                        <span>SPECIFICATION MATRIX</span>
-                        <span>✦</span>
-                        <span>PRIMARY GRADE STEEL</span>
-                      </div>
-                      <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        {p.desc}
-                      </p>
-
-                      {/* Technical Spec Grid */}
-                      <div className="mt-5 grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-4 font-mono text-xs">
-                        {p.specs.map((s) => (
-                          <div key={s.label} className="border-b border-slate-100 pb-2">
-                            <span className="text-[10px] uppercase text-slate-400">{s.label}</span>
-                            <p className="font-bold text-navy">{s.value}</p>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Feature tags */}
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {p.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy"
-                          >
-                            <CheckCircle2 className="h-3.5 w-3.5 text-brand" /> {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
-                      <span className="font-mono text-xs text-slate-500">
-                        Custom lengths cut to structural millimeter precision
-                      </span>
+                  {/* 6. Consistent Action Area */}
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                    <div className="flex flex-wrap items-center gap-3">
                       <Link
-                        href={`/contact?product=${p.id}#enquiry`}
-                        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
+                        href={`/contact?product=${p.enquiryValue}#enquiry`}
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-xs font-bold text-white shadow-2xs transition hover:bg-brand active:scale-[0.99]"
                       >
-                        Enquire Specifications <ArrowRight className="h-4 w-4" />
+                        <span>Enquire About Product</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+
+                      <Link
+                        href={`/products/${p.slug}`}
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-navy shadow-2xs transition hover:border-brand hover:text-brand"
+                      >
+                        <span>View Specifications</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
+
+                    <span className="hidden font-mono text-[11px] text-slate-400 sm:inline-block">
+                      Palakkad Direct Dispatch
+                    </span>
                   </div>
                 </div>
               </div>
@@ -293,194 +367,134 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 3b. Structural GP Pipes & Rainwater Accessories */}
-      <section id="structural-framework" className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-30" />
-        <WatermarkText text="FRAMEWORK" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+      {/* 4. Lower Product Categories: Structural GP Pipes & Rainwater Accessories */}
+      <section id="structural-framework" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20 bg-paper-grain border-t border-slate-200/80">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-blueprint-grid opacity-20" />
+        <WatermarkText text="FRAMEWORK" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10 opacity-70" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <Box className="h-3.5 w-3.5 text-brand" /> Structural Framework & Drainage
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-                Structural GP Pipes & Rainwater Accessories
+                Structural GI Pipes & Rainwater Accessories
               </h2>
               <p className="mt-1 text-sm text-slate-600 sm:text-base">
                 Engineered purlin pipes and complete rainwater drainage systems to complement Durawin roofing & liner sheets
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ STRUCTURAL ACCESSORIES ]
-            </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
-            {/* GP Pipes Card */}
-            <div
-              data-reveal="scale"
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-xl sm:p-7"
-            >
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC] p-4 sm:p-6">
-                  <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
-                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
-                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-                      DW-GP-PIPE
-                    </span>
-                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
-                      APL APOLLO & PRIMARY MILLS
-                    </span>
+            {frameworkProducts.map((p, i) => (
+              <div
+                key={p.id}
+                id={p.id}
+                data-reveal="scale"
+                style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-md sm:p-7 scroll-mt-24"
+              >
+                <div>
+                  {/* Fixed Image Container */}
+                  <div className="relative aspect-[16/9] sm:aspect-[2/1] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50/70 p-4">
+                    <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
+                    <div className="relative h-full w-full flex items-center justify-center">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 560px"
+                        className={`transition-transform duration-500 ease-out group-hover:scale-105 ${
+                          p.imageFit === "cover" ? "object-cover object-[50%_25%]" : "object-contain"
+                        }`}
+                      />
+                    </div>
                   </div>
-                  <div className="relative flex h-full w-full items-center justify-center">
-                    <Image
-                      src="/images/product-gi-pipes.png"
-                      alt="Structural Galvanized Plain GI Pipes for Roof Purlins"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
+
+                  {/* Header info */}
+                  <div className="mt-4">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                        {p.category}
+                      </span>
+                      <span className="text-slate-300">•</span>
+                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                        {p.code}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
+                      <Link href={`/products/${p.slug}`} className="transition-colors hover:text-brand">
+                        {p.title}
+                      </Link>
+                    </h3>
+
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                      {p.desc}
+                    </p>
+
+                    {/* 4 Specs */}
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 p-3 font-mono text-xs">
+                      {p.specs.map((s) => (
+                        <div key={s.label} className="min-w-0">
+                          <span className="block text-[10px] uppercase text-slate-400 truncate">
+                            {s.label}
+                          </span>
+                          <span className="mt-0.5 block text-[11px] font-bold text-navy truncate">
+                            {s.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Benefits */}
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-600">
+                      {p.benefits.map((b) => (
+                        <span key={b} className="inline-flex items-center gap-1.5">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0" />
+                          <span>{b}</span>
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-5">
-                  <div className="flex items-center gap-2 font-mono text-xs text-brand">
-                    <span>STRUCTURAL PURLIN TUBES</span>
-                    <span>✦</span>
-                    <span>PRIMARY GALVANIZED STEEL</span>
-                  </div>
-                  <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy">
-                    Galvanized Plain (GP) Pipes
-                  </h3>
-                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
-                    Square & Rectangular Hollow Structural Sections
-                  </p>
-                  <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                    Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses. Heavy zinc coating provides reliable sacrificial protection against coastal humidity, industrial gases, and heavy rain.
-                  </p>
+                {/* Actions */}
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link
+                      href={`/contact?product=${p.enquiryValue}#enquiry`}
+                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-xs font-bold text-white shadow-2xs transition hover:bg-brand active:scale-[0.99]"
+                    >
+                      <span>Enquire About Product</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
 
-                  <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 font-mono text-xs">
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Section Geometry</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Square & Rectangular (SHS / RHS)</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Primary Function</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Roof Purlins, Trusses & Rafters</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Corrosion Shield</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">High-Mass Galvanized Plain Zinc</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Authorized Source</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">APL Apollo & Primary Mills</span>
-                    </div>
+                    <Link
+                      href={`/products/${p.slug}`}
+                      className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-navy shadow-2xs transition hover:border-brand hover:text-brand"
+                    >
+                      <span>View Specifications</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
                 </div>
               </div>
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
-                <span className="font-mono text-xs text-slate-500">
-                  Ready stock for purlin fabrication
-                </span>
-                <Link
-                  href="/contact?product=gp-pipes"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
-                >
-                  Enquire GP Pipes <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Rainwater Gutter Card */}
-            <div
-              data-reveal="scale"
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-brand/40 hover:shadow-xl sm:p-7"
-            >
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px] border border-[#E5EAF0] bg-[#F8FAFC]">
-                  <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5">
-                    <span className="rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-white">
-                      DW-GUTTER-SYS
-                    </span>
-                    <span className="rounded-full border border-[#E5EAF0] bg-white/95 px-2 py-0.5 font-mono text-[10px] font-bold text-brand shadow-2xs backdrop-blur-xs">
-                      ALL-WEATHER DRAINAGE
-                    </span>
-                  </div>
-                  <div className="relative flex h-full w-full items-center justify-center">
-                    <Image
-                      src="/images/product-rainwater-gutter.jpg"
-                      alt="Engineered Rainwater Eaves Gutter and Downpipe System"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-5">
-                  <div className="flex items-center gap-2 font-mono text-xs text-brand">
-                    <span>RAINWATER HARVESTING & DISCHARGE</span>
-                    <span>✦</span>
-                    <span>HIGH-FLOW DRAINAGE</span>
-                  </div>
-                  <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy">
-                    Rainwater Gutters & Downpipes
-                  </h3>
-                  <p className="mt-1 font-mono text-xs font-semibold text-slate-500">
-                    High-Capacity Eaves Gutter & Vertical Discharge Fittings
-                  </p>
-                  <p className="mt-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                    High-capacity engineered eaves gutters, brackets, and downspouts tailored to fit Durawin roofing sheet profiles. Protects building facades, prevents roof edge overflow, and directs rainwater to harvesting points.
-                  </p>
-
-                  <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 font-mono text-xs">
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">System Components</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Gutters, Downpipes & Angles</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Capacity Rating</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">High-Flow Monsoon Runoff</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Material Grade</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">UV-Stabilized All-Weather uPVC</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase text-slate-400">Fit Compatibility</span>
-                      <span className="mt-0.5 block text-[11px] font-semibold text-navy">Trussfold & Trafford Roof Eaves</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
-                <span className="font-mono text-xs text-slate-500">
-                  Complete drainage accessory packages
-                </span>
-                <Link
-                  href="/contact?product=gutters"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand"
-                >
-                  Enquire Gutters <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Applications */}
-      <section id="applications" className="relative overflow-hidden bg-white py-12 sm:py-16 scroll-mt-20 bg-paper-grain">
+      {/* 5. Applications */}
+      <section id="applications" className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 scroll-mt-20 bg-paper-grain border-t border-slate-200/80">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-30" />
-        <WatermarkText text="SECTORS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+        <WatermarkText text="SECTORS" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10 opacity-70" />
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <ShieldCheck className="h-3.5 w-3.5 text-brand" /> Performance In Field
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -490,9 +504,6 @@ export default function ProductsPage() {
                 Engineered to perform reliably across residential, commercial, and heavy-duty industrial settings
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
-              [ TESTED KERALA CLIMATE COMPATIBLE ]
-            </div>
           </div>
 
           <div className="-mx-4 mt-6 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
@@ -501,7 +512,7 @@ export default function ProductsPage() {
                 key={app.title}
                 data-reveal="scale"
                 style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
-                className="group relative w-[82%] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none sm:shrink"
+                className="group relative w-[82%] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:w-auto sm:max-w-none sm:shrink"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                   <Image
@@ -525,10 +536,10 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 5. Shared Why Choose matrix */}
+      {/* 6. Shared Why Choose matrix */}
       <WhyChoose />
 
-      {/* 6. Custom Solutions Banner — Architectural dark console */}
+      {/* 7. Custom Solutions Banner — Architectural dark console */}
       <section id="custom" className="relative scroll-mt-20 overflow-hidden bg-navy-dark px-4 py-12 text-white sm:px-8 sm:py-16">
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-pattern" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-dark opacity-35" />
@@ -550,7 +561,7 @@ export default function ProductsPage() {
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-white hover:text-navy"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-brand px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-white hover:text-navy"
                 >
                   Consult Factory Engineers <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -577,4 +588,3 @@ export default function ProductsPage() {
     </>
   );
 }
-

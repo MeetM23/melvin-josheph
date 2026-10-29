@@ -26,7 +26,7 @@ const products: ProductItem[] = [
     category: "EXTERIOR ROOFING",
     title: "Roofing Sheets",
     desc: "Heavy-duty trapezoidal steel sheets engineered for superior load capacity, rapid water runoff, and long-term weather durability.",
-    image: "/images/product-card-roofing.jpg",
+    image: "/images/product-roofing-framed.jpg",
     imageFit: "contain",
     imageAlt: "Durawin Trapezoidal Profile Roofing Sheets",
     benefits: [
@@ -35,14 +35,14 @@ const products: ProductItem[] = [
     ],
     enquireHref: "/contact?product=trussfold",
     enquireLabel: "Enquire Roofing",
-    specsHref: "/products#trussfold",
+    specsHref: "/products/roofing-sheets",
   },
   {
     id: "liner-sheets",
     category: "INTERIOR & CEILINGS",
     title: "Liner Sheets",
     desc: "Precision-rolled multi-rib steel sheets designed for architectural ceilings, interior wall cladding, and clean-line soffits.",
-    image: "/images/product-card-liner.png",
+    image: "/images/product-liner-framed.jpg",
     imageFit: "contain",
     imageAlt: "Durawin 1110mm Interior Liner Sheets Profile",
     benefits: [
@@ -51,14 +51,14 @@ const products: ProductItem[] = [
     ],
     enquireHref: "/contact?product=liner-sheets",
     enquireLabel: "Enquire Liner",
-    specsHref: "/products#liner-sheets",
+    specsHref: "/products/liner-sheets",
   },
   {
     id: "gi-pipes",
     category: "STRUCTURAL FRAMEWORK",
     title: "Structural GI Pipes",
     desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with heavy zinc defense.",
-    image: "/images/product-gi-pipes.png",
+    image: "/images/product-gi-pipes-framed.png",
     imageFit: "contain",
     imageAlt: "Structural Galvanized Iron (GI) Pipes and Tubes",
     benefits: [
@@ -67,7 +67,7 @@ const products: ProductItem[] = [
     ],
     enquireHref: "/contact?product=gp-pipes",
     enquireLabel: "Enquire GI Pipes",
-    specsHref: "/products#structural-framework",
+    specsHref: "/products/structural-gi-pipes",
   },
   {
     id: "rainwater-gutters",
@@ -83,7 +83,7 @@ const products: ProductItem[] = [
     ],
     enquireHref: "/contact?product=gutters",
     enquireLabel: "Enquire Gutters",
-    specsHref: "/products#structural-framework",
+    specsHref: "/products/rainwater-gutters",
   },
 ];
 

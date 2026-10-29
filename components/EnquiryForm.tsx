@@ -60,11 +60,40 @@ export default function EnquiryForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [handoff, setHandoff] = useState<{ url: string; opened: boolean } | null>(null);
 
-  // Product cards link here with ?product=...; preselect it (no state, so no extra render)
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  // Product cards link here with ?product=... and optional ?spec=...; preselect it
   useEffect(() => {
-    const rawWanted = new URLSearchParams(window.location.search).get("product");
-    const wanted = rawWanted === "gi-pipes" ? "gp-pipes" : rawWanted;
-    if (wanted && productRef.current && PRODUCTS.some((p) => p.value === wanted)) productRef.current.value = wanted;
+    const params = new URLSearchParams(window.location.search);
+    const rawWanted = params.get("product")?.toLowerCase().trim();
+    const spec = params.get("spec");
+
+    const aliasMap: Record<string, string> = {
+      roofing: "trussfold",
+      "roofing-sheets": "trussfold",
+      trussfold: "trussfold",
+      liner: "liner-sheets",
+      "liner-sheets": "liner-sheets",
+      "gp-pipes": "gp-pipes",
+      "gi-pipes": "gp-pipes",
+      "structural-gi-pipes": "gp-pipes",
+      gutters: "gutters",
+      "rainwater-gutters": "gutters",
+      "colour-coated": "colour-coated",
+      "colour-coated-sheets": "colour-coated",
+      galvanized: "galvanized",
+      "galvanized-corrugated-sheets": "galvanized",
+      custom: "custom",
+    };
+
+    const wanted = rawWanted ? aliasMap[rawWanted] || rawWanted : "";
+    if (wanted && productRef.current && PRODUCTS.some((p) => p.value === wanted)) {
+      productRef.current.value = wanted;
+    }
+
+    if (spec && messageRef.current && !messageRef.current.value) {
+      messageRef.current.value = `Selected Configuration: ${spec}\nRequirement details: `;
+    }
   }, []);
 
   const recheck = (field: Field, form: HTMLFormElement | null) => {
@@ -156,6 +185,7 @@ export default function EnquiryForm() {
         <div>
           <label htmlFor="enq-message" className={labelCls}>Project Details & Quantities<Required /></label>
           <textarea
+            ref={messageRef}
             id="enq-message"
             name="message"
             rows={4}
