@@ -201,7 +201,7 @@ export function CadDimensionMarks({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none select-none flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] ${
+      className={`pointer-events-none select-none flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.2em] ${
         isLight ? "text-slate-400/40" : "text-white/20"
       } ${className}`}
     >

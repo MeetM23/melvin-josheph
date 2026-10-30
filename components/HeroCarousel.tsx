@@ -259,7 +259,7 @@ export default function HeroCarousel({
               aria-label="Choose slide"
               className="mt-4 inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md sm:mt-5 sm:border-slate-200/60"
             >
-              <div className="flex items-center gap-1 font-mono text-[11px] font-bold text-navy">
+              <div className="flex items-center gap-1 text-[11px] font-bold text-navy">
                 <span>0{activeIndex + 1}</span>
                 <span className="text-slate-300">/</span>
                 <span className="text-slate-400">0{count}</span>

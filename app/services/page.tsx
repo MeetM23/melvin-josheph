@@ -6,6 +6,7 @@ import UIcon, { UIconName } from "@/components/UIcon";
 import { site } from "@/lib/site";
 import ServicesFaqAccordion, { FaqItem } from "@/components/ServicesFaqAccordion";
 import { CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
+import ExpandableText from "@/components/ExpandableText";
 
 export const metadata: Metadata = {
   title: "Services & Installation | Durawin Roofing Manufacturing",
@@ -142,7 +143,7 @@ const applications = [
     subtitle: "Warehouses & Manufacturing Bays",
     desc: "High-yield structural purlin tubes and high-tensile trapezoidal roofing designed for large logistics sheds and industrial plants.",
     image: "/images/services-completed-building.jpg",
-    link: "/products/structural-gi-pipes",
+    link: "/products/gp-pipes",
   },
 ];
 
@@ -151,7 +152,7 @@ const faqs: FaqItem[] = [
   {
     question: "What information is needed to obtain a roofing quotation?",
     answer:
-      "To prepare an accurate factory estimate, we require your project location (district/town in Kerala), total roof surface area or ridge-to-eaves slope length, preferred sheet thickness (e.g. 0.35 mm, 0.40 mm, or 0.45 mm), preferred color, and whether purlin pipes or rainwater gutters are needed.",
+      "To prepare an accurate factory estimate, we require your project location (district/town in Kerala), total roof surface area or ridge-to-eaves slope length, preferred sheet thickness (e.g. 0.35 mm, 0.40 mm, or 0.45 mm), preferred color, and whether GP purlin pipes or rainwater gutters are needed.",
   },
   {
     question: "Can Durawin sheets be cut to custom lengths?",
@@ -207,7 +208,7 @@ export default function ServicesPage() {
           <div className="w-full sm:w-3/5 lg:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
             >
               <UIcon name="wrench" className="text-xs text-brand" /> SERVICES &bull; INSTALLATION NETWORK
             </span>
@@ -265,7 +266,7 @@ export default function ServicesPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
                     <UIcon name={icon} className="text-lg" />
                   </span>
-                  <span className="font-mono text-xs font-bold text-slate-300">
+                  <span className="text-xs font-bold text-slate-300">
                     {num}
                   </span>
                 </div>
@@ -287,7 +288,7 @@ export default function ServicesPage() {
       <section id="journey" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-brand">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
               THE COMPLETE PROCESS
             </span>
             <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -309,11 +310,11 @@ export default function ServicesPage() {
                   {/* LEFT: num/stage + title + short description */}
                   <div className="min-w-0">
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-2xl font-black text-brand">
+                      <span className="text-2xl font-black text-brand">
                         {step.num}
                       </span>
                       <div className="h-4 w-px bg-slate-200" />
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
+                      <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
                         {step.stageName}
                       </span>
                     </div>
@@ -364,7 +365,7 @@ export default function ServicesPage() {
       <section id="sectors" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-slate-50/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-brand">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
               SECTOR EXPERTISE
             </span>
             <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -392,22 +393,26 @@ export default function ServicesPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
                       {app.subtitle}
                     </span>
                     <h3 className="mt-1.5 text-lg font-bold tracking-tight text-navy">
                       {app.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                      {app.desc}
-                    </p>
+                    <ExpandableText
+                      text={app.desc}
+                      className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm"
+                      mobileLines={2}
+                      desktopLines={2}
+                      minChars={100}
+                    />
                   </div>
                 </div>
 
                 <div className="border-t border-slate-100 px-6 py-4">
                   <Link
                     href={app.link}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-navy transition-colors duration-150 hover:text-brand"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-navy transition-colors duration-150 hover:text-brand"
                   >
                     <span>View Related Products</span>
                     <UIcon name="arrow-right" className="text-xs transition-transform duration-150 group-hover:translate-x-0.5" />
@@ -425,7 +430,7 @@ export default function ServicesPage() {
       <section id="faq" className="relative overflow-hidden py-14 sm:py-20 lg:py-24 scroll-mt-20 border-b border-slate-200/80 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-8">
           <div className="text-center">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-brand">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
               CUSTOMER ASSISTANCE
             </span>
             <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -451,7 +456,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <span className="font-mono text-xs font-semibold tracking-[0.14em] text-gold uppercase">
+              <span className="text-xs font-semibold tracking-[0.14em] text-gold uppercase">
                 DIRECT PALAKKAD MANUFACTURING UNIT
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-[-0.025em] sm:text-3xl lg:text-4xl">
@@ -482,7 +487,7 @@ export default function ServicesPage() {
 
             <div className="lg:col-span-4">
               <div className="rounded-xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gold">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-gold">
                   Direct Factory Assurance
                 </h3>
                 <ul className="mt-4 space-y-3 text-xs text-slate-300">

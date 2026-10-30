@@ -31,7 +31,7 @@ export function WhyChoose() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
               <UIcon name="shield-check" size="xs" className="text-brand" /> Industrial Benchmark
             </span>
             <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -58,10 +58,10 @@ export function WhyChoose() {
                     <UIcon name={iconName} size="md" />
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-slate-600">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] font-semibold text-slate-600">
                       {tag}
                     </span>
-                    <span className="font-mono text-xs font-bold text-slate-300">
+                    <span className="text-xs font-bold text-slate-300">
                       {num}
                     </span>
                   </div>
@@ -92,7 +92,7 @@ export function Process() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
               <UIcon name="factory" size="xs" className="text-brand" /> Automated Line
             </span>
             <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -102,7 +102,7 @@ export function Process() {
               From raw galvanized steel coil to precision-profiled roofing sheet
             </p>
           </div>
-          <div className="hidden font-mono text-xs font-semibold tracking-wider text-slate-400 sm:block">
+          <div className="hidden text-xs font-semibold tracking-wider text-slate-400 sm:block">
             [ 4-STAGE PRECISION WORKFLOW ]
           </div>
         </div>
@@ -117,7 +117,7 @@ export function Process() {
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
-                  <span className="font-mono text-xs font-bold tracking-widest text-brand">
+                  <span className="text-xs font-bold tracking-widest text-brand">
                     PHASE {num}
                   </span>
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-600 group-hover:bg-brand/10 group-hover:text-brand">
@@ -132,7 +132,7 @@ export function Process() {
                 </p>
               </div>
 
-              <div className="mt-6 flex items-center justify-between pt-3.5 border-t border-slate-50 text-[11px] font-mono text-slate-400">
+              <div className="mt-6 flex items-center justify-between pt-3.5 border-t border-slate-50 text-[11px] text-slate-400">
                 <span>INSPECTION POINT</span>
                 <span className="text-emerald-600 font-semibold">● ACTIVE</span>
               </div>
@@ -159,7 +159,7 @@ export function CallStrip() {
         
         <div className="relative z-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] text-slate-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-slate-300">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>DIRECT FACTORY DESK &bull; PALAKKAD PLANT</span>
             </div>

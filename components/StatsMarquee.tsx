@@ -101,16 +101,16 @@ export default function StatsMarquee() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
           </span>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy sm:text-[11px]">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy sm:text-[11px]">
             INDUSTRIAL SPECIFICATION REGISTER
           </span>
-          <span className="hidden sm:inline font-mono text-[9px] text-slate-400">•</span>
-          <span className="hidden sm:inline font-mono text-[9px] uppercase tracking-wider text-slate-500">
+          <span className="hidden sm:inline text-[9px] text-slate-400">•</span>
+          <span className="hidden sm:inline text-[9px] uppercase tracking-wider text-slate-500">
             PALAKKAD MANUFACTURING UNIT
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-slate-500">
+        <div className="hidden md:flex items-center gap-2 text-[9px] uppercase tracking-widest text-slate-500">
           <span className="h-1 w-1 rounded-full bg-brand" />
           <span>FACTORY-DIRECT ROOFING SPECIFICATIONS</span>
         </div>
@@ -172,10 +172,10 @@ function TickerUnit({ item }: { item: TickerItem }) {
       {/* Content Stack */}
       <div className="flex flex-col justify-center">
         {/* Top Metadata Line */}
-        <div className="flex items-center gap-1.5 font-mono text-[10px] leading-tight">
+        <div className="flex items-center gap-1.5 text-[10px] leading-tight">
           <span className="font-semibold text-slate-400">{code}</span>
           <span className="text-slate-300">/</span>
-          <span className="rounded border border-brand/25 bg-brand/10 px-1.5 py-0.2 font-mono text-[9px] font-bold tracking-wider text-brand">
+          <span className="rounded border border-brand/25 bg-brand/10 px-1.5 py-0.2 text-[9px] font-bold tracking-wider text-brand">
             {highlight}
           </span>
           <span className="text-slate-300">•</span>

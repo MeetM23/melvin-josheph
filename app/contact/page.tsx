@@ -54,7 +54,7 @@ export default function ContactPage() {
           <div className="w-full sm:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
             >
               <UIcon name="headphones" className="text-xs text-brand" /> ESTIMATIONS &bull; PALAKKAD PLANT
             </span>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
                       <UIcon name={icon} className="text-lg" />
                     </span>
-                    <span className="font-mono text-xs font-bold text-slate-300">
+                    <span className="text-xs font-bold text-slate-300">
                       {num}
                     </span>
                   </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                     {sub}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 font-mono text-[11px] font-semibold text-brand">
+                <div className="mt-4 flex items-center gap-1 text-[11px] font-semibold text-brand">
                   <span>{action}</span>
                   {href && <UIcon name="arrow-right" className="text-xs transition-transform group-hover:translate-x-1" />}
                 </div>
@@ -141,7 +141,7 @@ export default function ContactPage() {
           {/* Left: Contact Info Console */}
           <div data-reveal className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs text-brand">
+              <div className="flex items-center gap-2 text-xs text-brand">
                 <span>HEADQUARTERS & MANUFACTURING</span>
                 <span>✦</span>
                 <span>KERALA</span>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     <UIcon name="phone" className="text-lg" />
                   </span>
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Phone Hotline</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Phone Hotline</p>
                     <a href={`tel:+91${site.phone}`} className="text-base font-extrabold text-navy hover:text-brand">
                       +91 {site.phone}
                     </a>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                     <UIcon name="marker" className="text-lg" />
                   </span>
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Factory Address</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Factory Address</p>
                     <p className="text-sm font-bold text-navy">Durawin Trafford Sheet Manufacturing</p>
                     {site.address.map((l) => (
                       <p key={l} className="text-xs text-slate-600">{l}</p>
@@ -185,7 +185,7 @@ export default function ContactPage() {
                     <UIcon name="clock" className="text-lg" />
                   </span>
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Plant Working Hours</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Plant Working Hours</p>
                     <p className="text-sm font-bold text-navy">Monday – Saturday: 8:30 AM – 6:30 PM</p>
                     <p className="text-xs text-slate-500">Sunday: Closed for routine machine maintenance</p>
                   </div>
@@ -196,8 +196,8 @@ export default function ContactPage() {
                     <UIcon name="shield-check" className="text-lg" />
                   </span>
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">Tax Compliance</p>
-                    <p className="font-mono text-sm font-bold text-navy">{site.gstin}</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Tax Compliance</p>
+                    <p className="text-sm font-bold text-navy">{site.gstin}</p>
                     <p className="text-xs text-slate-500">Government Registered Manufacturing Unit</p>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function ContactPage() {
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             className="scroll-mt-6 rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 lg:col-span-7"
           >
-            <div className="flex items-center gap-2 font-mono text-xs text-brand">
+            <div className="flex items-center gap-2 text-xs text-brand">
               <span>RAPID ESTIMATION</span>
               <span>✦</span>
               <span>DIRECT WHATSAPP DISPATCH</span>
@@ -245,7 +245,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <UIcon name="truck" className="text-xs text-brand" /> Smooth Delivery Path
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -255,7 +255,7 @@ export default function ContactPage() {
                 From structural enquiry to custom-cut dispatch directly at your site
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+            <div className="hidden text-xs text-slate-400 sm:block">
               [ 4-PHASE FULFILLMENT ]
             </div>
           </div>
@@ -270,7 +270,7 @@ export default function ContactPage() {
               >
                 <div>
                   <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="font-mono text-xs font-bold text-brand">
+                    <span className="text-xs font-bold text-brand">
                       PHASE {num}
                     </span>
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy group-hover:bg-brand/10 group-hover:text-brand">
@@ -296,7 +296,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <UIcon name="marker" className="text-xs text-brand" /> Manufacturing Facility
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -306,7 +306,7 @@ export default function ContactPage() {
                 Naripotta, Palakkad — fully equipped industrial roll-forming plant
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+            <div className="hidden text-xs text-slate-400 sm:block">
               [ PALAKKAD INDUSTRIAL BELT ]
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function ContactPage() {
               href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 font-mono text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-brand"
+              className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-brand"
             >
               Open in Google Maps <UIcon name="arrow-right" className="text-xs" />
             </a>

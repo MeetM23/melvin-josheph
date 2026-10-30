@@ -29,8 +29,8 @@ export default function Footer() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,104,232,0.08),transparent)]" />
 
       {/* Main Footer Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 pt-10 pb-8 sm:px-8 sm:pt-14 sm:pb-10">
-        <div className="grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-8 lg:grid-cols-[1.5fr_0.9fr_1.3fr] lg:gap-x-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-8 pb-6 sm:px-8 sm:pt-14 sm:pb-10">
+        <div className="grid grid-cols-1 gap-y-6 md:grid-cols-3 md:gap-x-8 lg:grid-cols-[1.5fr_0.9fr_1.3fr] lg:gap-x-12">
           {/* 1. Brand Section */}
           <div data-reveal className="flex flex-col items-start">
             <Link href="/" className="inline-block transition-opacity hover:opacity-95">
@@ -38,32 +38,32 @@ export default function Footer() {
             </Link>
 
             {/* Establishment & Location Metadata Pill */}
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] text-slate-300">
+            <div className="mt-2.5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] text-slate-300">
               <span className="font-semibold text-gold">EST. 2004</span>
               <span className="text-white/20">•</span>
               <span>PALAKKAD MANUFACTURING UNIT</span>
             </div>
 
             {/* Brand Description */}
-            <p className="mt-3.5 max-w-md text-xs leading-relaxed text-slate-400 sm:text-sm">
+            <p className="mt-2.5 max-w-md text-xs leading-relaxed text-slate-400 sm:text-sm">
               Leading manufacturer of premium trussfold roofing sheets in Palakkad, Kerala. Engineered with primary steel coils for maximum durability, structural rigidity, and weather resilience.
             </p>
 
             {/* Request Quotation CTA */}
-            <div className="mt-5 sm:mt-6">
+            <div className="mt-4 sm:mt-6">
               <Link
                 href="/contact"
-                className="group inline-flex min-h-11 items-center gap-2.5 rounded-full border border-brand/40 bg-brand px-6 py-2.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(22,104,232,0.25)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#1258c7] hover:shadow-[0_6px_22px_rgba(22,104,232,0.4)] active:scale-[0.98]"
+                className="group inline-flex min-h-10 sm:min-h-11 items-center gap-2 rounded-full border border-brand/40 bg-brand px-5 sm:px-6 py-2 text-xs sm:text-sm font-bold text-white shadow-[0_4px_16px_rgba(22,104,232,0.25)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#1258c7] active:scale-[0.98]"
               >
                 <span>Request Quotation</span>
-                <UIcon name="arrow-right" size="sm" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
+                <UIcon name="arrow-right" size="xs" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
 
           {/* 2. Navigation Section */}
           <div data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-white">
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-white">
               Navigation
             </h3>
             <div className="mt-2 h-0.5 w-6 rounded-full bg-gold" />
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* 3. Factory Desk Section */}
           <div data-reveal style={{ "--reveal-delay": "160ms" } as React.CSSProperties}>
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-white">
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-white">
               Factory Desk
             </h3>
             <div className="mt-2 h-0.5 w-6 rounded bg-gold" />
@@ -128,10 +128,10 @@ export default function Footer() {
                   <UIcon name="document" size="sm" />
                 </span>
                 <div className="flex-1 pt-0.5">
-                  <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                  <span className="block text-[11px] uppercase tracking-wider text-slate-400">
                     GSTIN / TAX IDENTIFIER
                   </span>
-                  <span className="mt-0.5 block font-mono text-xs font-bold text-white">
+                  <span className="mt-0.5 block text-xs font-bold text-white">
                     {site.gstin}
                   </span>
                 </div>
@@ -160,7 +160,7 @@ export default function Footer() {
           </nav>
 
           {/* Copyright Information on Right */}
-          <p className="font-mono text-center text-xs text-slate-400 sm:text-right">
+          <p className="text-center text-xs text-slate-400 sm:text-right">
             &copy; 2026 Durawin Trafford Sheet Manufacturing &bull; Melvin Joseph &bull; Icons by Flaticon UIcons
           </p>
         </div>

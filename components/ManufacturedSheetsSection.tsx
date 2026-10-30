@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import UIcon from "@/components/UIcon";
 import { WatermarkText } from "@/components/IndustrialBackgrounds";
+import ExpandableText from "@/components/ExpandableText";
 
 interface ProductItem {
   id: string;
@@ -54,29 +55,45 @@ const products: ProductItem[] = [
     specsHref: "/products/liner-sheets",
   },
   {
-    id: "gi-pipes",
+    id: "gp-pipes",
     category: "STRUCTURAL FRAMEWORK",
-    title: "Structural GI Pipes",
-    desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with heavy zinc defense.",
-    image: "/images/product-gi-pipes-framed.png",
+    title: "GP Pipes",
+    desc: "Pre-coated steel hollow pipes engineered for purlins, rafters, and structural framing with a factory pre-applied protective coating.",
+    image: "/images/product-gp-pipes-framed.png",
     imageFit: "contain",
-    imageAlt: "Structural Galvanized Iron (GI) Pipes and Tubes",
+    imageAlt: "GP Pipes with Pre-Applied Protective Coating",
     benefits: [
-      "Galvanized zinc corrosion defense",
+      "Pre-applied protective coating",
       "APL Apollo certified primary steel",
     ],
     enquireHref: "/contact?product=gp-pipes",
-    enquireLabel: "Enquire GI Pipes",
-    specsHref: "/products/structural-gi-pipes",
+    enquireLabel: "Enquire GP Pipes",
+    specsHref: "/products/gp-pipes",
+  },
+  {
+    id: "ridge-flashing",
+    category: "ROOFING ACCESSORIES",
+    title: "Roof Ridge Flashing",
+    desc: "Pre-painted steel apex flashing designed to cover and seal the gap where two roof slopes meet, preventing wind-driven rainwater ingress.",
+    image: "/images/product-ridge-flashing.jpg",
+    imageFit: "contain",
+    imageAlt: "Roof Ridge Flashing in Brick Red",
+    benefits: [
+      "Apex gap weather sealing",
+      "Color-matched to roofing sheets",
+    ],
+    enquireHref: "/contact?product=ridge-flashing",
+    enquireLabel: "Enquire Ridge",
+    specsHref: "/products/roof-ridge-flashing",
   },
   {
     id: "rainwater-gutters",
     category: "ROOF DRAINAGE",
-    title: "Rainwater Gutters & Downpipes",
-    desc: "Engineered high-flow eaves gutters and vertical downspouts designed to channel heavy monsoon rainfall and protect building facades.",
+    title: "Rainwater Gutters & Accessories",
+    desc: "Engineered high-flow eaves gutters and matched drainage accessories designed to channel heavy monsoon rainfall and protect building facades.",
     image: "/images/product-rainwater-gutter.jpg",
     imageFit: "cover",
-    imageAlt: "Engineered Rainwater Eaves Gutter and Downpipe System",
+    imageAlt: "Engineered Rainwater Eaves Gutters & Accessories System",
     benefits: [
       "Heavy-flow monsoon discharge",
       "UV-stabilized all-weather build",
@@ -124,7 +141,7 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
 
         {/* 2. Small Product Category Label */}
         <div className="mt-4">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
             {product.category}
           </span>
 
@@ -136,9 +153,15 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
           </div>
 
           {/* 4. One Concise, Readable Description */}
-          <p className="mt-1.5 text-xs leading-relaxed text-slate-600 line-clamp-3 min-h-[48px]">
-            {product.desc}
-          </p>
+          <div className="min-h-[48px]">
+            <ExpandableText
+              text={product.desc}
+              className="mt-1.5 text-xs leading-relaxed text-slate-600"
+              mobileLines={2}
+              desktopLines={2}
+              minChars={110}
+            />
+          </div>
 
           {/* 5. At Most Two Short Key Benefits */}
           <ul className="mt-3.5 space-y-2 min-h-[48px]">
@@ -187,14 +210,14 @@ export default function ManufacturedSheetsSection() {
         {/* Section Header with Explore All Products CTA */}
         <div data-reveal className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur-xs">
               <UIcon name="layers" size="xs" className="text-brand" /> Complete Product Solutions
             </span>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
               Manufactured Sheets & Structural Systems
             </h2>
             <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-600">
-              From precision roll-formed roofing & liner sheets to high-yield GI pipes and complete rainwater drainage systems.
+              From precision roll-formed roofing & liner sheets to GP pipes, roof ridge flashing, and complete rainwater drainage systems.
             </p>
           </div>
 
@@ -209,8 +232,8 @@ export default function ManufacturedSheetsSection() {
           </div>
         </div>
 
-        {/* 4 Products in Unified Grid: 4 columns on desktop, 2 on tablet, 1 on mobile */}
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {/* 5 Products in Unified Grid: 5 columns on desktop xl, 3 on lg, 2 on tablet, 1 on mobile */}
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 lg:gap-5">
           {products.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import UIcon, { UIconName } from "@/components/UIcon";
 import { WhyChoose } from "@/components/sections";
 import { CadDimensionMarks, SheetProfileWatermark, WatermarkText } from "@/components/IndustrialBackgrounds";
+import ExpandableText from "@/components/ExpandableText";
 
 export const metadata = { title: "Products & Engineering Specifications | Durawin" };
 
@@ -99,32 +100,53 @@ const roofingProducts = [
 const frameworkProducts = [
   {
     id: "gp-pipes",
-    slug: "structural-gi-pipes",
+    slug: "gp-pipes",
     code: "DW-GP-PIPE",
     category: "STRUCTURAL FRAMEWORK",
-    title: "Structural GI & GP Hollow Pipes",
-    desc: "Certified high-yield galvanized steel tubes designed for roof purlins, rafters, and structural trusses with uniform zinc defense inside and out.",
+    title: "GP Pipes",
+    desc: "Pre-coated steel hollow pipes designed for roof purlins, rafters, and structural trusses with a factory pre-applied protective coating.",
     image: "/images/product-card-pipes-cover.jpg",
     imageFit: "cover" as const,
     specs: [
       { label: "Section Profiles", value: "Square (SHS) & Rectangular (RHS)" },
       { label: "Authorized Source", value: "APL Apollo & Primary Mills" },
-      { label: "Wall Thickness", value: "1.2 mm to 3.0 mm structural" },
+      { label: "Coating & Finish", value: "Pre-applied protective coating" },
       { label: "Stock Length", value: "6.0 meters (20 ft) ready stock" },
     ],
     benefits: [
-      "Full internal & external zinc rust defense",
+      "Factory pre-applied protective coating",
       "High strength-to-weight purlin geometry",
     ],
     enquiryValue: "gp-pipes",
+  },
+  {
+    id: "ridge-flashing",
+    slug: "roof-ridge-flashing",
+    code: "DW-RIDGE-PRO",
+    category: "ROOFING ACCESSORIES",
+    title: "Roof Ridge Flashing",
+    desc: "Pre-painted steel apex flashing engineered to cover and seal the gap where opposing roof slopes meet, providing complete weatherproofing against driving rain.",
+    image: "/images/product-ridge-flashing.jpg",
+    imageFit: "contain" as const,
+    specs: [
+      { label: "Product Category", value: "Roofing Accessories" },
+      { label: "Standard Length", value: "3.0 meters (approx 10 ft)" },
+      { label: "Surface Finish", value: "Pre-painted color coated steel" },
+      { label: "Profile Purpose", value: "Apex slope gap weather sealing" },
+    ],
+    benefits: [
+      "Seals apex gap between roof slopes",
+      "Color-matched to roofing profiles",
+    ],
+    enquiryValue: "ridge-flashing",
   },
   {
     id: "gutters",
     slug: "rainwater-gutters",
     code: "DW-GUTTER-SYS",
     category: "ROOF DRAINAGE SYSTEMS",
-    title: "Rainwater Gutters & Downpipes",
-    desc: "High-capacity eaves gutters and downspout systems engineered to channel torrential rainfall, prevent facade erosion, and direct water into harvesting tanks.",
+    title: "Rainwater Gutters & Accessories",
+    desc: "High-capacity eaves gutters and matched drainage accessories engineered to channel torrential rainfall, prevent facade erosion, and direct water into harvesting tanks.",
     image: "/images/product-rainwater-gutter.jpg",
     imageFit: "cover" as const,
     specs: [
@@ -138,6 +160,45 @@ const frameworkProducts = [
       "Complete matched fittings, angles & brackets",
     ],
     enquiryValue: "gutters",
+  },
+];
+
+const gutterAccessories = [
+  {
+    id: "gutter-outlet",
+    slug: "gutter-running-outlet",
+    code: "DW-ACC-OUTLET",
+    title: "Rainwater Outlet Connector",
+    desc: "Directs water runoff from the horizontal eaves gutter into the vertical downpipe.",
+    image: "/images/product-gutter-outlet.jpg",
+    enquiryValue: "gutter-outlet",
+  },
+  {
+    id: "gutter-endcap",
+    slug: "gutter-end-cap",
+    code: "DW-ACC-ENDCAP",
+    title: "Gutter End Cap",
+    desc: "Seals the open end of the eaves gutter profile, preventing water overflow and spillage.",
+    image: "/images/product-gutter-endcap.jpg",
+    enquiryValue: "gutter-endcap",
+  },
+  {
+    id: "gutter-corner",
+    slug: "gutter-corner-angle",
+    code: "DW-ACC-CORNER",
+    title: "90° Gutter Corner Angle",
+    desc: "Joins two eaves gutter sections at 90-degree building corners for continuous drainage.",
+    image: "/images/product-gutter-corner.jpg",
+    enquiryValue: "gutter-corner",
+  },
+  {
+    id: "gutter-bracket",
+    slug: "gutter-support-bracket",
+    code: "DW-ACC-BRACKET",
+    title: "Gutter Support Bracket",
+    desc: "Mounts and cradles the eaves gutter trough firmly against the roof fascia board.",
+    image: "/images/product-gutter-bracket.jpg",
+    enquiryValue: "gutter-bracket",
   },
 ];
 
@@ -172,7 +233,7 @@ export default function ProductsPage() {
           <div className="w-full sm:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
             >
               <UIcon name="layers" className="text-xs text-brand" /> PRODUCT CATALOGUE &bull; 2026 SPEC
             </span>
@@ -225,7 +286,7 @@ export default function ProductsPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy transition-colors group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand">
                     <UIcon name={icon} className="text-lg" />
                   </span>
-                  <span className="font-mono text-xs font-bold text-slate-300">
+                  <span className="text-xs font-bold text-slate-300">
                     {num}
                   </span>
                 </div>
@@ -250,7 +311,7 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <UIcon name="sparkles" className="text-xs text-brand" /> Manufacturing Lineup
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -292,11 +353,11 @@ export default function ProductsPage() {
                   <div>
                     {/* 1. Small product category & code */}
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand">
                         {p.category}
                       </span>
                       <span className="text-slate-300">•</span>
-                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                      <span className="text-[10px] font-semibold text-slate-500">
                         {p.code}
                       </span>
                     </div>
@@ -309,18 +370,22 @@ export default function ProductsPage() {
                     </h3>
 
                     {/* 3. One concise description */}
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                      {p.desc}
-                    </p>
+                    <ExpandableText
+                      text={p.desc}
+                      className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm"
+                      mobileLines={2}
+                      desktopLines={2}
+                      minChars={110}
+                    />
 
                     {/* 4. Three or four important specification fields in a readable grid */}
                     <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3 sm:grid-cols-4 sm:p-3.5">
                       {p.specs.map((s) => (
                         <div key={s.label} className="min-w-0">
-                          <span className="block font-mono text-[9px] uppercase tracking-wider text-slate-400 sm:text-[10px] truncate">
+                          <span className="block text-[10px] uppercase tracking-wider text-slate-400 truncate">
                             {s.label}
                           </span>
-                          <span className="mt-0.5 block font-mono text-xs font-bold text-navy truncate">
+                          <span className="mt-0.5 block text-xs font-bold text-navy truncate">
                             {s.value}
                           </span>
                         </div>
@@ -358,7 +423,7 @@ export default function ProductsPage() {
                       </Link>
                     </div>
 
-                    <span className="hidden font-mono text-[11px] text-slate-400 sm:inline-block">
+                    <span className="hidden text-[11px] font-medium text-slate-400 sm:inline-block">
                       Palakkad Direct Dispatch
                     </span>
                   </div>
@@ -377,19 +442,19 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
-                <UIcon name="box" className="text-xs text-brand" /> Structural Framework & Drainage
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                <UIcon name="box" className="text-xs text-brand" /> Structural Framework & Accessories
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-                Structural GI Pipes & Rainwater Accessories
+                Structural GP Pipes, Flashings & Rainwater Accessories
               </h2>
               <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                Engineered purlin pipes and complete rainwater drainage systems to complement Durawin roofing & liner sheets
+                Engineered purlin pipes, apex ridge flashings, and complete rainwater drainage systems to complement Durawin roofing & liner sheets
               </p>
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 lg:grid-cols-3 lg:gap-6">
             {frameworkProducts.map((p, i) => (
               <div
                 key={p.id}
@@ -399,17 +464,21 @@ export default function ProductsPage() {
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-md sm:p-7 scroll-mt-24"
               >
                 <div>
-                  {/* Fixed Image Container */}
-                  <div className="relative aspect-[16/9] sm:aspect-[2/1] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50/70 p-4">
+                  {/* Fixed Image Container Matching Homepage Exactly */}
+                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl border border-slate-200/80 bg-[#F8FAFC]">
                     <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
-                    <div className="relative h-full w-full flex items-center justify-center">
+                    <div
+                      className={`relative flex h-full w-full items-center justify-center ${
+                        p.imageFit === "contain" ? "p-4 sm:p-5" : ""
+                      }`}
+                    >
                       <Image
                         src={p.image}
                         alt={p.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 560px"
                         className={`transition-transform duration-500 ease-out group-hover:scale-105 ${
-                          p.imageFit === "cover" ? "object-cover object-[50%_25%]" : "object-contain"
+                          p.imageFit === "cover" ? "object-cover object-center" : "object-contain object-center"
                         }`}
                       />
                     </div>
@@ -418,11 +487,11 @@ export default function ProductsPage() {
                   {/* Header info */}
                   <div className="mt-4">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-brand">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand">
                         {p.category}
                       </span>
                       <span className="text-slate-300">•</span>
-                      <span className="font-mono text-[10px] font-semibold text-slate-500">
+                      <span className="text-[10px] font-semibold text-slate-500">
                         {p.code}
                       </span>
                     </div>
@@ -433,12 +502,16 @@ export default function ProductsPage() {
                       </Link>
                     </h3>
 
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                      {p.desc}
-                    </p>
+                    <ExpandableText
+                      text={p.desc}
+                      className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm"
+                      mobileLines={2}
+                      desktopLines={2}
+                      minChars={110}
+                    />
 
                     {/* 4 Specs */}
-                    <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 p-3 font-mono text-xs">
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 p-3 text-xs">
                       {p.specs.map((s) => (
                         <div key={s.label} className="min-w-0">
                           <span className="block text-[10px] uppercase text-slate-400 truncate">
@@ -486,6 +559,88 @@ export default function ProductsPage() {
               </div>
             ))}
           </div>
+
+          {/* Rainwater Drainage Accessories Sub-Grid */}
+          <div className="mt-14 border-t border-slate-200/80 pt-10">
+            <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end mb-6">
+              <div>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+                  <UIcon name="sparkles" className="text-xs text-brand" /> Precision Eaves Fittings
+                </span>
+                <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
+                  Rainwater Gutter Accessories & Distinct Fittings
+                </h3>
+                <p className="mt-1 text-xs text-slate-600 sm:text-sm">
+                  Precision-molded UV-stabilized fittings engineered to complete the Durawin eaves gutter drainage system
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {gutterAccessories.map((acc, i) => (
+                <div
+                  key={acc.id}
+                  id={acc.id}
+                  data-reveal="scale"
+                  style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-md sm:p-5"
+                >
+                  <div>
+                    {/* Compact Image Container Matching Homepage Exactly */}
+                    <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl border border-slate-200/80 bg-[#F8FAFC]">
+                      <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-15" />
+                      <div className="relative flex h-full w-full items-center justify-center p-3.5 sm:p-4">
+                        <Image
+                          src={acc.image}
+                          alt={acc.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                          className="object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Metadata & Title */}
+                    <div className="mt-3.5">
+                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                        <span className="font-semibold text-brand">GUTTER ACCESSORY</span>
+                        <span>•</span>
+                        <span>{acc.code}</span>
+                      </div>
+
+                      <h4 className="mt-1 text-base font-bold text-navy">
+                        <Link href={`/products/${acc.slug}`} className="transition-colors hover:text-brand">
+                          {acc.title}
+                        </Link>
+                      </h4>
+
+                      <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                        {acc.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Actions: Enquiry CTA & View Specs */}
+                  <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-3">
+                    <Link
+                      href={`/contact?product=${acc.enquiryValue}#enquiry`}
+                      className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-full bg-navy px-3.5 py-1.5 text-xs font-bold text-white shadow-xs transition-all duration-200 ease-out hover:bg-brand active:scale-[0.98]"
+                    >
+                      <span>Enquire About Fitting</span>
+                      <UIcon name="arrow-right" className="text-xs" />
+                    </Link>
+                    <Link
+                      href={`/products/${acc.slug}`}
+                      className="inline-flex min-h-8 items-center justify-center gap-1 text-[11px] font-semibold text-slate-500 transition-colors hover:text-navy"
+                    >
+                      <span>View Specifications</span>
+                      <UIcon name="arrow-right" className="text-[10px]" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -496,7 +651,7 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <UIcon name="shield-check" className="text-xs text-brand" /> Performance In Field
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -524,13 +679,19 @@ export default function ProductsPage() {
                     sizes="(max-width: 640px) 82vw, (max-width: 1023px) 33vw, 380px"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur">
                     SECTOR {app.num}
                   </span>
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="text-lg font-bold text-navy sm:text-xl">{app.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">{app.desc}</p>
+                  <ExpandableText
+                    text={app.desc}
+                    className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm"
+                    mobileLines={2}
+                    desktopLines={2}
+                    minChars={100}
+                  />
                 </div>
               </div>
             ))}
@@ -552,7 +713,7 @@ export default function ProductsPage() {
         <div data-reveal className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 font-mono text-[11px] font-semibold text-gold">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-[11px] font-semibold text-gold">
                 ✦ BESPOKE STRUCTURAL FABRICATION
               </span>
               <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
@@ -580,7 +741,7 @@ export default function ProductsPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 font-mono text-xs backdrop-blur">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 text-xs backdrop-blur">
                 <span>CNC Profiler Line</span>
                 <span className="text-emerald-400 font-bold">● ONLINE</span>
               </div>

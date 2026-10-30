@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope, IBM_Plex_Mono } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "@flaticon/flaticon-uicons/css/regular/rounded.css";
 import "@flaticon/flaticon-uicons/css/brands/all.css";
 import "./globals.css";
@@ -19,13 +19,6 @@ const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   weight: ["500", "600", "700", "800"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${manrope.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <SmoothScroll />

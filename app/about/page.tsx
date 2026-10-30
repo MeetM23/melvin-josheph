@@ -3,6 +3,7 @@ import Link from "next/link";
 import UIcon, { UIconName } from "@/components/UIcon";
 import { CallStrip, Process } from "@/components/sections";
 import { RoofTrussWatermark, CadDimensionMarks, WatermarkText } from "@/components/IndustrialBackgrounds";
+import ExpandableText from "@/components/ExpandableText";
 
 export const metadata = { title: "About Us | 20+ Years of Roofing Excellence | Durawin" };
 
@@ -82,7 +83,7 @@ export default function AboutPage() {
           <div className="w-full sm:w-1/2">
             <span
               style={{ "--hero-delay": "0.02s" } as React.CSSProperties}
-              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
+              className="hero-rise inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs backdrop-blur"
             >
               <UIcon name="award" className="text-xs text-brand" /> CORPORATE HERITAGE &bull; PALAKKAD
             </span>
@@ -130,10 +131,10 @@ export default function AboutPage() {
                     <UIcon name={icon} className="text-lg" />
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-[10px] font-semibold text-slate-600">
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
                       {tag}
                     </span>
-                    <span className="font-mono text-xs font-bold text-slate-300">
+                    <span className="text-xs font-bold text-slate-300">
                       {num}
                     </span>
                   </div>
@@ -165,7 +166,7 @@ export default function AboutPage() {
               className="object-cover transition-transform duration-700 ease-out hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 font-mono text-xs text-white backdrop-blur">
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-black/60 p-3 text-xs text-white backdrop-blur">
               <span>Palakkad Plant Unit</span>
               <span className="text-gold font-bold">10.6385° N, 76.5412° E</span>
             </div>
@@ -173,15 +174,18 @@ export default function AboutPage() {
 
           {/* Right: Editorial Narrative */}
           <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="lg:col-span-6">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy">
               ✦ ESTABLISHED CRAFTSMANSHIP
             </span>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
               Engineered in Kerala, Built for Decades
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              Founded in Naripotta, Palakkad, Durawin has dedicated over two decades to perfecting the roll-formed steel roofing envelope. We pair industrial-grade machinery with authentic primary raw materials to protect residential investments, commercial complexes, and manufacturing facilities across South India.
-            </p>
+            <ExpandableText
+              text="Founded in Naripotta, Palakkad, Durawin has dedicated over two decades to perfecting the roll-formed steel roofing envelope. We pair industrial-grade machinery with authentic primary raw materials to protect residential investments, commercial complexes, and manufacturing facilities across South India."
+              className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base"
+              mobileLines={3}
+              desktopLines={3}
+            />
 
             <div className="mt-6 space-y-3 border-t border-slate-100 pt-5">
               {story.map((s) => (
@@ -203,7 +207,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy sm:px-3.5">
                 <UIcon name="target" className="text-xs text-brand" /> Core Philosophy
               </span>
               <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
@@ -213,7 +217,7 @@ export default function AboutPage() {
                 Our vision, mission, and industrial standard of ethics
               </p>
             </div>
-            <div className="hidden font-mono text-xs text-slate-400 sm:block">
+            <div className="hidden text-xs text-slate-400 sm:block">
               [ CORPORATE FOUNDATION ]
             </div>
           </div>
@@ -228,7 +232,7 @@ export default function AboutPage() {
               >
                 <div>
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="font-mono text-xs font-bold text-brand">
+                    <span className="text-xs font-bold text-brand">
                       PILLAR {num}
                     </span>
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-navy group-hover:bg-brand/10 group-hover:text-brand">
@@ -239,14 +243,18 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-xl font-bold text-navy">
                     {title}
                   </h3>
-                  <p className="font-mono text-xs text-slate-400">
+                  <p className="text-xs text-slate-400">
                     {subtitle}
                   </p>
 
                   {text && (
-                    <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                      {text}
-                    </p>
+                    <ExpandableText
+                      text={text}
+                      className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm"
+                      mobileLines={3}
+                      desktopLines={3}
+                      minChars={120}
+                    />
                   )}
 
                   {points && (
@@ -261,7 +269,7 @@ export default function AboutPage() {
                   )}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-50 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                <div className="mt-6 pt-4 border-t border-slate-50 text-[11px] text-slate-400 flex items-center justify-between">
                   <span>STANDARD</span>
                   <span className="font-semibold text-navy">VERIFIED</span>
                 </div>

@@ -167,7 +167,7 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-industrial.jpg",
       },
     ],
-    relatedProductSlugs: ["liner-sheets", "structural-gi-pipes", "rainwater-gutters"],
+    relatedProductSlugs: ["liner-sheets", "gp-pipes", "rainwater-gutters"],
   },
   {
     slug: "liner-sheets",
@@ -240,7 +240,7 @@ export const PRODUCTS_LIST: ProductData[] = [
       {
         groupName: "Ceiling & Wall Application",
         items: [
-          { label: "Mounting Sub-structure", value: "Light gauge GI ceiling framework or wood battens" },
+          { label: "Mounting Sub-structure", value: "Light gauge steel / GP ceiling framework or wood battens" },
           { label: "Fastening", value: "Concealed or color-matched self-tapping fasteners" },
           { label: "Maintenance", value: "Wipe clean with mild detergent — zero repainting" },
           { label: "Fire Safety", value: "Class A / Class 1 Non-Combustible Material" },
@@ -264,26 +264,26 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-industrial.jpg",
       },
     ],
-    relatedProductSlugs: ["roofing-sheets", "structural-gi-pipes", "rainwater-gutters"],
+    relatedProductSlugs: ["roofing-sheets", "gp-pipes", "rainwater-gutters"],
   },
   {
-    slug: "structural-gi-pipes",
-    aliasSlugs: ["gp-pipes", "gi-pipes"],
+    slug: "gp-pipes",
+    aliasSlugs: ["structural-gi-pipes", "gi-pipes"],
     enquiryValue: "gp-pipes",
     code: "DW-GP-PIPE",
     category: "STRUCTURAL FRAMEWORK",
-    title: "Structural Galvanized Iron (GI & GP) Hollow Pipes",
-    tagline: "APL Apollo Certified Purlins, Rafters & Truss Tubes",
+    title: "GP Pipes",
+    tagline: "Pre-Coated Steel Hollow Sections for Purlins, Rafters & Trusses",
     intro:
-      "Durawin supplies certified high-yield Galvanized Plain (GP) and Galvanized Iron (GI) structural steel tubes directly sourced from leading primary mills including APL Apollo. Engineered for roof purlins, rafters, columns, and structural trusses, these hollow sections feature uniform zinc protection inside and out to eliminate structural corrosion.",
-    mainImage: "/images/product-gi-pipes-framed.png",
+      "Durawin supplies GP Pipes manufactured from pre-coated steel for structural purlins, rafters, and building frameworks. Featuring a factory pre-applied protective coating, these hollow steel sections deliver reliable surface protection, structural strength, and uniform finish for roofing projects across Kerala.",
+    mainImage: "/images/product-gp-pipes-framed.png",
     imageFit: "contain",
-    imageAlt: "Structural Galvanized Plain Steel Purlin Pipes and Hollow Sections",
+    imageAlt: "GP Pipes with Pre-Applied Protective Coating",
     keyBenefits: [
-      "Full internal and external galvanized zinc barrier prevents moisture and condensation rot",
-      "APL Apollo mill certification guarantees uniform wall thickness, precise squaring, and weldability",
-      "High strength-to-weight hollow geometry cuts total structural steel foundation loads",
-      "Extensive ready stock in Palakkad for prompt dispatch with roofing sheet shipments",
+      "Factory pre-applied protective coating ensures uniform surface protection",
+      "Manufactured from certified steel coils sourced from primary mills including APL Apollo",
+      "High strength-to-weight hollow geometry cuts total structural frame dead load",
+      "Available in standard lengths and section profiles with direct site dispatch from Palakkad",
     ],
     options: [
       {
@@ -331,28 +331,28 @@ export const PRODUCTS_LIST: ProductData[] = [
     ],
     specGroups: [
       {
-        groupName: "Manufacturing Standards",
+        groupName: "Manufacturing & Sourcing",
         items: [
-          { label: "Standard Specification", value: "IS 4923 / IS 1239 Hollow Structural Sections" },
+          { label: "Product Type", value: "GP Pipes (Pre-Coated Hollow Sections)" },
           { label: "Steel Mill Sourcing", value: "APL Apollo Tubes Ltd & Primary Mills" },
           { label: "Section Profiles", value: "SHS (Square), RHS (Rectangular), CHS (Round)" },
           { label: "End Finish", value: "Plain square-cut deburred ends" },
         ],
       },
       {
-        groupName: "Zinc Protection & Metallurgy",
+        groupName: "Protective Coating & Finish",
         items: [
-          { label: "Galvanized Coating", value: "Hot-Dip Continuous Galvanized Zinc Defense" },
-          { label: "Corrosion Resistance", value: "Protection across internal bore and outer surface" },
-          { label: "Tensile Yield Strength", value: "Minimum 240 - 310 MPa structural rating" },
-          { label: "Weldability", value: "Excellent electric resistance & MIG arc weldability" },
+          { label: "Coating Type", value: "Factory Pre-Applied Protective Coating" },
+          { label: "Surface Finish", value: "Uniform pre-coated protective finish" },
+          { label: "Fabrication", value: "Standard weldability & structural cutting" },
+          { label: "Detailed Specs", value: "Confirmed mill test certs available upon request" },
         ],
       },
       {
         groupName: "Roof Purlin Compatibility",
         items: [
           { label: "Fastener Gripping", value: "Optimized steel density for self-drilling TEK screws" },
-          { label: "Deflection Control", value: "Engineered moment of inertia for long purlin bays" },
+          { label: "Deflection Control", value: "Engineered section modulus for long purlin bays" },
           { label: "Supply Logistics", value: "Bundled and delivered directly to site with sheets" },
         ],
       },
@@ -374,21 +374,108 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-household.jpg",
       },
     ],
-    relatedProductSlugs: ["roofing-sheets", "liner-sheets", "rainwater-gutters"],
+    relatedProductSlugs: ["roofing-sheets", "liner-sheets", "roof-ridge-flashing"],
+  },
+  {
+    slug: "roof-ridge-flashing",
+    aliasSlugs: ["ridge-flashing", "ridge-cap", "roof-ridge"],
+    enquiryValue: "ridge-flashing",
+    code: "DW-RIDGE-PRO",
+    category: "ROOFING ACCESSORIES",
+    title: "Roof Ridge Flashing",
+    tagline: "Weatherproof Apex Sealing for Sloped Metal Roofs",
+    intro:
+      "Durawin Roof Ridge Flashing is specifically designed to cover and seal the gap where two opposing roof slopes meet at the ridge. Custom-folded to match roofing pitches and profiles, it prevents wind-driven rain penetration, debris accumulation, and moisture ingress along the apex line.",
+    mainImage: "/images/product-ridge-flashing.jpg",
+    imageFit: "contain",
+    imageAlt: "Roof Ridge Flashing in Architectural Brick Red",
+    keyBenefits: [
+      "Covers and seals the gap where two roof slopes meet at the apex ridge",
+      "Prevents monsoon rainwater ingress and wind-driven moisture penetration",
+      "Safety-hemmed longitudinal edges provide stiffness and clean line alignment",
+      "Manufactured in colors matched to Durawin roofing sheet profiles and finishes",
+    ],
+    options: [
+      {
+        name: "Architectural Color",
+        type: "color",
+        choices: [
+          { label: "Brick Red", value: "Brick Red", colorCode: "#991B1B" },
+          { label: "Royal Blue", value: "Royal Blue", colorCode: "#1E3A8A" },
+          { label: "Dark Charcoal", value: "Dark Charcoal", colorCode: "#334155" },
+          { label: "Mist Green", value: "Mist Green", colorCode: "#166534" },
+          { label: "Off-White Ivory", value: "Off-White", colorCode: "#F1F5F9" },
+        ],
+      },
+      {
+        name: "Standard Piece Length",
+        type: "radio",
+        choices: [
+          { label: "3.0 Meters (Standard Piece)", value: "3.0 Meters", badge: "Standard Stock" },
+          { label: "Custom Project Schedule", value: "Custom Length" },
+        ],
+      },
+    ],
+    specGroups: [
+      {
+        groupName: "Profile & Function",
+        items: [
+          { label: "Product Purpose", value: "Covers and seals the gap where two roof slopes meet" },
+          { label: "Product Category", value: "Roofing Accessories / Apex Ridge Flashing" },
+          { label: "Profile Geometry", value: "V-shaped ridge cap with stiffened safety-hemmed edges" },
+          { label: "Standard Length", value: "3.0 meters (approx 10 ft) per piece" },
+        ],
+      },
+      {
+        groupName: "Material & Coating",
+        items: [
+          { label: "Base Substrate", value: "High-tensile steel with corrosion-resistant primer" },
+          { label: "Surface Finish", value: "Pre-painted architectural color coating" },
+          { label: "Color Selection", value: "Matched to primary roofing and cladding sheet colors" },
+          { label: "Edge Treatment", value: "Turned and hemmed for safety and enhanced rigidity" },
+        ],
+      },
+      {
+        groupName: "Installation Compatibility",
+        items: [
+          { label: "Roof Compatibility", value: "Trapezoidal, corrugated, and tile-profile metal roofing" },
+          { label: "Fastening Method", value: "Fastened through sheet crests using self-drilling TEK screws" },
+          { label: "Joint Sealing", value: "Overlapped at joints and compatible with contour foam closures" },
+        ],
+      },
+    ],
+    applications: [
+      {
+        title: "Residential Pitched Roof Ridges",
+        desc: "Clean, leak-free apex capping for modern Kerala villas, sloping roofs, and porch canopies.",
+        image: "/images/app-household.jpg",
+      },
+      {
+        title: "Commercial & Industrial Sheds",
+        desc: "Weatherproof ridge capping across multi-bay commercial complexes, warehouses, and factory workshops.",
+        image: "/images/app-commercial.jpg",
+      },
+      {
+        title: "Monsoon Storm Weatherproofing",
+        desc: "Protective flashing barrier safeguarding ridge crest joints against high-velocity coastal winds and rain.",
+        image: "/images/app-industrial.jpg",
+      },
+    ],
+    relatedProductSlugs: ["roofing-sheets", "liner-sheets", "gp-pipes"],
   },
   {
     slug: "rainwater-gutters",
-    aliasSlugs: ["gutters"],
+    aliasSlugs: ["gutters", "rainwater-gutters-accessories"],
     enquiryValue: "gutters",
     code: "DW-GUTTER-SYS",
     category: "ROOF DRAINAGE SYSTEMS",
-    title: "Engineered Rainwater Gutters & Downpipes",
+    title: "Engineered Rainwater Gutters & Accessories",
     tagline: "High-Capacity All-Weather Eaves Drainage Solutions",
     intro:
       "Durawin provides complete high-capacity eaves gutter and vertical downspout systems designed to channel Kerala torrential rainfall cleanly away from buildings. Protect foundation masonry, prevent exterior facade staining, and direct water into rainwater harvesting tanks with precision-fitted UV-stabilized components.",
     mainImage: "/images/product-rainwater-gutter.jpg",
     imageFit: "cover",
-    imageAlt: "Engineered Rainwater Eaves Gutter System Installation on House",
+    imageAlt: "Engineered Rainwater Eaves Gutters & Accessories System",
     keyBenefits: [
       "High-flow trough geometry handles peak cloudburst rainfall without edge overflow",
       "UV-stabilized all-weather formulation prevents warping, cracking, and sun fading",
@@ -397,25 +484,25 @@ export const PRODUCTS_LIST: ProductData[] = [
     ],
     options: [
       {
-        name: "System Components Needed",
+        name: "System Package",
         type: "select",
         choices: [
-          { label: "Complete System Package (Gutters + Downpipes + Brackets)", value: "Full Package" },
-          { label: "Eaves Gutters & Brackets Only", value: "Gutters Only" },
-          { label: "Downspouts & Elbows Only", value: "Downpipes Only" },
-          { label: "Replacement Fittings & Outlets", value: "Fittings Only" },
+          { label: "Complete System (Gutters + Downpipes + Brackets)", value: "Full System Package" },
+          { label: "Eaves Gutters & Brackets Only", value: "Gutters & Brackets" },
+          { label: "Downpipes & Outlets Only", value: "Downpipes Only" },
+          { label: "Accessories & Replacement Fittings Only", value: "Fittings Only" },
         ],
       },
       {
-        name: "Gutter Profile Size",
+        name: "Gutter Size",
         type: "radio",
         choices: [
-          { label: "140 mm High-Flow Eaves Trough", value: "140 mm High-Flow", badge: "Standard Residential & Commercial" },
-          { label: "180 mm Industrial Box Gutter", value: "180 mm Industrial", badge: "High Volume Sheds" },
+          { label: "140 mm Standard", value: "140 mm Standard", badge: "Residential & Commercial" },
+          { label: "180 mm Industrial", value: "180 mm Industrial", badge: "High Volume" },
         ],
       },
       {
-        name: "Architectural Finish",
+        name: "Finish Colour",
         type: "color",
         choices: [
           { label: "Classic Bright White", value: "Classic White", colorCode: "#FFFFFF" },
@@ -424,40 +511,31 @@ export const PRODUCTS_LIST: ProductData[] = [
         ],
       },
       {
-        name: "Downpipe Diameter",
+        name: "Downpipe Size",
         type: "radio",
         choices: [
           { label: "75 mm (3 inch)", value: "75 mm" },
-          { label: "110 mm (4 inch)", value: "110 mm", badge: "Torrential Rain Grade" },
+          { label: "110 mm (4 inch)", value: "110 mm", badge: "Heavy Rainfall Grade" },
         ],
       },
     ],
     specGroups: [
       {
-        groupName: "System Architecture",
+        groupName: "Dimensions & Profile",
         items: [
-          { label: "Profile Geometry", value: "High-Capacity Eaves Gutter with Splash Barrier" },
           { label: "Gutter Width", value: "140 mm Standard / 180 mm Industrial" },
-          { label: "Downpipe Sizes", value: "75 mm & 110 mm High-Discharge Cylinders" },
-          { label: "Fittings Lineup", value: "Running outlets, stop ends, 90° angles, brackets, downpipe clips" },
+          { label: "Downpipe Sizes", value: "75 mm & 110 mm High Discharge" },
+          { label: "Profile Geometry", value: "High-Capacity Trough with Splash Lip" },
+          { label: "Discharge Capacity", value: "Up to 3.8 L/sec per outlet" },
         ],
       },
       {
-        groupName: "Material Performance",
+        groupName: "Material & Durability",
         items: [
-          { label: "Material Composition", value: "UV-Stabilized High-Impact Engineering Polymer / Color Coated Steel" },
-          { label: "Weather Resistance", value: "Resistant to tropical sun embrittlement and heavy monsoons" },
-          { label: "Joint Sealing", value: "EPDM synthetic rubber gasket seal with expansion compensation" },
-          { label: "Corrosion Class", value: "100% Rust-Proof and chemically inert" },
-        ],
-      },
-      {
-        groupName: "Drainage Capacity & Installation",
-        items: [
-          { label: "Drainage Capacity", value: "Up to 3.8 liters per second per outlet" },
-          { label: "Bracket Spacing", value: "Recommended 600 mm - 800 mm centers" },
-          { label: "Compatibility", value: "Seamlessly aligns under Durawin Trussfold sheet eaves" },
-          { label: "Rainwater Harvesting", value: "Non-toxic food grade runoff safe for cistern storage" },
+          { label: "Material Composition", value: "UV-Stabilized High-Impact Polymer" },
+          { label: "Corrosion Protection", value: "100% Rust-Proof & Chemically Inert" },
+          { label: "Joint Sealing", value: "Watertight EPDM compression gaskets" },
+          { label: "Bracket Spacing", value: "600 mm – 800 mm intervals" },
         ],
       },
     ],
@@ -478,7 +556,281 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-industrial.jpg",
       },
     ],
-    relatedProductSlugs: ["roofing-sheets", "structural-gi-pipes", "liner-sheets"],
+    relatedProductSlugs: ["gutter-running-outlet", "gutter-end-cap", "gutter-corner-angle", "gutter-support-bracket"],
+  },
+  {
+    slug: "gutter-running-outlet",
+    aliasSlugs: ["rainwater-outlet", "gutter-outlet", "drop-outlet"],
+    enquiryValue: "gutter-outlet",
+    code: "DW-ACC-OUTLET",
+    category: "ROOF DRAINAGE ACCESSORIES",
+    title: "Rainwater Outlet Connector",
+    tagline: "Eaves Gutter to Downpipe Drop Connection",
+    intro:
+      "The Durawin Rainwater Outlet Connector is an engineered transition fitting designed to direct water runoff from the horizontal eaves gutter trough straight into the vertical downpipe, preventing turbulence, backflow, and wall splashing.",
+    mainImage: "/images/product-gutter-outlet.jpg",
+    imageFit: "contain",
+    imageAlt: "White Rainwater Gutter Running Outlet and Downpipe Connector",
+    keyBenefits: [
+      "Precision seated profile connects seamlessly into the gutter trough",
+      "High-velocity drop spigot ensures rapid discharge into downpipes",
+      "UV-stabilized weather-resistant polymer withstands intense monsoon downpours",
+      "Smooth hydraulic interior profile eliminates stagnant water pooling",
+    ],
+    options: [
+      {
+        name: "Downpipe Outlet Size",
+        type: "radio",
+        choices: [
+          { label: "75 mm (3 inch) Spigot", value: "75 mm" },
+          { label: "110 mm (4 inch) Spigot", value: "110 mm", badge: "Heavy Monsoon Flow" },
+        ],
+      },
+      {
+        name: "Architectural Finish",
+        type: "color",
+        choices: [
+          { label: "Classic Bright White", value: "Classic White", colorCode: "#FFFFFF" },
+        ],
+      },
+    ],
+    specGroups: [
+      {
+        groupName: "Fitting Specifications",
+        items: [
+          { label: "Component Type", value: "Running / Drop Outlet" },
+          { label: "Application", value: "Eaves Gutter to Downpipe Drop Connection" },
+          { label: "Material Composition", value: "UV-Stabilized High-Impact Polymer" },
+          { label: "Discharge Alignment", value: "Vertical Round Spigot" },
+        ],
+      },
+      {
+        groupName: "Performance & Installation",
+        items: [
+          { label: "Corrosion Class", value: "100% Rust-Proof & Chemically Inert" },
+          { label: "Weather Resistance", value: "UV-Stabilized against tropical sun embrittlement" },
+          { label: "Downpipe Fit", value: "Compatible with standard 75mm and 110mm pipes" },
+        ],
+      },
+    ],
+    applications: [
+      {
+        title: "Residential Roofing Systems",
+        desc: "Discharges roof runoff cleanly into downpipes without exterior wall moisture staining.",
+        image: "/images/app-household.jpg",
+      },
+      {
+        title: "Commercial & Industrial Sheds",
+        desc: "Connects high-flow perimeter eaves gutters to high-capacity downpipe stacks.",
+        image: "/images/app-commercial.jpg",
+      },
+    ],
+    relatedProductSlugs: ["rainwater-gutters", "gutter-end-cap", "gutter-corner-angle", "gutter-support-bracket"],
+  },
+  {
+    slug: "gutter-end-cap",
+    aliasSlugs: ["gutter-stop-end", "end-cap", "gutter-endcap"],
+    enquiryValue: "gutter-endcap",
+    code: "DW-ACC-ENDCAP",
+    category: "ROOF DRAINAGE ACCESSORIES",
+    title: "Gutter End Cap",
+    tagline: "Watertight Eaves Gutter Run Termination",
+    intro:
+      "The Durawin Gutter End Cap is a precision-molded stop end fitting engineered to cap and terminate open eaves gutter profiles, preventing water runoff spillage and keeping the drainage path strictly contained.",
+    mainImage: "/images/product-gutter-endcap.jpg",
+    imageFit: "contain",
+    imageAlt: "White Rainwater Gutter Stop End Cap Fitting with Gasket",
+    keyBenefits: [
+      "Precision snap-fit closure provides watertight run termination",
+      "Integrated EPDM seal prevents water seepage at eaves edges",
+      "UV-stabilized formulation resists tropical sun embrittlement",
+      "Clean flush aesthetic integrates seamlessly with exterior trim",
+    ],
+    options: [
+      {
+        name: "Mounting Orientation",
+        type: "radio",
+        choices: [
+          { label: "Universal Profile Stop End", value: "Universal" },
+        ],
+      },
+      {
+        name: "Architectural Finish",
+        type: "color",
+        choices: [
+          { label: "Classic Bright White", value: "Classic White", colorCode: "#FFFFFF" },
+        ],
+      },
+    ],
+    specGroups: [
+      {
+        groupName: "Fitting Specifications",
+        items: [
+          { label: "Component Type", value: "Profile Stop End Cap" },
+          { label: "Sealing Mechanism", value: "EPDM synthetic rubber gasket" },
+          { label: "Material Composition", value: "UV-Stabilized High-Impact Polymer" },
+          { label: "Installation Method", value: "Snap-lock perimeter retention" },
+        ],
+      },
+      {
+        groupName: "Performance & Installation",
+        items: [
+          { label: "Corrosion Class", value: "100% Rust-Proof & Weather-Sealed" },
+          { label: "Weather Resistance", value: "Resistant to heat cracking and thermal cycling" },
+          { label: "Profile Compatibility", value: "Precision matched to Durawin gutter channels" },
+        ],
+      },
+    ],
+    applications: [
+      {
+        title: "Eaves Run Terminations",
+        desc: "Seals gutter run ends at gable verges and roof edge margins.",
+        image: "/images/app-household.jpg",
+      },
+      {
+        title: "Perimeter Water Containment",
+        desc: "Prevents overflow spillover onto entrance porticos and sidewalls.",
+        image: "/images/app-commercial.jpg",
+      },
+    ],
+    relatedProductSlugs: ["rainwater-gutters", "gutter-running-outlet", "gutter-corner-angle", "gutter-support-bracket"],
+  },
+  {
+    slug: "gutter-corner-angle",
+    aliasSlugs: ["gutter-corner", "90-degree-gutter-corner", "gutter-angle"],
+    enquiryValue: "gutter-corner",
+    code: "DW-ACC-CORNER",
+    category: "ROOF DRAINAGE ACCESSORIES",
+    title: "90° Gutter Corner Angle",
+    tagline: "Continuous Water Flow Around Building Corners",
+    intro:
+      "The Durawin 90° Gutter Corner Angle connects two perpendicular eaves gutter runs around roof hips and building corners, maintaining uninterrupted water transit without leaking or overflow.",
+    mainImage: "/images/product-gutter-corner.jpg",
+    imageFit: "contain",
+    imageAlt: "White 90 Degree Rainwater Gutter Corner Junction Fitting",
+    keyBenefits: [
+      "Smooth radius inner corner prevents water turbulence and silt trap",
+      "Dual socket joints with compression seals ensure watertight continuity",
+      "Engineered for 90-degree building corners and roof perimeter hips",
+      "Rigid UV-stabilized polymer maintains geometry under thermal expansion",
+    ],
+    options: [
+      {
+        name: "Corner Orientation",
+        type: "radio",
+        choices: [
+          { label: "External 90° Corner", value: "External 90" },
+          { label: "Internal 90° Corner", value: "Internal 90" },
+        ],
+      },
+      {
+        name: "Architectural Finish",
+        type: "color",
+        choices: [
+          { label: "Classic Bright White", value: "Classic White", colorCode: "#FFFFFF" },
+        ],
+      },
+    ],
+    specGroups: [
+      {
+        groupName: "Fitting Specifications",
+        items: [
+          { label: "Component Type", value: "90° Eaves Corner Junction" },
+          { label: "Joint Type", value: "Dual Socket Compression Gasket" },
+          { label: "Material Composition", value: "UV-Stabilized High-Impact Polymer" },
+          { label: "Angle Geometry", value: "90-degree fixed hydraulic turn" },
+        ],
+      },
+      {
+        groupName: "Performance & Installation",
+        items: [
+          { label: "Corrosion Class", value: "100% Rust-Proof & Chemically Inert" },
+          { label: "Thermal Stability", value: "Accommodates thermal expansion without distortion" },
+          { label: "Sealing", value: "Factory-fitted elastomeric compression gaskets" },
+        ],
+      },
+    ],
+    applications: [
+      {
+        title: "Hipped Roof Configurations",
+        desc: "Routes continuous eaves drainage around hipped corners seamlessly.",
+        image: "/images/app-household.jpg",
+      },
+      {
+        title: "L-Shaped & Wraparound Architecture",
+        desc: "Connects intersecting fascia gutter runs without external plumbing bends.",
+        image: "/images/app-commercial.jpg",
+      },
+    ],
+    relatedProductSlugs: ["rainwater-gutters", "gutter-running-outlet", "gutter-end-cap", "gutter-support-bracket"],
+  },
+  {
+    slug: "gutter-support-bracket",
+    aliasSlugs: ["gutter-bracket", "fascia-bracket", "gutter-clamp"],
+    enquiryValue: "gutter-bracket",
+    code: "DW-ACC-BRACKET",
+    category: "ROOF DRAINAGE ACCESSORIES",
+    title: "Gutter Support Bracket",
+    tagline: "Heavy-Load Fascia Mounting & Alignment",
+    intro:
+      "The Durawin Gutter Support Bracket is a heavy-duty mounting bracket designed to securely fasten and cradle eaves gutters to the roof fascia board, sustaining heavy water loads during monsoon downpours.",
+    mainImage: "/images/product-gutter-bracket.jpg",
+    imageFit: "contain",
+    imageAlt: "Heavy Duty White Rainwater Gutter Fascia Mounting Bracket",
+    keyBenefits: [
+      "Contoured cradle profile firmly locks the gutter trough into position",
+      "Reinforced load-bearing ribs support full water weight during peak downpours",
+      "Multi-point fascia fixing slots allow precision slope adjustment",
+      "Corrosion-proof, rust-free polymer withstands constant moisture exposure",
+    ],
+    options: [
+      {
+        name: "Fixing Type",
+        type: "radio",
+        choices: [
+          { label: "Standard Fascia Board Mount", value: "Fascia Mount" },
+        ],
+      },
+      {
+        name: "Architectural Finish",
+        type: "color",
+        choices: [
+          { label: "Classic Bright White", value: "Classic White", colorCode: "#FFFFFF" },
+        ],
+      },
+    ],
+    specGroups: [
+      {
+        groupName: "Fitting Specifications",
+        items: [
+          { label: "Component Type", value: "Fascia Support Bracket" },
+          { label: "Mounting Position", value: "Fascia Board / Eaves Substrate" },
+          { label: "Material Composition", value: "Reinforced UV-Resistant Polymer" },
+          { label: "Recommended Spacing", value: "600 mm to 800 mm centers" },
+        ],
+      },
+      {
+        groupName: "Performance & Installation",
+        items: [
+          { label: "Load Capacity", value: "Engineered for high water surge loads" },
+          { label: "Corrosion Class", value: "100% Rust-Proof & Weather-Resistant" },
+          { label: "Adjustment", value: "Vertical alignment slots for gradient calibration" },
+        ],
+      },
+    ],
+    applications: [
+      {
+        title: "Fascia Board Mounting",
+        desc: "Provides solid structural support along wooden, composite, or steel fascia boards.",
+        image: "/images/app-household.jpg",
+      },
+      {
+        title: "Extended Eaves Overhangs",
+        desc: "Maintains optimal gutter slope and alignment across long building lengths.",
+        image: "/images/app-commercial.jpg",
+      },
+    ],
+    relatedProductSlugs: ["rainwater-gutters", "gutter-running-outlet", "gutter-end-cap", "gutter-corner-angle"],
   },
   {
     slug: "colour-coated-sheets",
@@ -577,7 +929,7 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-industrial.jpg",
       },
     ],
-    relatedProductSlugs: ["roofing-sheets", "structural-gi-pipes", "rainwater-gutters"],
+    relatedProductSlugs: ["roofing-sheets", "gp-pipes", "rainwater-gutters"],
   },
   {
     slug: "galvanized-corrugated-sheets",
@@ -684,7 +1036,7 @@ export const PRODUCTS_LIST: ProductData[] = [
         image: "/images/app-commercial.jpg",
       },
     ],
-    relatedProductSlugs: ["roofing-sheets", "structural-gi-pipes", "rainwater-gutters"],
+    relatedProductSlugs: ["roofing-sheets", "gp-pipes", "rainwater-gutters"],
   },
 ];
 

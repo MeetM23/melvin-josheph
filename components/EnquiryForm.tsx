@@ -12,8 +12,13 @@ const PRODUCTS = [
   { value: "", label: "Not sure yet" },
   { value: "trussfold", label: "Trussfold Roofing Sheets" },
   { value: "liner-sheets", label: "Liner Sheets (Interior & Ceiling)" },
-  { value: "gp-pipes", label: "Galvanized GI/GP Pipes & Purlins" },
-  { value: "gutters", label: "Rainwater Gutters & Downpipes" },
+  { value: "gp-pipes", label: "GP Pipes (Pre-Coated Hollow Sections)" },
+  { value: "ridge-flashing", label: "Roof Ridge Flashing (Roofing Accessories)" },
+  { value: "gutters", label: "Rainwater Gutters & Accessories" },
+  { value: "gutter-outlet", label: "Rainwater Outlet Connector (Gutter Accessory)" },
+  { value: "gutter-endcap", label: "Gutter End Cap (Gutter Accessory)" },
+  { value: "gutter-corner", label: "90° Gutter Corner Angle (Gutter Accessory)" },
+  { value: "gutter-bracket", label: "Gutter Support Bracket (Gutter Accessory)" },
   { value: "colour-coated", label: "Colour Coated Sheets" },
   { value: "galvanized", label: "Galvanized Roofing Sheets" },
   { value: "custom", label: "Customized solution" },
@@ -77,8 +82,21 @@ export default function EnquiryForm() {
       "gp-pipes": "gp-pipes",
       "gi-pipes": "gp-pipes",
       "structural-gi-pipes": "gp-pipes",
+      "ridge-flashing": "ridge-flashing",
+      "roof-ridge-flashing": "ridge-flashing",
+      "ridge-cap": "ridge-flashing",
       gutters: "gutters",
       "rainwater-gutters": "gutters",
+      "rainwater-gutters-accessories": "gutters",
+      "gutter-outlet": "gutter-outlet",
+      "gutter-running-outlet": "gutter-outlet",
+      "rainwater-outlet": "gutter-outlet",
+      "gutter-endcap": "gutter-endcap",
+      "gutter-end-cap": "gutter-endcap",
+      "gutter-corner": "gutter-corner",
+      "gutter-corner-angle": "gutter-corner",
+      "gutter-bracket": "gutter-bracket",
+      "gutter-support-bracket": "gutter-bracket",
       "colour-coated": "colour-coated",
       "colour-coated-sheets": "colour-coated",
       galvanized: "galvanized",
@@ -144,7 +162,7 @@ export default function EnquiryForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="mt-5 space-y-6 sm:mt-7">
       <fieldset className="space-y-4 rounded-xl border border-slate-100 bg-slate-50/50 p-4 sm:p-5">
-        <legend className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+        <legend className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
           <span>01 // CONTACT DETAILS</span>
         </legend>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -169,7 +187,7 @@ export default function EnquiryForm() {
       </fieldset>
 
       <fieldset className="space-y-4 rounded-xl border border-slate-100 bg-slate-50/50 p-4 sm:p-5">
-        <legend className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+        <legend className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
           <span>02 // SPECIFICATION REQUIREMENT</span>
         </legend>
         <div>

@@ -12,7 +12,7 @@
   --color-gold: #f2b01e;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-manrope), var(--font-inter), sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 html {
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .type-eyebrow {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   font-size: 0.6875rem; /* 11px */
   font-weight: 700;
   text-transform: uppercase;

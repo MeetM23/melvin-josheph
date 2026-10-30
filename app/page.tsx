@@ -41,7 +41,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
                 <UIcon name="building" className="text-xs text-brand" /> Sector Solutions
               </span>
               <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -78,7 +78,7 @@ export default function Home() {
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 text-navy shadow-sm backdrop-blur transition-transform duration-300 group-hover:bg-brand group-hover:text-white">
                       <UIcon name={icon} className="text-lg" />
                     </span>
-                    <span className="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-white backdrop-blur">
+                    <span className="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white backdrop-blur">
                       {`${indexCode} // ${sectorCode}`}
                     </span>
                   </div>
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/90 bg-slate-50/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy shadow-xs">
                 <UIcon name="badge-check" className="text-xs text-brand" /> Sourcing Credibility
               </span>
               <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.025em] text-navy sm:text-3xl lg:text-4xl">
@@ -174,7 +174,7 @@ export default function Home() {
               {/* Architectural frosted glass specification console — guarantees 100% text readability while keeping photo clear */}
               <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-6 lg:p-8 flex justify-start">
                 <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl border border-white/20 bg-[#051324]/75 p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:p-7">
-                  <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
+                  <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/40 bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold shadow-xs backdrop-blur sm:text-[11px]">
                     <span>METALLURGICAL SPECIFICATION</span>
                     <span>✦</span>
                     <span>IS 277 / IS 513 CERTIFIED</span>
