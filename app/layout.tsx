@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Manrope } from "next/font/google";
 import "@flaticon/flaticon-uicons/css/regular/rounded.css";
 import "@flaticon/flaticon-uicons/css/brands/all.css";
@@ -7,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,6 +52,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Suspense fallback={null}>
+          <FloatingWhatsAppButton />
+        </Suspense>
       </body>
     </html>
   );
