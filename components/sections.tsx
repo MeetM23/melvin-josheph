@@ -14,7 +14,7 @@ const reasons = [
 
 const steps = [
   { num: "01", title: "Raw Material Ingestion", text: "Inspected steel coils are verified for gauge thickness and surface uniformity.", iconName: "layers" as UIconName },
-  { num: "02", title: "Precision Roll Forming", text: "Automated rollers shape high-strength trussfold ribs without stress fractures.", iconName: "factory" as UIconName },
+  { num: "02", title: "Precision Roll Forming", text: "Automated rollers shape high-strength trafford ribs without stress fractures.", iconName: "factory" as UIconName },
   { num: "03", title: "Dimensional & Quality Audit", text: "Every batch undergoes rigorous micrometer and paint adhesion quality tests.", iconName: "search" as UIconName },
   { num: "04", title: "Custom Cutting & Delivery", text: "Sheets are precision-sheared to exact structural requirements and dispatched.", iconName: "truck" as UIconName },
 ];

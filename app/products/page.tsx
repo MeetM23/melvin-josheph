@@ -16,15 +16,15 @@ const productFeatures: { num: string; title: string; desc: string; icon: UIconNa
 
 const roofingProducts = [
   {
-    id: "trussfold",
+    id: "trafford",
     slug: "roofing-sheets",
     code: "DW-ROOF-PRO",
     category: "EXTERIOR ROOFING",
-    title: "Trussfold Roofing Sheets",
+    title: "Trafford Roofing Sheets",
     desc: "Heavy-duty trapezoidal steel sheets engineered with deep water-discharge crests and 550 MPa high-tensile strength for superior load-bearing capacity.",
     image: "/images/product-roofing-standard.jpg",
     specs: [
-      { label: "Profile Crest", value: "Trussfold 1000/28" },
+      { label: "Profile Crest", value: "Trafford 1000/28" },
       { label: "Sheet Gauge", value: "0.30 mm – 0.50 mm" },
       { label: "Base Metal", value: "Primary Steel (IS 513)" },
       { label: "Span Length", value: "Custom cut up to 12 m" },
@@ -33,7 +33,7 @@ const roofingProducts = [
       "Deep water drainage channels prevent backflow",
       "Custom sheared zero-joint lengths eliminate leak points",
     ],
-    enquiryValue: "trussfold",
+    enquiryValue: "trafford",
   },
   {
     id: "liner-sheets",
@@ -215,7 +215,7 @@ export default function ProductsPage() {
       <section className="relative isolate overflow-hidden bg-white">
         <Image
           src="/images/products-hero.jpg"
-          alt="High quality blue trussfold roofing sheets stack"
+          alt="High quality blue trafford roofing sheets stack"
           fill
           sizes="100vw"
           className="-z-20 object-cover object-[78%_50%] sm:object-[80%_50%]"
@@ -224,9 +224,9 @@ export default function ProductsPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/75 sm:to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-30 bg-grid-pattern" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-roof-profile-light opacity-40" />
-        <WatermarkText text="TRUSSFOLD" tone="light" className="absolute bottom-2 right-4 sm:bottom-4 sm:right-8 -z-10" />
+        <WatermarkText text="TRAFFORD" tone="light" className="absolute bottom-2 right-4 sm:bottom-4 sm:right-8 -z-10" />
         <div className="absolute bottom-3 left-8 -z-10 hidden lg:block">
-          <CadDimensionMarks label="TRUSSFOLD PROFILE 1000/28" spec="IS 513 / IS 277 CERTIFIED" />
+          <CadDimensionMarks label="TRAFFORD PROFILE 1000/28" spec="IS 513 / IS 277 CERTIFIED" />
         </div>
 
         <div className="mx-auto flex min-h-[380px] max-w-7xl items-start px-5 pb-24 pt-10 sm:min-h-[440px] sm:items-center sm:px-8 sm:pb-12 sm:pt-6 lg:min-h-[480px]">

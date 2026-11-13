@@ -34,7 +34,7 @@ const products: ProductItem[] = [
       "High-depth water runoff crests",
       "Custom cut-to-length zero-joint spans",
     ],
-    enquireHref: "/contact?product=trussfold",
+    enquireHref: "/contact?product=trafford",
     enquireLabel: "Enquire Roofing",
     specsHref: "/products/roofing-sheets",
   },

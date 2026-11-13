@@ -46,7 +46,7 @@ export default function Footer() {
 
             {/* Brand Description */}
             <p className="mt-2.5 max-w-md text-xs leading-relaxed text-slate-400 sm:text-sm">
-              Leading manufacturer of premium trussfold roofing sheets in Palakkad, Kerala. Engineered with primary steel coils for maximum durability, structural rigidity, and weather resilience.
+              Leading manufacturer of premium trafford roofing sheets in Palakkad, Kerala. Engineered with primary steel coils for maximum durability, structural rigidity, and weather resilience.
             </p>
 
             {/* Request Quotation CTA */}

@@ -36,7 +36,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-slate-50/70 py-14 sm:py-20 lg:py-24 bg-paper-grain">
         {/* Subtle engineering blueprint grid & watermark */}
         <div className="pointer-events-none absolute inset-0 bg-blueprint-grid opacity-35 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
-        <WatermarkText text="TRUSSFOLD" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
+        <WatermarkText text="TRAFFORD" tone="light" className="absolute -top-3 right-4 sm:top-2 sm:right-8 -z-10" />
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div data-reveal className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">

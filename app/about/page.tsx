@@ -11,7 +11,7 @@ const highlights: { num: string; title: string; subtitle: string; icon: UIconNam
   { num: "01", title: "20+ Years", subtitle: "Industrial Heritage in Roofing", icon: "trophy", tag: "Est. 2004" },
   { num: "02", title: "Palakkad", subtitle: "Strategic Kerala Manufacturing Unit", icon: "marker", tag: "Naripotta Plant" },
   { num: "03", title: "100% Primary", subtitle: "Certified Virgin Steel Coils", icon: "layers", tag: "Grade A Only" },
-  { num: "04", title: "Trussfold", subtitle: "High-Rigidity Architectural Ribs", icon: "factory", tag: "Proprietary Profile" },
+  { num: "04", title: "Trafford", subtitle: "High-Rigidity Architectural Ribs", icon: "factory", tag: "Proprietary Profile" },
 ];
 
 const story = [
@@ -41,7 +41,7 @@ const pillars: {
     title: "Our Mission",
     subtitle: "Precision Engineering",
     icon: "target",
-    text: "To manufacture high-performance trussfold sheets utilizing advanced roll-forming technology, providing homeowners and industrial developers with lifelong shelter security.",
+    text: "To manufacture high-performance trafford sheets utilizing advanced roll-forming technology, providing homeowners and industrial developers with lifelong shelter security.",
   },
   {
     num: "03",
@@ -98,7 +98,7 @@ export default function AboutPage() {
               style={{ "--hero-delay": "0.22s" } as React.CSSProperties}
               className="hero-rise mt-3.5 max-w-sm text-sm font-medium leading-relaxed text-slate-700 sm:mt-4 sm:max-w-md sm:text-base"
             >
-              Durawin Trafford Sheet Manufacturing is Palakkad’s trusted specialist in high-tensile trussfold steel roofing, serving Kerala with enduring structural products.
+              Durawin Trafford Sheet Manufacturing is Palakkad’s trusted specialist in high-tensile trafford steel roofing, serving Kerala with enduring structural products.
             </p>
             <div
               style={{ "--hero-delay": "0.36s" } as React.CSSProperties}

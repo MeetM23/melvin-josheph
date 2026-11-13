@@ -10,7 +10,7 @@ type Errors = Partial<Record<Field, string>>;
 
 const PRODUCTS = [
   { value: "", label: "Not sure yet" },
-  { value: "trussfold", label: "Trussfold Roofing Sheets" },
+  { value: "trafford", label: "Trafford Roofing Sheets" },
   { value: "liner-sheets", label: "Liner Sheets (Interior & Ceiling)" },
   { value: "gp-pipes", label: "GP Pipes (Pre-Coated Hollow Sections)" },
   { value: "ridge-flashing", label: "Roof Ridge Flashing (Roofing Accessories)" },
@@ -74,9 +74,10 @@ export default function EnquiryForm() {
     const spec = params.get("spec");
 
     const aliasMap: Record<string, string> = {
-      roofing: "trussfold",
-      "roofing-sheets": "trussfold",
-      trussfold: "trussfold",
+      roofing: "trafford",
+      "roofing-sheets": "trafford",
+      trafford: "trafford",
+      trussfold: "trafford",
       liner: "liner-sheets",
       "liner-sheets": "liner-sheets",
       "gp-pipes": "gp-pipes",

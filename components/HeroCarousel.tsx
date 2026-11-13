@@ -74,7 +74,7 @@ const defaultSlides: HeroSlide[] = [
   {
     id: "engineered-strength",
     image: "/images/products-hero.jpg",
-    alt: "Durawin High-Strength Trussfold Roofing Sheets Stack",
+    alt: "Durawin High-Strength Trafford Roofing Sheets Stack",
     imagePosition: "object-[78%_50%] sm:object-[80%_50%]",
     headline: (
       <>

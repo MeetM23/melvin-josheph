@@ -49,17 +49,17 @@ export interface ProductData {
 export const PRODUCTS_LIST: ProductData[] = [
   {
     slug: "roofing-sheets",
-    aliasSlugs: ["trussfold", "roofing"],
-    enquiryValue: "trussfold",
+    aliasSlugs: ["trafford", "trussfold", "roofing"],
+    enquiryValue: "trafford",
     code: "DW-ROOF-PRO",
     category: "EXTERIOR ROOFING",
-    title: "Trapezoidal Trussfold Roofing Sheets",
+    title: "Trapezoidal Trafford Roofing Sheets",
     tagline: "High-Tensile Monsoon Resistant Metal Roofing",
     intro:
-      "Durawin Trussfold roofing sheets are roll-formed in our Palakkad plant from certified primary high-tensile steel coils. Featuring deep water-discharge crests and precision trapezoidal ribs, they deliver superior load capacity and 100% watertight protection against Kerala torrential rains.",
+      "Durawin Trafford roofing sheets are roll-formed in our Palakkad plant from certified primary high-tensile steel coils. Featuring deep water-discharge crests and precision trapezoidal ribs, they deliver superior load capacity and 100% watertight protection against Kerala torrential rains.",
     mainImage: "/images/product-roofing-framed.jpg",
     imageFit: "contain",
-    imageAlt: "Durawin Trapezoidal Trussfold Roofing Sheet Profile",
+    imageAlt: "Durawin Trapezoidal Trafford Roofing Sheet Profile",
     keyBenefits: [
       "Engineered deep drainage trough accelerates torrential monsoon runoff without backflow",
       "Cut-to-length custom spans up to 12 meters eliminate site overlap joints and leak risks",
@@ -93,7 +93,7 @@ export const PRODUCTS_LIST: ProductData[] = [
         name: "Profile Crest",
         type: "radio",
         choices: [
-          { label: "Trussfold Trapezoidal (1000/28)", value: "Trussfold 1000/28", badge: "Most Popular" },
+          { label: "Trafford Trapezoidal (1000/28)", value: "Trafford 1000/28", badge: "Most Popular" },
           { label: "Trafford Industrial Profile", value: "Trafford Industrial" },
         ],
       },
